@@ -35,7 +35,7 @@
             },
             {
               "t": "li",
-              "x": "+250 Startpunkte aus der Vorregistrierung"
+              "x": "+250 Startpunkte aus der Voranmeldung"
             },
             {
               "t": "li",
@@ -464,7 +464,7 @@
     },
     {
       "n": 7,
-      "title": "Vorregistrierung & Start",
+      "title": "Voranmeldung & Start",
       "slug": "start",
       "subtitle": "250 Startpunkte, Start im Januar 2027.",
       "icon": "",
@@ -481,7 +481,7 @@
           "body": [
             {
               "t": "p",
-              "x": "Für deine Vorregistrierung bekommst du 250 Startpunkte. Im Januar 2027 schreiben wir sie deinem SNÄGS-Punktekonto gut."
+              "x": "Für deine Voranmeldung bekommst du 250 Startpunkte. Im Januar 2027 schreiben wir sie deinem SNÄGS-Punktekonto gut."
             },
             {
               "t": "p",

@@ -193,6 +193,8 @@ import("../arena/teaser/index.js")
     if (!teaserHost) return;
     teaser = mountTeaser(teaserHost, { start: 0, ausschnitte: false, autoplay: true });
     window.__start.teaser = teaser;
+    // Hook in zwei Sekunden: die Decke hebt sich gleich, das Game läuft sichtbar (nicht erst nach Antippen)
+    Promise.resolve(teaser.bereit).then(() => setTimeout(() => teaser.decke?.(true), REDUZIERT ? 0 : 700));
   })
   .catch((e) => console.warn("[start] Teaser", e));
 
