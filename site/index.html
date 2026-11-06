@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="de" data-ent="voll">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="robots" content="noindex" />
+    <link rel="icon" href="data:," />
+    <title>SNÄGS · Neues gratis testen, kostenlos zocken</title>
+    <meta name="description" content="SNÄGS: Neues gratis testen, bevor es im Regal steht. Kostenlos zocken und Boxen gewinnen. Für alles Punkte, dafür Reward Boxen. Start im Januar 2027, ab 18." />
+    <link rel="preload" href="/snaegs-staging/fonts/tiktok-sans-latin-var.woff2" as="font" type="font/woff2" crossorigin />
+    <script src="/snaegs-staging/site/v2/wege/vorab.js"></script>
+    <script>
+      // Entstehung von Klecks (Intro) nur noch auf Wunsch (Chris 06.11., Nachricht 10 Punkt 2: „Lass das Intro erstmal nur
+      // optional“): ?entstehung=voll|kurz startet es, sonst steht die Seite sofort. Die Fotos lädt nur, wer es sieht.
+      (function () {
+        var d = document.documentElement, m = "aus";
+        try {
+          var q = /[?&]entstehung=(voll|kurz)/.exec(location.search);
+          if (q) m = q[1];
+        } catch (e) {}
+        d.dataset.ent = m;
+        if (m !== "aus") {
+          d.classList.add("ent-laeuft");
+          var quer = matchMedia("(min-aspect-ratio: 1/1)").matches, l = document.createElement("link");
+          l.rel = "preload"; l.as = "image"; l.setAttribute("fetchpriority", "high"); l.setAttribute("imagesizes", "100vw");
+          l.href = quer ? "/snaegs-staging/start/kugelschreiber-quer-1920.webp" : "/snaegs-staging/start/kugelschreiber-hoch-1080.webp";
+          l.setAttribute("imagesrcset", quer ? "/snaegs-staging/start/kugelschreiber-quer-1280.webp 1280w, /snaegs-staging/start/kugelschreiber-quer-1920.webp 1920w" : "/snaegs-staging/start/kugelschreiber-hoch-720.webp 720w, /snaegs-staging/start/kugelschreiber-hoch-1080.webp 1080w");
+          document.head.appendChild(l);
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/snaegs-staging/assets/website-_IdAfchi.js"></script>
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/assets/modulepreload-polyfill-Dezn_h7o.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/assets/rolldown-runtime-QTnfLwEv.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/assets/gesten-CFEP0ikD.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/assets/papier-DnQK3gNb.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/assets/spur-BlCKCsPh.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/assets/platz-BlZg4nmx.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/assets/schrift-hand-DK7j0mFe.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/assets/emotion-DFb_phTL.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/assets/pinsel-BTmdkUMS.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/assets/gefuehle-DmIQhzoI.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/assets/dynamik-DIeJYVBc.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/assets/klecks-WSgHHihV.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/assets/seite-B4aUSUiO.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/assets/klang-DEXpMLJT.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/assets/requisiten2-Bz2ZJJLq.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/assets/leitmotiv-zzBBJY_X.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/assets/preload-helper-CRuVTQ4c.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/assets/tinte-jzuDcKzF.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/assets/regie-lIb-O_Lv.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/assets/slots-Baz-x-6G.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/assets/klecks-erweiterung-DUeO6Spp.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/assets/koerper-DE8Q3VwY.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/assets/regie-seiten-DDjbSWz5.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/assets/fuehrung-D_TXffeA.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/assets/start-cozQb0mW.js">
+    <link rel="stylesheet" crossorigin href="/snaegs-staging/assets/style-BfHiXCjZ.css">
+    <link rel="stylesheet" crossorigin href="/snaegs-staging/assets/website-3K6P1JGu.css">
+    <link rel="stylesheet" crossorigin href="/snaegs-staging/assets/testerclub-tKAtKcwc.css">
+    <link rel="stylesheet" crossorigin href="/snaegs-staging/assets/wege-Cbzl3thr.css">
+  </head>
+  <!-- Startseite (S, 06.11., Nachricht 10 Punkt 2): Zweiteilung Testerclub und Games, alles kostenlos; darunter der Teaser
+       „So funktioniert's“, die Probe und „Bist du dabei?“. Das Intro (Entstehung von Klecks aus dem Foto) läuft nur auf
+       Wunsch (?entstehung=voll). Die Seite bleibt ein Fragebogen: Klecks hakt ab, du entscheidest.
+       Verhalten /snaegs-staging/site/start/start.js, Intro /snaegs-staging/site/start/entstehung.js, Rahmen /snaegs-staging/site/v2/wege. -->
+  <body class="v2 st" data-seite="start">
+    <div data-v2="kopf"></div>
+    <div data-v2="menue"></div>
+
+    <!-- Entstehung: Foto formatfüllend, darüber die gedruckte Frage (im Code, perspektivisch zur Box), Tinte als Leinwand -->
+    <div class="ent" data-ent-buehne aria-label="Intro: Aus dem Kugelschreiber entsteht Klägs">
+      <div class="ent__platte" data-ent-platte aria-hidden="true">
+        <picture class="ent__foto" data-ent-foto>
+          <source media="(min-aspect-ratio: 1/1)" srcset="/snaegs-staging/start/kugelschreiber-quer-1280.webp 1280w, /snaegs-staging/start/kugelschreiber-quer-1920.webp 1920w" sizes="100vw" />
+          <img src="/snaegs-staging/start/kugelschreiber-hoch-1080.webp" srcset="/snaegs-staging/start/kugelschreiber-hoch-720.webp 720w, /snaegs-staging/start/kugelschreiber-hoch-1080.webp 1080w" sizes="100vw" alt="" loading="lazy" decoding="async" />
+        </picture>
+        <div class="ent__druck" data-ent-druck>
+          <p class="ent__frage" data-ent-frage>Probierst du gern Neues?</p>
+          <p class="ent__ja" data-ent-ja>Ja</p>
+        </div>
+        <canvas class="ent__tinte" data-ent-tinte></canvas>
+        <div class="ent__strich" data-ent-strich></div>
+        <canvas class="ent__glanz" data-ent-glanz></canvas>
+      </div>
+      <button class="ent__weiter" type="button" data-ent-ueberspringen>Überspringen</button>
+    </div>
+
+    <main id="inhalt">
+      <!-- H · Hero (S2, 06.11., Chris Nachrichten 10, 13, 16, 23–26): „Du bist früher dran.“ (Erzählstrang, Nachricht 32); darunter die
+           zwei Welten als zwei Geräte nebeneinander: links Testerclub (Handy mit dem echten SNÄGS-Survey als Bildschirm-
+           aufnahme, davor klein die 3D-Box mit Produkten), rechts Games (der echte 3D-Teaser). Klägs sitzt zwischen den
+           Handys, zeigt zwei Finger, dann links, dann rechts. Erster Knopf: Zum Testerclub. Oben bleibt Luft für das
+           Gewinnspiel-Band (N4). „Alles kostenlos“ kommt erst am Schluss („Bist du dabei?“), wenn du die Dinge kennst. -->
+      <section class="s st-held" id="held" data-abschnitt="held" data-farbe="papier" aria-labelledby="held-titel">
+        <h1 id="held-titel" class="plakat st-held__titel">Du bist <span data-st-gratis>früher</span> dran.</h1>
+        <p class="st-held__unter">Neues testen, bevor es im Regal steht. Um Boxen zocken, die keiner kaufen kann.</p>
+        <div class="st-welten">
+          <span class="st-welten__sitz" data-sitz="held" data-sitz-art="mitte" data-st-sitz aria-hidden="true"></span>
+          <div class="st-welt st-welt--club" data-st-welt="club">
+            <p class="st-welt__name" data-st-name="club"><span class="st-welt__wort">Testerclub</span><span class="st-welt__was">Neues gratis testen</span></p>
+            <a class="st-geraet st-geraet--survey" href="/snaegs-staging/survey.html?von=start-held" data-st-survey-geraet aria-label="Testerclub: So spielt sich ein Produkttest. Antippen startet die Demo.">
+              <span class="st-geraet__schirm">
+                <video class="st-geraet__video" data-st-video autoplay muted loop playsinline preload="auto" poster="/snaegs-staging/assets/survey-poster-C6rvieXj.webp" aria-hidden="true">
+                  <source src="/snaegs-staging/assets/survey-loop-CpCeXmpc.webm" type="video/webm" />
+                  <source src="/snaegs-staging/assets/survey-loop-BqWN66DA.mp4" type="video/mp4" />
+                </video>
+              </span>
+              <img class="st-geraet__rahmen" src="/snaegs-staging/assets/handy-rahmen-ChLkOy5G.webp" alt="" width="720" height="1335" decoding="async" fetchpriority="high" />
+            </a>
+            <span class="st-paket" data-st-paket aria-hidden="true"><span class="st-paket__waren" data-st-waren></span></span>
+          </div>
+          <div class="st-welt st-welt--games" data-st-welt="games">
+            <p class="st-welt__name" data-st-name="games"><span class="st-welt__wort">Games</span><span class="st-welt__was">kostenlos zocken, Boxen gewinnen</span></p>
+            <div class="st-geraet st-geraet--game" data-st-teaser role="img" aria-label="Games: das SNÄGS-Game auf dem Handy"></div>
+            <a class="st-held__games" href="/snaegs-staging/site/arena.html?von=start" data-st-games data-naechstes="2">Zu den Games<span class="st-held__pfeil" data-st-zeichen="pfeil-kurz" aria-hidden="true"></span></a>
+          </div>
+        </div>
+        <div class="st-held__knoepfe">
+          <a class="v2-knopf st-held__knopf" href="/snaegs-staging/site/testerclub.html?von=start" data-st-club data-hauptknopf data-naechstes="3">Zum Testerclub</a>
+        </div>
+      </section>
+
+      <!-- T · Teaser „So funktioniert's“: drei Schritte, Klecks zieht sie entlang und zeigt auf „Alle Details“ -->
+      <section class="s st-so" id="so" data-abschnitt="so" data-farbe="papier" aria-labelledby="so-titel">
+        <h2 id="so-titel" class="plakat st-so__titel">So bist du früher dran.</h2>
+        <span class="st-so__sitz" data-sitz="so" data-sitz-art="mitte" aria-hidden="true"></span>
+        <!-- data-streifen: die Schritte liegen noch vor dir, darum hakt die Führung sie nicht automatisch ab (fuehrung.js) -->
+        <ol class="st-so__schritte" data-streifen>
+          <li class="st-schritt">
+            <span class="st-schritt__bild" data-st-motiv="muenze" data-farbe="gold" aria-hidden="true"></span>
+            <span class="st-schritt__text"><span class="st-schritt__name">Voranmelden</span><span class="st-schritt__satz">Kostenlos, ab 18. Dafür gibt's 250 Startpunkte.</span></span>
+          </li>
+          <li class="st-schritt">
+            <span class="st-schritt__bild" data-st-motiv="paket-offen" data-farbe="cyan" aria-hidden="true"></span>
+            <span class="st-schritt__text"><span class="st-schritt__name">Testen und zocken</span><span class="st-schritt__satz">Ab Januar in der App. Jede Antwort und jedes Game bringt Punkte.</span></span>
+          </li>
+          <li class="st-schritt">
+            <span class="st-schritt__bild" data-st-motiv="reward-box" data-farbe="gold" aria-hidden="true"></span>
+            <span class="st-schritt__text"><span class="st-schritt__name">Boxen holen</span><span class="st-schritt__satz">Für 2.500 Punkte gibt's die Reward Box voller Markenprodukte.</span></span>
+          </li>
+        </ol>
+        <div class="st-so__fuss">
+          <a class="st-so__mehr" href="/snaegs-staging/site/wiki.html?von=start-so" data-st-mehr data-naechstes="2">Alle Details<span class="st-so__pfeil" data-st-zeichen="pfeil-kurz" aria-hidden="true"></span></a>
+          <a class="st-intro" href="/snaegs-staging/site/index.html?entstehung=voll" data-st-intro><span class="st-intro__zeichen" data-st-zeichen="abspielen" aria-hidden="true"></span>Intro ansehen: So entsteht Klägs</a>
+        </div>
+      </section>
+
+      <!-- 2 · Probe: violettes Feld (du, dein Urteil), ein echter Mini-Fragebogen. Du wählst, Klecks hakt ab -->
+      <section class="s st-probe" id="probe" data-abschnitt="probe" data-farbe="violett" aria-labelledby="probe-titel">
+        <div class="st-probe__feld" data-st-feld aria-hidden="true"></div>
+        <div class="st-probe__kopf">
+          <h2 id="probe-titel" class="plakat">So testest du vor allen anderen.</h2>
+          <p>Zwei Fragen, wie sie dir eine Marke stellt. In der App bringt dir jede Antwort Punkte.</p>
+        </div>
+        <div class="st-bogen" data-st-bogen data-sitz="bogen" data-sitz-art="oben" data-sitz-u="0.86">
+          <p class="st-bogen__kopf"><span>Produkttest</span><span data-st-stand>Frage 1 von 2</span></p>
+          <fieldset class="st-bogen__frage" data-st-frage-nr="0">
+            <legend>Strawberry Cheesecake auf Erdnüssen. Wie klingt das?</legend>
+            <button type="button" class="st-wahl" data-st-wahl aria-pressed="false"><span class="st-box" aria-hidden="true"></span>Richtig gut</button>
+            <button type="button" class="st-wahl" data-st-wahl aria-pressed="false"><span class="st-box" aria-hidden="true"></span>Geht so</button>
+            <button type="button" class="st-wahl" data-st-wahl aria-pressed="false"><span class="st-box" aria-hidden="true"></span>Nicht meins</button>
+          </fieldset>
+          <fieldset class="st-bogen__frage" data-st-frage-nr="1" hidden>
+            <legend>Würde dir die Dose im Regal auffallen?</legend>
+            <button type="button" class="st-wahl" data-st-wahl aria-pressed="false"><span class="st-box" aria-hidden="true"></span>Sofort</button>
+            <button type="button" class="st-wahl" data-st-wahl aria-pressed="false"><span class="st-box" aria-hidden="true"></span>Eher nicht</button>
+          </fieldset>
+          <div class="st-bogen__danke" data-st-danke hidden>
+            <p class="st-bogen__satz">Genau so geht Testen. Die Produkte kommen gratis zu dir.</p>
+            <a class="v2-knopf v2-knopf--hell" href="/snaegs-staging/survey.html?von=start" data-st-survey data-naechstes="2">Einen ganzen Test spielen</a>
+            <button type="button" class="v2-zeig" data-st-nochmal><span class="v2-zeig__zeichen" aria-hidden="true"></span>Nochmal</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3 · Dabei: großer Typo-Moment, Gold (bekommen), Klecks schreibt die Antwort hin -->
+      <section class="s st-dabei" id="dabei" data-abschnitt="dabei" data-farbe="gold" aria-labelledby="dabei-titel">
+        <div class="v2-naht v2-naht--gold" data-st-naht aria-hidden="true"></div>
+        <h2 id="dabei-titel" class="st-dabei__frage"><span data-st-dabei>Bist du dabei?</span></h2>
+        <ul class="st-dabei__fakten">
+          <li class="st-dabei__gross"><span class="st-box" aria-hidden="true"></span>Alles kostenlos</li>
+          <li><span class="st-box" aria-hidden="true"></span>Start im Januar 2027</li>
+        </ul>
+        <div class="st-dabei__aufruf" data-sitz="dabei" data-sitz-art="oben" data-sitz-u="0.85">
+          <a class="v2-knopf st-voran" href="/snaegs-staging/vorregistrierung.html?von=start-ende" data-vorreg="start-ende" data-cta="haupt" data-hauptknopf data-naechstes="3">Jetzt voranmelden<span class="st-voran__plus" aria-label="plus 250 Startpunkte"><span class="st-voran__muenze" data-st-zeichen="muenze" aria-hidden="true"></span>+250</span></a>
+          <p class="v2-klein st-dabei__punkte">250 Startpunkte, gutgeschrieben im Januar. Kostenlos, ab&nbsp;18.</p>
+        </div>
+      </section>
+
+      <div data-v2="naechste"></div>
+    </main>
+
+    <footer class="v2-fuss" data-abschnitt="fuss">
+      <p class="v2-fuss__claim">Where Brands Meet People. Marken erleben. Spielerisch verbinden.</p>
+      <p><a href="https://business.frugends.com/">Für Marken: Erfahren Sie, wie Ihr Produkt bei den Richtigen ankommt.</a></p>
+      <p class="v2-klein">Laborstand, nüssje dient als Beispiel.</p>
+      <p class="v2-klein st-fuss__links"><a href="/snaegs-staging/site/index.html?entstehung=voll">Intro ansehen: So entsteht Klägs</a> <a href="/snaegs-staging/site/labor.html">Alles, was wir können</a></p>
+    </footer>
+
+    <div data-v2="daumen"></div>
+    <svg class="st-filter" aria-hidden="true" width="0" height="0">
+      <filter id="v2-aquarell" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.012 0.03" numOctaves="3" seed="7" result="n" /><feDisplacementMap in="SourceGraphic" in2="n" scale="46" xChannelSelector="R" yChannelSelector="G" result="d" /><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3" result="korn" /><feColorMatrix in="korn" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -0.9 1.25" result="kornA" /><feComposite in="d" in2="kornA" operator="in" /></filter>
+    </svg>
+  </body>
+</html>

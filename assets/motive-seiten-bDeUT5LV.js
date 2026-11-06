@@ -1,0 +1,1 @@
+import{n as e,t}from"./motive-seiten-CWkSjkmF.js";export{t as KATALOG,e as MOTIVE};
