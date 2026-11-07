@@ -10,16 +10,19 @@
     <link rel="preload" href="/snaegs-staging/fonts/tiktok-sans-latin-var.woff2" as="font" type="font/woff2" crossorigin />
     <script src="/snaegs-staging/site/v2/wege/vorab.js"></script>
     <style>
-      .nf-held { min-height: calc(72svh - var(--kopf-h)); display: grid; align-content: center; gap: 18px; padding-top: 40px !important; }
-      .nf-held__titel { font-size: clamp(46px, 12.6vw, 96px); max-width: 8ch; }
-      .nf-held__unter { font-size: 17.5px; color: #2c2f29; max-width: 28ch; }
+      /* UA 07.11.: ohne min-height aus svh und --kopf-h (im Build saß die Seite damit 56 px tiefer als im Labor). Der Hero
+         steht im Fluss, Abstände aus der Sektionsskala; .s.nf-held schlägt .s unabhängig von der CSS-Reihenfolge. */
+      .s.nf-held { display: grid; align-content: start; gap: 18px; padding-top: 32px; padding-bottom: 120px; }
+      .nf-held__titel { font-size: clamp(46px, 12.6vw, 96px); max-width: 11ch; }
+      .nf-held__unter { font-size: 17.5px; line-height: 1.34; color: var(--tinte); max-width: 31ch; }
+      @media (min-width: 900px) { .s.nf-held { padding-top: 72px; padding-bottom: 176px; } .nf-held__titel { max-width: 15ch; } .nf-held__unter { font-size: 22px; } }
       /* One-Message-Shot (Regie R): Klecks IST das Bild, er sucht selbst mit der Lupe (keine Zusatzzeichnung) */
-      .kb-buehne--404 { height: 210px; margin-top: -8px; }
+      .kb-buehne.kb-buehne--404 { height: 210px; margin-top: -8px; margin-bottom: 0; }
       .nf-geburt { position: absolute; left: 50%; bottom: 0; width: 1px; height: 1px; pointer-events: none; }
-      @media (min-width: 900px) { .kb-buehne--404 { height: 260px; width: min(560px, 100%); } }
+      @media (min-width: 900px) { .kb-buehne.kb-buehne--404 { height: 260px; width: min(560px, 100%); } }
       .nf-held .v2-knopf { justify-self: start; }
     </style>
-    <script type="module" crossorigin src="/snaegs-staging/assets/nicht-gefunden-C2OtXfVI.js"></script>
+    <script type="module" crossorigin src="/snaegs-staging/assets/nicht-gefunden--O6JQ-TF.js"></script>
     <link rel="modulepreload" crossorigin href="/snaegs-staging/assets/modulepreload-polyfill-Dezn_h7o.js">
     <link rel="modulepreload" crossorigin href="/snaegs-staging/assets/rolldown-runtime-QTnfLwEv.js">
     <link rel="modulepreload" crossorigin href="/snaegs-staging/assets/gesten-CFEP0ikD.js">
@@ -44,12 +47,12 @@
     <link rel="modulepreload" crossorigin href="/snaegs-staging/assets/koerper-DE8Q3VwY.js">
     <link rel="modulepreload" crossorigin href="/snaegs-staging/assets/regie-seiten-DDjbSWz5.js">
     <link rel="modulepreload" crossorigin href="/snaegs-staging/assets/fuehrung-kK0WZ5wv.js">
-    <link rel="modulepreload" crossorigin href="/snaegs-staging/assets/start-C16Fl_Hb.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/assets/start-6LoZ4sGq.js">
     <link rel="modulepreload" crossorigin href="/snaegs-staging/assets/buehne-5iC4DW6w.js">
     <link rel="stylesheet" crossorigin href="/snaegs-staging/assets/style-BfHiXCjZ.css">
-    <link rel="stylesheet" crossorigin href="/snaegs-staging/assets/testerclub-BZCT2PpJ.css">
-    <link rel="stylesheet" crossorigin href="/snaegs-staging/assets/wege-DciO6Nrp.css">
-    <link rel="stylesheet" crossorigin href="/snaegs-staging/assets/seiten-Ckawf7v7.css">
+    <link rel="stylesheet" crossorigin href="/snaegs-staging/assets/testerclub-C6rkhVSA.css">
+    <link rel="stylesheet" crossorigin href="/snaegs-staging/assets/wege-Bzv-LG0O.css">
+    <link rel="stylesheet" crossorigin href="/snaegs-staging/assets/seiten-C-UbtW6F.css">
   </head>
   <!-- 404 (W-B2 06.11., Regie R): ein Bildschirm als One-Message-Shot. Klecks IST das Bild: Er sucht mit der Lupe
        links, rechts, findet nichts, zuckt mit den Schultern und zeigt auf den Knopf zum Testerclub. Darunter
@@ -71,7 +74,8 @@
     <footer class="v2-fuss" data-abschnitt="fuss">
       <p class="v2-fuss__claim">Where Brands Meet People. Marken erleben. Spielerisch verbinden.</p>
       <p><a href="https://business.frugends.com/">Für Marken: Erfahren Sie, wie Ihr Produkt bei den Richtigen ankommt.</a></p>
-      <p class="v2-klein">Laborstand. <a href="/snaegs-staging/site/wiki.html">Wiki zum Punktekonto</a> · <a href="/snaegs-staging/site/labor.html">Alles, was wir können</a></p>
+      <p class="v2-klein">Laborstand.</p>
+      <p class="v2-klein v2-fuss__links"><a href="/snaegs-staging/site/wiki.html">Wiki zum Punktekonto</a><a href="/snaegs-staging/site/labor.html">Alles, was wir können</a></p>
     </footer>
     <div data-v2="daumen"></div>
   </body>

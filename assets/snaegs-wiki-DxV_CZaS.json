@@ -17,7 +17,7 @@
           "body": [
             {
               "t": "p",
-              "x": "Mit deinem SNÄGS-Account hast du ein Punktekonto. Punkte aus dem Testerclub und aus der Gaming Arena landen dort zusammen."
+              "x": "Mit deinem SNÄGS-Account hast du ein SNÄGS-Punktekonto. Punkte aus dem Testerclub und aus den Games landen dort zusammen."
             },
             {
               "t": "p",
@@ -356,7 +356,7 @@
           "body": [
             {
               "t": "p",
-              "x": "Jeden Samstag läuft das kostenlose Turnier in der Gaming Arena: vier Räume mit je 200 Spielern."
+              "x": "Jeden Samstag läuft in der SNÄGS-App das kostenlose Live-Turnier: vier Räume mit je 200 Spielern."
             }
           ]
         },
@@ -506,7 +506,7 @@
           "body": [
             {
               "t": "p",
-              "x": "Registrieren kannst du dich hier auf der Website oder direkt in der App. Punkte sammelst du in der SNÄGS-App, dort wählst du zwischen Testerclub und Gaming Arena."
+              "x": "Registrieren kannst du dich hier auf der Website oder direkt in der App. Punkte sammelst du in der SNÄGS-App, dort wählst du zwischen Testerclub und Games."
             },
             {
               "t": "p",

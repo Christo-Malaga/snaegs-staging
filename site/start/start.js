@@ -426,7 +426,8 @@ async function schritteEntlang() {
       // Handy: rechts neben dem Namen (die Zeichnung steht links davon); Desktop (Spalten): rechts neben der Zeichnung,
       // dort ist Luft, der Name steht darunter
       const x = quer ? b.right + r + 12 : Math.min(innerWidth - r - 12, n.right + r + 12);
-      const y = quer ? b.top + b.height * 0.55 : n.top + n.height / 2 - r * 0.78;
+      // Handy: Unterkante bündig mit dem Namen, so reicht er nie in den Satz darunter (UA 07.11.: Klägs nie über Text)
+      const y = quer ? b.top + b.height * 0.55 : n.bottom - r * 0.98;
       K.schau(bild);
       K.hopp(x, y, 22);
       await bisErSitzt(K, 900, [x, y]);
