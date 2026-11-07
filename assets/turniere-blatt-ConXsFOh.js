@@ -1,0 +1,1 @@
+/* empty css           *//* empty css                 */var e=`Game Arena & Markenturniere`;async function t(e){let t=document.getElementById(`r3-blatt-turniere`);if(!t)return;let n=document.createElement(`div`);n.className=`r3-blatt r3-blatt--turniere`,n.append(t.content.cloneNode(!0)),e.replaceChildren(n)}export{t as rendere,e as titel};

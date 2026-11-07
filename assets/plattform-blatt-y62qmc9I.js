@@ -1,0 +1,1 @@
+/* empty css                  */var e=`Unsere Plattform`;async function t(e){let t=document.querySelector(`#plattform template[data-b2b-vorlage='plattform']`);if(!t)throw Error(`Vorlage für das Blatt plattform fehlt`);e.append(t.content.cloneNode(!0))}export{t as rendere,e as titel};

@@ -1,0 +1,1 @@
+/* empty css           *//* empty css                 */var e=`Produkttest- & Insight-Kampagne`;async function t(e){let t=document.getElementById(`r3-blatt-kampagnen`);if(!t)return;let n=document.createElement(`div`);n.className=`r3-blatt r3-blatt--kampagnen`,n.append(t.content.cloneNode(!0)),e.replaceChildren(n)}export{t as rendere,e as titel};

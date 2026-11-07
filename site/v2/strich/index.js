@@ -24,6 +24,14 @@
 //   o.dreh        Drehung in Grad, o.spiegel = true spiegelt waagerecht
 //   o.blut        false schaltet den Ink-Bleed aus der Linie ab (Farbfüllung bleibt)
 //   Reduzierte Bewegung: steht sofort im Endstand.
+//   o.fenster     (ZH 07.11.) { kontur: [a, b], detail: [c, d], ueber } Zeitfenster als Anteile von ms, ueber =
+//                 Überlappung der Konturzüge (Standard 1,3)
+//   o.q           (B2B 07.11.) Pixeldichte der Filz- und Schraffur-Canvases, 1–3 (Standard: Gerät, höchstens 2). Für
+//                 große, ruhige Bilder auf Retina-Handys (Hero der Business-Seite): q = min(3, devicePixelRatio).
+//                 Gilt auch für notiz(…, { q }).
+//   Rückgabe zusätzlich (ZH 07.11.): ms, zeitplan ([t0, t1] je Konturzug wie pfade.kontur), fahre(t) (von außen
+//   getaktet zeichnen, mit start: false), laufAb() (ab dem Stand mit eigener Uhr zu Ende). Nutzer: klecks/zeichnet.js
+//   (Klägs zieht die Kontur eines Motivs selbst).
 //
 // MOTIVE  { name: Motiv } — paket, paket-offen, tuer, klingelschild, handy, reward-box, muenze, erdbeere, erdnuss,
 //         kaesekuchen, lupe, angelhaken, preisschild, preisschild-zerrissen, siegel, daumen, ohr, notizzettel,

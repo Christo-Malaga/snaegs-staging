@@ -1,0 +1,1 @@
+import{i as e,n as t,r as n,t as r}from"./motive-b2b-r4-lLDYHKym.js";export{r as KATALOG,t as MOTIVE,n as NETZ_GRENZEN,e as kanalMitte};
