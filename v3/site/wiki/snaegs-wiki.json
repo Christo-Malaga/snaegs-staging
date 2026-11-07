@@ -11,7 +11,7 @@
       "motiv": "founder-abzeichen",
       "weiter": {
         "text": "Jetzt Founder werden",
-        "href": "C:/Program Files/Git/snaegs-staging/v3/vorregistrierung.html?von=wiki-founder"
+        "href": "/snaegs-staging/v3/vorregistrierung.html?von=wiki-founder"
       },
       "intro": [],
       "sections": [
@@ -360,7 +360,7 @@
       "motiv": "reward-box",
       "weiter": {
         "text": "Die Boxen ansehen",
-        "href": "C:/Program Files/Git/snaegs-staging/v3/site/rewards.html#reward"
+        "href": "/snaegs-staging/v3/site/rewards.html#reward"
       },
       "intro": [],
       "sections": [
@@ -435,7 +435,7 @@
       "motiv": "pokal",
       "weiter": {
         "text": "Zum Samstagsturnier",
-        "href": "C:/Program Files/Git/snaegs-staging/v3/site/arena.html#turnier"
+        "href": "/snaegs-staging/v3/site/arena.html#turnier"
       },
       "intro": [],
       "sections": [
@@ -560,7 +560,7 @@
       "motiv": "muenze",
       "weiter": {
         "text": "Jetzt kostenlos registrieren",
-        "href": "C:/Program Files/Git/snaegs-staging/v3/vorregistrierung.html?von=wiki-start"
+        "href": "/snaegs-staging/v3/vorregistrierung.html?von=wiki-start"
       },
       "intro": [],
       "sections": [

@@ -7,7 +7,7 @@
     <link rel="icon" href="data:," />
     <title>SNÄGS Symbole</title>
     <meta name="description" content="Kontaktbogen der großen Symbole der SNÄGS-Website: Geist und Tinte je Größenstufe, vom Stift gezeichnet, von Klägs gemalt, die Zahl als Schraffur, Fotofenster im gezeichneten Gefäß." />
-    <link rel="preload" href="C:/Program Files/Git/snaegs-staging/v3/fonts/tiktok-sans-latin-var.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/snaegs-staging/v3/fonts/tiktok-sans-latin-var.woff2" as="font" type="font/woff2" crossorigin />
     <style>
       :root {
         --ton-ruhe: rgb(25 29 22 / 0.22);
@@ -46,7 +46,7 @@
       .fenster-reihe [data-gefaess="paket"] { width: min(320px, 82vw); height: min(270px, 69vw); }
       .fenster-reihe [data-gefaess="handy"] { width: 190px; height: 340px; }
     </style>
-    <script src="C:/Program Files/Git/snaegs-staging/v3/site/labor/archiv.js" data-was="Symbole der Website v1 vom 5.11." data-aktuell="C:/Program Files/Git/snaegs-staging/v3/site/v2/strich.html" data-aktuell-name="Asset-Datenbank: Zeichnungen und Motive"></script>
+    <script src="/snaegs-staging/v3/site/labor/archiv.js" data-was="Symbole der Website v1 vom 5.11." data-aktuell="/snaegs-staging/v3/site/v2/strich.html" data-aktuell-name="Asset-Datenbank: Zeichnungen und Motive"></script>
   </head>
   <body data-room="papier">
     <header class="kopf bogen-kopf rahmenbreite">
@@ -119,9 +119,9 @@
     </main>
 
     <script type="module">
-      import { starteSeite, geburt, sobald, warte, $, $$ } from "C:/Program Files/Git/snaegs-staging/v3/src/seite.js";
-            import * as S from "C:/Program Files/Git/snaegs-staging/v3/site/symbole.js";
-      import { alleFenster } from "C:/Program Files/Git/snaegs-staging/v3/site/fenster.js";
+      import { starteSeite, geburt, sobald, warte, $, $$ } from "/snaegs-staging/v3/src/seite.js";
+            import * as S from "/snaegs-staging/v3/site/symbole.js";
+      import { alleFenster } from "/snaegs-staging/v3/site/fenster.js";
 
       const { klecks } = await starteSeite({ R: 36 });
       await S.ladeZiffern("80");

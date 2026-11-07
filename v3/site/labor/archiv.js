@@ -2,7 +2,7 @@
 // Verbesserungen sind überall sichtbar“). Ein klassisches Skript ohne Abhängigkeiten, damit es in jede alte Laborseite
 // passt, ohne an ihr etwas anderes zu ändern:
 //
-//   <script src="C:/Program Files/Git/snaegs-staging/v3/site/labor/archiv.js" data-was="Stilprobe vom 4.11." data-aktuell="C:/Program Files/Git/snaegs-staging/v3/site/labor.html"
+//   <script src="/snaegs-staging/v3/site/labor/archiv.js" data-was="Stilprobe vom 4.11." data-aktuell="/snaegs-staging/v3/site/labor.html"
 //           data-aktuell-name="Alles, was wir können" data-weiter></script>
 //
 //   data-was            was hier steht (ein Satz, kurz)
@@ -15,7 +15,7 @@
   const s = document.currentScript;
   if (!s) return;
   const was = s.dataset.was || "Verworfener Stand";
-  const ziel = s.dataset.aktuell || "C:/Program Files/Git/snaegs-staging/v3/site/labor.html";
+  const ziel = s.dataset.aktuell || "/snaegs-staging/v3/site/labor.html";
   const name = s.dataset.aktuellName || "Alles, was wir können";
   const archiv = new URLSearchParams(location.search).has("archiv");
   if (s.hasAttribute("data-weiter") && !archiv) {
