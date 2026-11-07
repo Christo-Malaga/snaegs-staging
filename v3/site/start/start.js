@@ -10,10 +10,13 @@
 //     Klägs entsteht im Intro aus der Tinte (./entstehung.js, nur mit ?entstehung=voll|kurz) oder direkt auf seinem Platz.
 //   2 Hero: ein Satz (was kostenlos ist), zwei Geräte nebeneinander. Links Testerclub: Handy-Rahmen aus der
 //     3D-Handy des Game-Teasers (freigestellt, survey/handy-rahmen.webp) mit der Bildschirmaufnahme des echten Surveys, davor
-//     die 3D-Box (site/v2/schau/box3d.js, Variante paket, offen) mit drei Produkten aus der Asset-Datenbank. Rechts Game
-//     Arena: der echte Trailer (site/arena/teaser, mountTeaser im Modus „trailer“, unverändert), gedämpft, mit Schloss und
-//     Stempel „Januar 2027“ (gesperrt bis zum Start). Klägs sitzt zwischen den Wörtern, zeigt zwei Finger, dann auf den
-//     Testerclub, dann auf die Game Arena, zwinkert; danach schaut er dem Trailer zu (große Momente).
+//     die 3D-Box (site/v2/schau/box3d.js, Variante paket, offen) mit drei Produkten aus der Asset-Datenbank.
+//     ZH 07.11. (Chris, Nachricht 39): Der Testerclub ist eine Karte aus tiefem Papier (Reiter: Handy auf violetter Lasur,
+//     Körper: der Knopf „Jetzt kostenlos registrieren“), die Game Arena steht daneben klein und ausgegraut: das 3D-Handy
+//     des Game-Teasers unter der Decke mit „Coming January“ (mountTeaser im Ruhe-Modus, kein Handy-Rahmen drum, kein
+//     Trailer). Die Decke wabert, das Handy wippt ab und zu ungeduldig; Antippen hebt sie höchstens zweimal kurz (ein,
+//     zwei Standbilder des Spiels), danach steht sie still. Klägs reagiert kurz auf das wippende Handy, geht nach 1–3 s
+//     zum Knopf, zupft ihn ruhig zum Testerclub hin und neigt sich dem Testerclub zu; danach ist sein Platz am Knopf.
 //   3 Founder-Aktion (Nacht, v3): Abzeichen und Avatar aus der Asset-Datenbank (strich/motive-founder.js), Tage-Zähler bis
 //     31.12.2026; Klägs bewundert, tippt die Vorteile an und feiert den Knopf über den CTA-Boost (data-klaegs-*).
 //   4 Testerclub (violett, echter Mini-Fragebogen), Game Arena (Nacht, Knopf gesperrt), Punkte (drei Schritte, Klägs zieht
@@ -41,6 +44,8 @@ const main = $("#inhalt");
 const clubKnopf = $("[data-st-club]");
 const clubGeraet = $("[data-st-survey-geraet]");
 const teaserHost = $("[data-st-teaser]");
+const arenaWelt = $("[data-st-arena]");
+const knopfSitz = $("[data-st-knopf-sitz]");
 const STRICH = import("../v2/strich/index.js")
   .then(async (B) => {
     try {
@@ -96,12 +101,9 @@ function viereck(w, h, [[x0, y0], [x1, y1], [x2, y2], [x3, y3]]) {
   const m = [a / w, d / w, 0, g / w, b / h, e / h, 0, k / h, 0, 0, 1, 0, x0, y0, 0, 1];
   return `matrix3d(${m.map((v) => +v.toFixed(7)).join(",")})`;
 }
-// v3: auch die Game Arena trägt diesen Rahmen; in ihrem Bildschirm läuft der Trailer (gedämpft, gesperrt)
-const arenaGeraet = $("[data-st-arena]");
-const arenaSchirm = arenaGeraet && $(".st-geraet__schirm", arenaGeraet);
+// ZH 07.11.: nur noch das Survey-Gerät trägt den Rahmen; die Game Arena ist das 3D-Handy des Teasers selbst
 function schirmSetzen() {
   schirmIn(clubGeraet, schirm);
-  schirmIn(arenaGeraet, arenaSchirm);
 }
 function schirmIn(geraet, schirm) {
   if (!schirm || !geraet) return;
@@ -121,7 +123,6 @@ function schirmIn(geraet, schirm) {
 }
 schirmSetzen();
 new ResizeObserver(schirmSetzen).observe(clubGeraet);
-if (arenaGeraet) new ResizeObserver(schirmSetzen).observe(arenaGeraet);
 let breiteVorher = paketBreite();
 function paketBreite() {
   return $("[data-st-paket]")?.clientWidth ?? 0;
@@ -186,10 +187,10 @@ async function warenNeu(auftritt = false) {
   const y0 = L?.y ?? h * 0.45;
   warenListe = WAREN.map((p, i) => {
     try {
-      const z = B.zeichne(waren, p.motiv, { x: x0 + p.dx * breite * 1.2, y: y0 + p.dy * breite, groesse: breite * p.g * 1.35, farbe: true, dreh: p.dreh, art: auftritt ? "filz" : "sofort", ms: 700, start: "sofort", warte: auftritt ? i * 120 : 0 });
+      const z = B.zeichne(waren, p.motiv, { x: x0 + p.dx * breite * 1.2, y: y0 + p.dy * breite, groesse: breite * p.g * 1.35, farbe: true, dreh: p.dreh, art: auftritt ? "filz" : "sofort", ms: 1100, start: "sofort", warte: auftritt ? i * 260 : 0 });
       if (auftritt && z?.el && !REDUZIERT) {
         z.el.classList.add("ist-unten");
-        setTimeout(() => z.el.classList.remove("ist-unten"), 60 + i * 120);
+        setTimeout(() => z.el.classList.remove("ist-unten"), 60 + i * 260);
       }
       return z;
     } catch (e) {
@@ -199,15 +200,44 @@ async function warenNeu(auftritt = false) {
   });
 }
 
-/* ── Game-Arena-Gerät: der echte Trailer (Modus „trailer“, wie auf der Arena), gedämpft und gesperrt (CSS) ───────── */
+/* ── Game Arena (ZH 07.11., Nachricht 39): das 3D-Handy unter der Decke, Ruhe-Modus, „Coming January“ auf der Decke ── */
 let teaser = null;
-import("../arena/teaser/index.js")
+const teaserDa = import("../arena/teaser/index.js")
   .then(({ mountTeaser }) => {
-    if (!teaserHost) return;
-    teaser = mountTeaser(teaserHost, { modus: "trailer" });
+    if (!teaserHost) return null;
+    teaser = mountTeaser(teaserHost, {
+      ruhe: { hebungen: 2, blick: 2400 },
+      aufdruck: { zeilen: ["COMING", "JANUARY"], unter: "2027" },
+      ruheLabel: "Game Arena, startet im Januar 2027: ein Handy unter einer Decke mit „Coming January“. Antippen hebt die Decke kurz.",
+    });
     window.__start.teaser = teaser;
+    return teaser;
   })
-  .catch((e) => console.warn("[start] Teaser", e));
+  .catch((e) => {
+    console.warn("[start] Teaser", e);
+    return null;
+  });
+// Klägs schaut hin, wenn sich die Decke hebt (ein leises Staunen, keine Reaktionsflut)
+teaserHost?.addEventListener("click", () => {
+  const k = s.api?.klecks;
+  if (!k?.da || k.griff || k.strich || k.ausflug || REDUZIERT) return;
+  k.schau(teaserHost);
+  setTimeout(() => k.fuehle?.("staunen-leise"), 380);
+});
+
+/* ── Testerclub präsent: violette Lasur hinter dem Handy, violetter Textmarker am Wort (Violett = du) ─────────────── */
+const clubFeld = $("[data-st-club-feld]");
+const clubWort = $("[data-st-club-wort]");
+setTimeout(() => clubFeld?.classList.add("ist-da"), REDUZIERT ? 0 : 500);
+STRICH.then((B) => {
+  if (!B?.markiere || !clubWort) return;
+  try {
+    // Textmarker in Violett hinter dem Wort (wie Gold an „gratis“): zieht sich, sobald das Wort im Bild ist
+    setTimeout(() => B.markiere(clubWort, "violett", { start: "sicht" }), REDUZIERT ? 0 : 650);
+  } catch (e) {
+    console.warn("[start] Testerclub-Marker", e);
+  }
+});
 
 /* ── Intro (optional) und der eine Moment oben ─────────────────────────────────────────────────────────────────── */
 function ansageZeigen(sofort = false) {
@@ -243,77 +273,74 @@ async function bisErSitzt(K, ms = 1600, nah = null) {
 }
 
 /**
- * Der eine Moment oben (Nachricht 10 und 24): zwei Finger (zwei Welten), erstens Testerclub, zweitens Games, Zwinkern.
- * Direkt über Hände und Gesten, die Führung pausiert so lange. Danach schaut er dem Game zu.
+ * Der Moment oben (ZH 07.11., Chris, Nachricht 39: „dass Klags nach ein, zwei, drei Sekunden … sofort mit dem CTA
+ * interagiert und sich dem Testerclub zuneigt“). Ruhig, eine Geste: Er sitzt unter dem Arena-Handy, das Handy wippt
+ * ungeduldig, er staunt leise und kichert (die niedliche Reaktion). Nach rund 1,5 s geht er auf die Oberkante des
+ * Knopfs, zupft ihn einmal zum Testerclub hin (cta-boost.js zupfen, Zug nach links), neigt sich dem Testerclub zu und
+ * zwinkert. Danach bleibt sein Platz am Knopf (der Sitz unter der Arena gibt ihn ab). Nie über Text, kein Aquarell,
+ * kein Kreis am Knopf, keine Unschärfe.
  */
 let heroGespielt = false;
 let gratisDa = false;
-async function zweiZeigen() {
+async function heroMoment() {
   const api = await s.klecks;
   const K = api?.klecks;
   if (heroGespielt || !K?.da) return;
   heroGespielt = true;
+  const t0 = performance.now();
+  const log = (was) => (window.__start.held ??= []).push([Math.round(performance.now()), was]); // Prüfhilfe
   api.fuehrung?.halt?.(true);
+  K.ausflug = true;
   try {
-    await bisErSitzt(K, 2400);
+    await bisErSitzt(K, 1600);
     const imBildOben = () => held.getBoundingClientRect().top > -innerHeight * 0.25;
-    if (REDUZIERT || !imBildOben()) return;
-    await warte(260);
-    K.schau(null);
-    // zwei Finger: der Arm geht nach oben, weg von den Wörtern links und rechts
-    const hand = K.arm?.(1, { ziel: [0.5, -1.34], pose: "peace", tempo: 240, bounce: 0.42, osz: (t) => ({ dreh: 0.12 * Math.sin(t / 160) }) });
-    K.fuehle?.("verschmitzt");
-    if (navigator.userActivation?.hasBeenActive) brumm(6); // ohne Tipp blockt der Browser die Vibration (Konsolenfehler)
-    await warte(1250);
-    hand?.los?.();
+    if (!imBildOben()) return;
+    const knopf = clubKnopf;
+    if (REDUZIERT) {
+      K.schau(knopf);
+      return;
+    }
+    // 1 die Arena: das Handy wippt ungeduldig, Klägs schaut hoch, staunt leise und kichert
+    const tz = await Promise.race([teaserDa, warte(400).then(() => null)]);
+    K.schau(teaserHost);
+    log(tz?.wippe?.() ? "arena-wippt" : "arena");
     await warte(300);
-    // erstens: der Testerclub (sein Knopf ist der erste, stärkste), zweitens: Games
-    const club = $("[data-st-welt='club'] .st-geraet");
-    const games = $("[data-st-welt='arena'] .st-geraet");
-    K.schau(club);
-    await K.geste?.("zeigen", { ziel: club, seite: "links", dauer: 560, stupser: 1 });
-    await warte(120);
-    K.schau(games);
-    await K.geste?.("zeigen", { ziel: games, seite: "rechts", dauer: 560, stupser: 1 });
-    K.schau(clubKnopf);
+    K.fuehle?.("staunen-leise");
+    await warte(620);
+    K.fuehle?.("lachen");
+    await warte(Math.max(260, 1500 - (performance.now() - t0)));
+    if (!imBildOben()) return;
+    // 2 zum Knopf: Oberkante, rechts (dort steht keine Schrift)
+    const r = knopf.getBoundingClientRect();
+    const x = Math.min(innerWidth - K.R - 10, r.right - K.R * 1.5);
+    const y = r.top - K.R + 4;
+    K.schau(knopf);
+    K.hopp(x, y, 24);
+    log("zum-knopf");
+    await bisErSitzt(K, 1300, [x, y]);
+    await warte(220);
+    // 3 eine Geste: er greift die Kante und zupft den Knopf ruhig zum Testerclub hin
+    const { zupfen } = await import("../v2/klecks/cta-boost.js");
+    K.groesse?.(1.08, { tempo: 520, bounce: 0.16 });
+    log("zupft");
+    await zupfen(K, knopf, undefined, { zug: [-8, -2] });
+    K.groesse?.(1, { tempo: 620, bounce: 0.12 });
+    // 4 er neigt sich dem Testerclub zu, schaut aufs Survey-Handy und zwinkert
+    K.lehneZ = -0.08;
+    K.lehneNaechst = performance.now() + 2600;
+    K.schau(clubGeraet);
     K.fuehle?.("zwinkern");
+    log("neigt-sich");
+    await warte(1400);
   } catch (e) {
-    console.warn("[start] zwei", e);
+    console.warn("[start] Hero", e);
   } finally {
+    // sein Platz im Hero ist ab jetzt der Knopf: der Sitz unter der Arena gibt ab, der im Knopf übernimmt
+    sitzEl?.removeAttribute("data-sitz");
+    knopfSitz?.setAttribute("data-sitz", "held");
+    K.ausflug = false;
     api.fuehrung?.halt?.(false);
-    setTimeout(zuschauen, 1200);
-  }
-}
-
-/** danach: Klägs schaut dem Game im Teaser zu und reagiert auf große Momente (wie die Arena, Zuschauer-Rolle) */
-const teaserImBild = () => {
-  const r = teaserHost.getBoundingClientRect();
-  const sicht = Math.max(0, Math.min(r.bottom, innerHeight) - Math.max(r.top, 0));
-  return r.height > 0 && sicht / Math.min(r.height, innerHeight) >= 0.25;
-};
-const komboStufe = (d) => (Number.isFinite(d.kombo) ? d.kombo : Math.round((d.staerke ?? 0.4) * 5));
-const grosserMoment = (d) => (d.art === "angriff" ? 280 : d.art === "sieg" ? 520 : d.art === "kombo" && komboStufe(d) >= 3 ? 480 : null);
-let zuschauer = null;
-async function zuschauen() {
-  const api = await s.klecks;
-  if (!api?.klecks || zuschauer || !teaserHost) return;
-  try {
-    const m = await import("../v2/klecks/spiel.js");
-    zuschauer = m.spielReaktionen?.(api, { wurzel: teaserHost, quelle: "start-zuschauer", mindest: 1400 });
-    if (!zuschauer) return;
-    window.__start.spiel = zuschauer;
-    document.addEventListener("snaegs:spiel", (e) => {
-      const d = e.detail ?? {};
-      if (d.quelle !== "teaser") return;
-      const k = api.klecks;
-      if (!k?.da || k.griff || k.buehne || k.ausflug || !teaserImBild()) return;
-      if (Number.isFinite(d.x) && Number.isFinite(d.y)) k.blickAuf = { x: d.x + scrollX, y: d.y + scrollY, bis: performance.now() + 900 };
-      const takt = grosserMoment(d);
-      if (takt == null) return;
-      setTimeout(() => teaserImBild() && zuschauer.spiele(d.art, { ...d, quelle: "start-zuschauer" }), takt);
-    });
-  } catch (e) {
-    console.warn("[start] Zuschauer", e);
+    api.fuehrung?.platz?.(null);
   }
 }
 
@@ -322,7 +349,7 @@ async function nachDemIntro(wie, K) {
   html.classList.remove("ent-laeuft", "ent-sperre");
   const api = await s.klecks;
   await klecksAufSeinenPlatz(api?.klecks ?? K, api);
-  setTimeout(zweiZeigen, wie === "uebersprungen" ? 300 : 800);
+  setTimeout(heroMoment, wie === "uebersprungen" ? 300 : 600);
   gratis();
 }
 
@@ -341,7 +368,7 @@ if (MODUS === "voll" || MODUS === "kurz") {
   held.dataset.ent = "da";
   s.klecks
     .then((api) => klecksAufSeinenPlatz(api?.klecks, api))
-    .then(() => setTimeout(zweiZeigen, 600));
+    .then(() => setTimeout(heroMoment, 300));
   gratis();
 }
 
@@ -361,7 +388,7 @@ async function gratis() {
 }
 
 /* ── Knöpfe: Klägs hakt den gewählten Weg nicht ab (es sind Knöpfe, keine Antworten), er schaut hin ──────────────── */
-for (const k of [clubKnopf, $("[data-st-arena]")]) {
+for (const k of [clubKnopf]) {
   s.tippbar(k, { art: "knopf" });
   k?.addEventListener("click", () => {
     ton("tipp");
@@ -370,26 +397,62 @@ for (const k of [clubKnopf, $("[data-st-arena]")]) {
   });
 }
 
-/* ── Motive aus der Asset-Datenbank: drei Schritte ────────────────────────────────────────────────────────────── */
+/* ── N38 (ZH 07.11., Chris: „die eigentliche Zeichnung und dann Einfärbung finde ich immer eine sehr schöne
+   Eingangsanimation. Die kommt hier leider zu kurz.“): Jedes Motiv zeichnet sich mit dem Filz und färbt sich ein, wenn es
+   gut im Bild ist (nicht schon am unteren Rand), ruhig und gestaffelt: ein Motiv nach dem anderen, nie alle zugleich.
+   Reduzierte Bewegung: sofort im Endstand. ─────────────────────────────────────────────────────────────────────── */
+const auftritt = (() => {
+  let naechst = 0;
+  const warten = new Map();
+  const io = new IntersectionObserver(
+    (es) => {
+      for (const e of es) {
+        if (!e.isIntersecting) continue;
+        io.unobserve(e.target);
+        const z = warten.get(e.target);
+        warten.delete(e.target);
+        if (!z?.starte) continue;
+        // Staffel: je Motiv 280 ms nach dem vorigen (mindestens), damit der Blick der Linie folgen kann
+        const jetzt = performance.now();
+        naechst = Math.max(jetzt, naechst) + 280;
+        setTimeout(() => z.starte(), naechst - 280 - jetzt);
+      }
+    },
+    { rootMargin: "0px 0px -22% 0px" },
+  );
+  return (host, z) => {
+    if (!z?.starte) return z;
+    if (REDUZIERT) z.starte();
+    else {
+      warten.set(host, z);
+      io.observe(host);
+    }
+    return z;
+  };
+})();
+
+/* ── Motive aus der Asset-Datenbank (Founder, Game Arena, Punkte): zeichnen und einfärben beim ersten Sichtkontakt.
+   Das Founder-Abzeichen zeichnet Klägs selbst (klaegsZeichnet unten). ─────────────────────────────────────────── */
 async function motive(wurzel) {
   const B = await STRICH;
   if (!B?.zeichne) return;
-  $$("[data-st-motiv]", wurzel).forEach((host, i) => {
-    if (host.dataset.gezeichnet) return;
+  $$("[data-st-motiv]", wurzel).forEach((host) => {
+    if (host.dataset.gezeichnet || host.hasAttribute("data-st-klaegs-zeichnet")) return;
     host.dataset.gezeichnet = "1";
     const motiv = host.dataset.stMotiv;
     const nacht = !!host.closest(".v2-nacht");
     const r = host.getBoundingClientRect();
     try {
-      B.zeichne(host, motiv, { ton: nacht ? "papier" : "tinte", farbe: host.dataset.farbe ?? false, groesse: r.width * 0.94, ms: 1100, start: "sicht", warte: i * 260 });
+      const gross = r.width > 120;
+      auftritt(host, B.zeichne(host, motiv, { ton: nacht ? "papier" : "tinte", farbe: host.dataset.farbe ?? false, groesse: r.width * 0.94, ms: gross ? 2000 : 1500, start: false }));
     } catch (e) {
       console.warn("[start] Motiv", motiv, e);
     }
   });
 }
-for (const id of ["#founder", "#arena", "#punkte"]) imBild($(id), () => motive($(id)), { rand: "0px 0px -10% 0px" });
+for (const id of ["#founder", "#arena", "#punkte"]) imBild($(id), () => motive($(id)), { rand: "0px 0px 20% 0px" });
 
-/** Zeichen der Seite aus der Asset-Datenbank (Pfeile, Schloss und Stempel der Game Arena, Founder-Abzeichen am Schluss) */
+/** Zeichen der Seite aus der Asset-Datenbank (Pfeile, Schloss der Game Arena, Founder-Abzeichen am Schluss) */
 const ZEICHEN_FARBE = { muenze: "gold", "founder-abzeichen": true };
 STRICH.then((B) => {
   if (!B?.zeichne) return;
@@ -397,34 +460,70 @@ STRICH.then((B) => {
     try {
       const name = host.dataset.stZeichen;
       const nacht = !!host.closest(".v2-nacht");
-      B.zeichne(host, name, { groesse: host.clientWidth || 18, art: "filz", ms: 700, start: "sicht", ton: nacht ? "papier" : "tinte", farbe: ZEICHEN_FARBE[name] ?? false });
+      const klein = (host.clientWidth || 18) < 30;
+      auftritt(host, B.zeichne(host, name, { groesse: host.clientWidth || 18, art: "filz", ms: klein ? 800 : 1300, start: false, ton: nacht ? "papier" : "tinte", farbe: ZEICHEN_FARBE[name] ?? false }));
     } catch (e) {
       console.warn("[start] Zeichen", host.dataset.stZeichen, e);
     }
   }
 });
 
-/* ── Game Arena gesperrt: der Stempel „Coming January 2027“ landet auf dem Trailer, sobald das Handy im Bild ist
-   (dieselbe Form und derselbe Ablauf wie auf der Arena-Seite, V3B: Rahmen „stempel“ in Cyan) ─────────────────────── */
-const stempel = $("[data-st-stempel]");
-if (stempel) {
-  imBild(
-    stempel,
-    () => {
-      setTimeout(async () => {
-        stempel.classList.add("ist-da");
-        const B = await STRICH;
-        const r = $(".st-stempel__rahmen", stempel);
-        try {
-          B?.zeichne?.(r, "stempel", { groesse: r.clientWidth, art: "filz", ms: 520, farbe: "cyan", start: "sofort", warte: REDUZIERT ? 0 : 180 });
-        } catch (e) {
-          console.warn("[start] Stempel", e);
-        }
-      }, REDUZIERT ? 0 : 900);
+/* ── Klägs zeichnet das Founder-Abzeichen selbst (N38): Er wird zum Strich und zieht die Kontur des Abzeichens aus der
+   Asset-Datenbank (klecks/zeichnet.js, die Linie ist die des Motivs), danach zieht das Motiv seine Details und färbt sich
+   golden ein. Klägs schaut stolz auf sein Werk. Einmal, wenn das Abzeichen gut im Bild ist und niemand scrollt. ── */
+const abzeichen = $("[data-st-klaegs-zeichnet]");
+let abzeichenDa = false;
+async function abzeichenZeichnen() {
+  if (abzeichenDa || !abzeichen) return;
+  abzeichenDa = true;
+  const api = await s.klecks;
+  const K = api?.klecks;
+  const nacht = !!abzeichen.closest(".v2-nacht");
+  const o = { ton: nacht ? "papier" : "tinte", farbe: abzeichen.dataset.farbe ?? "gold", groesse: abzeichen.getBoundingClientRect().width * 0.94 };
+  const { klaegsZeichnet } = await import("../v2/klecks/zeichnet.js");
+  const frei = K?.da && !REDUZIERT && !K.griff && !K.strich && !K.formen;
+  if (!frei) return void klaegsZeichnet(null, abzeichen, abzeichen.dataset.stMotiv, o);
+  // über den Regisseur (Rang Seite), damit der CTA-Boost und die Führung so lange warten
+  s.tu(
+    async ({ klecks: k, signal }) => {
+      api.fuehrung?.halt?.(true);
+      k.ausflug = true;
+      try {
+        k.schau(abzeichen);
+        k.fuehle?.("neugier");
+        await warte(380);
+        if (signal?.aborted) return klaegsZeichnet(null, abzeichen, abzeichen.dataset.stMotiv, o);
+        const sitzF = $(".st-founder__sitz");
+        const { fertig } = await klaegsZeichnet(k, abzeichen, abzeichen.dataset.stMotiv, {
+          ...o,
+          stimmung: "ruhig",
+          formKlein: 0.8,
+          auslauf: () => {
+            const r = (sitzF ?? abzeichen).getBoundingClientRect();
+            return { x: r.left + r.width / 2 + scrollX, y: r.top + r.height / 2 + k.R * 0.6 + scrollY };
+          },
+        });
+        await fertig;
+        for (let t = 0; t < 1600 && (k.strich || k.formen); t += 80) await warte(80);
+        k.schau(abzeichen);
+        k.fuehle?.("stolz");
+        await warte(1100);
+      } finally {
+        k.ausflug = false;
+        api.fuehrung?.halt?.(false);
+        api.fuehrung?.platz?.(null);
+      }
     },
-    { rand: "0px" },
+    { name: "Klägs zeichnet das Founder-Abzeichen", verfall: 6000 },
   );
 }
+if (abzeichen) imBild(abzeichen, abzeichenZeichnen, { rand: "-18% 0px -30% 0px" });
+
+/* ── Kernsatz (N38): Klägs unterstreicht „Deine Rewards.“ in einem Zug (Leitmotiv, Malen-Modus), einmal, ruhig; das
+   spielt als erster Takt seines Gangs durch die Punkte (schritteEntlang), damit nie zwei Momente zugleich laufen ── */
+const kernsatz = $("[data-st-kernsatz]");
+let kernsatzDa = false;
+
 
 /* ── Founder-Aktion: Tage bis zum 31.12.2026 (Kalendertage in Berlin), danach verschwindet der Zähler ──────────── */
 function tageBisEnde() {
@@ -521,6 +620,16 @@ async function schritteEntlang() {
     if (weg) return;
     // eigener Gang: die Führung setzt ihn so lange nicht auf ihren Platz zurück (fuehrung.js folge())
     K.ausflug = true;
+    // zuerst der Kernsatz: ein Schwung unter „Deine Rewards.“, solange er gut im Bild ist
+    const ks = kernsatz?.getBoundingClientRect();
+    const kopf0 = parseFloat(getComputedStyle(html).getPropertyValue("--v2-kopf-h")) || 56;
+    if (ks && !kernsatzDa && ks.top > kopf0 + 12 && ks.bottom < innerHeight * 0.8) {
+      kernsatzDa = true;
+      // die Tinte liegt in der Sektion (sie wandert mit, wenn sich oben etwas verschiebt, z. B. das Band verschwindet)
+      await markiere(K, "unterstreichen", kernsatz, { variante: "schwung", danach: "zufrieden", halten: 360, host: so });
+      for (let t = 0; t < 1400 && (K.strich || K.formen || K.modus !== "sitzen"); t += 80) await warte(80);
+      if (weg) return;
+    }
     // je Schritt: er landet rechts neben dem Namen (nie auf Text, nie auf der Zeichnung) und schaut auf das Bild;
     // dafür wird er kleiner (0,72), sonst reichte er in die erste Zeile unter dem Namen
     const KLEIN = 0.72;

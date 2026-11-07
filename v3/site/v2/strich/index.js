@@ -14,7 +14,7 @@
 //   motiv   Name aus MOTIVE (z. B. "paket") oder ein Motiv-Objekt im selben Format
 //   o.x, o.y      Mittelpunkt des Motivs (Standard: Mitte des host)
 //   o.groesse     Breite des Motivs in px (Standard 160); die Höhe folgt dem Seitenverhältnis des Motivs
-//   o.art         "skizze+filz" (Standard) | "filz" | "sofort"
+//   o.art         "filz" (Standard; „skizze+filz“ zeichnet seit 07.11. ebenfalls ohne Bleistift) | "sofort"
 //   o.ton         "tinte" (dunkel auf Papier, Standard) | "papier" (weiß auf Schwarz)
 //   o.farbe       true = Leitfarbe des Motivs | "cyan"|"violett"|"gold"|"erdbeere" (auch "neu"|"du"|"bekommen"|
 //                 "produkt") | Hex | false/undefined = ohne Farbe. Farbe = Aquarell leicht versetzt + Ink-Bleed
@@ -24,6 +24,11 @@
 //   o.dreh        Drehung in Grad, o.spiegel = true spiegelt waagerecht
 //   o.blut        false schaltet den Ink-Bleed aus der Linie ab (Farbfüllung bleibt)
 //   Reduzierte Bewegung: steht sofort im Endstand.
+//   o.fenster     (ZH 07.11.) { kontur: [a, b], detail: [c, d], ueber } Zeitfenster als Anteile von ms, ueber =
+//                 Überlappung der Konturzüge (Standard 1,3)
+//   Rückgabe zusätzlich (ZH 07.11.): ms, zeitplan ([t0, t1] je Konturzug wie pfade.kontur), fahre(t) (von außen
+//   getaktet zeichnen, mit start: false), laufAb() (ab dem Stand mit eigener Uhr zu Ende). Nutzer: klecks/zeichnet.js
+//   (Klägs zieht die Kontur eines Motivs selbst).
 //
 // MOTIVE  { name: Motiv } — paket, paket-offen, tuer, klingelschild, handy, reward-box, muenze, erdbeere, erdnuss,
 //         kaesekuchen, lupe, angelhaken, preisschild, preisschild-zerrissen, siegel, daumen, ohr, notizzettel,

@@ -1,1 +1,0 @@
-import{t as e}from"./teaser-BfpMLjvS.js";export{e as mountTeaser};

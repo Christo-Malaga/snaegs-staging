@@ -1,1 +1,0 @@
-import{t as e}from"./motive-symbole-B39U987s.js";export{e as MOTIVE};
