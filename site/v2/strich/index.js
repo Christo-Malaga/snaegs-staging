@@ -14,7 +14,7 @@
 //   motiv   Name aus MOTIVE (z. B. "paket") oder ein Motiv-Objekt im selben Format
 //   o.x, o.y      Mittelpunkt des Motivs (Standard: Mitte des host)
 //   o.groesse     Breite des Motivs in px (Standard 160); die Höhe folgt dem Seitenverhältnis des Motivs
-//   o.art         "skizze+filz" (Standard) | "filz" | "sofort"
+//   o.art         "filz" (Standard; „skizze+filz“ zeichnet seit 07.11. ebenfalls ohne Bleistift) | "sofort"
 //   o.ton         "tinte" (dunkel auf Papier, Standard) | "papier" (weiß auf Schwarz)
 //   o.farbe       true = Leitfarbe des Motivs | "cyan"|"violett"|"gold"|"erdbeere" (auch "neu"|"du"|"bekommen"|
 //                 "produkt") | Hex | false/undefined = ohne Farbe. Farbe = Aquarell leicht versetzt + Ink-Bleed

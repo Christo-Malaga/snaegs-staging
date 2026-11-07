@@ -1,1 +1,0 @@
-import{n as e,t}from"./motive-gaming-DSyee8lL.js";export{t as KATALOG,e as MOTIVE};
