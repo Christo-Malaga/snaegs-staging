@@ -9,7 +9,7 @@
     <meta name="description" content="SNÄGS verbindet Ihre Produkte mit echten Menschen: Produkttests, spielerische Marktforschung, kostenlose Gaming-Erlebnisse und Creator-Marketing." />
     <link rel="preload" href="/snaegs-staging/fonts/tiktok-sans-latin-var.woff2" as="font" type="font/woff2" crossorigin />
     <script src="/snaegs-staging/site/v2/wege/vorab.js"></script>
-    <script type="module" crossorigin src="/snaegs-staging/assets/business-CWlUWgbS.js"></script>
+    <script type="module" crossorigin src="/snaegs-staging/assets/business-BlRPQT8V.js"></script>
     <link rel="modulepreload" crossorigin href="/snaegs-staging/assets/modulepreload-polyfill-Dezn_h7o.js">
     <link rel="modulepreload" crossorigin href="/snaegs-staging/assets/preload-helper-CRuVTQ4c.js">
     <link rel="modulepreload" crossorigin href="/snaegs-staging/assets/rolldown-runtime-QTnfLwEv.js">
@@ -26,17 +26,19 @@
     <link rel="modulepreload" crossorigin href="/snaegs-staging/assets/klecks-BIx7ZkEs.js">
     <link rel="modulepreload" crossorigin href="/snaegs-staging/assets/seite-DqYHx0xI.js">
     <link rel="modulepreload" crossorigin href="/snaegs-staging/assets/tinte-DiNkj93_.js">
-    <link rel="modulepreload" crossorigin href="/snaegs-staging/assets/business-BYCP-VMI.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/assets/business-D2-s68P8.js">
     <link rel="modulepreload" crossorigin href="/snaegs-staging/assets/bau-dLzgLOR6.js">
     <link rel="modulepreload" crossorigin href="/snaegs-staging/assets/motive-b2b-r1-B8puXDWa.js">
-    <link rel="modulepreload" crossorigin href="/snaegs-staging/assets/sampling-DZVGbdDr.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/assets/sampling-B0sJwD3P.js">
     <link rel="modulepreload" crossorigin href="/snaegs-staging/assets/auswertung-grafik-SyfXGq1N.js">
-    <link rel="modulepreload" crossorigin href="/snaegs-staging/assets/r4-Cw-K8vJw.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/assets/r4-T_1hCzrc.js">
     <link rel="modulepreload" crossorigin href="/snaegs-staging/assets/motive-b2b-r4-lLDYHKym.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/assets/kontakt-DDRlWp1P.js">
     <link rel="stylesheet" crossorigin href="/snaegs-staging/assets/style-BfHiXCjZ.css">
     <link rel="stylesheet" crossorigin href="/snaegs-staging/assets/sampling-8Fom80N3.css">
     <link rel="stylesheet" crossorigin href="/snaegs-staging/assets/auswertung-grafik-BpxeIFAW.css">
-    <link rel="stylesheet" crossorigin href="/snaegs-staging/assets/business-zaofOnRW.css">
+    <link rel="stylesheet" crossorigin href="/snaegs-staging/assets/kontakt-DfmGnFm2.css">
+    <link rel="stylesheet" crossorigin href="/snaegs-staging/assets/business-CMLXGdQ1.css">
     <link rel="stylesheet" crossorigin href="/snaegs-staging/assets/testerclub-C6rkhVSA.css">
     <link rel="stylesheet" crossorigin href="/snaegs-staging/assets/wege-Bzv-LG0O.css">
     <link rel="stylesheet" crossorigin href="/snaegs-staging/assets/seiten-C-UbtW6F.css">
@@ -696,14 +698,16 @@
       </section>
       <!-- 10 · Persönliche Ansprache & Kontakt (R1) -->
       <section class="s b2b-kontakt b2b-papier-tief" id="kontakt" data-abschnitt="kontakt" data-besitzer="R1" aria-labelledby="kontakt-titel">
+        <!-- KF (07.11.): Zwei-Minuten-Seite – der Abschnitt zeigt Haltung, Ansprechpartner und einen Knopf; das Formular
+             „Kostenlose Erstberatung“ öffnet sich als Fullscreen-Blatt „kontakt“ (teile/kontakt-blatt.js, auf Abruf). -->
         <div class="b2b-kontakt__links">
           <h2 id="kontakt-titel" class="b2b-h2">Lassen Sie uns Ihre Marke erlebbar&nbsp;machen.</h2>
-          <!-- QL (Zwei-Minuten-Seite): zwei Punkte; „Individuelle Produktpartnerschaften und Kampagnen“ trägt die
-               Visitenkarte, „kostenlose Erstberatung“ der Titel des Formulars -->
           <ul class="b2b-liste b2b-kontakt__punkte">
             <li>Persönlicher Ansprechpartner statt anonymer Buchungsplattform.</li>
             <li>Zusammenarbeit mit etablierten Marken und aufstrebenden Unternehmen.</li>
           </ul>
+        </div>
+        <div class="b2b-kontakt__personen">
           <article class="b2b-karte b2b-visitenkarte" aria-labelledby="person-ceo">
             <span class="b2b-visitenkarte__marke" aria-hidden="true">SNÄGS</span>
             <span class="b2b-visitenkarte__unterschrift" data-b2b-unterschrift aria-hidden="true"></span>
@@ -716,46 +720,52 @@
             <p><b>Elias</b> (@needtoknow) ist das Gesicht der Community und begleitet Markenkooperationen.</p>
           </div>
         </div>
-        <form class="b2b-karte b2b-formular" id="kontakt-formular" data-b2b-formular novalidate aria-labelledby="formular-titel">
-          <h3 class="b2b-formular__titel" id="formular-titel">Kostenlose Erstberatung</h3>
-          <div class="b2b-feld">
-            <label for="f-bereich">Worum geht es?</label>
-            <select id="f-bereich" name="bereich" data-b2b-bereich-wahl></select>
-          </div>
-          <div class="b2b-feldpaar">
+        <!-- ohne JavaScript führt der Knopf zum Formular direkt darunter; mit JavaScript öffnet er das Blatt (navi.js) -->
+        <a class="v2-knopf b2b-kontakt__knopf" href="#kontakt-formular" data-b2b-cta="abschnitt"><span class="b2b-knopf__text">Jetzt persönlich sprechen</span></a>
+        <!-- Formular: mit JavaScript verborgen, bis es beim ersten Öffnen ins Blatt „kontakt“ umzieht; ohne JavaScript hier
+             sichtbar (business.css, @media (scripting: none)) -->
+        <div class="b2b-kontakt__formularplatz" data-b2b-formular-platz hidden>
+          <form class="b2b-karte b2b-formular" id="kontakt-formular" data-b2b-formular novalidate aria-labelledby="formular-titel">
+            <h3 class="b2b-formular__titel" id="formular-titel">Kostenlose Erstberatung</h3>
             <div class="b2b-feld">
-              <label for="f-name">Ihr Name</label>
-              <input id="f-name" name="name" type="text" autocomplete="name" required />
+              <label for="f-bereich">Worum geht es?</label>
+              <select id="f-bereich" name="bereich" data-b2b-bereich-wahl><option value="allgemein">Allgemeine Anfrage</option></select>
+            </div>
+            <div class="b2b-feldpaar">
+              <div class="b2b-feld">
+                <label for="f-name">Ihr Name</label>
+                <input id="f-name" name="name" type="text" autocomplete="name" required />
+              </div>
+              <div class="b2b-feld">
+                <label for="f-firma">Unternehmen</label>
+                <input id="f-firma" name="firma" type="text" autocomplete="organization" required />
+              </div>
             </div>
             <div class="b2b-feld">
-              <label for="f-firma">Unternehmen</label>
-              <input id="f-firma" name="firma" type="text" autocomplete="organization" required />
+              <label for="f-mail">Geschäftliche E-Mail</label>
+              <input id="f-mail" name="mail" type="email" autocomplete="email" inputmode="email" required />
             </div>
-          </div>
-          <div class="b2b-feld">
-            <label for="f-mail">Geschäftliche E-Mail</label>
-            <input id="f-mail" name="mail" type="email" autocomplete="email" inputmode="email" required />
-          </div>
-          <div class="b2b-feld">
-            <label for="f-nachricht">Ihre Nachricht <span class="b2b-feld__opt">(optional)</span></label>
-            <textarea id="f-nachricht" name="nachricht" rows="2"></textarea>
-          </div>
-          <fieldset class="b2b-feld b2b-termin">
-            <legend>Wann passt ein Gespräch?</legend>
-            <div class="b2b-termin__wahl">
-              <label class="b2b-chip"><input type="radio" name="wann" value="diese-woche" checked /><span>Diese Woche</span></label>
-              <label class="b2b-chip"><input type="radio" name="wann" value="naechste-woche" /><span>Nächste Woche</span></label>
-              <label class="b2b-chip"><input type="radio" name="wann" value="spaeter" /><span>Später</span></label>
+            <div class="b2b-feld">
+              <label for="f-nachricht">Ihre Nachricht <span class="b2b-feld__opt">(optional)</span></label>
+              <textarea id="f-nachricht" name="nachricht" rows="2"></textarea>
             </div>
-            <div class="b2b-termin__wahl">
-              <label class="b2b-chip"><input type="radio" name="tageszeit" value="vormittag" checked /><span>Vormittags</span></label>
-              <label class="b2b-chip"><input type="radio" name="tageszeit" value="nachmittag" /><span>Nachmittags</span></label>
-            </div>
-          </fieldset>
-          <label class="b2b-einwilligung"><input type="checkbox" name="einwilligung" id="f-einwilligung" required /><span>Ich bin einverstanden, dass meine Angaben zur Kontaktaufnahme gespeichert werden. Mehr dazu im <a href="https://frugends.com/pages/datenschutz" target="_blank" rel="noopener">Datenschutz</a>.</span></label>
-          <button class="v2-knopf b2b-formular__knopf" type="submit"><span class="b2b-knopf__text">Jetzt persönlich sprechen</span></button>
-          <p class="b2b-formular__danke" data-b2b-danke role="status" hidden></p>
-        </form>
+            <fieldset class="b2b-feld b2b-termin">
+              <legend>Wann passt ein Gespräch?</legend>
+              <div class="b2b-termin__wahl">
+                <label class="b2b-chip"><input type="radio" name="wann" value="diese-woche" checked /><span>Diese Woche</span></label>
+                <label class="b2b-chip"><input type="radio" name="wann" value="naechste-woche" /><span>Nächste Woche</span></label>
+                <label class="b2b-chip"><input type="radio" name="wann" value="spaeter" /><span>Später</span></label>
+              </div>
+              <div class="b2b-termin__wahl">
+                <label class="b2b-chip"><input type="radio" name="tageszeit" value="vormittag" checked /><span>Vormittags</span></label>
+                <label class="b2b-chip"><input type="radio" name="tageszeit" value="nachmittag" /><span>Nachmittags</span></label>
+              </div>
+            </fieldset>
+            <label class="b2b-einwilligung"><input type="checkbox" name="einwilligung" id="f-einwilligung" required /><span>Ich bin einverstanden, dass meine Angaben zur Kontaktaufnahme gespeichert werden. Mehr dazu im <a href="https://frugends.com/pages/datenschutz" target="_blank" rel="noopener">Datenschutz</a>.</span></label>
+            <button class="v2-knopf b2b-formular__knopf" type="submit"><span class="b2b-knopf__text">Jetzt persönlich sprechen</span></button>
+            <p class="b2b-formular__danke" data-b2b-danke role="status" hidden></p>
+          </form>
+        </div>
         <span class="b2b-kontakt__sitz" data-sitz="kontakt" data-sitz-art="oben" aria-hidden="true"></span>
       </section>
       <!-- 11 · Häufige Fragen (R4) -->
