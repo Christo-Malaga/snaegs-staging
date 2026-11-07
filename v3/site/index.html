@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="de" data-ent="voll">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="robots" content="noindex" />
+    <link rel="icon" href="data:," />
+    <title>SNÄGS · Test it. Play it. Love it.</title>
+    <meta name="description" content="SNÄGS verbindet Produkttests und Gaming: neue Produkte gratis testen, ab Januar 2027 kostenlos zocken, Punkte sammeln, Reward Boxen holen. Jetzt kostenlos registrieren und bis 31.12.2026 Founder werden. Ab 18." />
+    <link rel="preload" href="/snaegs-staging/v3/fonts/tiktok-sans-latin-var.woff2" as="font" type="font/woff2" crossorigin />
+    <script src="C:/Program Files/Git/snaegs-staging/v3/site/v2/wege/vorab.js"></script>
+    <script>
+      // Entstehung von Klecks (Intro) nur noch auf Wunsch (Chris 06.11., Nachricht 10 Punkt 2: „Lass das Intro erstmal nur
+      // optional“): ?entstehung=voll|kurz startet es, sonst steht die Seite sofort. Die Fotos lädt nur, wer es sieht.
+      (function () {
+        var d = document.documentElement, m = "aus";
+        try {
+          var q = /[?&]entstehung=(voll|kurz)/.exec(location.search);
+          if (q) m = q[1];
+        } catch (e) {}
+        d.dataset.ent = m;
+        if (m !== "aus") {
+          d.classList.add("ent-laeuft");
+          var quer = matchMedia("(min-aspect-ratio: 1/1)").matches, l = document.createElement("link");
+          l.rel = "preload"; l.as = "image"; l.setAttribute("fetchpriority", "high"); l.setAttribute("imagesizes", "100vw");
+          l.href = quer ? "C:/Program Files/Git/snaegs-staging/v3/start/kugelschreiber-quer-1920.webp" : "C:/Program Files/Git/snaegs-staging/v3/start/kugelschreiber-hoch-1080.webp";
+          l.setAttribute("imagesrcset", quer ? "C:/Program Files/Git/snaegs-staging/v3/start/kugelschreiber-quer-1280.webp 1280w, C:/Program Files/Git/snaegs-staging/v3/start/kugelschreiber-quer-1920.webp 1920w" : "C:/Program Files/Git/snaegs-staging/v3/start/kugelschreiber-hoch-720.webp 720w, C:/Program Files/Git/snaegs-staging/v3/start/kugelschreiber-hoch-1080.webp 1080w");
+          document.head.appendChild(l);
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/snaegs-staging/v3/assets/website-CnLQMhno.js"></script>
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/v3/assets/modulepreload-polyfill-Dezn_h7o.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/v3/assets/rolldown-runtime-QTnfLwEv.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/v3/assets/gesten-CFEP0ikD.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/v3/assets/papier-DnQK3gNb.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/v3/assets/spur-BlCKCsPh.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/v3/assets/platz-BlZg4nmx.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/v3/assets/schrift-hand-DK7j0mFe.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/v3/assets/emotion-DFb_phTL.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/v3/assets/pinsel-BTmdkUMS.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/v3/assets/gefuehle-DmIQhzoI.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/v3/assets/dynamik-DIeJYVBc.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/v3/assets/klecks-CJK9G_ZO.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/v3/assets/seite-DW8t3P5z.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/v3/assets/klang-DEXpMLJT.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/v3/assets/requisiten2-fHpVdmGY.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/v3/assets/leitmotiv-DhOKjH9a.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/v3/assets/preload-helper-BELVZ9UW.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/v3/assets/tinte-CvHqbHF4.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/v3/assets/regie-ChIso9Kq.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/v3/assets/slots-Baz-x-6G.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/v3/assets/klecks-erweiterung-DUeO6Spp.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/v3/assets/koerper-DE8Q3VwY.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/v3/assets/regie-seiten-DDjbSWz5.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/v3/assets/fuehrung-BVIytDvL.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/v3/assets/start-DcRVOoLe.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/v3/assets/zustand-ZmNkzhgA.js">
+    <link rel="stylesheet" crossorigin href="/snaegs-staging/v3/assets/style-CJUYsI2k.css">
+    <link rel="stylesheet" crossorigin href="/snaegs-staging/v3/assets/website-gLoemYBy.css">
+    <link rel="stylesheet" crossorigin href="/snaegs-staging/v3/assets/testerclub-D372mMCe.css">
+    <link rel="stylesheet" crossorigin href="/snaegs-staging/v3/assets/wege-DBDmVO9Y.css">
+  </head>
+  <!-- Startseite v3 (V3A 07.11., Wünsche des SNÄGS-CEO, site/v2/QUELLE-CEO-WEBSITE.md), Reihenfolge nach seinem Punkt 6:
+       beide Bereiche oben (Testerclub aktiv, Game Arena gesperrt) · Founder-Aktion · Testerclub · Game Arena · Punkte und
+       Reward Boxen · noch einmal die kostenlose Registrierung. Das Intro (Entstehung von Klägs) läuft nur auf Wunsch
+       (?entstehung=voll). Verhalten C:/Program Files/Git/snaegs-staging/v3/site/start/start.js, Intro C:/Program Files/Git/snaegs-staging/v3/site/start/entstehung.js, Rahmen C:/Program Files/Git/snaegs-staging/v3/site/v2/wege. -->
+  <body class="v2 st" data-seite="start">
+    <div data-v2="kopf"></div>
+    <div data-v2="menue"></div>
+
+    <!-- Entstehung: Foto formatfüllend, darüber die gedruckte Frage (im Code, perspektivisch zur Box), Tinte als Leinwand -->
+    <div class="ent" data-ent-buehne aria-label="Intro: Aus dem Kugelschreiber entsteht Klägs">
+      <div class="ent__platte" data-ent-platte aria-hidden="true">
+        <picture class="ent__foto" data-ent-foto>
+          <source media="(min-aspect-ratio: 1/1)" srcset="/snaegs-staging/v3/start/kugelschreiber-quer-1280.webp 1280w, /snaegs-staging/v3/start/kugelschreiber-quer-1920.webp 1920w" sizes="100vw" />
+          <img src="/snaegs-staging/v3/start/kugelschreiber-hoch-1080.webp" srcset="/snaegs-staging/v3/start/kugelschreiber-hoch-720.webp 720w, /snaegs-staging/v3/start/kugelschreiber-hoch-1080.webp 1080w" sizes="100vw" alt="" loading="lazy" decoding="async" />
+        </picture>
+        <div class="ent__druck" data-ent-druck>
+          <p class="ent__frage" data-ent-frage>Probierst du gern Neues?</p>
+          <p class="ent__ja" data-ent-ja>Ja</p>
+        </div>
+        <canvas class="ent__tinte" data-ent-tinte></canvas>
+        <div class="ent__strich" data-ent-strich></div>
+        <canvas class="ent__glanz" data-ent-glanz></canvas>
+      </div>
+      <button class="ent__weiter" type="button" data-ent-ueberspringen>Überspringen</button>
+    </div>
+
+    <main id="inhalt">
+      <!-- H · Hero (v3, V3A 07.11., CEO Punkt 1 und 6: „Direkt beim Öffnen … müssen die zwei Bereiche sichtbar sein.“): H1 ist
+           der Slogan des CEO, die drei Takte gehören zu den drei Bereichen (Test it = Testerclub, Play it = Game Arena,
+           Love it = Reward Boxen). Darunter die zwei Welten als zwei Geräte nebeneinander: links Testerclub, aktiv (Handy
+           mit dem echten SNÄGS-Survey als Bildschirmaufnahme, davor die 3D-Box mit Produkten), rechts Game Arena, gesperrt
+           (der echte Trailer, gedämpft, Schloss aus der Asset-Datenbank und derselbe Stempel „Coming January 2027“ wie auf der
+           Arena-Seite). Klägs sitzt zwischen den
+           Handys, zeigt zwei Finger, dann links, dann rechts. Der Knopf registriert für den Testerclub (CEO Punkt 2). -->
+      <section class="s st-held" id="held" data-abschnitt="held" data-farbe="papier" aria-labelledby="held-titel">
+        <h1 id="held-titel" class="plakat st-held__titel" lang="en"><span class="st-takt">Test&nbsp;it.</span> <span class="st-takt">Play&nbsp;it.</span><br class="st-umbruch" /> <span class="st-takt">Love&nbsp;it.</span></h1>
+        <p class="st-held__unter">Neue Produkte gratis testen, ab Januar kostenlos zocken. Beides bringt dir Punkte für Reward&nbsp;Boxen.</p>
+        <div class="st-welten">
+          <span class="st-welten__sitz" data-sitz="held" data-sitz-art="mitte" data-st-sitz aria-hidden="true"></span>
+          <div class="st-welt st-welt--club" data-st-welt="club">
+            <p class="st-welt__name" data-st-name="club"><span class="st-welt__wort">Testerclub</span><span class="st-welt__was">Neue Produkte gratis testen</span></p>
+            <a class="st-geraet st-geraet--survey" href="C:/Program Files/Git/snaegs-staging/v3/survey.html?von=start-held" data-st-survey-geraet aria-label="Testerclub: So spielt sich ein Produkttest. Antippen startet die Demo.">
+              <span class="st-geraet__schirm">
+                <video class="st-geraet__video" data-st-video autoplay muted loop playsinline preload="auto" poster="/snaegs-staging/v3/assets/survey-poster-C6rvieXj.webp" aria-hidden="true">
+                  <source src="/snaegs-staging/v3/assets/survey-loop-CpCeXmpc.webm" type="video/webm" />
+                  <source src="/snaegs-staging/v3/assets/survey-loop-BqWN66DA.mp4" type="video/mp4" />
+                </video>
+              </span>
+              <img class="st-geraet__rahmen" src="/snaegs-staging/v3/assets/handy-rahmen-ChLkOy5G.webp" alt="" width="720" height="1335" decoding="async" fetchpriority="high" />
+            </a>
+            <span class="st-paket" data-st-paket aria-hidden="true"><span class="st-paket__waren" data-st-waren></span></span>
+          </div>
+          <div class="st-welt st-welt--arena" data-st-welt="arena">
+            <p class="st-welt__name" data-st-name="arena"><span class="st-welt__wort">Game Arena</span><span class="st-welt__was">Start Januar&nbsp;2027</span></p>
+            <a class="st-geraet st-geraet--game" href="C:/Program Files/Git/snaegs-staging/v3/site/arena.html?von=start-held" data-st-arena aria-label="Game Arena, Start im Januar 2027. Zum Game-Trailer.">
+              <span class="st-geraet__schirm st-geraet__schirm--trailer"><span class="st-geraet__trailer" data-st-teaser aria-hidden="true"></span></span>
+              <img class="st-geraet__rahmen" src="/snaegs-staging/v3/assets/handy-rahmen-ChLkOy5G.webp" alt="" width="720" height="1335" decoding="async" />
+              <span class="st-sperre" aria-hidden="true"><span class="st-sperre__schloss" data-st-zeichen="schloss"></span><span class="st-stempel" data-st-stempel><span class="st-stempel__rahmen"></span><span class="st-stempel__text" lang="en">Coming January&nbsp;2027</span></span></span>
+            </a>
+          </div>
+        </div>
+        <div class="st-held__knoepfe">
+          <a class="v2-knopf v2-knopf--bonus v2-knopf--lang st-held__knopf" href="C:/Program Files/Git/snaegs-staging/v3/vorregistrierung.html?von=start-held" data-vorreg="start-held" data-st-club data-hauptknopf data-naechstes="3">Jetzt kostenlos registrieren<span class="v2-bonus" aria-hidden="true"><span class="v2-muenze" data-muenze></span><span class="v2-bonus__plus">+150</span></span><span class="v2-sr">, 150 Early-Bird-Punkte</span></a>
+          <p class="v2-klein st-held__klein">150 Early-Bird-Punkte, gutgeschrieben im&nbsp;Januar.&nbsp;Ab&nbsp;18.</p>
+        </div>
+      </section>
+
+      <!-- F · Founder-Aktion (CEO Punkt 4, „prominent auf der Startseite“, direkt unter den beiden Bereichen): Nacht und Gold,
+           das Abzeichen und der Avatar als Code-Assets aus der Asset-Datenbank (strich/motive-founder.js). Klägs bewundert
+           das Abzeichen kurz, tippt die Vorteile an und feiert danach den Knopf (CTA-Boost: data-klaegs-bewundern,
+           data-klaegs-folge, data-cta="haupt"). Der Tage-Zähler rechnet bis zum 31.12.2026 (Berlin). -->
+      <section class="s st-founder v2-nacht" id="founder" data-abschnitt="founder" data-farbe="nacht-gold" aria-labelledby="founder-titel">
+        <div class="st-founder__kopf">
+          <h2 id="founder-titel" class="plakat st-founder__titel">Sei von Anfang an&nbsp;dabei!</h2>
+          <p class="st-founder__frist"><span class="st-founder__ende">Founder-Aktion endet am 31.12.2026!</span> <span class="st-founder__tage" data-st-tage hidden></span></p>
+        </div>
+        <div class="st-founder__pass">
+          <figure class="st-founder__ding st-founder__ding--abzeichen">
+            <span class="st-founder__bild" data-st-motiv="founder-abzeichen" data-farbe="gold" data-klaegs-bewundern aria-hidden="true"></span>
+            <figcaption><b>Founder-Abzeichen</b><span>exklusiv</span></figcaption>
+          </figure>
+          <figure class="st-founder__ding st-founder__ding--avatar">
+            <span class="st-founder__bild" data-st-motiv="founder-avatar" data-farbe="violett" aria-hidden="true"></span>
+            <figcaption><b>Founder-Avatar</b><span>limitiert</span></figcaption>
+          </figure>
+          <span class="st-founder__sitz" data-sitz="founder" data-sitz-art="oben" data-sitz-u="0.5" aria-hidden="true"></span>
+        </div>
+        <ul class="st-founder__vorteile" data-klaegs-folge="tippen">
+          <li><span class="st-founder__zeichen" data-st-motiv="muenze" data-farbe="gold" aria-hidden="true"></span><span class="st-founder__text"><b>150 Early-Bird-Punkte</b><span>gutgeschrieben im Januar</span></span></li>
+          <li><span class="st-founder__zeichen" data-st-motiv="reward-box" data-farbe="gold" aria-hidden="true"></span><span class="st-founder__text"><b>Erste Reward Box doppelt</b><span>40&nbsp;€ statt 20&nbsp;€ Warenwert, Versand kostenlos</span></span></li>
+          <li><span class="st-founder__zeichen" data-st-motiv="paket" data-farbe="erdbeere" aria-hidden="true"></span><span class="st-founder__text"><b>10&nbsp;×&nbsp;100&nbsp;€ Produktboxen zu gewinnen</b><span>Teilnahmebedingungen folgen</span></span></li>
+          <li><span class="st-founder__zeichen" data-st-motiv="umschlag" data-farbe="violett" aria-hidden="true"></span><span class="st-founder__text"><b>Bis zu 125 Punkte extra</b><span>für Freunde, die mitmachen</span></span></li>
+        </ul>
+        <div class="st-founder__aufruf">
+          <a class="v2-knopf v2-knopf--bonus st-voran" href="C:/Program Files/Git/snaegs-staging/v3/vorregistrierung.html?von=start-founder" data-vorreg="start-founder" data-cta="haupt" data-hauptknopf data-naechstes="3">Jetzt Founder werden<span class="v2-bonus" aria-hidden="true"><span class="v2-muenze" data-muenze></span><span class="v2-bonus__plus">+150</span></span><span class="v2-sr">, 150 Early-Bird-Punkte</span></a>
+          <p class="v2-klein st-founder__klein">Kostenlos, ab&nbsp;18.</p>
+        </div>
+      </section>
+
+      <!-- T · Testerclub kurz (CEO Punkt 2 und 8): was du davon hast, vorsichtig versprochen („Vielleicht testest du sie
+           zuerst.“, solange Partnerschaften nicht feststehen), daneben der echte Mini-Fragebogen: Du wählst, Klägs hakt ab. -->
+      <section class="s st-probe" id="testerclub" data-abschnitt="testerclub" data-farbe="violett" aria-labelledby="testerclub-titel">
+        <div class="st-probe__feld" data-st-feld aria-hidden="true"></div>
+        <div class="st-probe__kopf">
+          <h2 id="testerclub-titel" class="plakat">Die neuesten Produkte? Vielleicht testest du sie&nbsp;zuerst.</h2>
+          <p>Du sagst Marken deine Meinung, von bekannten Namen bis zu neuen Creator-Brands, und sammelst dafür Punkte. So fühlt sich ein Test an:</p>
+        </div>
+        <div class="st-bogen" data-st-bogen data-sitz="bogen" data-sitz-art="oben" data-sitz-u="0.86">
+          <p class="st-bogen__kopf"><span>Produkttest</span><span data-st-stand>Frage 1 von 2</span></p>
+          <fieldset class="st-bogen__frage" data-st-frage-nr="0">
+            <legend>Strawberry Cheesecake auf Erdnüssen. Wie klingt das?</legend>
+            <button type="button" class="st-wahl" data-st-wahl aria-pressed="false"><span class="st-box" aria-hidden="true"></span>Richtig gut</button>
+            <button type="button" class="st-wahl" data-st-wahl aria-pressed="false"><span class="st-box" aria-hidden="true"></span>Geht so</button>
+            <button type="button" class="st-wahl" data-st-wahl aria-pressed="false"><span class="st-box" aria-hidden="true"></span>Nicht meins</button>
+          </fieldset>
+          <fieldset class="st-bogen__frage" data-st-frage-nr="1" hidden>
+            <legend>Würde dir die Dose im Regal auffallen?</legend>
+            <button type="button" class="st-wahl" data-st-wahl aria-pressed="false"><span class="st-box" aria-hidden="true"></span>Sofort</button>
+            <button type="button" class="st-wahl" data-st-wahl aria-pressed="false"><span class="st-box" aria-hidden="true"></span>Eher nicht</button>
+          </fieldset>
+          <div class="st-bogen__danke" data-st-danke hidden>
+            <p class="st-bogen__satz">Genau so geht Testen. Die Produkte kommen gratis zu dir.</p>
+            <a class="v2-knopf v2-knopf--hell" href="C:/Program Files/Git/snaegs-staging/v3/survey.html?von=start" data-st-survey data-naechstes="2">Einen ganzen Test spielen</a>
+            <button type="button" class="v2-zeig" data-st-nochmal><span class="v2-zeig__zeichen" aria-hidden="true"></span>Nochmal</button>
+          </div>
+        </div>
+        <a class="st-weg st-probe__weg" href="C:/Program Files/Git/snaegs-staging/v3/site/testerclub.html?von=start" data-st-weg>Mehr zum Testerclub<span class="st-weg__pfeil" data-st-zeichen="pfeil-kurz" aria-hidden="true"></span></a>
+      </section>
+
+      <!-- A · Game Arena (CEO Punkt 3): neugierig machen, Januarstart, der Knopf ist sichtbar gesperrt („Startet im Januar
+           2027“, kein Link). Games-Texte verkaufen Spaß und Gewinn, nie Mechanik (Nachricht 14). -->
+      <section class="s st-arena v2-nacht" id="arena" data-abschnitt="arena" data-farbe="nacht" aria-labelledby="arena-titel">
+        <div class="st-arena__kopf">
+          <h2 id="arena-titel" class="plakat st-arena__titel">Deine nächste Challenge startet im&nbsp;Januar.</h2>
+        </div>
+        <span class="st-arena__sitz" data-sitz="arena" data-sitz-art="mitte" aria-hidden="true"></span>
+        <ul class="st-arena__liste">
+          <li><span class="st-arena__zeichen" data-st-motiv="versus" data-farbe="cyan" aria-hidden="true"></span><span>Kostenlos gegen Freunde, andere Mitglieder oder Bots&nbsp;zocken.</span></li>
+          <li><span class="st-arena__zeichen" data-st-motiv="pokal" data-farbe="gold" aria-hidden="true"></span><span>Jeden Samstag ein kostenloses Live-Turnier mit echten&nbsp;Gewinnen.</span></li>
+          <li><span class="st-arena__zeichen" data-st-motiv="muenze" data-farbe="gold" aria-hidden="true"></span><span>Jedes Game bringt Punkte, auch wenn du&nbsp;verlierst.</span></li>
+        </ul>
+        <div class="st-arena__fuss">
+          <p class="st-gesperrt" aria-disabled="true"><span class="st-gesperrt__schloss" data-st-zeichen="schloss" aria-hidden="true"></span>Startet im Januar&nbsp;2027</p>
+          <a class="st-weg" href="C:/Program Files/Git/snaegs-staging/v3/site/arena.html?von=start" data-st-weg>Zum Game-Trailer<span class="st-weg__pfeil" data-st-zeichen="pfeil-kurz" aria-hidden="true"></span></a>
+        </div>
+      </section>
+
+      <!-- P · Punktesystem und Reward Boxen (CEO Punkt 5): H2 ist der CEO-Slogan „Deine Meinung. Deine Punkte. Deine Rewards.“
+           („Mitmachen. Punkte sammeln. Belohnt werden.“ steht als H2 auf Rewards, nicht doppeln). Drei Schritte, daneben die
+           3D-Reward-Box mit Produkten aus der Asset-Datenbank: zeigen, was man bekommt, nicht nur Punkte. -->
+      <section class="s st-so" id="punkte" data-abschnitt="punkte" data-farbe="gold" aria-labelledby="punkte-titel">
+        <h2 id="punkte-titel" class="plakat st-so__titel">Deine&nbsp;Meinung. Deine&nbsp;Punkte. Deine&nbsp;Rewards.</h2>
+        <span class="st-so__sitz" data-sitz="punkte" data-sitz-art="mitte" aria-hidden="true"></span>
+        <!-- data-streifen: die Schritte liegen noch vor dir, darum hakt die Führung sie nicht automatisch ab (fuehrung.js) -->
+        <ol class="st-so__schritte" data-streifen>
+          <li class="st-schritt">
+            <span class="st-schritt__bild" data-st-motiv="fragebogen" data-farbe="erdbeere" aria-hidden="true"></span>
+            <span class="st-schritt__text"><span class="st-schritt__name">Mitmachen</span><span class="st-schritt__satz">Jeden Tag Produktfragen beantworten, ab Januar auch kostenlos zocken.</span></span>
+          </li>
+          <li class="st-schritt">
+            <span class="st-schritt__bild" data-st-motiv="muenzglas" data-farbe="gold" aria-hidden="true"></span>
+            <span class="st-schritt__text"><span class="st-schritt__name">Punkte sammeln</span><span class="st-schritt__satz">Tests und Games zahlen auf ein gemeinsames Punktekonto ein.</span></span>
+          </li>
+          <li class="st-schritt">
+            <span class="st-schritt__bild" data-st-motiv="reward-box" data-farbe="gold" aria-hidden="true"></span>
+            <span class="st-schritt__text"><span class="st-schritt__name">Reward Box holen</span><span class="st-schritt__satz">2.500 Punkte tauschst du gegen eine Reward&nbsp;Box.</span></span>
+          </li>
+        </ol>
+        <figure class="st-box3d">
+          <span class="st-box3d__buehne" data-st-reward aria-hidden="true"><span class="st-box3d__waren" data-st-reward-waren></span></span>
+          <figcaption class="st-box3d__text"><b>Reward Box</b><span>Markenprodukte im Wert von rund 20&nbsp;€ UVP, Versand kostenlos. Als Founder bekommst du in deiner ersten Box das Doppelte: 40&nbsp;€.</span></figcaption>
+        </figure>
+        <div class="st-so__fuss">
+          <a class="st-so__mehr" href="C:/Program Files/Git/snaegs-staging/v3/site/wiki.html?von=start-punkte" data-st-mehr data-naechstes="2">Alle Details zum Punktekonto<span class="st-so__pfeil" data-st-zeichen="pfeil-kurz" aria-hidden="true"></span></a>
+        </div>
+      </section>
+
+      <!-- S · Schluss (CEO Punkt 6: „Zum Schluss nochmals deutlich zur kostenlosen Registrierung auffordern.“): großes Wort,
+           Gold, Klägs hakt ab und schreibt die Antwort hin. Die Founder-Vorteile stehen direkt am Knopf. -->
+      <section class="s st-dabei" id="dabei" data-abschnitt="dabei" data-farbe="gold" aria-labelledby="dabei-titel">
+        <div class="v2-naht v2-naht--gold" data-st-naht aria-hidden="true"></div>
+        <h2 id="dabei-titel" class="st-dabei__frage"><span data-st-dabei>Bist du dabei?</span></h2>
+        <ul class="st-dabei__fakten">
+          <li class="st-dabei__gross"><span class="st-box" aria-hidden="true"></span>Alles kostenlos</li>
+          <li><span class="st-box" aria-hidden="true"></span>Start im Januar 2027</li>
+        </ul>
+        <div class="st-dabei__aufruf" data-sitz="dabei" data-sitz-art="oben" data-sitz-u="0.85">
+          <a class="v2-knopf v2-knopf--bonus v2-knopf--lang st-dabei__knopf" href="C:/Program Files/Git/snaegs-staging/v3/vorregistrierung.html?von=start-ende" data-vorreg="start-ende" data-hauptknopf data-naechstes="3">Jetzt kostenlos registrieren<span class="v2-bonus" aria-hidden="true"><span class="v2-muenze" data-muenze></span><span class="v2-bonus__plus">+150</span></span><span class="v2-sr">, 150 Early-Bird-Punkte</span></a>
+          <p class="st-dabei__founder"><span class="st-dabei__abzeichen" data-st-zeichen="founder-abzeichen" aria-hidden="true"></span><span>Bis 31.12.2026 wirst du damit Founder: Abzeichen, limitierter Avatar und 150 Early-Bird-Punkte.</span></p>
+          <p class="v2-klein st-dabei__punkte">Keine Gebühren, keine versteckten Kosten. Ab&nbsp;18.</p>
+        </div>
+      </section>
+
+      <div data-v2="naechste"></div>
+    </main>
+
+    <footer class="v2-fuss" data-abschnitt="fuss">
+      <p class="v2-fuss__claim">Where Brands Meet Friends. Test&nbsp;it.&nbsp;Play&nbsp;it.&nbsp;Love&nbsp;it.</p>
+      <p><a href="https://business.frugends.com/">Für Marken: Erfahren Sie, wie Ihr Produkt bei den Richtigen ankommt.</a></p>
+      <p class="v2-klein">Laborstand, nüssje dient als Beispiel.</p>
+      <p class="v2-klein v2-fuss__links"><a href="C:/Program Files/Git/snaegs-staging/v3/site/wiki.html">Wiki zum Punktekonto</a><a href="C:/Program Files/Git/snaegs-staging/v3/site/labor.html">Alles, was wir können</a><a href="C:/Program Files/Git/snaegs-staging/v3/site/index.html?entstehung=voll">So entsteht Klägs</a></p>
+    </footer>
+
+    <div data-v2="daumen"></div>
+    <svg class="st-filter" aria-hidden="true" width="0" height="0">
+      <filter id="v2-aquarell" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.012 0.03" numOctaves="3" seed="7" result="n" /><feDisplacementMap in="SourceGraphic" in2="n" scale="46" xChannelSelector="R" yChannelSelector="G" result="d" /><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3" result="korn" /><feColorMatrix in="korn" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -0.9 1.25" result="kornA" /><feComposite in="d" in2="kornA" operator="in" /></filter>
+    </svg>
+  </body>
+</html>
