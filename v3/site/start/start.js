@@ -25,7 +25,7 @@
 // site/arena/teaser, site/v2/klecks/spiel.js, src/klecks/leitmotiv.js.
 // Regie (site/KLECKS-REGIE.md): kein Headset auf der Startseite. Jedes Zeichen kommt aus der Asset-Datenbank.
 
-import { seite, imBild, brumm } from "../v2/start.js";
+import { seite, imBild, brumm, auftauchen } from "../v2/start.js";
 import { entstehung } from "./entstehung.js";
 import { ton } from "./klang.js";
 import { marke, markiere } from "../../src/klecks/leitmotiv.js";
@@ -120,6 +120,8 @@ function schirmIn(geraet, schirm) {
   // Radius etwas kleiner als der des Rahmens: die Ecken des Videos laufen unter die Lünette, nie Papier in der Ecke
   schirm.style.borderRadius = `${Math.round(w * RAHMEN.radius * 0.8)}px`;
   schirm.style.transform = viereck(w, h, p);
+  // Z6: erst jetzt sichtbar (vorher stand die Aufnahme beim Laden kurz roh und groß über dem Hero, start.css)
+  schirm.dataset.sitzt = "";
 }
 schirmSetzen();
 new ResizeObserver(schirmSetzen).observe(clubGeraet);
@@ -205,20 +207,58 @@ let teaser = null;
 const teaserDa = import("../arena/teaser/index.js")
   .then(({ mountTeaser }) => {
     if (!teaserHost) return null;
+    // Z5 07.11. (Chris: „Lüfte die Decke … aber lüfte sie. Nur animiere sie nicht so lange wie das andere.“): Das Handy
+    // wippt einmal (Klägs schaut hin), dann lüftet sich die Decke in 0,6 s, nach spätestens 2 s auch ohne Klägs; Tippen
+    // lüftet sofort. Darunter bleibt ein ruhiges Standbild des Games, dann steht alles.
     teaser = mountTeaser(teaserHost, {
-      ruhe: { hebungen: 2, blick: 2400 },
+      ruhe: { bleibt: true, selbst: 2000, dauer: 0.6, bild: 0, nah: 0 },
       aufdruck: { zeilen: ["COMING", "JANUARY"], unter: "2027" },
-      ruheLabel: "Game Arena, startet im Januar 2027: ein Handy unter einer Decke mit „Coming January“. Antippen hebt die Decke kurz.",
+      ruheLabel: "Game Arena, startet im Januar 2027: ein Handy unter einer Decke mit „Coming January“. Antippen lüftet die Decke.",
+      ruheLabelFrei: "Game Arena, startet im Januar 2027: Standbild aus dem Game.",
+      // Z6: Die Selbst-Uhr wippt erst und lüftet dann (dieselbe Folge wie mit Klägs); sobald Klägs da ist, stellt
+      // heroMoment sie ab und spielt die Folge selbst. Die Decke blendet beim Lüften aus (keine Schnittkante oben).
+      onFrei: arenaGelueftet,
     });
     window.__start.teaser = teaser;
+    // ohne WebGL (gezeichnetes Handy, kein Ruhe-Modus): der Weg zur Game Arena steht gleich da
+    if (!teaser?.ruhe) arenaGelueftet();
     return teaser;
   })
   .catch((e) => {
     console.warn("[start] Teaser", e);
+    arenaGelueftet();
     return null;
   });
-// Klägs schaut hin, wenn sich die Decke hebt (ein leises Staunen, keine Reaktionsflut)
-teaserHost?.addEventListener("click", () => {
+
+/* ── Z6 07.11.: Die gelüftete Arena führt zur Game Arena. Unter dem Handy erscheint dann leise der Weg („Zum Trailer“,
+   Zweitweg mit Pfeil aus der Asset-Datenbank), aber erst, wenn Klägs dort nicht mehr sitzt (nie Schrift unter ihm).
+   Die Leinwand ist ab dann kein eigener Knopf mehr (tabindex −1, role img): Tastatur und Vorlesen nehmen den Link. ── */
+const arenaWeg = $("[data-st-arena-weg]");
+let arenaFrei = false;
+let klaegsUnterArena = false;
+function wegZeigen() {
+  if (!arenaFrei || klaegsUnterArena || !arenaWeg) return;
+  arenaWeg.classList.add("ist-da");
+}
+function arenaGelueftet() {
+  arenaFrei = true;
+  const c = teaserHost?.querySelector(".snt-leinwand");
+  if (c) {
+    c.setAttribute("tabindex", "-1");
+    c.setAttribute("role", "img");
+    c.removeAttribute("aria-pressed");
+  }
+  wegZeigen();
+}
+s.tippbar(arenaWeg, { art: "knopf" });
+teaserHost?.addEventListener("click", (e) => {
+  if (arenaFrei && arenaWeg) {
+    // Z6: Antippen der gelüfteten Arena = der Weg darunter (mit Strg/Cmd in einem neuen Tab, wie bei einem Link)
+    if (e.ctrlKey || e.metaKey) window.open(arenaWeg.href, "_blank", "noopener");
+    else location.assign(arenaWeg.href);
+    return;
+  }
+  // Klägs schaut hin, wenn sich die Decke hebt (ein leises Staunen, keine Reaktionsflut)
   const k = s.api?.klecks;
   if (!k?.da || k.griff || k.strich || k.ausflug || REDUZIERT) return;
   k.schau(teaserHost);
@@ -279,54 +319,132 @@ async function bisErSitzt(K, ms = 1600, nah = null) {
  * Knopfs, zupft ihn einmal zum Testerclub hin (cta-boost.js zupfen, Zug nach links), neigt sich dem Testerclub zu und
  * zwinkert. Danach bleibt sein Platz am Knopf (der Sitz unter der Arena gibt ihn ab). Nie über Text, kein Aquarell,
  * kein Kreis am Knopf, keine Unschärfe.
+ *
+ * Z6 07.11. (Brief: „Wippen, Lüften, dann Gang zum Knopf, nie zwei Bewegungen gleichzeitig, nie über Text“): eine Folge,
+ * ein Takt nach dem anderen.
+ *   0 Läuft die Arena gerade von selbst (Selbst-Uhr: wippen, lüften), wartet er, bis sie steht.
+ *   1 Er taucht aus dem Papier auf (auftauchen, wie auf den Unterseiten, 0,5 s), statt mit farbiger Pfütze neu geboren
+ *     zu werden: Die Pfütze stand lange als Ring um ihn wie ein Aufkleber. Ist die Arena noch zugedeckt, taucht er
+ *     unter ihr auf, sonst gleich am Knopf (unter der Arena steht dann schon der Weg zur Game Arena).
+ *   2 Zugedeckt: Er schaut hin, das Handy wippt (allein), die Decke lüftet sich (allein, 0,6 s), dann staunt er leise.
+ *   3 Er geht zum Knopf (ein Sprung, ohne Schrift auf dem Weg), erst dort erscheint unter der Arena der Weg.
+ *   4 Er zupft den Knopf zum Testerclub hin, neigt sich ihm zu und zwinkert.
+ * Sein Platz am Knopf ist genau der, den die Führung danach wählt (Oberkante bei 0,88 oder, wo dort Schrift oder ein
+ * Tippziel liegt, neben dem Knopf): kein Nachhüpfen am Ende.
  */
+/** Z6: beim Auftauchen im Hero ohne Farbring. Der schmale Spektrumrand des Durchbruchs (klecks.js auftauchen) stand im
+ *  ruhigen Hero wie ein Aufkleber um ihn; hier bleibt nur die Tinte. Gefühlsfarben danach bleiben, wie sie sind. */
+function ohneRing(K) {
+  const t0 = performance.now();
+  let sitztSeit = 0;
+  const schritt = () => {
+    if (K.saum > 0.04) K.saum = 0.04;
+    const jetzt = performance.now();
+    if (K.modus === "sitzen") sitztSeit ||= jetzt;
+    // bis er aufgetaucht ist und noch 0,6 s danach (höchstens 4 s)
+    if (jetzt - t0 < 4000 && (!sitztSeit || jetzt - sitztSeit < 600)) requestAnimationFrame(schritt);
+  };
+  requestAnimationFrame(schritt);
+}
 let heroGespielt = false;
 let gratisDa = false;
 async function heroMoment() {
   const api = await s.klecks;
   const K = api?.klecks;
-  if (heroGespielt || !K?.da) return;
+  if (heroGespielt || !K) return;
   heroGespielt = true;
-  const t0 = performance.now();
   const log = (was) => (window.__start.held ??= []).push([Math.round(performance.now()), was]); // Prüfhilfe
   api.fuehrung?.halt?.(true);
   K.ausflug = true;
+  const knopf = clubKnopf;
+  /** sein Platz am Knopf: Oberkante bei 88 % der Breite, wie der Sitz im Knopf (data-sitz-u), dort steht keine Schrift */
+  const amKnopf = () => {
+    const r = knopf.getBoundingClientRect();
+    return [Math.max(K.R + 6, Math.min(innerWidth - K.R - 6, r.left + r.width * 0.88)), r.top - K.R + 3];
+  };
+  /** sein Platz am Knopf, wie ihn die Führung wählt: Der Sitz im Knopf übernimmt (Oberkante bei 88 %, sonst neben dem
+   *  Knopf, je nachdem, wo keine Schrift und kein Tippziel ist, auch der Weg zur Game Arena nicht); er geht genau dorthin,
+   *  darum muss ihn die Führung danach nicht mehr versetzen (kein Nachhüpfen). */
+  const knopfPlatz = () => {
+    sitzEl?.removeAttribute("data-sitz");
+    knopfSitz?.setAttribute("data-sitz", "held");
+    api.fuehrung?.platz?.(null);
+    const p = api.fuehrung?.sitzt === knopfSitz ? api.fuehrung?.platzJetzt : null;
+    return p ?? amKnopf();
+  };
+  const imBildOben = () => held.getBoundingClientRect().top > -innerHeight * 0.25;
   try {
-    await bisErSitzt(K, 1600);
-    const imBildOben = () => held.getBoundingClientRect().top > -innerHeight * 0.25;
+    const tz = await Promise.race([teaserDa, warte(600).then(() => null)]);
+    // 0 die Arena bewegt sich gerade von selbst: erst ausklingen lassen
+    for (let t = 0; t < 2600 && tz?.ruhe?.bewegt; t += 80) await warte(80);
+    const zugedeckt = !REDUZIERT && !!tz?.ruhe && !tz.ruhe.still;
+    if (zugedeckt) tz.halteSelbst?.(); // ab jetzt führt Klägs die Arena
+    // 1 auftauchen: unter der Arena, solange sie zugedeckt ist, sonst gleich am Knopf
+    let ort = zugedeckt ? sitz() : amKnopf();
+    klaegsUnterArena = zugedeckt;
+    if (!K.da) {
+      auftauchen(K, ort[0], ort[1]);
+      ohneRing(K);
+    } else if (Math.hypot(K.x - ort[0], K.y - ort[1]) > 4) K.hopp(ort[0], ort[1], 24);
+    // ein Platz für die Führung, solange der Ablauf läuft (erst jetzt, mit K.da: sonst hielte sie ihn nach dem
+    // Auftauchen bis zur nächsten Wahl unter dem Papier, fuehrung.js folge); bewegt wird er bis zum Schluss nur von hier
+    if (zugedeckt) api.fuehrung?.platz?.(sitzEl);
+    else {
+      // gleich am Knopf: der Platz, den die Führung dort wählt (er ist noch unter dem Papier und taucht direkt dort auf)
+      const p = knopfPlatz();
+      if (Math.hypot(p[0] - ort[0], p[1] - ort[1]) > 2) K.geheZu(p[0], p[1]);
+      ort = p;
+    }
+    log(zugedeckt ? "taucht-auf-arena" : "taucht-auf-knopf");
+    await bisErSitzt(K, 1800, ort);
     if (!imBildOben()) return;
-    const knopf = clubKnopf;
     if (REDUZIERT) {
       K.schau(knopf);
       return;
     }
-    // 1 die Arena: das Handy wippt ungeduldig, Klägs schaut hoch, staunt leise und kichert
-    const tz = await Promise.race([teaserDa, warte(400).then(() => null)]);
-    K.schau(teaserHost);
-    log(tz?.wippe?.() ? "arena-wippt" : "arena");
-    await warte(300);
-    K.fuehle?.("staunen-leise");
-    await warte(620);
-    K.fuehle?.("lachen");
-    await warte(Math.max(260, 1500 - (performance.now() - t0)));
-    if (!imBildOben()) return;
-    // 2 zum Knopf: Oberkante, rechts (dort steht keine Schrift)
-    const r = knopf.getBoundingClientRect();
-    const x = Math.min(innerWidth - K.R - 10, r.right - K.R * 1.5);
-    const y = r.top - K.R + 4;
-    K.schau(knopf);
-    K.hopp(x, y, 24);
-    log("zum-knopf");
-    await bisErSitzt(K, 1300, [x, y]);
-    await warte(220);
-    // 3 eine Geste: er greift die Kante und zupft den Knopf ruhig zum Testerclub hin
+    if (zugedeckt) {
+      // 2 er schaut hin; das Handy wippt ungeduldig; danach lüftet sich die Decke; erst wenn sie steht, staunt er leise
+      K.schau(teaserHost);
+      await warte(260);
+      if (tz.wippe?.()) {
+        log("arena-wippt");
+        await warte(620 + 240);
+      }
+      if (tz.hebe?.()) log("arena-lueftet");
+      for (let t = 0; t < 1600 && tz.ruhe?.bewegt; t += 60) await warte(60);
+      log("arena-frei");
+      await warte(160);
+      K.fuehle?.("staunen-leise");
+      await warte(820);
+      if (!imBildOben()) return;
+      // 3 zum Knopf: ein Sprung auf seinen Platz dort (Oberkante rechts oder neben dem Knopf, nie auf Schrift)
+      const [x, y] = knopfPlatz();
+      K.schau(knopf);
+      K.hopp(x, y, 24);
+      log("zum-knopf");
+      await bisErSitzt(K, 1300, [x, y]);
+      // sein Platz unter der Arena ist frei: dort erscheint jetzt leise der Weg zur Game Arena
+      klaegsUnterArena = false;
+      wegZeigen();
+      log("weg-da");
+      await warte(460);
+    } else {
+      // die Arena ist schon gelüftet: ein kurzer Blick aufs Game, dann der Knopf
+      K.schau(teaserHost);
+      await warte(700);
+    }
+    // 4 eine Geste: er greift die Kante und zupft den Knopf ruhig zum Testerclub hin
     const { zupfen } = await import("../v2/klecks/cta-boost.js");
+    K.schau(knopf);
     K.groesse?.(1.08, { tempo: 520, bounce: 0.16 });
     log("zupft");
-    await zupfen(K, knopf, undefined, { zug: [-8, -2] });
+    // oben auf dem Knopf zupft er ihn zum Testerclub hin, neben dem Knopf zu sich (Richtung aus seiner Lage, cta-boost.js)
+    const drauf = K.y < knopf.getBoundingClientRect().top;
+    await zupfen(K, knopf, undefined, drauf ? { zug: [-8, -2] } : {});
     K.groesse?.(1, { tempo: 620, bounce: 0.12 });
-    // 4 er neigt sich dem Testerclub zu, schaut aufs Survey-Handy und zwinkert
-    K.lehneZ = -0.08;
+    // 5 er neigt sich dem Testerclub zu, schaut aufs Survey-Handy und zwinkert
+    const club = clubGeraet.getBoundingClientRect();
+    K.lehneZ = club.left + club.width / 2 < K.x ? -0.08 : 0.08;
     K.lehneNaechst = performance.now() + 2600;
     K.schau(clubGeraet);
     K.fuehle?.("zwinkern");
@@ -335,9 +453,14 @@ async function heroMoment() {
   } catch (e) {
     console.warn("[start] Hero", e);
   } finally {
+    // abgebrochen (weggescrollt), bevor die Decke gelüftet war: dann lüftet sie sich, sobald die Arena wieder im Bild ist
+    const tz = teaser;
+    if (tz?.ruhe && !tz.ruhe.still && !tz.ruhe.bewegt) tz.hebe?.();
     // sein Platz im Hero ist ab jetzt der Knopf: der Sitz unter der Arena gibt ab, der im Knopf übernimmt
     sitzEl?.removeAttribute("data-sitz");
     knopfSitz?.setAttribute("data-sitz", "held");
+    klaegsUnterArena = false;
+    wegZeigen();
     K.ausflug = false;
     api.fuehrung?.halt?.(false);
     api.fuehrung?.platz?.(null);
@@ -366,9 +489,8 @@ if (MODUS === "voll" || MODUS === "kurz") {
   });
 } else {
   held.dataset.ent = "da";
-  s.klecks
-    .then((api) => klecksAufSeinenPlatz(api?.klecks, api))
-    .then(() => setTimeout(heroMoment, 300));
+  // Z6: Klägs taucht im Hero-Moment selbst auf (auftauchen statt Geburt mit Pfütze), dort wird auch sein Platz gewählt
+  s.klecks.then(() => heroMoment());
   gratis();
 }
 
