@@ -152,6 +152,7 @@ async function buehnen(api, z) {
   if (gratis)
     einzelbild(api, gratis, {
       name: "gratis",
+      schnell: true, // 08.11.: wie der Arena-Schluss, sonst scrollt man über 236 px leeres Papier (Befund M1)
       u: 0.34,
       nochmal: N("gratis"),
       kette: [nullWeg, { aktion: "v2-szene", szene: "gratis", buehne: true, s: 1 }, nullZeigen, { aktion: "sonnenbrille", bleibt: 600000, halten: 1100 }, g("zufrieden", 700)],
@@ -163,6 +164,7 @@ async function buehnen(api, z) {
   if (haken)
     einzelbild(api, haken, {
       name: "haken",
+      schnell: true, // 08.11.: wie der Arena-Schluss, sonst scrollt man über 236 px leeres Papier (Befund M1)
       u: 0.3,
       nochmal: N("haken"),
       kette: [{ aktion: "brille-lugen", halten: 1000 }, { aktion: "v2-szene", szene: "haken", buehne: true, s: 1 }, g("feixen", 900)],
