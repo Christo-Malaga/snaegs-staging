@@ -1,0 +1,1 @@
+import{t as e}from"./teaser-BD0jOPo2.js";export{e as mountTeaser};

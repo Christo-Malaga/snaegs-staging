@@ -1,0 +1,1 @@
+var e=`Warum Klägs konvertiert`;async function t(e){let t=document.querySelector(`template[data-b2b-vorlage='klaegs']`);if(!t)throw Error(`Vorlage für das Blatt klaegs fehlt`);e.append(t.content.cloneNode(!0))}export{t as rendere,e as titel};

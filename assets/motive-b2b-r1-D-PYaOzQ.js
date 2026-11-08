@@ -1,1 +1,0 @@
-import{n as e,r as t,t as n}from"./motive-b2b-r1-B8puXDWa.js";export{n as KATALOG,e as MOTIVE,t as bogenPfeil};
