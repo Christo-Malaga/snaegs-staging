@@ -158,7 +158,13 @@ function tc3dLos() {
 }
 // Prüfhilfe: ?tc3d=aus lässt die Story weg (Vergleichsmessung der Frame-Zeiten), Rahmen und Poster bleiben
 if (!/[?&]tc3d=aus\b/.test(location.search)) imBild(clubGeraet, () => ("requestIdleCallback" in window ? requestIdleCallback(tc3dLos, { timeout: 1200 }) : setTimeout(tc3dLos, 300)), { rand: "0px" });
-clubGeraet.addEventListener("click", () => tc3d?.nochmal());
+// 08.11. (Chris: „wenn Klick auf SNÄGS Testerclub Animation auch auf Testerclubseite wechseln, analog zu Game-Arena-
+// Mechanik“): Antippen führt zur Testerclub-Seite (mit Strg/Cmd in einem neuen Tab, wie ein Link), Enter ebenso
+const clubZiel = clubGeraet?.dataset.href || "/snaegs-staging/v3/site/testerclub.html?von=start-held";
+const zumClub = (e) => (e.ctrlKey || e.metaKey ? window.open(clubZiel, "_blank", "noopener") : location.assign(clubZiel));
+clubGeraet?.addEventListener("click", zumClub);
+clubGeraet?.addEventListener("keydown", (e) => e.key === "Enter" && zumClub(e));
+s.tippbar(clubGeraet, { art: "karte" });
 
 /* ── Game Arena (ZH 07.11., Nachricht 39): das 3D-Handy unter der Decke, Ruhe-Modus, „Coming January“ auf der Decke ── */
 let teaser = null;

@@ -147,8 +147,8 @@ async function buehnen(api, z) {
     }
   });
   const nullWeg = tu(async () => gratis?.classList.remove("ist-null"));
-  // Gratis: Antizipation (lauern, Schild in der Hand) → Aktion (reißt es durch) → Reaktion (lacht, leere Taschen,
-  // Schulterzucken) → Ruhe (Sonnenbrille auf, zufrieden; „0 €“ blutet Gold)
+  // Gratis: Antizipation (lauern, Schild in der Hand) → Aktion (reißt es durch) → Reaktion (lacht, zwinkert; die leeren
+  // Taschen sind seit 08.11. gestrichen) → Ruhe (Sonnenbrille auf, zufrieden; „0 €“ blutet Gold)
   if (gratis)
     einzelbild(api, gratis, {
       name: "gratis",
