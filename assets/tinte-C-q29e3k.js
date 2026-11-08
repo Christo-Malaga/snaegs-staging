@@ -1,1 +1,0 @@
-import{d as e}from"./tinte-DeLqf_Om.js";export{e as tinteSofort};
