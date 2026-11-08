@@ -91,7 +91,7 @@
       "n": 2,
       "title": "Punktekonto",
       "slug": "punktekonto",
-      "subtitle": "Ein Konto für Testerclub und Game Arena.",
+      "subtitle": "Ein Konto für SNÄGS Testerclub und Game Arena.",
       "icon": "",
       "motiv": "muenzglas",
       "intro": [],
@@ -102,7 +102,7 @@
           "body": [
             {
               "t": "p",
-              "x": "Mit deinem SNÄGS-Account hast du ein SNÄGS-Punktekonto. Punkte aus dem Testerclub und aus der Game Arena landen dort zusammen."
+              "x": "Mit deinem SNÄGS-Account hast du ein SNÄGS-Punktekonto. Punkte aus dem SNÄGS Testerclub und aus der Game Arena landen dort zusammen."
             },
             {
               "t": "p",
@@ -223,7 +223,7 @@
           "body": [
             {
               "t": "p",
-              "x": "Im Testerclub warten jeden Tag bis zu fünf Fragen zu Produkten und Marken. Jede Frage zählt einmal."
+              "x": "Im SNÄGS Testerclub warten jeden Tag bis zu fünf Fragen zu Produkten und Marken. Jede Frage zählt einmal."
             },
             {
               "t": "p",
@@ -251,7 +251,7 @@
           "body": [
             {
               "t": "li",
-              "x": "Nur Testerclub: bis 25 Punkte am Tag"
+              "x": "Nur SNÄGS Testerclub: bis 25 Punkte am Tag"
             },
             {
               "t": "li",
@@ -404,7 +404,7 @@
           "body": [
             {
               "t": "p",
-              "x": "Wer jeden Tag in einem Bereich alles mitnimmt, hat die 2.500 Punkte nach 101 aktiven Tagen. Mit Testerclub und Game Arena zusammen sind es 72."
+              "x": "Wer jeden Tag in einem Bereich alles mitnimmt, hat die 2.500 Punkte nach 101 aktiven Tagen. Mit SNÄGS Testerclub und Game Arena zusammen sind es 72."
             },
             {
               "t": "p",
@@ -445,7 +445,7 @@
           "body": [
             {
               "t": "p",
-              "x": "Jeden Samstag läuft in der SNÄGS-App das kostenlose Live-Turnier: vier Räume mit je 200 Spielern."
+              "x": "Jeden Samstag läuft in der SNÄGS-App das kostenlose Turnier: vier Räume mit je 200 Spielern."
             }
           ]
         },
@@ -595,7 +595,7 @@
           "body": [
             {
               "t": "p",
-              "x": "Registrieren kannst du dich hier auf der Website oder direkt in der App. Punkte sammelst du in der SNÄGS-App, dort wählst du zwischen Testerclub und Game Arena."
+              "x": "Registrieren kannst du dich hier auf der Website oder direkt in der App. Punkte sammelst du in der SNÄGS-App, dort wählst du zwischen SNÄGS Testerclub und Game Arena."
             },
             {
               "t": "p",

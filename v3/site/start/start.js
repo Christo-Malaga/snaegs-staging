@@ -86,7 +86,6 @@ window.__start = { s, MODUS };
    die Bildschirmaufnahme des echten Surveys. Der Bildschirm sitzt per matrix3d genau in den gemessenen Ecken
    (survey/rahmen.json, werkzeug/rahmen-schnitt.py); so tragen beide Geräte denselben Rahmen. ──────────────────── */
 const schirm = $(".st-geraet__schirm", clubGeraet);
-const video = $("[data-st-video]");
 /** Ecken des Bildschirms im Rahmen (Anteile der Box; gemessen von werkzeug/rahmen-schnitt.py, Quelle survey/rahmen.json) */
 const RAHMEN = { ecken: [[0.12779, 0.11334], [0.80739, 0.10059], [0.81938, 0.91735], [0.15163, 0.90484]], radius: 0.1366 };
 /** Projektion des Rechtecks 0..w × 0..h auf das Viereck p0 (oben links) … p3 (unten links) → CSS matrix3d */
@@ -125,82 +124,41 @@ function schirmIn(geraet, schirm) {
 }
 schirmSetzen();
 new ResizeObserver(schirmSetzen).observe(clubGeraet);
-let breiteVorher = paketBreite();
-function paketBreite() {
-  return $("[data-st-paket]")?.clientWidth ?? 0;
-}
-addEventListener("resize", () => {
-  clearTimeout(schirmSetzen.t);
-  schirmSetzen.t = setTimeout(() => {
-    if (Math.abs(paketBreite() - breiteVorher) < 2) return;
-    breiteVorher = paketBreite();
-    warenNeu();
-  }, 180);
-});
-// Video: läuft nur, solange es im Bild ist; bei reduzierter Bewegung bleibt das Standbild (Poster)
-if (video) {
-  if (REDUZIERT) {
-    video.removeAttribute("autoplay");
-    video.pause();
-  } else {
-    const vio = new IntersectionObserver((es) => {
-      for (const e of es) {
-        if (e.isIntersecting) video.play?.().catch(() => {});
-        else video.pause();
-      }
-    });
-    vio.observe(video);
-  }
-}
 s.tippbar(clubGeraet, { art: "flaeche" });
 
-/* ── die 3D-Box vor dem Survey-Handy: offen, aus ihr schauen drei verschiedene Produkte (Getränk, Pflege, Gadget) ── */
-const paketEl = $("[data-st-paket]");
-const waren = $("[data-st-waren]");
-const WAREN = [
-  { motiv: "energy-dose", dx: -0.3, dy: -0.12, g: 0.24, dreh: -14 },
-  { motiv: "serum", dx: 0.0, dy: -0.3, g: 0.22, dreh: 4 },
-  { motiv: "earbuds", dx: 0.32, dy: -0.1, g: 0.27, dreh: 12 },
-];
-let paket = null;
-let warenListe = [];
-import("../v2/schau/box3d.js")
-  .then(async (m) => {
-    if (!paketEl) return;
-    paket = m.box3d(paketEl, { variante: "paket", interaktiv: false, sofort: true, groesse: 0.94, label: "" });
-    window.__start.paket = paket;
-    await paket.bereit;
-    paket.oeffne(0);
-    await warte(REDUZIERT ? 0 : 520);
-    warenNeu(true);
-  })
-  .catch((e) => console.warn("[start] box3d", e));
-
-/** Produkte über der offenen Box zeichnen (bei neuer Breite neu, ohne Auftritt) */
-async function warenNeu(auftritt = false) {
-  const B = await STRICH;
-  if (!B?.zeichne || !paketEl) return;
-  for (const z of warenListe) z?.entferne?.();
-  const L = paket?.lage?.(0);
-  const w = paketEl.clientWidth;
-  const h = paketEl.clientHeight;
-  const breite = L?.breite ?? w * 0.62;
-  const x0 = L?.x ?? w * 0.5;
-  const y0 = L?.y ?? h * 0.45;
-  warenListe = WAREN.map((p, i) => {
-    try {
-      const z = B.zeichne(waren, p.motiv, { x: x0 + p.dx * breite * 1.2, y: y0 + p.dy * breite, groesse: breite * p.g * 1.35, farbe: true, dreh: p.dreh, art: auftritt ? "filz" : "sofort", ms: 1100, start: "sofort", warte: auftritt ? i * 260 : 0 });
-      if (auftritt && z?.el && !REDUZIERT) {
-        z.el.classList.add("ist-unten");
-        setTimeout(() => z.el.classList.remove("ist-unten"), 60 + i * 260);
-      }
-      return z;
-    } catch (e) {
-      console.warn("[start] Ware", p.motiv, e);
-      return null;
-    }
-  });
+/* ── H3D 08.11. (Chris: „den Survey etwas rudimentärer animierst, ein, zwei, drei Schritte machst, übertrieben dargestellt
+   Coins dafür bekommst und diese Coins wiederum in Reward Boxen umwandeln kannst … 3JS-Animation … subtil, performant …
+   sehr, sehr klar gegenüber dieses Gaming“): Der Testerclub ist eine three.js-Story (./testerclub3d): das 3D-Handy zeigt
+   drei Quick-Check-Fragen, jede Antwort bringt einen Münzschwall in den Stapel, dann strömen die Münzen in die Reward
+   Box, sie rüttelt und ist voll. Rahmen und Poster (oben) stehen bis zum ersten 3D-Bild und bleiben ohne WebGL.
+   WebGL erst, wenn der Hero im Bild und der Hauptfaden frei ist. Nie zwei Bewegungen gleichzeitig: Vor jedem Antippen
+   wartet die Story, solange sich die Game Arena gerade bewegt. Antippen spielt sie noch einmal (frühestens nach 5 s). ── */
+let tc3d = null;
+function tc3dLos() {
+  import("./testerclub3d/story.js")
+    .then(({ mountTesterclub3d }) =>
+      mountTesterclub3d(clubGeraet, {
+        reduziert: REDUZIERT,
+        tor: () => !teaser?.ruhe?.bewegt,
+        onBeat: (id) => {
+          // die Dose steigt aus der Box: Klägs darf kurz hinschauen und staunen, wenn er frei ist (sein Ziel bleibt der Knopf)
+          const k = s.api?.klecks;
+          if (id !== "dose" || !k?.da || k.ausflug || k.griff || k.strich || k.formen || REDUZIERT) return;
+          k.schau(clubGeraet);
+          setTimeout(() => k.fuehle?.("staunen-leise"), 320);
+        },
+      }),
+    )
+    .then((api) => {
+      tc3d = api;
+      window.__start.tc3d = api;
+      api?.start();
+    })
+    .catch((e) => console.warn("[start] Testerclub 3D", e));
 }
+// Prüfhilfe: ?tc3d=aus lässt die Story weg (Vergleichsmessung der Frame-Zeiten), Rahmen und Poster bleiben
+if (!/[?&]tc3d=aus\b/.test(location.search)) imBild(clubGeraet, () => ("requestIdleCallback" in window ? requestIdleCallback(tc3dLos, { timeout: 1200 }) : setTimeout(tc3dLos, 300)), { rand: "0px" });
+clubGeraet.addEventListener("click", () => tc3d?.nochmal());
 
 /* ── Game Arena (ZH 07.11., Nachricht 39): das 3D-Handy unter der Decke, Ruhe-Modus, „Coming January“ auf der Decke ── */
 let teaser = null;
@@ -265,19 +223,11 @@ teaserHost?.addEventListener("click", (e) => {
   setTimeout(() => k.fuehle?.("staunen-leise"), 380);
 });
 
-/* ── Testerclub präsent: violette Lasur hinter dem Handy, violetter Textmarker am Wort (Violett = du) ─────────────── */
+/* ── Testerclub präsent: violette Lasur hinter dem Handy (Violett = du). Den Namen „SNÄGS Testerclub“ unterlegt der
+   Aquarell-Bleed der Marke (data-tc, site/v2/marke/testerclub-bleed.js); der frühere Textmarker fällt weg, sonst lägen
+   zwei Farben hinter dem Wort. ───────────────────────────────────────────────────────────────────────────────────── */
 const clubFeld = $("[data-st-club-feld]");
-const clubWort = $("[data-st-club-wort]");
 setTimeout(() => clubFeld?.classList.add("ist-da"), REDUZIERT ? 0 : 500);
-STRICH.then((B) => {
-  if (!B?.markiere || !clubWort) return;
-  try {
-    // Textmarker in Violett hinter dem Wort (wie Gold an „gratis“): zieht sich, sobald das Wort im Bild ist
-    setTimeout(() => B.markiere(clubWort, "violett", { start: "sicht" }), REDUZIERT ? 0 : 650);
-  } catch (e) {
-    console.warn("[start] Testerclub-Marker", e);
-  }
-});
 
 /* ── Intro (optional) und der eine Moment oben ─────────────────────────────────────────────────────────────────── */
 function ansageZeigen(sofort = false) {
@@ -574,6 +524,22 @@ async function motive(wurzel) {
 }
 for (const id of ["#founder", "#arena", "#punkte"]) imBild($(id), () => motive($(id)), { rand: "0px 0px 20% 0px" });
 
+/* ── 08.11. (Chris): in der Arena-Sektion ein kleiner Ausschnitt vom echten Game (Teaser im Ausschnitt-Modus, nicht der
+   Trailer), er spielt, solange er im Bild ist ─────────────────────────────────────────────────────────────────────── */
+const arenaHandy = $("[data-st-arena-handy]");
+if (arenaHandy)
+  imBild(
+    arenaHandy,
+    () =>
+      import("../arena/teaser/index.js")
+        .then(({ mountTeaser }) => {
+          const t = mountTeaser(arenaHandy, { modus: "ausschnitte", ausschnitte: false, autoplay: true, start: 1 });
+          t.bereit?.then?.(() => t.zeige?.(1));
+        })
+        .catch((e) => console.warn("[start] Arena-Ausschnitt", e)),
+    { rand: "25% 0px 25% 0px" },
+  );
+
 /** Zeichen der Seite aus der Asset-Datenbank (Pfeile, Schloss der Game Arena, Founder-Abzeichen am Schluss) */
 const ZEICHEN_FARBE = { muenze: "gold", "founder-abzeichen": true };
 STRICH.then((B) => {
@@ -816,6 +782,18 @@ s.tippbar($("[data-st-intro]"), { art: "knopf" });
 
 /* ── 3 Probe: Mini-Fragebogen. Du tippst, Klecks hakt ab, was du gewählt hast ───────────────────────────────────── */
 const probe = $("#testerclub");
+/* 08.11. (Chris): kleines Survey-Handy hinter dem Bogen; Schirm wie im Hero perspektivisch in den Rahmen gelegt (schirmIn),
+   die Aufnahme läuft nur, solange sie im Bild ist (reduzierte Bewegung: Standbild) */
+const mini = $("[data-st-mini]");
+const miniSchirm = $("[data-st-mini-schirm]");
+const miniVideo = $("[data-st-mini-video]");
+if (mini && miniSchirm) {
+  const setze = () => schirmIn(mini, miniSchirm);
+  setze();
+  new ResizeObserver(setze).observe(mini);
+  if (miniVideo && !REDUZIERT)
+    new IntersectionObserver((es) => es.forEach((e) => (e.isIntersecting ? miniVideo.play?.().catch(() => {}) : miniVideo.pause()))).observe(mini);
+}
 const bogen = $("[data-st-bogen]");
 const fragen = $$("[data-st-frage-nr]", bogen);
 const danke = $("[data-st-danke]", bogen);
@@ -921,7 +899,13 @@ async function dabeiAbhaken() {
       const r = $(".st-dabei__aufruf", dabei).getBoundingClientRect();
       return [Math.min(innerWidth - K.R - 10, r.right - K.R * 1.2), r.top - K.R + 3];
     };
-    await markiere(K, "schreiben", $("[data-st-dabei]"), { text: "Ja!", wo: "rechts", schrift: "hand", gefuehl: "stolz" });
+    // 08.11. (Chris): „Alles kostenlos“ und „Start im Januar 2027“ werden zuerst abgehakt (oben); das kleine „Ja!“ kommt
+    // danach nur manchmal (Zufall), und zwar unter der Frage im freien Platz [data-st-ja], nie neben den Haken
+    const jaPlatz = $("[data-st-ja]", dabei);
+    if (jaPlatz && Math.random() < 0.5) {
+      await warte(REDUZIERT ? 0 : 600 + Math.random() * 1400);
+      await markiere(K, "schreiben", jaPlatz, { text: "Ja!", wo: "in", schrift: "hand", gefuehl: "stolz" });
+    }
     // weg von seinem Ja! (er verdeckt nie Text): auf den Platz am Knopf
     for (let t = 0; t < 1400 && (K.strich || K.formen || K.modus !== "sitzen"); t += 80) await warte(80);
     const [hx, hy] = heim();

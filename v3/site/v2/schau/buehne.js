@@ -21,6 +21,10 @@
 // buehne(canvas, { art: "ankunft" | "box", reduziert }) → { setze({ hold }), auspacken(), drehen(), dispose() } | null
 //   ankunft: Die Box fällt aufs Papier, rüttelt („klopft an“), springt auf, die Dose steigt. Antippen packt neu aus.
 //   box:     Reward Box auf Schwarz. Sie rüttelt, wenn man sie hält oder antippt, öffnet sich aber nie.
+//   box + halten (TCH 08.11., Chris: „Entweder tippen oder du hältst es wirklich … Halten und Aufpoppen, wenn du an
+//            Game-Haptiken denkst“): Der Gastgeber (sektionen.js) lädt die Box mit laden(p) auf. Sie staucht sich dabei
+//            (Squash), rüttelt stärker, die Fuge glüht (box.js). aufpoppen(): Deckel springt (box.js), die Box streckt
+//            sich und federt nach (Stretch); schliessen(): Deckel fällt zu. Ohne laden sackt sie zurück.
 
 import * as THREE from "three";
 import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment.js";
@@ -78,7 +82,7 @@ function texturen(renderer, neu) {
  * @param {HTMLCanvasElement} canvas
  * @param {{art?: "ankunft"|"box", reduziert?: boolean, onBeat?: (name: string) => void}} o
  */
-export function buehne(canvas, { art = "ankunft", reduziert = false, onBeat, onBild } = {}) {
+export function buehne(canvas, { art = "ankunft", reduziert = false, onBeat, onBild, halten = false } = {}) {
   if (!webglMoeglich()) return null;
   const nacht = art === "box";
   const handy = matchMedia("(max-width: 700px)").matches;
@@ -146,7 +150,8 @@ export function buehne(canvas, { art = "ankunft", reduziert = false, onBeat, onB
   });
   const mitte = bb.getCenter(new THREE.Vector3());
   // Platz über dem Deckel: Auf Papier steigt dort der Packshot heraus, darum steht die Box tiefer im Bild
-  mitte.y += art === "ankunft" ? 0.26 : 0.09;
+  // Halten (Box-Sektion): Platz über der Box für den aufspringenden Deckel, die Strahlen und den Ring
+  mitte.y += art === "ankunft" ? 0.26 : halten && art === "box" ? 0.24 : 0.09;
   // Leuchten (additiv) waschen auf hellem Papier aus: auf Papier gedämpft, in der Nacht voll
   const leuchten = [];
   el.group.traverse((o) => {
@@ -189,7 +194,7 @@ export function buehne(canvas, { art = "ankunft", reduziert = false, onBeat, onB
     // Abstand: Kugel um die Körper passt in die schmalere Achse
     const vf = (FOV * Math.PI) / 180;
     const hf = 2 * Math.atan(Math.tan(vf / 2) * camera.aspect);
-    const d = radius / Math.tan(Math.min(vf, hf) / 2) * (art === "ankunft" ? 1.12 : 1.08);
+    const d = radius / Math.tan(Math.min(vf, hf) / 2) * (art === "ankunft" ? 1.12 : halten && art === "box" ? 1.17 : 1.08);
     camera.position.set(mitte.x, mitte.y + Math.sin(pitch) * d, mitte.z + Math.cos(pitch) * d);
     camera.lookAt(mitte);
     camera.updateProjectionMatrix();
@@ -210,7 +215,16 @@ export function buehne(canvas, { art = "ankunft", reduziert = false, onBeat, onB
     zieh: null,
     gedrueckt: false,
     puls: 0,
+    // Halten (nur art box + halten): Ladung 0 … 1, offen nach dem Aufpoppen, Deckel schließt (zu: Startzeit),
+    // Squash & Stretch als Feder (sq: Stauchung, + = gestreckt)
+    lad: 0,
+    offen: false,
+    zu: 0,
+    sq: 0,
+    sqV: 0,
   };
+  const HALTEN = halten && art === "box";
+  const BASIS = bb.min.y; // Fuß der Box (Halter-Raum): Stauchen und Strecken um den Aufstandspunkt
   let ablauf = null; // Timeline der Ankunft
 
   function ankunft() {
@@ -254,8 +268,15 @@ export function buehne(canvas, { art = "ankunft", reduziert = false, onBeat, onB
     if (art === "box") {
       z.puls = Math.max(0, z.puls - dt * 1.2);
       z.holdZiel = Math.min(0.82, (z.gedrueckt ? 0.82 : 0) + z.puls * 0.8);
+      if (HALTEN) z.holdZiel = z.offen ? 0.96 : Math.max(z.lad * 0.86, z.puls * 0.8);
     }
-    z.hold = art === "ankunft" && z.holdZiel > 0.9 ? z.holdZiel : daempf(z.hold, z.holdZiel, dt, 7);
+    z.hold = (art === "ankunft" || HALTEN) && z.holdZiel > 0.9 ? z.holdZiel : daempf(z.hold, z.holdZiel, dt, HALTEN ? 12 : 7);
+    if (HALTEN) {
+      // Feder: beim Laden staucht sie sich (bis −9 %), beim Aufpoppen schnellt sie hoch und federt aus
+      const ziel = z.offen ? 0 : -0.09 * z.lad;
+      z.sqV += (-70 * (z.sq - ziel) - 8.5 * z.sqV) * dt;
+      z.sq += z.sqV * dt;
+    }
     // Drehen: Ziehen gibt Schwung, er klingt ab; eine Antipp-Drehung läuft als Feder
     if (!z.zieh) {
       z.yaw += z.yawV * dt;
@@ -270,8 +291,10 @@ export function buehne(canvas, { art = "ankunft", reduziert = false, onBeat, onB
     } else halter.rotation.y = z.yaw;
     halter.position.y = z.fall * 1.6 + (z.fall === 0 ? 0 : Math.sin(z.fall * Math.PI) * 0.05);
     halter.rotation.z = z.fall * 0.25;
+    if (HALTEN) stauchen();
     const t = (jetzt - z.t0) / 1000;
     el.update({ t, dt, focus: 1, hold: z.hold, outro: 0 });
+    if (HALTEN) deckelZu(jetzt);
     if (LEUCHT < 1) for (const m of leuchten) m.opacity *= LEUCHT;
     kleid?.sync();
     // Kontaktschatten erst, wenn das Paket unten ankommt
@@ -282,7 +305,7 @@ export function buehne(canvas, { art = "ankunft", reduziert = false, onBeat, onB
     onBild?.(rand(), z);
     // Leistung (Abnahme: Ruckler > 50 ms beim Scrollen): Nur rendern, solange sich etwas bewegt. Danach steht das
     // letzte Bild, bis ein Finger, ein Beat oder setze() die Bühne weckt.
-    const bewegt = !!ablauf || !!z.zieh || z.gedrueckt || z.spin > 0 || z.puls > 0 || z.fall > 0 || Math.abs(z.yawV) > 0.02 || Math.abs(z.hold - z.holdZiel) > 0.004;
+    const bewegt = !!ablauf || !!z.zieh || z.gedrueckt || z.spin > 0 || z.puls > 0 || z.fall > 0 || Math.abs(z.yawV) > 0.02 || Math.abs(z.hold - z.holdZiel) > 0.004 || z.lad > 0 || !!z.zu || Math.abs(z.sq) > 0.002 || Math.abs(z.sqV) > 0.02;
     if (bewegt) ruheAb = jetzt + 900;
     if (jetzt < ruheAb) weiter();
   }
@@ -294,6 +317,31 @@ export function buehne(canvas, { art = "ankunft", reduziert = false, onBeat, onB
   function wecke() {
     ruheAb = Math.max(ruheAb, performance.now() + 900);
     weiter();
+  }
+  /** Squash & Stretch um den Fuß: Höhe 1 + sq, Breite gegengleich (Volumen bleibt ungefähr) */
+  function stauchen() {
+    const sy = 1 + z.sq;
+    const sx = 1 - z.sq * 0.45;
+    halter.scale.set(sx, sy, sx);
+    halter.position.y += BASIS * (1 - sy);
+  }
+  /** Deckel schließt nach dem Aufpoppen (0,42 s, fällt mit kleinem Nachwippen), danach übernimmt box.js wieder */
+  const deckel = kleid?.teile?.deckel ?? null;
+  function deckelZu(jetzt) {
+    if (!z.zu || !deckel) return;
+    const u = Math.min(1, (jetzt - z.zu) / 420);
+    const e = u * u * (3 - 2 * u);
+    deckel.rotation.x = deckel.rotation.x * (1 - e) + Math.sin(u * Math.PI) * 0.03 * (1 - u);
+    deckel.position.y = deckel.position.y * (1 - e) + 0.402 * e;
+    // was beim Aufspringen aus dem Füllpapier stieg, sinkt mit dem Deckel zurück (sonst stäche es durch ihn)
+    const inhalt = kleid?.teile?.inhalt;
+    if (inhalt) inhalt.position.y -= 0.34 * e;
+    if (u >= 1) {
+      z.zu = 0;
+      z.offen = false;
+      z.hold = z.holdZiel = 0;
+      z.sqV -= 0.6; // Aufsetzen: kurz einfedern
+    }
   }
   function einBild(hold) {
     if (!messen()) return;
@@ -380,7 +428,24 @@ export function buehne(canvas, { art = "ankunft", reduziert = false, onBeat, onB
   const vorkompilieren = () => {
     try {
       messen();
+      // Halten: auch den offenen Zustand übersetzen und hochladen (Produkte mit ihrem Atlas, Strahlen, Ring). three
+      // übersetzt nur Sichtbares; ohne das hakte das erste Aufpoppen (gemessen 0,7 s, genau im Höhepunkt).
+      if (HALTEN) {
+        el.update({ t: 100, dt: 0, focus: 1, hold: 0.96, outro: 0 });
+        el.update({ t: 102, dt: 0, focus: 1, hold: 0.96, outro: 0 });
+        kleid?.sync();
+        halter.updateMatrixWorld(true);
+        const KARTEN = ["map", "alphaMap", "bumpMap", "normalMap", "roughnessMap", "metalnessMap", "emissiveMap", "aoMap"];
+        scene.traverse((o) => {
+          for (const m of [].concat(o.material ?? [])) for (const k of KARTEN) if (m?.[k]?.isTexture && m[k].image) renderer.initTexture(m[k]);
+        });
+      }
       renderer.compileAsync?.(scene, camera)?.catch?.(() => {});
+      if (HALTEN) {
+        el.update({ t: 0, dt: 0, focus: 1, hold: 0, outro: 0 });
+        kleid?.sync();
+        wecke();
+      }
     } catch {
       /* ohne compileAsync: übersetzt beim ersten Bild */
     }
@@ -413,6 +478,32 @@ export function buehne(canvas, { art = "ankunft", reduziert = false, onBeat, onB
     /** einmal rütteln (Nacht-Box) */
     ruetteln() {
       z.puls = 1;
+      wecke();
+    },
+    /** Halten: Ladung 0 … 1 (0 = losgelassen, die Box sackt zurück) */
+    laden(p) {
+      if (!HALTEN || z.offen) return;
+      z.lad = Math.min(1, Math.max(0, p));
+      if (!reduziert) wecke();
+    },
+    /** Halten voll: Deckel springt auf, die Box streckt sich und federt aus */
+    aufpoppen() {
+      if (!HALTEN || z.offen) return;
+      z.offen = true;
+      z.lad = 0;
+      z.zu = 0;
+      z.sqV += 3.4;
+      if (reduziert) return einBild(0.96);
+      wecke();
+    },
+    /** nach dem Aufpoppen: Deckel fällt zu */
+    schliessen() {
+      if (!HALTEN || !z.offen) return;
+      if (reduziert) {
+        z.offen = false;
+        return einBild(0);
+      }
+      z.zu = performance.now();
       wecke();
     },
     drehen() {

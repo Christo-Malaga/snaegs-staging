@@ -8,6 +8,7 @@
 
 import { zeichner } from "./schau/zeichnen.js";
 import { baueSektionen, starteHeld } from "./schau/sektionen.js";
+import "./marke/testerclub-bleed.js"; // T1 08.11.: „SNÄGS Testerclub“ und Abschnitts-Highlights mit Aquarell-Bleed
 
 const REDUZIERT = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const HANDY = matchMedia("(max-width: 899px)");
@@ -105,6 +106,7 @@ const ABLAEUFE = {
   "urteil-danke": [{ gefuehl: "nicken", warte: 700 }, { aktion: "daumen" }],
   box: [{ gefuehl: "ruehrung", warte: 1100 }, { gefuehl: "lauschen" }],
   "box-schuetteln": [{ gefuehl: "lauschen", warte: 900 }, { gefuehl: "staunen-leise" }],
+  "box-auf": [{ gefuehl: "jubel" }], // TCH 08.11.: gehalten, bis die Box aufpoppt
   "haken-blick": [{ gefuehl: "verschmitzt" }],
   haken: [{ gefuehl: "schulterzucken" }],
   einladung: [{ aktion: "verbeugung" }, { aktion: "hut-aufsetzen" }, { gefuehl: "stolz" }],

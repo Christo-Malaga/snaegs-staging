@@ -4,9 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="robots" content="noindex" />
-    <link rel="icon" href="data:," />
+    <link rel="icon" type="image/svg+xml" href="/snaegs-staging/v3/assets/snaegs-favicon-C7AnkDYR.svg" />
     <title>SNÄGS · Test it. Play it. Love it.</title>
-    <meta name="description" content="SNÄGS verbindet Produkttests und Gaming: neue Produkte gratis testen, ab Januar 2027 kostenlos zocken, Punkte sammeln, Reward Boxen holen. Jetzt kostenlos registrieren und bis 31.12.2026 Founder werden. Ab 18." />
+    <meta name="description" content="SNÄGS verbindet Produkttests und Gaming: neue Produkte gratis testen, ab Januar 2027 kostenlos zocken, Punkte sammeln, Reward Boxen holen. Jetzt kostenlos zum SNÄGS Testerclub voranmelden und bis 31.12.2026 Founder werden. Ab 18." />
     <link rel="preload" href="/snaegs-staging/v3/fonts/tiktok-sans-latin-var.woff2" as="font" type="font/woff2" crossorigin />
     <script src="/snaegs-staging/v3/site/v2/wege/vorab.js"></script>
     <script>
@@ -29,7 +29,7 @@
         }
       })();
     </script>
-    <script type="module" crossorigin src="/snaegs-staging/v3/assets/website-C_l_N0to.js"></script>
+    <script type="module" crossorigin src="/snaegs-staging/v3/assets/website-zWMEt4vx.js"></script>
     <link rel="modulepreload" crossorigin href="/snaegs-staging/v3/assets/modulepreload-polyfill-Dezn_h7o.js">
     <link rel="modulepreload" crossorigin href="/snaegs-staging/v3/assets/rolldown-runtime-QTnfLwEv.js">
     <link rel="modulepreload" crossorigin href="/snaegs-staging/v3/assets/gesten-DuKU43vj.js">
@@ -55,12 +55,13 @@
     <link rel="modulepreload" crossorigin href="/snaegs-staging/v3/assets/koerper-DE8Q3VwY.js">
     <link rel="modulepreload" crossorigin href="/snaegs-staging/v3/assets/regie-seiten-DDjbSWz5.js">
     <link rel="modulepreload" crossorigin href="/snaegs-staging/v3/assets/fuehrung-BAjvZiIq.js">
-    <link rel="modulepreload" crossorigin href="/snaegs-staging/v3/assets/start-fKdnM9T8.js">
-    <link rel="modulepreload" crossorigin href="/snaegs-staging/v3/assets/zustand-ZmNkzhgA.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/v3/assets/testerclub-bleed-WEhzOMgd.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/v3/assets/start-Cv_D5V29.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/v3/assets/zustand-SaHs5gHc.js">
     <link rel="stylesheet" crossorigin href="/snaegs-staging/v3/assets/style-CJUYsI2k.css">
-    <link rel="stylesheet" crossorigin href="/snaegs-staging/v3/assets/website-DMMnxl59.css">
-    <link rel="stylesheet" crossorigin href="/snaegs-staging/v3/assets/testerclub-D372mMCe.css">
-    <link rel="stylesheet" crossorigin href="/snaegs-staging/v3/assets/wege-D_nFnoTZ.css">
+    <link rel="stylesheet" crossorigin href="/snaegs-staging/v3/assets/website-D5dSn4zS.css">
+    <link rel="stylesheet" crossorigin href="/snaegs-staging/v3/assets/testerclub-CwmlzjoO.css">
+    <link rel="stylesheet" crossorigin href="/snaegs-staging/v3/assets/wege-B7lE9uOr.css">
   </head>
   <!-- Startseite v3 (V3A 07.11., Wünsche des SNÄGS-CEO, site/v2/QUELLE-CEO-WEBSITE.md), Reihenfolge nach seinem Punkt 6:
        beide Bereiche oben (Testerclub aktiv, Game Arena gesperrt) · Founder-Aktion · Testerclub · Game Arena · Punkte und
@@ -107,18 +108,18 @@
              leiser, ihre Decke lüftet sich nach etwa 2 s (0,6 s), darunter ein ruhiges Standbild des Games. -->
         <div class="st-welten" data-st-welten>
           <div class="st-welt st-welt--club" data-st-welt="club">
-            <p class="st-welt__name" data-st-name="club"><span class="st-welt__wort" data-st-club-wort>Testerclub</span><span class="st-welt__was">Neue Produkte gratis&nbsp;testen</span></p>
+            <p class="st-welt__name" data-st-name="club"><span class="st-welt__wort" data-st-club-wort data-tc>SNÄGS Testerclub</span><span class="st-welt__was">Neue Produkte gratis&nbsp;testen</span></p>
             <span class="st-welt__feld" data-st-club-feld aria-hidden="true"></span>
-            <a class="st-geraet st-geraet--survey" href="/snaegs-staging/v3/survey.html?von=start-held" data-st-survey-geraet aria-label="Testerclub: So spielt sich ein Produkttest. Antippen startet die Demo.">
-              <span class="st-geraet__schirm">
-                <video class="st-geraet__video" data-st-video autoplay muted loop playsinline preload="auto" poster="/snaegs-staging/v3/assets/survey-poster-C6rvieXj.webp" aria-hidden="true">
-                  <source src="/snaegs-staging/v3/assets/survey-loop-CpCeXmpc.webm" type="video/webm" />
-                  <source src="/snaegs-staging/v3/assets/survey-loop-BqWN66DA.mp4" type="video/mp4" />
-                </video>
-              </span>
+            <!-- H3D 08.11. (Chris: „den Survey etwas rudimentärer animierst, ein, zwei, drei Schritte machst, übertrieben
+                 dargestellt Coins dafür bekommst und diese Coins wiederum in Reward Boxen umwandeln kannst … 3JS-Animation“):
+                 statt der Bildschirmaufnahme eine three.js-Story (/snaegs-staging/v3/site/start/testerclub3d): drei Fragen, je ein Münzschwall,
+                 die Münzen strömen in die Reward Box. Rahmen und Poster stehen bis zum ersten 3D-Bild und bleiben ohne WebGL.
+                 Antippen spielt die Story noch einmal. -->
+            <div class="st-geraet st-geraet--survey st-tc3d" data-st-survey-geraet data-st-tc3d role="img" aria-label="SNÄGS Testerclub: Deine Meinung bringt dir Punkte, mit deinen Punkten holst du dir eine Reward Box.">
+              <span class="st-geraet__schirm"><img class="st-geraet__video" src="/snaegs-staging/v3/assets/survey-poster-DUBensuB.webp" alt="" decoding="async" /></span>
               <img class="st-geraet__rahmen" src="/snaegs-staging/v3/assets/handy-rahmen-ChLkOy5G.webp" alt="" width="720" height="1335" decoding="async" fetchpriority="high" />
-            </a>
-            <span class="st-paket" data-st-paket aria-hidden="true"><span class="st-paket__waren" data-st-waren></span></span>
+            </div>
+            <!-- 08.11. (Chris: „diese hässliche Box loswerden … erstmal verschwinden“): die 3D-Box mit gezeichneten Produkten vor dem Handy ist raus; start.js überspringt sie ohne [data-st-paket]. -->
           </div>
           <div class="st-welt st-welt--arena" data-st-welt="arena" data-st-arena>
             <p class="st-welt__name" data-st-name="arena"><span class="st-welt__wort">Game Arena</span><span class="st-welt__was">Start Januar&nbsp;2027</span></p>
@@ -128,12 +129,13 @@
                  Game Arena. Die gelüftete Arena selbst führt beim Antippen ebenfalls dorthin. -->
             <span class="st-welt__fuss">
               <span class="st-welten__sitz" data-sitz="held" data-sitz-art="mitte" data-st-sitz aria-hidden="true"></span>
-              <a class="st-weg st-welt__weg" href="/snaegs-staging/v3/site/arena.html?von=start-held" data-st-arena-weg>Zum Trailer<span class="st-weg__pfeil" data-st-zeichen="pfeil-kurz" aria-hidden="true"></span></a>
+              <a class="st-weg st-welt__weg" href="/snaegs-staging/v3/site/arena.html?von=start-held" data-st-arena-weg>Zur Game Arena<span class="st-weg__pfeil" data-st-zeichen="pfeil-kurz" aria-hidden="true"></span></a>
             </span>
           </div>
           <div class="st-held__knoepfe">
-            <a class="v2-knopf v2-knopf--bonus v2-knopf--lang st-held__knopf" href="/snaegs-staging/v3/vorregistrierung.html?von=start-held" data-vorreg="start-held" data-st-club data-hauptknopf data-naechstes="3">Jetzt kostenlos registrieren<span class="v2-bonus" aria-hidden="true"><span class="v2-muenze" data-muenze></span><span class="v2-bonus__plus">+150</span></span><span class="v2-sr">, 150 Early-Bird-Punkte</span><span class="st-held__sitz" data-st-knopf-sitz data-sitz-art="oben" data-sitz-u="0.88" aria-hidden="true"></span></a>
-            <p class="v2-klein st-held__klein">150 Early-Bird-Punkte, gutgeschrieben im&nbsp;Januar.&nbsp;Ab&nbsp;18.</p>
+            <a class="v2-knopf v2-knopf--bonus v2-knopf--lang st-held__knopf" href="/snaegs-staging/v3/vorregistrierung.html?von=start-held" data-vorreg="start-held" data-st-club data-hauptknopf data-naechstes="3">Jetzt voranmelden<span class="v2-bonus" aria-hidden="true"><span class="v2-muenze" data-muenze></span><span class="v2-bonus__plus">+150</span></span><span class="v2-sr">, 150 Early-Bird-Punkte</span><span class="st-held__sitz" data-st-knopf-sitz data-sitz-art="oben" data-sitz-u="0.88" aria-hidden="true"></span></a>
+            <p class="v2-klein st-held__klein">Kostenlose Voranmeldung zum SNÄGS Testerclub, ab&nbsp;18. Bis 31.12.2026 wirst du Founder und startest mit 150&nbsp;Punkten.</p>
+            <ul class="v2-vertrauen" aria-label="Sicher voranmelden"><li><span class="v2-vertrauen__zeichen v2-vertrauen__zeichen--schloss" aria-hidden="true"></span>SSL-verschlüsselt</li><li><span class="v2-vertrauen__zeichen v2-vertrauen__zeichen--sterne" aria-hidden="true"></span>DSGVO-konform</li><li><span class="v2-vertrauen__zeichen v2-vertrauen__zeichen--brief" aria-hidden="true"></span>Kein Spam</li></ul>
           </div>
         </div>
       </section>
@@ -146,7 +148,10 @@
       <section class="s st-founder v2-nacht" id="founder" data-abschnitt="founder" data-farbe="nacht-gold" aria-labelledby="founder-titel">
         <div class="st-founder__kopf">
           <h2 id="founder-titel" class="plakat st-founder__titel">Sei von Anfang an&nbsp;dabei!</h2>
+          <!-- 08.11. (Chris: „Das ist eine Voranmeldung für den Testerclub, der im Januar startet. Punkt.“ – die Quintessenz sticht vor den Perks heraus) -->
+          <p class="st-founder__kern"><span>Jetzt voranmelden und maximal profitieren.</span> <span class="st-founder__kern-b">Los geht's im Januar&nbsp;2027.</span></p>
           <p class="st-founder__frist"><span class="st-founder__ende">Founder-Aktion endet am 31.12.2026!</span> <span class="st-founder__tage" data-st-tage hidden></span></p>
+          <p class="st-founder__satz">Wer sich bis dahin voranmeldet, wird Founder und bekommt obendrauf:</p>
         </div>
         <div class="st-founder__pass">
           <figure class="st-founder__ding st-founder__ding--abzeichen">
@@ -166,8 +171,9 @@
           <li><span class="st-founder__zeichen" data-st-motiv="umschlag" data-farbe="violett" aria-hidden="true"></span><span class="st-founder__text"><b>Bis zu 125 Punkte extra</b><span>für Freunde, die mitmachen</span></span></li>
         </ul>
         <div class="st-founder__aufruf">
-          <a class="v2-knopf v2-knopf--bonus st-voran" href="/snaegs-staging/v3/vorregistrierung.html?von=start-founder" data-vorreg="start-founder" data-cta="haupt" data-hauptknopf data-naechstes="3">Jetzt Founder werden<span class="v2-bonus" aria-hidden="true"><span class="v2-muenze" data-muenze></span><span class="v2-bonus__plus">+150</span></span><span class="v2-sr">, 150 Early-Bird-Punkte</span></a>
-          <p class="v2-klein st-founder__klein">Kostenlos, ab&nbsp;18.</p>
+          <a class="v2-knopf v2-knopf--bonus st-voran" href="/snaegs-staging/v3/vorregistrierung.html?von=start-founder" data-vorreg="start-founder" data-cta="haupt" data-hauptknopf data-naechstes="3">Jetzt voranmelden<span class="v2-bonus" aria-hidden="true"><span class="v2-muenze" data-muenze></span><span class="v2-bonus__plus">+150</span></span><span class="v2-sr">, 150 Early-Bird-Punkte</span></a>
+          <p class="v2-klein st-founder__klein">Kostenlose Voranmeldung, ab&nbsp;18. Dauert rund 2&nbsp;Minuten.</p>
+          <ul class="v2-vertrauen" aria-label="Sicher voranmelden"><li><span class="v2-vertrauen__zeichen v2-vertrauen__zeichen--schloss" aria-hidden="true"></span>SSL-verschlüsselt</li><li><span class="v2-vertrauen__zeichen v2-vertrauen__zeichen--sterne" aria-hidden="true"></span>DSGVO-konform</li><li><span class="v2-vertrauen__zeichen v2-vertrauen__zeichen--brief" aria-hidden="true"></span>Kein Spam</li></ul>
         </div>
       </section>
 
@@ -176,10 +182,22 @@
       <section class="s st-probe" id="testerclub" data-abschnitt="testerclub" data-farbe="violett" aria-labelledby="testerclub-titel">
         <div class="st-probe__feld" data-st-feld aria-hidden="true"></div>
         <div class="st-probe__kopf">
-          <h2 id="testerclub-titel" class="plakat">Die neuesten Produkte? Vielleicht testest du sie&nbsp;zuerst.</h2>
+          <h2 id="testerclub-titel" class="plakat">Die <span data-bleed="cyan">neuesten Produkte</span>? Vielleicht testest du sie&nbsp;zuerst.</h2>
           <p>Du sagst Marken deine Meinung, von bekannten Namen bis zu neuen Creator-Brands, und sammelst dafür Punkte. So fühlt sich ein Test an:</p>
         </div>
-        <div class="st-bogen" data-st-bogen data-sitz="bogen" data-sitz-art="oben" data-sitz-u="0.86">
+        <!-- 08.11. (Chris): hinter dem selbst bedienbaren Bogen ein kleines Handy mit dem echten Survey (Bildschirmaufnahme
+             im Handy-Rahmen, wie bisher im Start-Hero), es unterstreicht, was das hier ist -->
+        <div class="st-probe__buehne">
+        <span class="st-mini" data-st-mini aria-hidden="true">
+          <span class="st-geraet__schirm" data-st-mini-schirm>
+            <video class="st-geraet__video" data-st-mini-video muted loop playsinline preload="none" poster="/snaegs-staging/v3/assets/survey-poster-DUBensuB.webp">
+              <source src="/snaegs-staging/v3/assets/survey-loop-25RC0tNk.webm" type="video/webm" />
+              <source src="/snaegs-staging/v3/assets/survey-loop-CnvbSyO5.mp4" type="video/mp4" />
+            </video>
+          </span>
+          <img class="st-geraet__rahmen" src="/snaegs-staging/v3/assets/handy-rahmen-ChLkOy5G.webp" alt="" width="720" height="1335" loading="lazy" decoding="async" />
+        </span>
+        <div class="st-bogen" data-st-bogen data-sitz="bogen" data-sitz-art="oben" data-sitz-u="0.42">
           <p class="st-bogen__kopf"><span>Produkttest</span><span data-st-stand>Frage 1 von 2</span></p>
           <fieldset class="st-bogen__frage" data-st-frage-nr="0">
             <legend>Strawberry Cheesecake auf Erdnüssen. Wie klingt das?</legend>
@@ -194,28 +212,33 @@
           </fieldset>
           <div class="st-bogen__danke" data-st-danke hidden>
             <p class="st-bogen__satz">Genau so geht Testen. Die Produkte kommen gratis zu dir.</p>
-            <a class="v2-knopf v2-knopf--hell" href="/snaegs-staging/v3/survey.html?von=start" data-st-survey data-naechstes="2">Einen ganzen Test spielen</a>
+            <a class="v2-knopf v2-knopf--hell" href="/snaegs-staging/v3/survey.html?von=start" data-st-survey data-naechstes="2">Produkttest ausprobieren</a>
             <button type="button" class="v2-zeig" data-st-nochmal><span class="v2-zeig__zeichen" aria-hidden="true"></span>Nochmal</button>
           </div>
         </div>
-        <a class="st-weg st-probe__weg" href="/snaegs-staging/v3/site/testerclub.html?von=start" data-st-weg>Mehr zum Testerclub<span class="st-weg__pfeil" data-st-zeichen="pfeil-kurz" aria-hidden="true"></span></a>
+        </div>
+        <a class="st-weg st-probe__weg" href="/snaegs-staging/v3/site/testerclub.html?von=start" data-st-weg>Zum SNÄGS Testerclub<span class="st-weg__pfeil" data-st-zeichen="pfeil-kurz" aria-hidden="true"></span></a>
       </section>
 
       <!-- A · Game Arena (CEO Punkt 3): neugierig machen, Januarstart, der Knopf ist sichtbar gesperrt („Startet im Januar
            2027“, kein Link). Games-Texte verkaufen Spaß und Gewinn, nie Mechanik (Nachricht 14). -->
       <section class="s st-arena v2-nacht" id="arena" data-abschnitt="arena" data-farbe="nacht" aria-labelledby="arena-titel">
         <div class="st-arena__kopf">
-          <h2 id="arena-titel" class="plakat st-arena__titel">Deine nächste Challenge startet im&nbsp;Januar.</h2>
+          <!-- 08.11. (Chris: „sehr schwache Headline … zeig ein bisschen was vom Game … startet im Januar, für alle, kostenlos,
+               Turniere kostenlos, Punkte und Boxen … dann nicht zum Game-Trailer, sondern zur Game Arena“) -->
+          <h2 id="arena-titel" class="plakat st-arena__titel">Play it. Ab Januar kostenlos.</h2>
+          <p class="st-arena__unter">Samstags zockst du im Turnier um Winner Boxen. Obendrauf zahlt jedes Game auf dein SNÄGS-Punktekonto ein, für deine nächste Reward&nbsp;Box.</p>
+          <div class="st-arena__handy" data-st-arena-handy aria-hidden="true"></div>
         </div>
         <span class="st-arena__sitz" data-sitz="arena" data-sitz-art="mitte" aria-hidden="true"></span>
         <ul class="st-arena__liste">
           <li><span class="st-arena__zeichen" data-st-motiv="versus" data-farbe="cyan" aria-hidden="true"></span><span>Kostenlos gegen Freunde, andere Mitglieder oder Bots&nbsp;zocken.</span></li>
-          <li><span class="st-arena__zeichen" data-st-motiv="pokal" data-farbe="gold" aria-hidden="true"></span><span>Jeden Samstag ein kostenloses Live-Turnier mit echten&nbsp;Gewinnen.</span></li>
-          <li><span class="st-arena__zeichen" data-st-motiv="muenze" data-farbe="gold" aria-hidden="true"></span><span>Jedes Game bringt Punkte, auch wenn du&nbsp;verlierst.</span></li>
+          <li><span class="st-arena__zeichen" data-st-motiv="pokal" data-farbe="gold" aria-hidden="true"></span><span>Jeden Samstag ein kostenloses Turnier mit echten&nbsp;Gewinnen.</span></li>
+          <li><span class="st-arena__zeichen" data-st-motiv="muenze" data-farbe="gold" aria-hidden="true"></span><span>Jedes Game bringt Punkte aufs SNÄGS-Punktekonto, auch wenn du&nbsp;verlierst.</span></li>
         </ul>
         <div class="st-arena__fuss">
           <p class="st-gesperrt" aria-disabled="true"><span class="st-gesperrt__schloss" data-st-zeichen="schloss" aria-hidden="true"></span>Startet im Januar&nbsp;2027</p>
-          <a class="st-weg" href="/snaegs-staging/v3/site/arena.html?von=start" data-st-weg>Zum Game-Trailer<span class="st-weg__pfeil" data-st-zeichen="pfeil-kurz" aria-hidden="true"></span></a>
+          <a class="st-weg" href="/snaegs-staging/v3/site/arena.html?von=start" data-st-weg>Zur Game Arena<span class="st-weg__pfeil" data-st-zeichen="pfeil-kurz" aria-hidden="true"></span></a>
         </div>
       </section>
 
@@ -245,7 +268,7 @@
           <figcaption class="st-box3d__text"><b>Reward Box</b><span>Markenprodukte im Wert von rund 20&nbsp;€ UVP, Versand kostenlos. Als Founder bekommst du in deiner ersten Box das Doppelte: 40&nbsp;€.</span></figcaption>
         </figure>
         <div class="st-so__fuss">
-          <a class="st-so__mehr" href="/snaegs-staging/v3/site/wiki.html?von=start-punkte" data-st-mehr data-naechstes="2">Alle Details zum Punktekonto<span class="st-so__pfeil" data-st-zeichen="pfeil-kurz" aria-hidden="true"></span></a>
+          <a class="st-so__mehr" href="/snaegs-staging/v3/site/wiki.html?von=start-punkte" data-st-mehr data-naechstes="2">Alle Details zu Punkten<span class="st-so__pfeil" data-st-zeichen="pfeil-kurz" aria-hidden="true"></span></a>
         </div>
       </section>
 
@@ -254,14 +277,17 @@
       <section class="s st-dabei" id="dabei" data-abschnitt="dabei" data-farbe="gold" aria-labelledby="dabei-titel">
         <div class="v2-naht v2-naht--gold" data-st-naht aria-hidden="true"></div>
         <h2 id="dabei-titel" class="st-dabei__frage"><span data-st-dabei>Bist du dabei?</span></h2>
+        <!-- 08.11. (Chris): Klägs' „Ja!“ steht unter der Frage, wo Luft ist (auch am Handy), nie über den Haken -->
+        <span class="st-dabei__ja" data-st-ja aria-hidden="true"></span>
         <ul class="st-dabei__fakten">
           <li class="st-dabei__gross"><span class="st-box" aria-hidden="true"></span>Alles kostenlos</li>
           <li><span class="st-box" aria-hidden="true"></span>Start im Januar 2027</li>
         </ul>
         <div class="st-dabei__aufruf" data-sitz="dabei" data-sitz-art="oben" data-sitz-u="0.85">
-          <a class="v2-knopf v2-knopf--bonus v2-knopf--lang st-dabei__knopf" href="/snaegs-staging/v3/vorregistrierung.html?von=start-ende" data-vorreg="start-ende" data-hauptknopf data-naechstes="3">Jetzt kostenlos registrieren<span class="v2-bonus" aria-hidden="true"><span class="v2-muenze" data-muenze></span><span class="v2-bonus__plus">+150</span></span><span class="v2-sr">, 150 Early-Bird-Punkte</span></a>
-          <p class="st-dabei__founder"><span class="st-dabei__abzeichen" data-st-zeichen="founder-abzeichen" aria-hidden="true"></span><span>Bis 31.12.2026 wirst du damit Founder: Abzeichen, limitierter Avatar und 150 Early-Bird-Punkte.</span></p>
-          <p class="v2-klein st-dabei__punkte">Keine Gebühren, keine versteckten Kosten. Ab&nbsp;18.</p>
+          <a class="v2-knopf v2-knopf--bonus v2-knopf--lang st-dabei__knopf" href="/snaegs-staging/v3/vorregistrierung.html?von=start-ende" data-vorreg="start-ende" data-hauptknopf data-naechstes="3">Jetzt voranmelden<span class="v2-bonus" aria-hidden="true"><span class="v2-muenze" data-muenze></span><span class="v2-bonus__plus">+150</span></span><span class="v2-sr">, 150 Early-Bird-Punkte</span></a>
+          <p class="st-dabei__founder"><span class="st-dabei__abzeichen" data-st-zeichen="founder-abzeichen" aria-hidden="true"></span><span>Bis 31.12.2026 wirst du damit Founder des SNÄGS Testerclubs: Abzeichen, limitierter Avatar und 150 Early-Bird-Punkte.</span></p>
+          <p class="v2-klein st-dabei__punkte">Kostenlose Voranmeldung zum SNÄGS Testerclub, ab&nbsp;18. Bis 31.12.2026 wirst du Founder und startest mit 150&nbsp;Punkten.</p>
+          <ul class="v2-vertrauen" aria-label="Sicher voranmelden"><li><span class="v2-vertrauen__zeichen v2-vertrauen__zeichen--schloss" aria-hidden="true"></span>SSL-verschlüsselt</li><li><span class="v2-vertrauen__zeichen v2-vertrauen__zeichen--sterne" aria-hidden="true"></span>DSGVO-konform</li><li><span class="v2-vertrauen__zeichen v2-vertrauen__zeichen--brief" aria-hidden="true"></span>Kein Spam</li></ul>
         </div>
       </section>
 
@@ -271,7 +297,7 @@
     <footer class="v2-fuss" data-abschnitt="fuss">
       <!-- QV 08.11.: Rückfall ohne JavaScript (wege/index.js ersetzt den Inhalt). Gleiche Ziele wie der echte Fuß, keine internen Labor-Links. -->
       <p class="v2-fuss__claim">SNÄGS. Where Brands Meet Friends. Test&nbsp;it.&nbsp;Play&nbsp;it.&nbsp;Love&nbsp;it.</p>
-      <p class="v2-klein v2-fuss__links"><a href="/snaegs-staging/v3/site/testerclub.html">Testerclub</a><a href="/snaegs-staging/v3/site/arena.html">Game Arena</a><a href="/snaegs-staging/v3/site/rewards.html">Rewards</a><a href="/snaegs-staging/v3/site/wiki.html">Wiki</a><a href="/snaegs-staging/v3/site/ueber-uns.html">Über uns</a><a href="/snaegs-staging/v3/vorregistrierung.html?von=start-fuss">Founder werden</a></p>
+      <p class="v2-klein v2-fuss__links"><a href="/snaegs-staging/v3/site/testerclub.html">SNÄGS Testerclub</a><a href="/snaegs-staging/v3/site/arena.html">Game Arena</a><a href="/snaegs-staging/v3/site/rewards.html">Rewards</a><a href="/snaegs-staging/v3/site/wiki.html">Wiki</a><a href="/snaegs-staging/v3/site/ueber-uns.html">Über uns</a><a href="/snaegs-staging/v3/vorregistrierung.html?von=start-fuss">Founder werden</a></p>
       <p><a href="https://business.frugends.com/">SNÄGS für Marken: Ihr Produkt bei den Richtigen testen lassen.</a></p>
       <p class="v2-klein v2-fuss__links"><a href="https://frugends.com/pages/impressum">Impressum</a><a href="https://frugends.com/pages/datenschutz">Datenschutz</a><a href="https://frugends.com/pages/agb">AGB</a><span>© 2026 Prime Fusion B.V.</span></p>
     </footer>
