@@ -256,6 +256,7 @@ async function los() {
   const [{ tippbar }, z0] = await Promise.all([rahmen(), zeichner()]);
   // Bedienzeichen aus der Asset-Datenbank statt CSS-Masken (Regie R, Nachricht 6)
   import("./klecks/zeichen.js").then((m) => m.zeichenAusDatenbank()).catch((e) => console.warn("[v2] Zeichen", e));
+  import("./vertrauen.js").then((m) => m.vertrauen()).catch((e) => console.warn("[v2] Vertrauen", e)); // Trust-Zeile mittig unter ihrem Knopf (09.11.)
   const z = regieZeichner(z0);
   status.strich = z.quelle;
   const klecks = klecksProxy();
