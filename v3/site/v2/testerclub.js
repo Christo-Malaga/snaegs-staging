@@ -147,8 +147,8 @@ async function buehnen(api, z) {
     }
   });
   const nullWeg = tu(async () => gratis?.classList.remove("ist-null"));
-  // Gratis: Antizipation (lauern, Schild in der Hand) → Aktion (reißt es durch) → Reaktion (lacht, zwinkert; die leeren
-  // Taschen sind seit 08.11. gestrichen) → Ruhe (Sonnenbrille auf, zufrieden; „0 €“ blutet Gold)
+  // Gratis: Kern (Schild in der Hand, er reißt es gleich durch; Takt 09.11. ohne Lauern davor) → Reaktion (lacht,
+  // zwinkert; die leeren Taschen sind seit 08.11. gestrichen) → Nachspiel (Sonnenbrille auf, zufrieden; „0 €“ in Gold)
   if (gratis)
     einzelbild(api, gratis, {
       name: "gratis",
@@ -158,8 +158,9 @@ async function buehnen(api, z) {
       kette: [nullWeg, { aktion: "v2-szene", szene: "gratis", buehne: true, s: 1 }, nullZeigen, { aktion: "sonnenbrille", bleibt: 600000, halten: 1100 }, g("zufrieden", 700)],
       pose: [nullZeigen, { aktion: "sonnenbrille", bleibt: 600000, halten: 300 }, g("zufrieden", 400)],
     });
-  // Haken: Antizipation (Lesebrille runter, liest das Kleingedruckte) → Aktion (Angel aus, lauern, Ruck) → Reaktion
-  // (der Haken kommt leer, Schulterzucken mit den Händen) → Ruhe (feixen)
+  // Haken (Takt 09.11., Chris: „schneller auf den Punkt der Kernanimationen (z. B. ‚Haken auswerfen‘)“): Kern zuerst
+  // (Angel aus, lauern, Ruck, der Haken kommt leer, Schulterzucken) → Nachspiel, wenn man bleibt (Lesebrille runter, er
+  // liest das Kleingedruckte nach) → Ruhe (feixen). Vorher stand die Lesebrille davor (1 s), die Angel kam zu spät.
   const haken = B("haken");
   if (haken)
     einzelbild(api, haken, {
@@ -167,7 +168,7 @@ async function buehnen(api, z) {
       schnell: true, // 08.11.: wie der Arena-Schluss, sonst scrollt man über 236 px leeres Papier (Befund M1)
       u: 0.3,
       nochmal: N("haken"),
-      kette: [{ aktion: "brille-lugen", halten: 1000 }, { aktion: "v2-szene", szene: "haken", buehne: true, s: 1 }, g("feixen", 900)],
+      kette: [{ aktion: "v2-szene", szene: "haken", buehne: true, s: 1 }, { aktion: "brille-lugen", halten: 1000 }, g("feixen", 900)],
       // reduzierte Bewegung: Schlüsselpose = Lesebrille auf (das Kleingedruckte ist gelesen), er grinst: kein Haken
       pose: [{ aktion: "brille-lugen", halten: 300, bleibt: 600000 }, g("feixen", 400)],
     });
@@ -192,7 +193,7 @@ function klecksProxy() {
       gespielt.add(name);
       if (LEISE[name]) {
         if (o.ziel) echt.klecks.schau?.(o.ziel);
-        echt.regie.spiele({ name: `v2 ${name}`, schritte: LEISE[name] }, { prio: echt.PRIO.seite, verfall: 2600 });
+        echt.regie.spiele({ name: `v2 ${name}`, schritte: LEISE[name] }, { prio: echt.PRIO.seite, verfall: 2600, abloesen: true });
         return Promise.resolve();
       }
       if (dSzenen && D_NAMEN.has(name)) {
@@ -205,7 +206,7 @@ function klecksProxy() {
       const schritte = ABLAEUFE[name];
       if (!schritte) return Promise.resolve();
       if (o.ziel) echt.klecks.schau?.(o.ziel);
-      echt.regie.spiele({ name: `v2 ${name}`, schritte }, { prio: echt.PRIO.seite, verfall: 2600 });
+      echt.regie.spiele({ name: `v2 ${name}`, schritte }, { prio: echt.PRIO.seite, verfall: 2600, abloesen: true });
       return Promise.resolve();
     },
     interaktiv(el, art) {

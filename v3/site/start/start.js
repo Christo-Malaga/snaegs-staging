@@ -25,7 +25,7 @@
 // site/arena/teaser, site/v2/klecks/spiel.js, src/klecks/leitmotiv.js.
 // Regie (site/KLECKS-REGIE.md): kein Headset auf der Startseite. Jedes Zeichen kommt aus der Asset-Datenbank.
 
-import { seite, imBild, brumm, auftauchen } from "../v2/start.js";
+import { seite, imBild, brumm, auftauchen, kern } from "../v2/start.js";
 import { entstehung } from "./entstehung.js";
 import { ton } from "./klang.js";
 import { marke, markiere } from "../../src/klecks/leitmotiv.js";
@@ -256,6 +256,22 @@ async function klecksAufSeinenPlatz(K, api) {
   // nach dem Intro lag der Druck des Fotos über dem Sitz, die Führung hatte den Rand gewählt: neu wählen lassen
   api?.fuehrung?.platz?.(sitzEl);
   setTimeout(() => api?.fuehrung?.platz?.(null), 80);
+}
+
+/** Takt 09.11.: bis Klägs auf einem Dokumentpunkt sitzt (beim Scrollen wandert sein Ziel mit dem Papier; ein
+ *  Bildschirmpunkt vom Anfang stimmte dann nicht mehr) */
+async function bisDa(K, ms, [dx, dy]) {
+  for (let t = 0; t < ms; t += 60) {
+    if (K.modus === "sitzen" && !K.strich && !K.formen && Math.hypot(K.x + scrollX - dx, K.y + scrollY - dy) < 10) return true;
+    await warte(60);
+  }
+  return false;
+}
+/** Takt 09.11.: Hüpfer auf einen Bildschirmpunkt, gewartet wird auf denselben Punkt auf dem Papier */
+async function huepfeHin(K, x, y, h, ms = 900) {
+  const ziel = [x + scrollX, y + scrollY];
+  K.hopp(x, y, h);
+  return bisDa(K, ms, ziel);
 }
 
 /** bis Klägs sitzt (oder ms vergangen sind) */
@@ -587,8 +603,9 @@ async function abzeichenZeichnen() {
       try {
         k.schau(abzeichen);
         k.fuehle?.("neugier");
-        await warte(380);
+        await warte(120); // Takt 09.11.: kurzer Blick, dann gleich der Kern (vorher 380 ms)
         if (signal?.aborted) return klaegsZeichnet(null, abzeichen, abzeichen.dataset.stMotiv, o);
+        kern("Founder-Abzeichen zeichnen");
         const sitzF = $(".st-founder__sitz");
         const { fertig } = await klaegsZeichnet(k, abzeichen, abzeichen.dataset.stMotiv, {
           ...o,
@@ -613,7 +630,7 @@ async function abzeichenZeichnen() {
     { name: "Klägs zeichnet das Founder-Abzeichen", verfall: 6000 },
   );
 }
-if (abzeichen) imBild(abzeichen, abzeichenZeichnen, { rand: "-18% 0px -30% 0px" });
+if (abzeichen) imBild(abzeichen, abzeichenZeichnen, { rand: "-10% 0px -22% 0px" }); // Takt 09.11.: früher (vorher -18 % / -30 %)
 
 /* ── Kernsatz (N38): Klägs unterstreicht „Deine Rewards.“ in einem Zug (Leitmotiv, Malen-Modus), einmal, ruhig; das
    spielt als erster Takt seines Gangs durch die Punkte (schritteEntlang), damit nie zwei Momente zugleich laufen ── */
@@ -697,7 +714,12 @@ if (rewardEl) {
   }).observe(rewardEl);
 }
 
-/* ── 2 So funktioniert's: Klecks zieht die drei Schritte entlang und zeigt auf „Alle Details“ ───────────────────── */
+/* ── 2 So funktioniert's: Klecks hüpft die drei Schritte entlang und zeigt auf „Alle Details“ ─────────────────────────
+   Takt 09.11. (Chris: „Schnell in die Kernaction von Klägs je Sektion im Viewport einsteigen; dann – sollte länger
+   verweilt werden – authentische Animationen je Sektion nachlagern“): Kern zuerst: gleich beim Eintritt hüpft er
+   1 → 2 → 3, auch während gescrollt wird (er sitzt dabei fest auf dem Papier, fuehrung.js mitDemPapier); vorher brach
+   der Gang ab, sobald jemand 24 px scrollte, und begann erst nach 1,6 s Warten. Nachspiel: Zeigen auf „Alle Details“,
+   dann der Schwung unter „Deine Rewards.“ (vorher der erste Takt). Ist die Sektion aus dem Bild, ist der Gang vorbei. */
 const so = $("#punkte");
 let soGespielt = false;
 async function schritteEntlang() {
@@ -706,31 +728,23 @@ async function schritteEntlang() {
   if (soGespielt || !K?.da || REDUZIERT) return;
   soGespielt = true;
   api.fuehrung?.halt?.(true);
-  // Scrollt jemand weiter, ist der Gang vorbei (seine Plätze sind Bildschirmpunkte): die Führung übernimmt sofort
-  let weg = false;
-  const y0 = scrollY;
-  const scrollWache = () => Math.abs(scrollY - y0) > 24 && (weg = true);
-  addEventListener("scroll", scrollWache, { passive: true });
+  const kopfH = parseFloat(getComputedStyle(html).getPropertyValue("--v2-kopf-h")) || 56;
+  // vorbei, sobald die Sektion aus dem Bild ist (seine Ziele liegen auf dem Papier, Scrollen allein beendet nichts)
+  const weg = () => {
+    const r = so.getBoundingClientRect();
+    return r.bottom < kopfH + 40 || r.top > innerHeight - 40;
+  };
   try {
-    await bisErSitzt(K, 1600);
-    if (weg) return;
+    // ist er gerade mitten in einem Sprung, kurz abwarten (höchstens 0,4 s)
+    await bisErSitzt(K, 400);
+    if (weg()) return;
     // eigener Gang: die Führung setzt ihn so lange nicht auf ihren Platz zurück (fuehrung.js folge())
     K.ausflug = true;
-    // zuerst der Kernsatz: ein Schwung unter „Deine Rewards.“, solange er gut im Bild ist
-    const ks = kernsatz?.getBoundingClientRect();
-    const kopf0 = parseFloat(getComputedStyle(html).getPropertyValue("--v2-kopf-h")) || 56;
-    if (ks && !kernsatzDa && ks.top > kopf0 + 12 && ks.bottom < innerHeight * 0.8) {
-      kernsatzDa = true;
-      // die Tinte liegt in der Sektion (sie wandert mit, wenn sich oben etwas verschiebt, z. B. das Band verschwindet)
-      await markiere(K, "unterstreichen", kernsatz, { variante: "schwung", danach: "zufrieden", halten: 360, host: so });
-      for (let t = 0; t < 1400 && (K.strich || K.formen || K.modus !== "sitzen"); t += 80) await warte(80);
-      if (weg) return;
-    }
+    kern("Punkte: 1 → 2 → 3");
     // je Schritt: er landet rechts neben dem Namen (nie auf Text, nie auf der Zeichnung) und schaut auf das Bild;
     // dafür wird er kleiner (0,72), sonst reichte er in die erste Zeile unter dem Namen
     const KLEIN = 0.72;
     K.groesse?.(KLEIN, { tempo: 260, bounce: 0.2 });
-    const kopfH = parseFloat(getComputedStyle(html).getPropertyValue("--v2-kopf-h")) || 56;
     // v3: die Schritte stehen auch am Desktop als Zeilen (Bild links, Name rechts), darum überall der Platz rechts neben
     // dem Namen; die Spaltenlogik (Bild über dem Namen) gilt nur, wenn der Name wirklich unter dem Bild steht
     const erst = $(".st-schritt", so);
@@ -738,11 +752,15 @@ async function schritteEntlang() {
     const b0 = $(".st-schritt__bild", erst)?.getBoundingClientRect();
     const quer = !!n0 && !!b0 && n0.top >= b0.bottom - 4;
     for (const schritt of $$(".st-schritt", so)) {
+      if (weg()) break;
       const name = $(".st-schritt__name", schritt);
       const bild = $(".st-schritt__bild", schritt);
+      // kommt der Schritt gerade erst von unten herein (man scrollt), kurz auf ihn warten; ist er schon oben vorbei,
+      // überspringen
+      for (let t = 0; t < 700 && name.getBoundingClientRect().bottom > innerHeight - 8; t += 60) await warte(60);
       const n = name.getBoundingClientRect();
       const b = bild.getBoundingClientRect();
-      if (weg || Math.min(n.top, b.top) < kopfH + 8 || n.bottom > innerHeight - 8) break;
+      if (Math.min(n.top, b.top) < kopfH + 8 || n.bottom > innerHeight - 8) continue;
       const r = K.R * KLEIN;
       // Handy: rechts neben dem Namen (die Zeichnung steht links davon); Desktop (Spalten): rechts neben der Zeichnung,
       // dort ist Luft, der Name steht darunter
@@ -752,39 +770,44 @@ async function schritteEntlang() {
       // vollen R rechnen; vorher hing er rund 8 px plus Rand in der ersten Satzzeile.
       const y = quer ? b.top + b.height * 0.55 : n.bottom - K.R * 1.04;
       K.schau(bild);
-      K.hopp(x, y, 22);
-      await bisErSitzt(K, 900, [x, y]);
+      await huepfeHin(K, x, y, 22, 900);
       K.fuehle?.(bild.dataset.farbe === "gold" ? "vorfreude" : "neugier");
-      await warte(460);
+      await warte(380);
     }
     K.groesse?.(1, { tempo: 260, bounce: 0.2 });
-    if (weg) return;
-    // am Ende: neben „Alle Details“ (direkt unter den Schritten) und darauf zeigen
+    if (weg()) return;
+    // Nachspiel: neben „Alle Details“ (direkt unter den Schritten) und darauf zeigen
     const mehr = $("[data-st-mehr]", so);
     const m = mehr.getBoundingClientRect();
-    if (m.bottom > 0 && m.top < innerHeight) {
+    if (m.bottom > kopfH && m.top < innerHeight) {
       const x = Math.min(innerWidth - K.R - 12, m.right + K.R + 18);
       const y = m.top + m.height / 2 - K.R * 0.3;
-      K.hopp(x, y, 24);
-      await bisErSitzt(K, 900, [x, y]);
+      await huepfeHin(K, x, y, 24, 900);
+      if (weg()) return;
+      K.schau(mehr);
+      await warte(200);
+      await K.geste?.("zeigen", { ziel: mehr, dauer: 700 });
+      K.fuehle?.("zwinkern");
+      await warte(600);
     }
-    if (weg) return;
-    K.schau(mehr);
-    await warte(200);
-    await K.geste?.("zeigen", { ziel: mehr, dauer: 700 });
-    K.fuehle?.("zwinkern");
-    await warte(600);
+    // Nachspiel: ein Schwung unter „Deine Rewards.“, solange er gut im Bild ist
+    const ks = kernsatz?.getBoundingClientRect();
+    if (!weg() && ks && !kernsatzDa && ks.top > kopfH + 12 && ks.bottom < innerHeight * 0.8) {
+      kernsatzDa = true;
+      // die Tinte liegt in der Sektion (sie wandert mit, wenn sich oben etwas verschiebt, z. B. das Band verschwindet)
+      await markiere(K, "unterstreichen", kernsatz, { variante: "schwung", danach: "zufrieden", halten: 360, host: so });
+      for (let t = 0; t < 1400 && (K.strich || K.formen || K.modus !== "sitzen"); t += 80) await warte(80);
+    }
   } catch (e) {
     console.warn("[start] schritte", e);
   } finally {
-    removeEventListener("scroll", scrollWache);
     K.groesse?.(1, { tempo: 260, bounce: 0.2 });
     K.ausflug = false;
     api.fuehrung?.halt?.(false);
     api.fuehrung?.platz?.(null);
   }
 }
-imBild(so, schritteEntlang, { rand: "-30% 0px -30% 0px" });
+imBild(so, schritteEntlang); // Takt 09.11.: ab 78 % der Bildhöhe (vorher erst im mittleren Drittel)
 s.tippbar($("[data-st-mehr]"), { art: "knopf" });
 s.tippbar($("[data-st-intro]"), { art: "knopf" });
 
@@ -877,7 +900,7 @@ imBild(probe, async () => {
   s.szene("probe", { ziel: $("[data-st-wahl]") });
   // Violett ist „du“: eine ruhige Aquarellfläche hinter dem Bogen (CSS, Filter #v2-aquarell), keine Flecken
   $("[data-st-feld]")?.classList.add("ist-da");
-}, { rand: "-25% 0px -25% 0px" });
+}); // Takt 09.11.: ab 78 % der Bildhöhe (vorher -25 % oben und unten)
 
 /* ── 4 Dabei: Klecks hakt die drei Fakten in einem Zug ab und schreibt die Antwort hin ─────────────────────────────── */
 const dabei = $("#dabei");
@@ -891,17 +914,15 @@ async function dabeiAbhaken() {
   dabeiGespielt = true;
   api.fuehrung?.halt?.(true);
   try {
-    await warte(REDUZIERT ? 0 : 350);
+    // Takt 09.11.: Kern ohne Vorlauf (vorher 0,35 s Pause und bis zu 2 s Warten); er hüpft auf einen Punkt auf dem Papier
     K.ausflug = true; // eigener Gang: die Führung holt ihn nicht mitten im Abhaken auf ihren Platz zurück
     // erst neben die Liste (kam er von weit her, fehlte sonst der erste Haken), dann in einem Zug abhaken
-    for (let t = 0; t < 2000 && K.modus !== "sitzen"; t += 80) await warte(80);
+    for (let t = 0; t < 600 && K.modus !== "sitzen"; t += 60) await warte(60);
     const liste = $(".st-dabei__fakten", dabei).getBoundingClientRect();
     const nx = Math.min(innerWidth - K.R - 10, liste.right + K.R + 18);
     const ny = liste.top + K.R * 0.9;
-    if (!REDUZIERT && Math.hypot(K.x - nx, K.y - ny) > K.R) {
-      K.hopp(nx, ny, 26);
-      for (let t = 0; t < 1200 && (K.modus !== "sitzen" || Math.hypot(K.x - nx, K.y - ny) > 6); t += 80) await warte(80);
-    }
+    if (!REDUZIERT && Math.hypot(K.x - nx, K.y - ny) > K.R) await huepfeHin(K, nx, ny, 26, 1000);
+    kern("Dabei: abhaken");
     await markiere(K, "abhaken", null, { ziele: $$(".st-dabei__fakten .st-box"), gefuehl: "zufrieden", halten: 240, stimmung: "froh" });
     const heim = () => {
       const r = $(".st-dabei__aufruf", dabei).getBoundingClientRect();
@@ -934,7 +955,7 @@ async function dabeiAbhaken() {
     api.fuehrung?.platz?.(null);
   }
 }
-imBild(dabei, dabeiAbhaken, { rand: "-30% 0px -30% 0px" });
+imBild(dabei, dabeiAbhaken); // Takt 09.11.: ab 78 % der Bildhöhe (vorher erst im mittleren Drittel)
 for (const k of $$("[data-hauptknopf], [data-vorreg]")) s.tippbar(k, { art: "knopf" });
 
 /* ── Aquarellkanten an den Themenwechseln ───────────────────────────────────────────────────────────────────────── */
