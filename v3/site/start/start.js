@@ -331,6 +331,8 @@ async function heroMoment() {
   const imBildOben = () => held.getBoundingClientRect().top > -innerHeight * 0.25;
   try {
     const tz = await Promise.race([teaserDa, warte(600).then(() => null)]);
+    // Ruckler 09.11.: Der Teaser zeichnet erst, wenn seine Shader vorab übersetzt sind; Klägs schaut nicht ins Leere
+    if (tz?.erstesBild) await Promise.race([tz.erstesBild, warte(3000)]);
     // 0 die Arena bewegt sich gerade von selbst: erst ausklingen lassen
     for (let t = 0; t < 2600 && tz?.ruhe?.bewegt; t += 80) await warte(80);
     const zugedeckt = !REDUZIERT && !!tz?.ruhe && !tz.ruhe.still;

@@ -1,1 +1,0 @@
-import{t as e}from"./motive-tech-DaphEZaM.js";import{n as t}from"./motive-seiten-B33pHgSO.js";import{n}from"./motive-nav-0dSZcRFU.js";var r={pokal:e.pokal,controller:e.controller,strichcode:t.strichcode,kalender:t.kalender,fragebogen:n.fragebogen};export{r as t};

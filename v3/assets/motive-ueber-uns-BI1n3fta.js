@@ -1,1 +1,0 @@
-import{n as e,r as t,t as n}from"./motive-ueber-uns-B6QIuXmN.js";export{n as ANKER,e as KATALOG,t as MOTIVE};
