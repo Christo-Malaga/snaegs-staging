@@ -1,1 +1,0 @@
-import{d as e}from"./tinte-CEgnpUXo.js";export{e as tinteSofort};
