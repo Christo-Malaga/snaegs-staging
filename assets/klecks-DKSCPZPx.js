@@ -1,1 +1,0 @@
-import{n as e,r as t,t as n}from"./klecks-CEy3Yrcc.js";export{n as Klecks,e as ROLLEN,t as rolleR};
