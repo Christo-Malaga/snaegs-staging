@@ -1,1 +1,0 @@
-import{d as e}from"./tinte-CY_NAeL2.js";export{e as tinteSofort};
