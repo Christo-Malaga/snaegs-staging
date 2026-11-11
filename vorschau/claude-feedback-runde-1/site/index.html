@@ -29,7 +29,7 @@
         }
       })();
     </script>
-    <script type="module" crossorigin src="/snaegs-staging/vorschau/claude-feedback-runde-1/assets/website-D-0n2ULf.js"></script>
+    <script type="module" crossorigin src="/snaegs-staging/vorschau/claude-feedback-runde-1/assets/website-F3PnF0dm.js"></script>
     <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-feedback-runde-1/assets/modulepreload-polyfill-Dezn_h7o.js">
     <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-feedback-runde-1/assets/rolldown-runtime-QTnfLwEv.js">
     <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-feedback-runde-1/assets/gesten-DuKU43vj.js">
@@ -49,6 +49,7 @@
     <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-feedback-runde-1/assets/leitmotiv-Dkoc6U_v.js">
     <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-feedback-runde-1/assets/preload-helper-CtS8q7tS.js">
     <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-feedback-runde-1/assets/zustand-CMlbz1Qk.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-feedback-runde-1/assets/bereich-5bxGcGz-.js">
     <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-feedback-runde-1/assets/tinte-pgdL2m-R.js">
     <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-feedback-runde-1/assets/regie-DZbNAeHn.js">
     <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-feedback-runde-1/assets/slots-C80S5cYY.js">
@@ -59,8 +60,9 @@
     <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-feedback-runde-1/assets/testerclub-bleed-DuLBoICk.js">
     <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-feedback-runde-1/assets/start-cXLTiiMW.js">
     <link rel="stylesheet" crossorigin href="/snaegs-staging/vorschau/claude-feedback-runde-1/assets/style-C-zV1GOL.css">
-    <link rel="stylesheet" crossorigin href="/snaegs-staging/vorschau/claude-feedback-runde-1/assets/website-BlDKnTnj.css">
-    <link rel="stylesheet" crossorigin href="/snaegs-staging/vorschau/claude-feedback-runde-1/assets/testerclub-DGX6cxoy.css">
+    <link rel="stylesheet" crossorigin href="/snaegs-staging/vorschau/claude-feedback-runde-1/assets/bereich-DVKMm9vJ.css">
+    <link rel="stylesheet" crossorigin href="/snaegs-staging/vorschau/claude-feedback-runde-1/assets/website-CMV-AhYA.css">
+    <link rel="stylesheet" crossorigin href="/snaegs-staging/vorschau/claude-feedback-runde-1/assets/testerclub-ChXkoGRJ.css">
     <link rel="stylesheet" crossorigin href="/snaegs-staging/vorschau/claude-feedback-runde-1/assets/wege-D8-tYw3t.css">
   </head>
   <!-- Startseite v3 (V3A 07.11., Wünsche des SNÄGS-CEO, site/v2/QUELLE-CEO-WEBSITE.md), Reihenfolge nach seinem Punkt 6:
@@ -270,37 +272,61 @@
             <span class="st-schritt__text"><span class="st-schritt__name">Reward Box holen</span><span class="st-schritt__satz">2.500 Punkte tauschst du gegen eine Reward&nbsp;Box.</span></span>
           </li>
         </ol>
+        <!-- FB1-D 11.11. (F5, User-Tests: „Es muss rüberkommen, dass man einen eigenen Bereich hat mit Dashboard etc.“; Chris
+             zur ersten Fassung, einer kleinen Kontokarte unter der Box: „… dass man im Testerclub so einen Login-Bereich hat,
+             Notifications bekommt, da Punkte sammelt … Also, ich sehe fast gar keine Änderung.“): jetzt das echte Handy mit
+             dem App-Schirm „Dein Bereich“ (Baustein /snaegs-staging/vorschau/claude-feedback-runde-1/site/v2/bereich, auch auf der Testerclub-Seite). Es steht zwischen den
+             Schritten und der Reward Box, so liest sich die Sektion als Mitmachen → dein Punktekonto in der App → Reward Box;
+             am Desktop als eigene Spalte gleichwertig neben der Box. Angemeldet (Avatar, „Hallo“, Founder-Abzeichen),
+             Punktekonto mit Weg zur Reward Box, Serie mit Wochen-Challenge, Buchungen, eine Benachrichtigung „Neuer Test für
+             dich“ (Muster Panel 2 der Testerclub-Seite). Nur Funktionen aus dem Wiki, Werte als Beispiel gekennzeichnet.
+             Texte: Entwurf (chris-voice-de geprüft), Endfassung Loki/Fury. -->
+        <div class="st-bereich">
+          <div class="st-bereich__text">
+            <h3 class="st-bereich__titel">Dein eigener Bereich</h3>
+            <p class="st-bereich__satz">In der SNÄGS-App siehst du deinen Punktestand, wie weit es bis zur Reward&nbsp;Box ist, deine Serie und deine Abzeichen. Passt ein Test zu deinem Profil, kriegst du Bescheid.</p>
+          </div>
+          <figure class="bereich" data-bereich role="img" aria-label="Beispiel deines Bereichs in der SNÄGS-App: Hallo, Lena, Founder. Punktekonto 1.650 Punkte, noch 850 bis zur Reward Box. Serie seit 6 Tagen, Wochen-Challenge 6 von 7 Tagen. Zuletzt 4 Punkte für eine Produktfrage, 2 für die Serie, 3 für den täglichen Login. Benachrichtigung: Neuer Test für dich, nüssje Strawberry Cheesecake passt zu deinem Profil.">
+            <div class="bereich__handy" data-bereich-handy>
+              <div class="bereich__schirm" data-bereich-schirm>
+                <div class="bereich__app">
+                  <div class="bereich__kopf">
+                    <span class="bereich__avatar" data-bereich-motiv="founder-avatar" data-farbe="violett"></span>
+                    <p class="bereich__hallo"><b>Hallo, Lena!</b><span class="bereich__rang"><span class="bereich__abzeichen" data-bereich-motiv="founder-abzeichen" data-farbe="gold"></span>Founder</span></p>
+                  </div>
+                  <div class="bereich__konto" data-bereich-dunkel>
+                    <p class="bereich__label"><span class="bereich__muenze" data-bereich-motiv="muenze" data-farbe="gold"></span>Dein Punktekonto</p>
+                    <p class="bereich__zahl"><b data-bereich-zahl data-ziel="1650">1.650</b><span>Punkte</span></p>
+                    <div class="bereich__weg"><span class="bereich__balken"><span class="bereich__fuell"></span></span><span class="bereich__box" data-bereich-motiv="reward-box" data-farbe="gold"></span></div>
+                    <p class="bereich__noch">noch 850 bis zur Reward&nbsp;Box</p>
+                  </div>
+                  <div class="bereich__serie">
+                    <span class="bereich__flamme" data-bereich-motiv="flamme" data-farbe="erdbeere"></span>
+                    <div class="bereich__serie-text"><b>Serie: 6 Tage</b><span>Wochen-Challenge 6/7</span><span class="bereich__tage"><i class="ist-voll"></i><i class="ist-voll"></i><i class="ist-voll"></i><i class="ist-voll"></i><i class="ist-voll"></i><i class="ist-voll"></i><i></i></span></div>
+                  </div>
+                  <div class="bereich__buch">
+                    <p class="bereich__buch-titel">Zuletzt</p>
+                    <ul><li><span>Produktfrage</span><b>+4</b></li><li><span>Serie</span><b>+2</b></li><li><span>Täglicher Login</span><b>+3</b></li></ul>
+                  </div>
+                </div>
+              </div>
+              <img class="bereich__rahmen" src="/snaegs-staging/vorschau/claude-feedback-runde-1/assets/handy-rahmen-ChLkOy5G.webp" alt="" width="720" height="1335" loading="lazy" decoding="async" />
+            </div>
+            <div class="bereich__push">
+              <img class="bereich__push-icon" src="/snaegs-staging/vorschau/claude-feedback-runde-1/assets/snaegs-icon-B_BpntQP.svg" alt="" width="34" height="34" />
+              <div class="bereich__push-text">
+                <p class="bereich__push-kopf"><b>SNÄGS Testerclub</b><span>jetzt</span></p>
+                <p class="bereich__push-titel">Neuer Test für dich</p>
+                <p class="bereich__push-satz">nüssje Strawberry Cheesecake passt zu deinem Profil.</p>
+              </div>
+            </div>
+            <p class="bereich__bsp">Beispiel</p>
+          </figure>
+        </div>
         <figure class="st-box3d">
           <span class="st-box3d__buehne" data-st-reward aria-hidden="true"><span class="st-box3d__waren" data-st-reward-waren></span></span>
           <figcaption class="st-box3d__text"><b>Reward Box</b><span>Markenprodukte im Wert von rund 20&nbsp;€ UVP, Versand kostenlos. Als Founder bekommst du in deiner ersten Box das Doppelte: 40&nbsp;€.</span></figcaption>
         </figure>
-        <!-- FB1 11.11. (F5, User-Tests: „Es muss rüberkommen, dass man einen eigenen Bereich hat mit Dashboard etc.“, Lücke L3):
-             eine Kontokarte mit Dashboard-Anmutung, zusammengesetzt aus Vorhandenem: Punktestand mit SNÄGS-Münze und Weg zur
-             Reward Box (wie Kontokarte der Voranmeldung und Punktekonto der Testerclub-Seite), Serie, Founder-Avatar und
-             -Abzeichen (strich/motive-founder.js), Motive aus der Asset-Datenbank. Nur belegte Funktionen (Wiki: Punktekonto,
-             Serie, Abzeichen und Avatar, Fortschritt zur Reward Box), Werte als Beispiel gekennzeichnet. Kein Knopf.
-             Texte: Entwurf (Spider-S), Endfassung Loki/Fury. -->
-        <div class="st-bereich" data-st-bereich>
-          <h3 class="st-bereich__titel">Dein eigener Bereich</h3>
-          <p class="st-bereich__satz">Darin siehst du deinen Punktestand, deine Serie, deine Abzeichen und wie weit es noch bis zur Reward&nbsp;Box&nbsp;ist.</p>
-          <figure class="st-konto" role="img" aria-label="Beispiel deines Bereichs: Founder, 1.650 von 2.500 Punkten, noch 850 bis zur Reward Box, Serie seit 6 Tagen, Founder-Abzeichen.">
-            <span class="st-konto__kopf" aria-hidden="true">
-              <span class="st-konto__avatar" data-st-motiv="founder-avatar" data-farbe="violett"></span>
-              <span class="st-konto__wer"><b>Founder</b><span>SNÄGS Testerclub</span></span>
-              <span class="st-konto__bsp">Beispiel</span>
-            </span>
-            <span class="st-konto__stand" aria-hidden="true">
-              <span class="st-konto__label">Punktekonto</span>
-              <span class="st-konto__zahl"><span class="st-konto__muenze" data-st-motiv="muenze" data-farbe="gold"></span><b data-st-konto-zahl data-ziel="1650">1.650</b><span>Punkte</span></span>
-              <span class="st-konto__weg"><span class="st-konto__balken"><span class="st-konto__fuell" data-st-konto-fuell></span></span><span class="st-konto__box" data-st-motiv="reward-box" data-farbe="gold"></span></span>
-              <span class="st-konto__noch">noch 850 bis zur Reward&nbsp;Box</span>
-            </span>
-            <span class="st-konto__kacheln" aria-hidden="true">
-              <span class="st-konto__kachel"><span class="st-konto__zeichen" data-st-motiv="flamme" data-farbe="erdbeere"></span><span class="st-konto__wert"><b>6 Tage</b><span>Serie</span></span></span>
-              <span class="st-konto__kachel"><span class="st-konto__zeichen" data-st-motiv="founder-abzeichen" data-farbe="gold"></span><span class="st-konto__wert"><b>Founder</b><span>Abzeichen</span></span></span>
-            </span>
-          </figure>
-        </div>
         <div class="st-so__fuss">
           <a class="st-so__mehr" href="/snaegs-staging/vorschau/claude-feedback-runde-1/site/wiki.html?von=start-punkte" data-st-mehr data-naechstes="2">Alle Details zu Punkten<span class="st-so__pfeil" data-st-zeichen="pfeil-kurz" aria-hidden="true"></span></a>
         </div>
