@@ -1,1 +1,0 @@
-import{n as e,r as t,t as n}from"./motive-ueber-uns-DIa902Fu.js";export{n as ANKER,e as KATALOG,t as MOTIVE};
