@@ -1,0 +1,1 @@
+import{d as e}from"./tinte-Dnu_8rMA.js";export{e as tinteSofort};
