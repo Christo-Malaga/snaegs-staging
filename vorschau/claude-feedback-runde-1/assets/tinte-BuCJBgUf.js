@@ -1,0 +1,1 @@
+import{d as e}from"./tinte-pgdL2m-R.js";export{e as tinteSofort};
