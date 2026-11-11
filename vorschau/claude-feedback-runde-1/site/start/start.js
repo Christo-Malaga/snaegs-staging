@@ -20,7 +20,8 @@
 //   3 Founder-Aktion (Nacht, v3): Abzeichen und Avatar aus der Asset-Datenbank (strich/motive-founder.js), Tage-Zähler bis
 //     31.12.2026; Klägs bewundert, tippt die Vorteile an und feiert den Knopf über den CTA-Boost (data-klaegs-*).
 //   4 Testerclub (violett, echter Mini-Fragebogen), Game Arena (Nacht, Knopf gesperrt), Punkte (drei Schritte, Klägs zieht
-//     sie entlang, daneben die 3D-Reward-Box mit Produkten), Schluss (Gold, „Alles kostenlos“ groß zum Abhaken).
+//     sie entlang, daneben die 3D-Reward-Box mit Produkten), Schluss (Gold, „Jetzt kostenlos voranmelden“ groß zum
+//     Abhaken, FB1 11.11.).
 // Fremde Module nur per Import: site/v2/start.js, site/v2/wege, site/v2/strich, site/v2/schau/box3d.js,
 // site/arena/teaser, site/v2/klecks/spiel.js, src/klecks/leitmotiv.js.
 // Regie (site/KLECKS-REGIE.md): kein Headset auf der Startseite. Jedes Zeichen kommt aus der Asset-Datenbank.
@@ -714,6 +715,34 @@ if (rewardEl) {
   }).observe(rewardEl);
 }
 
+/* ── FB1 11.11. (F5, Lücke L3): „Dein eigener Bereich“. Beim ersten Sichtkontakt füllt sich der Balken zur Reward Box
+   (CSS, .ist-da) und der Punktestand zählt mit (Beispielwerte, eine Bewegung, kein Klägs). Reduziert: gleich der
+   Endstand. Die Breite der Zahl steht vorher fest, damit „Punkte“ daneben nicht wandert. ─────────────────────────── */
+const bereich = $("[data-st-bereich]");
+if (bereich) {
+  const zahl = $("[data-st-konto-zahl]", bereich);
+  const ziel = Number(zahl?.dataset.ziel) || 0;
+  const fmt = new Intl.NumberFormat("de-DE");
+  if (REDUZIERT || !zahl || !ziel) bereich.classList.add("ist-da");
+  else
+    imBild(
+      bereich,
+      () => {
+        zahl.style.minWidth = `${Math.ceil(zahl.getBoundingClientRect().width)}px`;
+        zahl.textContent = "0";
+        bereich.classList.add("ist-da");
+        const t0 = performance.now() + 250;
+        const schritt = (jetzt) => {
+          const u = Math.min(1, Math.max(0, (jetzt - t0) / 1100));
+          zahl.textContent = fmt.format(Math.round(ziel * (1 - Math.pow(1 - u, 3))));
+          if (u < 1) requestAnimationFrame(schritt);
+        };
+        requestAnimationFrame(schritt);
+      },
+      { rand: "0px 0px -18% 0px" },
+    );
+}
+
 /* ── 2 So funktioniert's: Klecks hüpft die drei Schritte entlang und zeigt auf „Alle Details“ ─────────────────────────
    Takt 09.11. (Chris: „Schnell in die Kernaction von Klägs je Sektion im Viewport einsteigen; dann – sollte länger
    verweilt werden – authentische Animationen je Sektion nachlagern“): Kern zuerst: gleich beim Eintritt hüpft er
@@ -928,7 +957,8 @@ async function dabeiAbhaken() {
       const r = $(".st-dabei__aufruf", dabei).getBoundingClientRect();
       return [Math.min(innerWidth - K.R - 10, r.right - K.R * 1.2), r.top - K.R + 3];
     };
-    // 08.11. (Chris): „Alles kostenlos“ und „Start im Januar 2027“ werden zuerst abgehakt (oben); das kleine „Ja!“ kommt
+    // 08.11. (Chris): die beiden Haken (FB1 11.11.: „Jetzt kostenlos voranmelden“, „150 Early-Bird-Punkte sichern“, vorher
+    // „Alles kostenlos“, „Start im Januar 2027“) werden zuerst abgehakt (oben); das kleine „Ja!“ kommt
     // danach nur manchmal (Zufall), und zwar unter der Frage im freien Platz [data-st-ja], nie neben den Haken
     const jaPlatz = $("[data-st-ja]", dabei);
     if (jaPlatz && Math.random() < 0.5) {

@@ -6,7 +6,7 @@
     <meta name="robots" content="noindex" />
     <link rel="icon" type="image/svg+xml" href="/snaegs-staging/vorschau/claude-feedback-runde-1/assets/snaegs-favicon-C7AnkDYR.svg" />
     <title>SNÄGS · Test it. Play it. Love it.</title>
-    <meta name="description" content="SNÄGS verbindet Produkttests und Gaming: neue Produkte gratis testen, ab Januar 2027 kostenlos zocken, Punkte sammeln, Reward Boxen holen. Jetzt kostenlos zum SNÄGS Testerclub voranmelden und bis 31.12.2026 Founder werden. Ab 18." />
+    <meta name="description" content="SNÄGS verbindet Produkttests und Gaming: Markenprodukte gratis testen, wenn dein Profil passt, Punkte für Reward Boxen sammeln und ab Januar 2027 kostenlos zocken. Jetzt kostenlos zum SNÄGS Testerclub voranmelden und bis 31.12.2026 Founder werden. Ab 18." />
     <link rel="preload" href="/snaegs-staging/vorschau/claude-feedback-runde-1/fonts/tiktok-sans-latin-var.woff2" as="font" type="font/woff2" crossorigin />
     <script src="/snaegs-staging/vorschau/claude-feedback-runde-1/site/v2/wege/vorab.js"></script>
     <script>
@@ -29,7 +29,7 @@
         }
       })();
     </script>
-    <script type="module" crossorigin src="/snaegs-staging/vorschau/claude-feedback-runde-1/assets/website-0f54zY5X.js"></script>
+    <script type="module" crossorigin src="/snaegs-staging/vorschau/claude-feedback-runde-1/assets/website-D7B71DsR.js"></script>
     <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-feedback-runde-1/assets/modulepreload-polyfill-Dezn_h7o.js">
     <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-feedback-runde-1/assets/rolldown-runtime-QTnfLwEv.js">
     <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-feedback-runde-1/assets/gesten-DuKU43vj.js">
@@ -48,6 +48,7 @@
     <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-feedback-runde-1/assets/requisiten2-jyPEaYIT.js">
     <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-feedback-runde-1/assets/leitmotiv-Dkoc6U_v.js">
     <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-feedback-runde-1/assets/preload-helper-CtS8q7tS.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-feedback-runde-1/assets/zustand-CMlbz1Qk.js">
     <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-feedback-runde-1/assets/tinte-pgdL2m-R.js">
     <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-feedback-runde-1/assets/regie-DZbNAeHn.js">
     <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-feedback-runde-1/assets/slots-C80S5cYY.js">
@@ -56,11 +57,10 @@
     <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-feedback-runde-1/assets/regie-seiten-DDjbSWz5.js">
     <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-feedback-runde-1/assets/fuehrung-BAtmellq.js">
     <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-feedback-runde-1/assets/testerclub-bleed-DuLBoICk.js">
-    <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-feedback-runde-1/assets/start-BaJWjlzv.js">
-    <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-feedback-runde-1/assets/zustand-SaHs5gHc.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-feedback-runde-1/assets/start-DDpEfIRh.js">
     <link rel="stylesheet" crossorigin href="/snaegs-staging/vorschau/claude-feedback-runde-1/assets/style-C-zV1GOL.css">
-    <link rel="stylesheet" crossorigin href="/snaegs-staging/vorschau/claude-feedback-runde-1/assets/website-DoLbNBbG.css">
-    <link rel="stylesheet" crossorigin href="/snaegs-staging/vorschau/claude-feedback-runde-1/assets/testerclub-CXK8v5wB.css">
+    <link rel="stylesheet" crossorigin href="/snaegs-staging/vorschau/claude-feedback-runde-1/assets/website-BlDKnTnj.css">
+    <link rel="stylesheet" crossorigin href="/snaegs-staging/vorschau/claude-feedback-runde-1/assets/testerclub-DGX6cxoy.css">
     <link rel="stylesheet" crossorigin href="/snaegs-staging/vorschau/claude-feedback-runde-1/assets/wege-BHDdnZyE.css">
   </head>
   <!-- Startseite v3 (V3A 07.11., Wünsche des SNÄGS-CEO, site/v2/QUELLE-CEO-WEBSITE.md), Reihenfolge nach seinem Punkt 6:
@@ -102,27 +102,32 @@
            nach 1–3 s zum Knopf, zupft ihn zum Testerclub und neigt sich ihm zu. -->
       <section class="s st-held" id="held" data-abschnitt="held" data-farbe="papier" aria-labelledby="held-titel">
         <h1 id="held-titel" class="plakat st-held__titel" lang="en"><span class="st-takt">Test&nbsp;it.</span> <span class="st-takt">Play&nbsp;it.</span><br class="st-umbruch" /> <span class="st-takt">Love&nbsp;it.</span></h1>
-        <p class="st-held__unter">Neue Produkte gratis testen, ab Januar kostenlos zocken. Beides bringt dir Punkte für Reward&nbsp;Boxen.</p>
+        <!-- FB1 11.11. (F1, User-Tests: „noch deutlicher …, dass Mitglieder tatsächlich kostenlose Markenprodukte zum Testen
+             erhalten können. Das ist ein entscheidendes Argument.“): der Nutzen steht zuerst; Punkte gibt es für tägliches
+             Mitmachen, nie für den Produkttest (Kanon der Runde, BRIEF-FEEDBACK-1.md §2). Entwurf, Endfassung von Loki/Fury. -->
+        <p class="st-held__unter">Kostenlose Markenprodukte testen, wenn dein Profil passt. Dazu täglich Punkte für Reward&nbsp;Boxen, ab Januar auch beim Zocken.</p>
         <!-- Z5 07.11. (Chris: „ein hässliches graues Scheiß-Ding drunter gelegt“): keine Karte mehr. Die Gewichtung trägt der
              Raum: Testerclub groß, farbig, mit dem Knopf direkt darunter auf einer Achse; Game Arena daneben kleiner und
              leiser, ihre Decke lüftet sich nach etwa 2 s (0,6 s), darunter ein ruhiges Standbild des Games. -->
         <div class="st-welten" data-st-welten>
           <div class="st-welt st-welt--club" data-st-welt="club">
-            <p class="st-welt__name" data-st-name="club"><span class="st-welt__wort" data-st-club-wort data-tc>SNÄGS Testerclub</span><span class="st-welt__was">Neue Produkte gratis&nbsp;testen</span></p>
+            <p class="st-welt__name" data-st-name="club"><span class="st-welt__wort" data-st-club-wort data-tc>SNÄGS Testerclub</span><span class="st-welt__was"><span class="st-welt__satz">Gratis testen.</span> <span class="st-welt__satz">Punkte sammeln.</span></span></p>
             <span class="st-welt__feld" data-st-club-feld aria-hidden="true"></span>
             <!-- H3D 08.11. (Chris: „den Survey etwas rudimentärer animierst, ein, zwei, drei Schritte machst, übertrieben
                  dargestellt Coins dafür bekommst und diese Coins wiederum in Reward Boxen umwandeln kannst … 3JS-Animation“):
                  statt der Bildschirmaufnahme eine three.js-Story (/snaegs-staging/vorschau/claude-feedback-runde-1/site/start/testerclub3d): drei Fragen, je ein Münzschwall,
                  die Münzen strömen in die Reward Box. Rahmen und Poster stehen bis zum ersten 3D-Bild und bleiben ohne WebGL.
                  Antippen spielt die Story noch einmal. -->
-            <div class="st-geraet st-geraet--survey st-tc3d" data-st-survey-geraet data-st-tc3d data-href="/snaegs-staging/vorschau/claude-feedback-runde-1/site/testerclub.html?von=start-held" role="link" tabindex="0" aria-label="Zum SNÄGS Testerclub: Deine Meinung bringt dir Punkte, mit deinen Punkten holst du dir eine Reward Box.">
+            <div class="st-geraet st-geraet--survey st-tc3d" data-st-survey-geraet data-st-tc3d data-href="/snaegs-staging/vorschau/claude-feedback-runde-1/site/testerclub.html?von=start-held" role="link" tabindex="0" aria-label="Zum SNÄGS Testerclub: Jede beantwortete Frage bringt dir Punkte, mit deinen Punkten holst du dir eine Reward Box.">
               <span class="st-geraet__schirm"><img class="st-geraet__video" src="/snaegs-staging/vorschau/claude-feedback-runde-1/assets/survey-poster-DUBensuB.webp" alt="" decoding="async" /></span>
               <img class="st-geraet__rahmen" src="/snaegs-staging/vorschau/claude-feedback-runde-1/assets/handy-rahmen-ChLkOy5G.webp" alt="" width="720" height="1335" decoding="async" fetchpriority="high" />
             </div>
             <!-- 08.11. (Chris: „diese hässliche Box loswerden … erstmal verschwinden“): die 3D-Box mit gezeichneten Produkten vor dem Handy ist raus; start.js überspringt sie ohne [data-st-paket]. -->
           </div>
           <div class="st-welt st-welt--arena" data-st-welt="arena" data-st-arena>
-            <p class="st-welt__name" data-st-name="arena"><span class="st-welt__wort">Game Arena</span><span class="st-welt__was">Start Januar&nbsp;2027</span></p>
+            <!-- FB1 11.11. (F6/F7): beide Welten sprachlich gleich gebaut (zwei kurze Sätze), der Starttermin steht als eigener
+                 kleiner, leiser Hinweis über dem Namen (im Platz, um den die Arena tiefer sitzt: nichts rückt nach unten) -->
+            <p class="st-welt__name" data-st-name="arena"><span class="st-welt__start">Start Januar&nbsp;2027</span><span class="st-welt__wort">Game Arena</span><span class="st-welt__was"><span class="st-welt__satz">Kostenlos spielen.</span> <span class="st-welt__satz">Preise gewinnen.</span></span></p>
             <span class="st-decke" data-st-teaser></span>
             <!-- Z6 07.11.: unter dem Handy ein Feld für zwei Dinge nacheinander. Erst sitzt dort Klägs (er schaut, das Handy
                  wippt, die Decke lüftet sich), dann geht er zum Knopf, und an seinem Platz erscheint leise der Weg zur
@@ -166,8 +171,10 @@
         <ul class="st-founder__vorteile" data-klaegs-folge="tippen">
           <li><span class="st-founder__zeichen" data-st-motiv="muenze" data-farbe="gold" aria-hidden="true"></span><span class="st-founder__text"><b>150 Early-Bird-Punkte</b><span>gutgeschrieben im Januar</span></span></li>
           <li><span class="st-founder__zeichen" data-st-motiv="reward-box" data-farbe="gold" aria-hidden="true"></span><span class="st-founder__text"><b>Erste Reward Box doppelt</b><span>40&nbsp;€ statt 20&nbsp;€ Warenwert, Versand kostenlos</span></span></li>
-          <li><span class="st-founder__zeichen" data-st-motiv="paket" data-farbe="erdbeere" aria-hidden="true"></span><span class="st-founder__text"><b>10&nbsp;×&nbsp;100&nbsp;€ Produktboxen zu gewinnen</b><span>Teilnahmebedingungen folgen</span></span></li>
-          <li><span class="st-founder__zeichen" data-st-motiv="umschlag" data-farbe="violett" aria-hidden="true"></span><span class="st-founder__text"><b>Bis zu 125 Punkte extra</b><span>für Freunde, die mitmachen</span></span></li>
+          <li><span class="st-founder__zeichen" data-st-motiv="paket" data-farbe="erdbeere" aria-hidden="true"></span><span class="st-founder__text"><b>10&nbsp;×&nbsp;100&nbsp;€ Reward&nbsp;Boxen zu gewinnen</b><span>Teilnahmebedingungen folgen</span></span></li>
+          <!-- FB1 11.11. (F3: „Jetzt schon die Möglichkeit 5 Freunde einzuladen! Freunde, Familie, Arbeitskollegen, Gym Buddis“):
+               Punkte wie im Wiki (25 je Freund, höchstens 5); der Weg zum Einladen steht nach der Voranmeldung (Anmeldung.jsx) -->
+          <li><span class="st-founder__zeichen" data-st-motiv="umschlag" data-farbe="violett" aria-hidden="true"></span><span class="st-founder__text"><b>Jetzt schon 5&nbsp;Freunde einladen</b><span>Freunde, Familie, Kollegen, <span class="st-zusammen">Gym-Buddys:</span> bis zu 125&nbsp;Punkte extra</span></span></li>
         </ul>
         <div class="st-founder__aufruf">
           <a class="v2-knopf v2-knopf--bonus st-voran" href="/snaegs-staging/vorschau/claude-feedback-runde-1/vorregistrierung.html?von=start-founder" data-vorreg="start-founder" data-cta="haupt" data-hauptknopf data-naechstes="3">Jetzt voranmelden<span class="v2-bonus" aria-hidden="true"><span class="v2-muenze" data-muenze></span><span class="v2-bonus__plus">+150</span></span><span class="v2-sr">, 150 Early-Bird-Punkte</span></a>
@@ -182,7 +189,8 @@
         <div class="st-probe__feld" data-st-feld aria-hidden="true"></div>
         <div class="st-probe__kopf">
           <h2 id="testerclub-titel" class="plakat">Die <span data-bleed="cyan">neuesten Produkte</span>? Vielleicht testest du sie&nbsp;zuerst.</h2>
-          <p>Du sagst Marken deine Meinung, von bekannten Namen bis zu neuen Creator-Brands, und sammelst dafür Punkte. So fühlt sich ein Test an:</p>
+          <!-- FB1 11.11. (F10, wörtlich; Headline bleibt, F9): Produkttest nach Auswahl gegen Punkte durch tägliche Fragen -->
+          <p>Bewirb dich für kostenlose Produkttests und erhalte mit etwas Glück neue Produkte direkt nach Hause. Oder sammle täglich Punkte mit spannenden Fragen und Aufgaben für deine nächste Reward&nbsp;Box.</p>
         </div>
         <!-- 08.11. (Chris): hinter dem selbst bedienbaren Bogen ein kleines Handy mit dem echten Survey (Bildschirmaufnahme
              im Handy-Rahmen, wie bisher im Start-Hero), es unterstreicht, was das hier ist -->
@@ -210,7 +218,7 @@
             <button type="button" class="st-wahl" data-st-wahl aria-pressed="false"><span class="st-box" aria-hidden="true"></span>Eher nicht</button>
           </fieldset>
           <div class="st-bogen__danke" data-st-danke hidden>
-            <p class="st-bogen__satz">Genau so geht Testen. Die Produkte kommen gratis zu dir.</p>
+            <p class="st-bogen__satz">Genau so geht's! Teste neue Produkte oder sammle Punkte für deine Reward&nbsp;Box.</p>
             <a class="v2-knopf v2-knopf--hell" href="/snaegs-staging/vorschau/claude-feedback-runde-1/survey.html?von=start" data-st-survey data-naechstes="2">Produkttest ausprobieren</a>
             <button type="button" class="v2-zeig" data-st-nochmal><span class="v2-zeig__zeichen" aria-hidden="true"></span>Nochmal</button>
           </div>
@@ -255,7 +263,7 @@
           </li>
           <li class="st-schritt">
             <span class="st-schritt__bild" data-st-motiv="muenzglas" data-farbe="gold" aria-hidden="true"></span>
-            <span class="st-schritt__text"><span class="st-schritt__name">Punkte sammeln</span><span class="st-schritt__satz">Tests und Games zahlen auf ein gemeinsames Punktekonto ein.</span></span>
+            <span class="st-schritt__text"><span class="st-schritt__name">Punkte sammeln</span><span class="st-schritt__satz">Fragen und Games zahlen auf ein gemeinsames Punktekonto ein.</span></span>
           </li>
           <li class="st-schritt">
             <span class="st-schritt__bild" data-st-motiv="reward-box" data-farbe="gold" aria-hidden="true"></span>
@@ -266,6 +274,33 @@
           <span class="st-box3d__buehne" data-st-reward aria-hidden="true"><span class="st-box3d__waren" data-st-reward-waren></span></span>
           <figcaption class="st-box3d__text"><b>Reward Box</b><span>Markenprodukte im Wert von rund 20&nbsp;€ UVP, Versand kostenlos. Als Founder bekommst du in deiner ersten Box das Doppelte: 40&nbsp;€.</span></figcaption>
         </figure>
+        <!-- FB1 11.11. (F5, User-Tests: „Es muss rüberkommen, dass man einen eigenen Bereich hat mit Dashboard etc.“, Lücke L3):
+             eine Kontokarte mit Dashboard-Anmutung, zusammengesetzt aus Vorhandenem: Punktestand mit SNÄGS-Münze und Weg zur
+             Reward Box (wie Kontokarte der Voranmeldung und Punktekonto der Testerclub-Seite), Serie, Founder-Avatar und
+             -Abzeichen (strich/motive-founder.js), Motive aus der Asset-Datenbank. Nur belegte Funktionen (Wiki: Punktekonto,
+             Serie, Abzeichen und Avatar, Fortschritt zur Reward Box), Werte als Beispiel gekennzeichnet. Kein Knopf.
+             Texte: Entwurf (Spider-S), Endfassung Loki/Fury. -->
+        <div class="st-bereich" data-st-bereich>
+          <h3 class="st-bereich__titel">Dein eigener Bereich</h3>
+          <p class="st-bereich__satz">Darin siehst du deinen Punktestand, deine Serie, deine Abzeichen und wie weit es noch bis zur Reward&nbsp;Box&nbsp;ist.</p>
+          <figure class="st-konto" role="img" aria-label="Beispiel deines Bereichs: Founder, 1.650 von 2.500 Punkten, noch 850 bis zur Reward Box, Serie seit 6 Tagen, Founder-Abzeichen.">
+            <span class="st-konto__kopf" aria-hidden="true">
+              <span class="st-konto__avatar" data-st-motiv="founder-avatar" data-farbe="violett"></span>
+              <span class="st-konto__wer"><b>Founder</b><span>SNÄGS Testerclub</span></span>
+              <span class="st-konto__bsp">Beispiel</span>
+            </span>
+            <span class="st-konto__stand" aria-hidden="true">
+              <span class="st-konto__label">Punktekonto</span>
+              <span class="st-konto__zahl"><span class="st-konto__muenze" data-st-motiv="muenze" data-farbe="gold"></span><b data-st-konto-zahl data-ziel="1650">1.650</b><span>Punkte</span></span>
+              <span class="st-konto__weg"><span class="st-konto__balken"><span class="st-konto__fuell" data-st-konto-fuell></span></span><span class="st-konto__box" data-st-motiv="reward-box" data-farbe="gold"></span></span>
+              <span class="st-konto__noch">noch 850 bis zur Reward&nbsp;Box</span>
+            </span>
+            <span class="st-konto__kacheln" aria-hidden="true">
+              <span class="st-konto__kachel"><span class="st-konto__zeichen" data-st-motiv="flamme" data-farbe="erdbeere"></span><span class="st-konto__wert"><b>6 Tage</b><span>Serie</span></span></span>
+              <span class="st-konto__kachel"><span class="st-konto__zeichen" data-st-motiv="founder-abzeichen" data-farbe="gold"></span><span class="st-konto__wert"><b>Founder</b><span>Abzeichen</span></span></span>
+            </span>
+          </figure>
+        </div>
         <div class="st-so__fuss">
           <a class="st-so__mehr" href="/snaegs-staging/vorschau/claude-feedback-runde-1/site/wiki.html?von=start-punkte" data-st-mehr data-naechstes="2">Alle Details zu Punkten<span class="st-so__pfeil" data-st-zeichen="pfeil-kurz" aria-hidden="true"></span></a>
         </div>
@@ -279,12 +314,13 @@
         <!-- 08.11. (Chris): Klägs' „Ja!“ steht unter der Frage, wo Luft ist (auch am Handy), nie über den Haken -->
         <span class="st-dabei__ja" data-st-ja aria-hidden="true"></span>
         <ul class="st-dabei__fakten">
-          <li class="st-dabei__gross"><span class="st-box" aria-hidden="true"></span>Alles kostenlos</li>
-          <li><span class="st-box" aria-hidden="true"></span>Start im Januar 2027</li>
+          <!-- FB1 11.11. (F15, wörtlich; Headline, Knopf, Design und Klägs bleiben exakt, F14/F16/F18) -->
+          <li class="st-dabei__gross"><span class="st-box" aria-hidden="true"></span>Jetzt kostenlos voranmelden</li>
+          <li><span class="st-box" aria-hidden="true"></span><span>150 <span class="st-zusammen">Early-Bird-Punkte</span> sichern</span></li>
         </ul>
         <div class="st-dabei__aufruf" data-sitz="dabei" data-sitz-art="oben" data-sitz-u="0.85">
           <a class="v2-knopf v2-knopf--bonus v2-knopf--lang st-dabei__knopf" href="/snaegs-staging/vorschau/claude-feedback-runde-1/vorregistrierung.html?von=start-ende" data-vorreg="start-ende" data-hauptknopf data-naechstes="3">Jetzt voranmelden<span class="v2-bonus" aria-hidden="true"><span class="v2-muenze" data-muenze></span><span class="v2-bonus__plus">+150</span></span><span class="v2-sr">, 150 Early-Bird-Punkte</span></a>
-          <p class="st-dabei__founder"><span class="st-dabei__abzeichen" data-st-zeichen="founder-abzeichen" aria-hidden="true"></span><span>Bis 31.12.2026 wirst du damit Founder des SNÄGS Testerclubs: Abzeichen, limitierter Avatar und 150 Early-Bird-Punkte.</span></p>
+          <p class="st-dabei__founder"><span class="st-dabei__abzeichen" data-st-zeichen="founder-abzeichen" aria-hidden="true"></span><span>Jetzt Founder werden und im Januar 2027 mit 150 Extrapunkten starten.</span></p>
           <ul class="v2-vertrauen" aria-label="Sicher voranmelden"><li><span class="v2-vertrauen__zeichen v2-vertrauen__zeichen--schloss" aria-hidden="true"></span>SSL-verschlüsselt</li><li><span class="v2-vertrauen__zeichen v2-vertrauen__zeichen--sterne" aria-hidden="true"></span>DSGVO-konform</li><li><span class="v2-vertrauen__zeichen v2-vertrauen__zeichen--server" aria-hidden="true"></span>Server in Deutschland</li><li><span class="v2-vertrauen__zeichen v2-vertrauen__zeichen--brief" aria-hidden="true"></span>Kein Spam</li></ul>
         </div>
       </section>
