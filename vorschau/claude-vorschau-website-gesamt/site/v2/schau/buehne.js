@@ -40,13 +40,21 @@ const TEX = {
 };
 const LOGO_URL = "/burst/frugends-logo-arena.png";
 
+// 11.11. (Apple): einmal prüfen, mit 1 × 1-Leinwand, und den Probe-Kontext sofort freigeben. Vorher blieb je Aufruf ein
+// WebGL-Kontext leben, bis die Bereinigung ihn holte; Safari hält höchstens 16 und nimmt dem ältesten (dem Hero) seinen.
+let webglJa = null;
 export function webglMoeglich() {
+  if (webglJa !== null) return webglJa;
   try {
     const c = document.createElement("canvas");
-    return !!(c.getContext("webgl2") || c.getContext("webgl"));
+    c.width = c.height = 1;
+    const gl = c.getContext("webgl2") || c.getContext("webgl");
+    webglJa = !!gl;
+    gl?.getExtension("WEBGL_lose_context")?.loseContext();
   } catch {
-    return false;
+    webglJa = false;
   }
+  return webglJa;
 }
 
 const clamp01 = (x) => Math.min(1, Math.max(0, x));
@@ -412,6 +420,9 @@ export function buehne(canvas, { art = "ankunft", reduziert = false, onBeat, onB
   canvas.addEventListener("pointerup", hoch);
   canvas.addEventListener("pointercancel", hoch);
   canvas.addEventListener("webglcontextlost", (e) => e.preventDefault());
+  // 11.11. (Apple): Verliert Safari unter Speicherdruck den Kontext, baut three ihn neu auf; gezeichnet wurde danach
+  // aber nichts mehr (Chris' iPad: der Hero stand leer). Jetzt ein Bild wie nach einer Größenänderung.
+  canvas.addEventListener("webglcontextrestored", () => requestAnimationFrame(() => (reduziert ? einBild(art === "ankunft" ? 0.96 : 0) : wecke())));
 
   // Texturen da → erstes Bild; die Ankunft startet, sobald die Bühne zum ersten Mal im Bild ist
   let gestartet = false;

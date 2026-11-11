@@ -27,6 +27,8 @@
 // Regie (site/KLECKS-REGIE.md): kein Headset auf der Startseite. Jedes Zeichen kommt aus der Asset-Datenbank.
 
 import { seite, imBild, brumm, auftauchen, kern } from "../v2/start.js";
+import { inRuhe, nahe } from "../v2/strich/ruhe.js";
+import { APPLE_WEBKIT } from "../../src/umgebung.js";
 import { entstehung } from "./entstehung.js";
 import { ton } from "./klang.js";
 import { marke, markiere } from "../../src/klecks/leitmotiv.js";
@@ -46,6 +48,12 @@ const warte = (ms) => new Promise((r) => setTimeout(r, ms));
 const INTRO = MODUS === "aus" && introGewuenscht();
 let introFertig;
 const introVorbei = INTRO ? new Promise((r) => (introFertig = r)) : Promise.resolve();
+/** P2 11.11.: bis dahin läuft ein schwerer Moment (Klägs' Bestätigung am Bogen); schwere Aufbauten warten so lange */
+let lastBis = 0;
+/** P2 11.11.: die Hero-Story ist durch (oder kommt nicht); erst danach baut die Seite weitere 3D-Bühnen vorab */
+let heroFertig;
+const HERO_FERTIG = new Promise((r) => (heroFertig = r));
+setTimeout(() => heroFertig(), INTRO ? 20000 : 12000); // mit Klägs-Intro (~7 s) startet die Story später
 
 const held = $("#held");
 const sitzEl = $("[data-st-sitz]");
@@ -447,6 +455,7 @@ async function heroMoment() {
     K.ausflug = false;
     api.fuehrung?.halt?.(false);
     api.fuehrung?.platz?.(null);
+    heroFertig();
   }
 }
 
@@ -541,8 +550,38 @@ const auftritt = (() => {
   };
 })();
 
+/** Papierkarte da (src/stift/papier.js, Worker; bei CPU 4× erst ~4,7 s nach dem Laden): erst dann baut der Vorlauf, sonst
+ *  tastet jede Spur das Papier Punkt für Punkt ab (langsamer Rückfall mit Zufallszahn statt echtem Papier) */
+const PAPIER = new Promise((da) => {
+  const h = document.documentElement;
+  if (h.dataset.papier === "bereit") return da();
+  const mo = new MutationObserver(() => h.dataset.papier === "bereit" && (mo.disconnect(), da()));
+  mo.observe(h, { attributes: true, attributeFilter: ["data-papier"] });
+  setTimeout(da, 8000);
+});
+
+/** P2 11.11.: ein Motiv vorab aufbauen, sobald Papier und Ruhe da sind (ruhe.js, je Motiv ein Task), spätestens wenn es
+ *  dran ist. Vorher baute eine Sektion alle Motive in einem Block beim Eintritt (Founder: bis 1,6 s bei CPU 4×). */
+function vorbau(bau, was) {
+  let z;
+  const hole = () => {
+    if (z === undefined) {
+      try {
+        z = bau() ?? null;
+      } catch (e) {
+        console.warn("[start]", was, e);
+        z = null;
+      }
+    }
+    return z;
+  };
+  PAPIER.then(() => inRuhe(hole));
+  return { starte: () => hole()?.starte?.() };
+}
+
 /* ── Motive aus der Asset-Datenbank (Founder, Game Arena, Punkte): zeichnen und einfärben beim ersten Sichtkontakt.
-   Das Founder-Abzeichen zeichnet Klägs selbst (klaegsZeichnet unten). ─────────────────────────────────────────── */
+   Das Founder-Abzeichen zeichnet Klägs selbst (klaegsZeichnet unten). Aufgebaut werden sie vorab (P2 11.11.: ab
+   anderthalb Bildhöhen vor der Sektion, je Motiv in einer ruhigen Minute), gestartet wie bisher erst gut im Bild. ── */
 async function motive(wurzel) {
   const B = await STRICH;
   if (!B?.zeichne) return;
@@ -551,46 +590,61 @@ async function motive(wurzel) {
     host.dataset.gezeichnet = "1";
     const motiv = host.dataset.stMotiv;
     const nacht = !!host.closest(".v2-nacht");
-    const r = host.getBoundingClientRect();
-    try {
-      const gross = r.width > 120;
-      auftritt(host, B.zeichne(host, motiv, { ton: nacht ? "papier" : "tinte", farbe: host.dataset.farbe ?? false, groesse: r.width * 0.94, ms: gross ? 2000 : 1500, start: false }));
-    } catch (e) {
-      console.warn("[start] Motiv", motiv, e);
-    }
+    auftritt(
+      host,
+      vorbau(() => {
+        const r = host.getBoundingClientRect();
+        const gross = r.width > 120;
+        return B.zeichne(host, motiv, { ton: nacht ? "papier" : "tinte", farbe: host.dataset.farbe ?? false, groesse: r.width * 0.94, ms: gross ? 2000 : 1500, start: false });
+      }, `Motiv ${motiv}`),
+    );
   });
 }
-for (const id of ["#founder", "#arena", "#punkte"]) imBild($(id), () => motive($(id)), { rand: "0px 0px 20% 0px" });
+for (const id of ["#founder", "#arena", "#punkte"]) imBild($(id), () => motive($(id)), { rand: "0px 0px 150% 0px" });
 
 /* ── 08.11. (Chris): in der Arena-Sektion ein kleiner Ausschnitt vom echten Game (Teaser im Ausschnitt-Modus, nicht der
    Trailer), er spielt, solange er im Bild ist ─────────────────────────────────────────────────────────────────────── */
+// P2 11.11. (mit P1): Der Ausschnitt ist ein zweiter voller Teaser (eigener WebGL-Kontext, rund 15 Leinwände, Texturen).
+// Er montierte mit 25 % Vorlauf genau im Übergang Bogen → „Play it“, wo am iPad der graue Ausfall lag, oft zugleich mit
+// Klägs' Bestätigung am Bogen. Jetzt: vorbereitet, sobald die Sektion in der Nähe ist (1,5 Bildhöhen), aber erst nach
+// der Hero-Story, in einer ruhigen Minute (nicht beim Scrollen, ruhe.js) und nie, solange ein anderer schwerer Moment
+// läuft (lastBis). Der Teaser rendert ohnehin nur, solange er im Bild ist (teaser/index.js), früher montiert kostet also
+// nur den Aufbau, keine Dauerlast.
 const arenaHandy = $("[data-st-arena-handy]");
-if (arenaHandy)
-  imBild(
-    arenaHandy,
-    () =>
-      import("../arena/teaser/index.js")
-        .then(({ mountTeaser }) => {
-          const t = mountTeaser(arenaHandy, { modus: "ausschnitte", ausschnitte: false, autoplay: true, start: 1 });
-          t.bereit?.then?.(() => t.zeige?.(1));
-        })
-        .catch((e) => console.warn("[start] Arena-Ausschnitt", e)),
-    { rand: "25% 0px 25% 0px" },
-  );
+let arenaDa = false;
+function arenaMontieren() {
+  if (arenaDa) return;
+  const rest = lastBis - performance.now();
+  if (rest > 0) return void setTimeout(() => inRuhe(arenaMontieren, { vorn: true }), rest + 80);
+  arenaDa = true;
+  import("../arena/teaser/index.js")
+    .then(({ mountTeaser }) => {
+      const t = mountTeaser(arenaHandy, { modus: "ausschnitte", ausschnitte: false, autoplay: true, start: 1 });
+      t.bereit?.then?.(() => t.zeige?.(1));
+    })
+    .catch((e) => console.warn("[start] Arena-Ausschnitt", e));
+}
+if (arenaHandy) {
+  nahe(arenaHandy, () => HERO_FERTIG.then(() => inRuhe(arenaMontieren, { vorn: true })));
+  // schon im Bild, bevor die Hero-Story durch ist (schnell heruntergescrollt): dann sobald das Scrollen ruht
+  imBild(arenaHandy, () => inRuhe(arenaMontieren, { vorn: true }), { rand: "0px" });
+}
 
 /** Zeichen der Seite aus der Asset-Datenbank (Pfeile, Schloss der Game Arena, Founder-Abzeichen am Schluss) */
 const ZEICHEN_FARBE = { muenze: "gold", "founder-abzeichen": true };
 STRICH.then((B) => {
   if (!B?.zeichne) return;
+  // P2 11.11.: je Zeichen ein ruhiger Task (vorher alle in einem Block gleich nach dem Laden)
   for (const host of $$("[data-st-zeichen]")) {
-    try {
-      const name = host.dataset.stZeichen;
-      const nacht = !!host.closest(".v2-nacht");
-      const klein = (host.clientWidth || 18) < 30;
-      auftritt(host, B.zeichne(host, name, { groesse: host.clientWidth || 18, art: "filz", ms: klein ? 800 : 1300, start: false, ton: nacht ? "papier" : "tinte", farbe: ZEICHEN_FARBE[name] ?? false }));
-    } catch (e) {
-      console.warn("[start] Zeichen", host.dataset.stZeichen, e);
-    }
+    const name = host.dataset.stZeichen;
+    const nacht = !!host.closest(".v2-nacht");
+    auftritt(
+      host,
+      vorbau(() => {
+        const klein = (host.clientWidth || 18) < 30;
+        return B.zeichne(host, name, { groesse: host.clientWidth || 18, art: "filz", ms: klein ? 800 : 1300, start: false, ton: nacht ? "papier" : "tinte", farbe: ZEICHEN_FARBE[name] ?? false });
+      }, `Zeichen ${name}`),
+    );
   }
 });
 
@@ -889,7 +943,11 @@ async function waehle(w) {
         K.hopp(x, y, 26);
         await warte(520);
       }
-      K.gross?.({ farbe: "violett", halten: 900 });
+      // P2 11.11. (mit P1): Auf Apple ohne Aquarell-Blüte (eine WebGL-Simulation zusätzlich zu Zoom-Schleier und Wachsen,
+      // genau im Übergang zur Game Arena, wo am iPad der graue Ausfall lag); Wachsen, Schleier und Halten bleiben.
+      // Solange der Moment läuft, montiert die Seite nichts Schweres (lastBis).
+      lastBis = performance.now() + 2600;
+      K.gross?.({ farbe: "violett", halten: 900, bluete: !APPLE_WEBKIT });
     }
     ton("plopp");
   }
