@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>SNÄGS · LinkedIn-Auftritt (Entwurf)</title>
+<link rel="icon" href="bilder/logo-v2-dunkel_300x300.png">
+<style>
+  @font-face { font-family: "TikTok Sans"; font-style: normal; font-weight: 300 900; font-stretch: 75% 150%;
+    src: url(fonts/tiktok-sans-latin-var.woff2) format("woff2"); }
+  :root { --papier: #f7f6f2; --papier-tief: #ecebe5; --tinte: #191d16; --neben: #6b6a66; --nacht: #151812; }
+  * { box-sizing: border-box; }
+  html { background: var(--papier); }
+  body { margin: 0; color: var(--tinte); font: 16px/1.5 "TikTok Sans", system-ui, sans-serif; }
+  .seite { max-width: 1180px; margin: 0 auto; padding: 40px 16px 72px; }
+  header img { height: 44px; display: block; }
+  h1 { margin: 26px 0 6px; font-size: clamp(30px, 5vw, 46px); line-height: 1.02; font-weight: 820; font-variation-settings: "opsz" 48, "wdth" 75; }
+  .stand { color: var(--neben); margin: 0 0 36px; }
+  h2 { margin: 52px 0 6px; font-size: 24px; font-weight: 780; font-variation-settings: "opsz" 24, "wdth" 86; }
+  h3 { margin: 26px 0 8px; font-size: 17px; font-weight: 700; }
+  p.hinweis { margin: 0 0 14px; color: var(--neben); max-width: 720px; }
+  .bild { position: relative; background: #fff; box-shadow: 0 1px 0 rgba(0,0,0,.06), 0 10px 30px rgba(25,29,22,.10); border-radius: 6px; overflow: hidden; }
+  .bild > img { display: block; width: 100%; height: auto; }
+  .ueber { position: absolute; display: none; }
+  body.vorschau .ueber { display: block; }
+  .ueber--logo { left: 2.1%; top: 72.7%; width: 9.3%; aspect-ratio: 1; border: 3px solid #fff; border-radius: 6px; overflow: hidden; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,.18); }
+  .ueber--logo img { width: 100%; height: 100%; display: block; }
+  .ueber--foto { left: 2.97%; top: 43.2%; width: 18.9%; aspect-ratio: 1; border-radius: 50%; border: 4px solid #fff; background: #c9c8c2;
+    display: none; place-items: center; color: #fff; font-weight: 700; font-size: clamp(9px, 1.3vw, 15px); }
+  body.vorschau .ueber--foto { display: grid; }
+  .laden { margin: 10px 0 0; font-size: 14px; color: var(--neben); }
+  .laden a { color: var(--tinte); font-weight: 600; text-underline-offset: 3px; }
+  .logos { display: flex; gap: 22px; flex-wrap: wrap; align-items: flex-start; }
+  .logos figure { margin: 0; }
+  .logos .kachel { width: 180px; aspect-ratio: 1; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(25,29,22,.10); }
+  .logos .kachel img { width: 100%; height: 100%; display: block; }
+  .logos figcaption { margin-top: 8px; font-size: 14px; color: var(--neben); }
+  .logos figcaption a { color: var(--tinte); font-weight: 600; text-underline-offset: 3px; }
+  .schalter { display: inline-flex; gap: 10px; align-items: center; padding: 10px 16px; border-radius: 999px; background: var(--tinte); color: var(--papier);
+    font-weight: 600; font-size: 15px; cursor: pointer; user-select: none; border: 0; }
+  footer { margin-top: 64px; color: var(--neben); font-size: 14px; }
+</style>
+</head>
+<body class="vorschau">
+<div class="seite">
+  <header><img src="bilder/snaegs-wortmarke.svg" alt="SNÄGS"></header>
+  <h1>LinkedIn-Auftritt von SNÄGS</h1>
+  <p class="stand">Entwürfe, Stand 11. November 2026. Alle Bilder liegen in den Größen, die LinkedIn vorgibt.</p>
+  <button class="schalter" id="schalter" type="button" aria-pressed="true">So sitzt es auf LinkedIn: an</button>
+
+  <h2>Unternehmensseite SNÄGS</h2>
+  <p class="hinweis">Titelbild mit Claim und den zwei Seiten der Plattform: links der Testerclub, rechts die Game Arena. Das Logo liegt auf LinkedIn unten links über dem Bild.</p>
+  <div class="bild">
+    <img src="bilder/firma-v11_2256x382.png" alt="Titelbild SNÄGS: Where Brands Meet Friends. Test it. Play it. Love it.">
+    <div class="ueber ueber--logo"><img src="bilder/logo-v2-hell_300x300.png" alt=""></div>
+  </div>
+  <p class="laden">Laden: <a href="bilder/firma-v11_1128x191.png" download>1128 × 191 px (LinkedIn-Vorgabe)</a> · <a href="bilder/firma-v11_2256x382.png" download>2256 × 382 px (doppelte Auflösung)</a></p>
+
+  <h3>Profilbild der Seite: das Logo</h3>
+  <div class="logos">
+    <figure><div class="kachel"><img src="bilder/logo-v2-hell_800x800.png" alt="SNÄGS-Logo hell"></div>
+      <figcaption>Hell · <a href="bilder/logo-v2-hell_300x300.png" download>300 × 300</a> · <a href="bilder/logo-v2-hell_800x800.png" download>800 × 800</a></figcaption></figure>
+    <figure><div class="kachel"><img src="bilder/logo-v2-dunkel_800x800.png" alt="SNÄGS-Logo dunkel"></div>
+      <figcaption>Dunkel · <a href="bilder/logo-v2-dunkel_300x300.png" download>300 × 300</a> · <a href="bilder/logo-v2-dunkel_800x800.png" download>800 × 800</a></figcaption></figure>
+  </div>
+
+  <h2>Profil Christian Scholz: SNÄGS und WHY 08/15</h2>
+  <p class="hinweis">Hintergrundbild für das persönliche Profil. Links die Creator-Agentur WHY 08/15, rechts SNÄGS. Das Profilfoto liegt auf LinkedIn unten links über dem Bild.</p>
+  <h3>Variante A: Klägs verbindet beide Welten</h3>
+  <div class="bild">
+    <img src="bilder/christian-v10_3168x792.png" alt="Hintergrundbild: WHY 08/15 und SNÄGS, Klägs zeigt auf beide Marken">
+    <div class="ueber ueber--foto">Profilfoto</div>
+  </div>
+  <p class="laden">Laden: <a href="bilder/christian-v10_1584x396.png" download>1584 × 396 px (LinkedIn-Vorgabe)</a> · <a href="bilder/christian-v10_3168x792.png" download>3168 × 792 px (doppelte Auflösung)</a></p>
+  <h3>Variante B: Klägs zwischen Testerclub und Game Arena</h3>
+  <div class="bild">
+    <img src="bilder/christian-v9_3168x792.png" alt="Hintergrundbild: WHY 08/15 und SNÄGS, Klägs zwischen zwei Smartphones">
+    <div class="ueber ueber--foto">Profilfoto</div>
+  </div>
+  <p class="laden">Laden: <a href="bilder/christian-v9_1584x396.png" download>1584 × 396 px (LinkedIn-Vorgabe)</a> · <a href="bilder/christian-v9_3168x792.png" download>3168 × 792 px (doppelte Auflösung)</a></p>
+
+  <footer>Entwurf, nur zur Abstimmung. Schrift: TikTok Sans (SIL Open Font License).</footer>
+</div>
+<script>
+  const s = document.getElementById("schalter");
+  s.addEventListener("click", () => {
+    const an = document.body.classList.toggle("vorschau");
+    s.setAttribute("aria-pressed", String(an));
+    s.textContent = "So sitzt es auf LinkedIn: " + (an ? "an" : "aus");
+  });
+</script>
+</body>
+</html>
