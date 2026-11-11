@@ -268,7 +268,7 @@ export function buehne(canvas, { art = "ankunft", reduziert = false, onBeat, onB
   function bild(jetzt) {
     if (weg) return;
     raf = 0;
-    const dt = Math.min(0.05, (jetzt - letzte) / 1000);
+    const dt = Math.max(0, Math.min(0.05, (jetzt - letzte) / 1000)); // nie negativ (rAF-Zeitstempel unter Last vor performance.now())
     letzte = jetzt;
     if (!messen()) return weiter();
     ablauf?.(jetzt);
@@ -337,7 +337,7 @@ export function buehne(canvas, { art = "ankunft", reduziert = false, onBeat, onB
   const deckel = kleid?.teile?.deckel ?? null;
   function deckelZu(jetzt) {
     if (!z.zu || !deckel) return;
-    const u = Math.min(1, (jetzt - z.zu) / 420);
+    const u = Math.max(0, Math.min(1, (jetzt - z.zu) / 420)); // nie negativ (rAF-Zeitstempel unter Last vor z.zu)
     const e = u * u * (3 - 2 * u);
     deckel.rotation.x = deckel.rotation.x * (1 - e) + Math.sin(u * Math.PI) * 0.03 * (1 - u);
     deckel.position.y = deckel.position.y * (1 - e) + 0.402 * e;
