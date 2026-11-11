@@ -31,6 +31,7 @@ import { entstehung } from "./entstehung.js";
 import { ton } from "./klang.js";
 import { marke, markiere } from "../../src/klecks/leitmotiv.js";
 import { FOUNDER_ENDE } from "../zustand.js";
+import { introGewuenscht, klaegsIntro } from "./klaegs-intro.js";
 
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -38,6 +39,13 @@ const html = document.documentElement;
 const MODUS = html.dataset.ent ?? "aus";
 const REDUZIERT = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const warte = (ms) => new Promise((r) => setTimeout(r, ms));
+/* FB1-K 11.11. (Chris: „… bei Starterwebseite … ein Klägs-Intro …, wo nur Klägs gezeigt wird, alles andere vielleicht
+   ausgeblendet wird und er spricht zu dir“): beim ersten Besuch je Gerät stellt sich Klägs vor (./klaegs-intro.js), danach
+   läuft der Hero-Moment wie gehabt. Solange lüftet die Arena nicht von selbst und die Testerclub-Story wartet (beides
+   liefe sonst ungesehen hinter dem Schleier ab). */
+const INTRO = MODUS === "aus" && introGewuenscht();
+let introFertig;
+const introVorbei = INTRO ? new Promise((r) => (introFertig = r)) : Promise.resolve();
 
 const held = $("#held");
 const sitzEl = $("[data-st-sitz]");
@@ -153,7 +161,7 @@ function tc3dLos() {
     .then((api) => {
       tc3d = api;
       window.__start.tc3d = api;
-      api?.start();
+      introVorbei.then(() => api?.start());
     })
     .catch((e) => console.warn("[start] Testerclub 3D", e));
 }
@@ -176,7 +184,7 @@ const teaserDa = import("../arena/teaser/index.js")
     // wippt einmal (Klägs schaut hin), dann lüftet sich die Decke in 0,6 s, nach spätestens 2 s auch ohne Klägs; Tippen
     // lüftet sofort. Darunter bleibt ein ruhiges Standbild des Games, dann steht alles.
     teaser = mountTeaser(teaserHost, {
-      ruhe: { bleibt: true, selbst: 2000, dauer: 0.6, bild: 0, nah: 0 },
+      ruhe: { bleibt: true, selbst: INTRO ? 0 : 2000, dauer: 0.6, bild: 0, nah: 0 },
       aufdruck: { zeilen: ["COMING", "JANUARY"], unter: "2027" },
       ruheLabel: "Game Arena, startet im Januar 2027: ein Handy unter einer Decke mit „Coming January“. Antippen lüftet die Decke.",
       ruheLabelFrei: "Game Arena, startet im Januar 2027: Standbild aus dem Game.",
@@ -464,8 +472,13 @@ if (MODUS === "voll" || MODUS === "kurz") {
   });
 } else {
   held.dataset.ent = "da";
-  // Z6: Klägs taucht im Hero-Moment selbst auf (auftauchen statt Geburt mit Pfütze), dort wird auch sein Platz gewählt
-  s.klecks.then(() => heroMoment());
+  // Z6: Klägs taucht im Hero-Moment selbst auf (auftauchen statt Geburt mit Pfütze), dort wird auch sein Platz gewählt.
+  // FB1-K: beim ersten Besuch stellt er sich vorher vor; danach bringt ihn der Hero-Moment von der Bühne auf seinen Platz.
+  s.klecks.then(async (api) => {
+    if (INTRO && api) await klaegsIntro({ api, zeigeAuf: clubGeraet }).catch((e) => console.warn("[start] Klägs-Intro", e));
+    introFertig?.();
+    heroMoment();
+  });
   gratis();
 }
 
