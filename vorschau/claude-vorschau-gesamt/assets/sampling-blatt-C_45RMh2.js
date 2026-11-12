@@ -1,4 +1,4 @@
-import{o as e}from"./vb-texte-8Ty6yKT-.js";/* empty css                 */var t=e.titel,n=(e,t=document)=>t.querySelector(e),r=(e,t=document)=>[...t.querySelectorAll(e)],i=(e,t,n=``)=>`<span class="b2b-motiv ${t}" data-motiv="${e}" data-faktor="1" ${n} aria-hidden="true"></span>`;function a(){let t=e.weg.stationen.map((e,t)=>`<li class="vb-weg__station" data-station="${t+1}">
+import{o as e}from"./vb-texte-CGe6UYMy.js";/* empty css                 */var t=e.titel,n=(e,t=document)=>t.querySelector(e),r=(e,t=document)=>[...t.querySelectorAll(e)],i=(e,t,n=``)=>`<span class="b2b-motiv ${t}" data-motiv="${e}" data-faktor="1" ${n} aria-hidden="true"></span>`;function a(){let t=e.weg.stationen.map((e,t)=>`<li class="vb-weg__station" data-station="${t+1}">
         ${e.motive?`<span class="vb-weg__boxen" aria-hidden="true">${e.motive.map(e=>i(e,`vb-weg__bild vb-weg__bild--box`)).join(``)}</span>`:i(e.motiv,`vb-weg__bild`)}
         <b>${e.titel}</b><span>${e.zeile}</span>
       </li>`).join(``);return`<figure class="vb-weg" data-vb-weg aria-label="${e.weg.aria}">
