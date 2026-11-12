@@ -1,0 +1,1 @@
+import{d as e}from"./tinte-Bh240ZR6.js";export{e as tinteSofort};
