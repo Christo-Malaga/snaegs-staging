@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="de" data-ent="voll">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="robots" content="noindex" />
+    <link rel="icon" type="image/svg+xml" href="/snaegs-staging/vorschau/claude-apple-3d/assets/snaegs-favicon-C7AnkDYR.svg" />
+    <title>SNÄGS · Test it. Play it. Love it.</title>
+    <meta name="description" content="SNÄGS verbindet Produkttests und Gaming: Markenprodukte gratis testen, wenn dein Profil passt, Punkte für Reward Boxen sammeln und ab Januar 2027 kostenlos zocken. Jetzt kostenlos zum SNÄGS Testerclub voranmelden und bis 31.12.2026 Founder werden. Ab 18." />
+    <link rel="preload" href="/snaegs-staging/vorschau/claude-apple-3d/fonts/tiktok-sans-latin-var.woff2" as="font" type="font/woff2" crossorigin />
+    <script src="/snaegs-staging/vorschau/claude-apple-3d/site/v2/wege/vorab.js"></script>
+    <script>
+      // Entstehung von Klecks (Intro) nur noch auf Wunsch (Chris 06.11., Nachricht 10 Punkt 2: „Lass das Intro erstmal nur
+      // optional“): ?entstehung=voll|kurz startet es, sonst steht die Seite sofort. Die Fotos lädt nur, wer es sieht.
+      (function () {
+        var d = document.documentElement, m = "aus";
+        try {
+          var q = /[?&]entstehung=(voll|kurz)/.exec(location.search);
+          if (q) m = q[1];
+        } catch (e) {}
+        d.dataset.ent = m;
+        if (m !== "aus") {
+          d.classList.add("ent-laeuft");
+          var quer = matchMedia("(min-aspect-ratio: 1/1)").matches, l = document.createElement("link");
+          l.rel = "preload"; l.as = "image"; l.setAttribute("fetchpriority", "high"); l.setAttribute("imagesizes", "100vw");
+          l.href = quer ? "/snaegs-staging/vorschau/claude-apple-3d/start/kugelschreiber-quer-1920.webp" : "/snaegs-staging/vorschau/claude-apple-3d/start/kugelschreiber-hoch-1080.webp";
+          l.setAttribute("imagesrcset", quer ? "/snaegs-staging/vorschau/claude-apple-3d/start/kugelschreiber-quer-1280.webp 1280w, /snaegs-staging/vorschau/claude-apple-3d/start/kugelschreiber-quer-1920.webp 1920w" : "/snaegs-staging/vorschau/claude-apple-3d/start/kugelschreiber-hoch-720.webp 720w, /snaegs-staging/vorschau/claude-apple-3d/start/kugelschreiber-hoch-1080.webp 1080w");
+          document.head.appendChild(l);
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/snaegs-staging/vorschau/claude-apple-3d/assets/website-CUEhDL1a.js"></script>
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-apple-3d/assets/modulepreload-polyfill-Dezn_h7o.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-apple-3d/assets/rolldown-runtime-QTnfLwEv.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-apple-3d/assets/gesten-DuKU43vj.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-apple-3d/assets/papier-apLCMeC1.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-apple-3d/assets/spur-CexpCOOy.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-apple-3d/assets/stift-BzGbFJzv.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-apple-3d/assets/gefuehle-DmIQhzoI.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-apple-3d/assets/umgebung-C62_acmj.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-apple-3d/assets/schrift-hand-DK7j0mFe.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-apple-3d/assets/emotion-uztvslfK.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-apple-3d/assets/pinsel-BTmdkUMS.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-apple-3d/assets/dynamik-DIeJYVBc.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-apple-3d/assets/platz-D-J2cmge.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-apple-3d/assets/klecks-rtTaHbeN.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-apple-3d/assets/seite-CUmgQnNz.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-apple-3d/assets/klang-DEXpMLJT.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-apple-3d/assets/requisiten2-jyPEaYIT.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-apple-3d/assets/leitmotiv-CI8gF4FJ.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-apple-3d/assets/preload-helper-DpW_4zPA.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-apple-3d/assets/zustand-CMlbz1Qk.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-apple-3d/assets/bereich-Bc3CkdSp.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-apple-3d/assets/ruhe-CPRKRlbF.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-apple-3d/assets/tinte-q44OQ8vt.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-apple-3d/assets/regie-CXMbcQDZ.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-apple-3d/assets/slots-BWaf4LgG.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-apple-3d/assets/klecks-erweiterung-DUeO6Spp.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-apple-3d/assets/koerper-DE8Q3VwY.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-apple-3d/assets/regie-seiten-v2_oaYPR.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-apple-3d/assets/fuehrung-BpHOyEB3.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-apple-3d/assets/testerclub-bleed-DpSrpyTY.js">
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-apple-3d/assets/start-D8Q4O89O.js">
+    <link rel="stylesheet" crossorigin href="/snaegs-staging/vorschau/claude-apple-3d/assets/style-DhSAxTz_.css">
+    <link rel="stylesheet" crossorigin href="/snaegs-staging/vorschau/claude-apple-3d/assets/bereich-DVKMm9vJ.css">
+    <link rel="stylesheet" crossorigin href="/snaegs-staging/vorschau/claude-apple-3d/assets/website-D-3V66rs.css">
+    <link rel="stylesheet" crossorigin href="/snaegs-staging/vorschau/claude-apple-3d/assets/testerclub-DvUCA_Bs.css">
+    <link rel="stylesheet" crossorigin href="/snaegs-staging/vorschau/claude-apple-3d/assets/wege-fDMuYQSM.css">
+  </head>
+  <!-- Startseite v3 (V3A 07.11., Wünsche des SNÄGS-CEO, site/v2/QUELLE-CEO-WEBSITE.md), Reihenfolge nach seinem Punkt 6:
+       beide Bereiche oben (Testerclub aktiv, Game Arena gesperrt) · Founder-Aktion · Testerclub · Game Arena · Punkte und
+       Reward Boxen · noch einmal die kostenlose Registrierung. Das Intro (Entstehung von Klägs) läuft nur auf Wunsch
+       (?entstehung=voll). Verhalten /snaegs-staging/vorschau/claude-apple-3d/site/start/start.js, Intro /snaegs-staging/vorschau/claude-apple-3d/site/start/entstehung.js, Rahmen /snaegs-staging/vorschau/claude-apple-3d/site/v2/wege. -->
+  <body class="v2 st" data-seite="start">
+    <div data-v2="kopf"></div>
+    <div data-v2="menue"></div>
+
+    <!-- Entstehung: Foto formatfüllend, darüber die gedruckte Frage (im Code, perspektivisch zur Box), Tinte als Leinwand -->
+    <div class="ent" data-ent-buehne aria-label="Intro: Aus dem Kugelschreiber entsteht Klägs">
+      <div class="ent__platte" data-ent-platte aria-hidden="true">
+        <picture class="ent__foto" data-ent-foto>
+          <source media="(min-aspect-ratio: 1/1)" srcset="/snaegs-staging/vorschau/claude-apple-3d/start/kugelschreiber-quer-1280.webp 1280w, /snaegs-staging/vorschau/claude-apple-3d/start/kugelschreiber-quer-1920.webp 1920w" sizes="100vw" />
+          <img src="/snaegs-staging/vorschau/claude-apple-3d/start/kugelschreiber-hoch-1080.webp" srcset="/snaegs-staging/vorschau/claude-apple-3d/start/kugelschreiber-hoch-720.webp 720w, /snaegs-staging/vorschau/claude-apple-3d/start/kugelschreiber-hoch-1080.webp 1080w" sizes="100vw" alt="" loading="lazy" decoding="async" />
+        </picture>
+        <div class="ent__druck" data-ent-druck>
+          <p class="ent__frage" data-ent-frage>Probierst du gern Neues?</p>
+          <p class="ent__ja" data-ent-ja>Ja</p>
+        </div>
+        <canvas class="ent__tinte" data-ent-tinte></canvas>
+        <div class="ent__strich" data-ent-strich></div>
+        <canvas class="ent__glanz" data-ent-glanz></canvas>
+      </div>
+      <button class="ent__weiter" type="button" data-ent-ueberspringen>Überspringen</button>
+    </div>
+
+    <main id="inhalt">
+      <!-- H · Hero (v3, V3A 07.11., CEO Punkt 1 und 6: „Direkt beim Öffnen … müssen die zwei Bereiche sichtbar sein.“): H1 ist
+           der Slogan des CEO, die drei Takte gehören zu den drei Bereichen (Test it = Testerclub, Play it = Game Arena,
+           Love it = Reward Boxen).
+           ZH 07.11. (Chris, Nachricht 39: kein Handy im Handy, Arena ruhig, Testerclub präsenter, Knopf gehört zum
+           Testerclub): Der Testerclub ist eine Karte aus tiefem Papier mit Reiter. Im Reiter das Handy mit dem echten
+           SNÄGS-Survey (Bildschirmaufnahme) auf einer violetten Lasur, davor die 3D-Box mit Produkten; der Körper der Karte
+           trägt den Knopf „Jetzt kostenlos registrieren“. Daneben, auf blankem Papier und ausgegraut, die Game Arena: das
+           3D-Handy des Game-Teasers unter der Decke mit „Coming January“ (mountTeaser im Ruhe-Modus, kein Rahmen drum).
+           Antippen hebt die Decke höchstens zweimal kurz, danach steht sie still. Klägs reagiert kurz auf die Arena, geht
+           nach 1–3 s zum Knopf, zupft ihn zum Testerclub und neigt sich ihm zu. -->
+      <section class="s st-held" id="held" data-abschnitt="held" data-farbe="papier" aria-labelledby="held-titel">
+        <h1 id="held-titel" class="plakat st-held__titel" lang="en"><span class="st-takt">Test&nbsp;it.</span> <span class="st-takt">Play&nbsp;it.</span><br class="st-umbruch" /> <span class="st-takt">Love&nbsp;it.</span></h1>
+        <!-- FB1 11.11. (F1, User-Tests: „noch deutlicher …, dass Mitglieder tatsächlich kostenlose Markenprodukte zum Testen
+             erhalten können. Das ist ein entscheidendes Argument.“): der Nutzen steht zuerst; Punkte gibt es für tägliches
+             Mitmachen, nie für den Produkttest (Kanon der Runde, BRIEF-FEEDBACK-1.md §2). Entwurf, Endfassung von Loki/Fury. -->
+        <p class="st-held__unter">Kostenlose Markenprodukte testen, wenn dein Profil passt. Dazu täglich Punkte für Reward&nbsp;Boxen, ab Januar auch beim Zocken.</p>
+        <!-- Z5 07.11. (Chris: „ein hässliches graues Scheiß-Ding drunter gelegt“): keine Karte mehr. Die Gewichtung trägt der
+             Raum: Testerclub groß, farbig, mit dem Knopf direkt darunter auf einer Achse; Game Arena daneben kleiner und
+             leiser, ihre Decke lüftet sich nach etwa 2 s (0,6 s), darunter ein ruhiges Standbild des Games. -->
+        <div class="st-welten" data-st-welten>
+          <div class="st-welt st-welt--club" data-st-welt="club">
+            <p class="st-welt__name" data-st-name="club"><span class="st-welt__wort" data-st-club-wort data-tc>SNÄGS Testerclub</span><span class="st-welt__was"><span class="st-welt__satz">Gratis testen.</span> <span class="st-welt__satz">Punkte sammeln.</span></span></p>
+            <span class="st-welt__feld" data-st-club-feld aria-hidden="true"></span>
+            <!-- H3D 08.11. (Chris: „den Survey etwas rudimentärer animierst, ein, zwei, drei Schritte machst, übertrieben
+                 dargestellt Coins dafür bekommst und diese Coins wiederum in Reward Boxen umwandeln kannst … 3JS-Animation“):
+                 statt der Bildschirmaufnahme eine three.js-Story (/snaegs-staging/vorschau/claude-apple-3d/site/start/testerclub3d): drei Fragen, je ein Münzschwall,
+                 die Münzen strömen in die Reward Box. Rahmen und Poster stehen bis zum ersten 3D-Bild und bleiben ohne WebGL.
+                 Antippen spielt die Story noch einmal. -->
+            <div class="st-geraet st-geraet--survey st-tc3d" data-st-survey-geraet data-st-tc3d data-href="/snaegs-staging/vorschau/claude-apple-3d/site/testerclub.html?von=start-held" role="link" tabindex="0" aria-label="Zum SNÄGS Testerclub: Jede beantwortete Frage bringt dir Punkte, mit deinen Punkten holst du dir eine Reward Box.">
+              <span class="st-geraet__schirm"><img class="st-geraet__video" src="/snaegs-staging/vorschau/claude-apple-3d/assets/survey-poster-DUBensuB.webp" alt="" decoding="async" /></span>
+              <img class="st-geraet__rahmen" src="/snaegs-staging/vorschau/claude-apple-3d/assets/handy-rahmen-ChLkOy5G.webp" alt="" width="720" height="1335" decoding="async" fetchpriority="high" />
+            </div>
+            <!-- 08.11. (Chris: „diese hässliche Box loswerden … erstmal verschwinden“): die 3D-Box mit gezeichneten Produkten vor dem Handy ist raus; start.js überspringt sie ohne [data-st-paket]. -->
+          </div>
+          <div class="st-welt st-welt--arena" data-st-welt="arena" data-st-arena>
+            <!-- FB1 11.11. (F6/F7): beide Welten sprachlich gleich gebaut (zwei kurze Sätze), der Starttermin steht als eigener
+                 kleiner, leiser Hinweis über dem Namen (im Platz, um den die Arena tiefer sitzt: nichts rückt nach unten) -->
+            <p class="st-welt__name" data-st-name="arena"><span class="st-welt__start">Start Januar&nbsp;2027</span><span class="st-welt__wort">Game Arena</span><span class="st-welt__was"><span class="st-welt__satz">Kostenlos spielen.</span> <span class="st-welt__satz">Preise gewinnen.</span></span></p>
+            <span class="st-decke" data-st-teaser></span>
+            <!-- Z6 07.11.: unter dem Handy ein Feld für zwei Dinge nacheinander. Erst sitzt dort Klägs (er schaut, das Handy
+                 wippt, die Decke lüftet sich), dann geht er zum Knopf, und an seinem Platz erscheint leise der Weg zur
+                 Game Arena. Die gelüftete Arena selbst führt beim Antippen ebenfalls dorthin. -->
+            <span class="st-welt__fuss">
+              <span class="st-welten__sitz" data-sitz="held" data-sitz-art="mitte" data-st-sitz aria-hidden="true"></span>
+              <a class="st-weg st-welt__weg" href="/snaegs-staging/vorschau/claude-apple-3d/site/arena.html?von=start-held" data-st-arena-weg>Zur Game Arena<span class="st-weg__pfeil" data-st-zeichen="pfeil-kurz" aria-hidden="true"></span></a>
+            </span>
+          </div>
+          <div class="st-held__knoepfe">
+            <a class="v2-knopf v2-knopf--bonus v2-knopf--lang st-held__knopf" href="/snaegs-staging/vorschau/claude-apple-3d/vorregistrierung.html?von=start-held" data-vorreg="start-held" data-st-club data-hauptknopf data-naechstes="3">Jetzt voranmelden<span class="v2-bonus" aria-hidden="true"><span class="v2-muenze" data-muenze></span><span class="v2-bonus__plus">+150</span></span><span class="v2-sr">, 150 Early-Bird-Punkte</span><span class="st-held__sitz" data-st-knopf-sitz data-sitz-art="oben" data-sitz-u="0.88" aria-hidden="true"></span></a>
+            <ul class="v2-vertrauen" aria-label="Sicher voranmelden"><li><span class="v2-vertrauen__zeichen v2-vertrauen__zeichen--schloss" aria-hidden="true"></span>SSL-verschlüsselt</li><li><span class="v2-vertrauen__zeichen v2-vertrauen__zeichen--sterne" aria-hidden="true"></span>DSGVO-konform</li><li><span class="v2-vertrauen__zeichen v2-vertrauen__zeichen--server" aria-hidden="true"></span>Server in Deutschland</li><li><span class="v2-vertrauen__zeichen v2-vertrauen__zeichen--brief" aria-hidden="true"></span>Kein Spam</li></ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- F · Founder-Aktion (CEO Punkt 4, „prominent auf der Startseite“, direkt unter den beiden Bereichen): Nacht und Gold,
+           das Abzeichen und der Avatar als Code-Assets aus der Asset-Datenbank (strich/motive-founder.js); das Abzeichen zeichnet
+           Klägs selbst (ZH 07.11., Nachricht 38: er wird zum Strich und zieht die Kontur, dann färbt es sich ein). Klägs bewundert
+           das Abzeichen kurz, tippt die Vorteile an und feiert danach den Knopf (CTA-Boost: data-klaegs-bewundern,
+           data-klaegs-folge, data-cta="haupt"). Der Tage-Zähler rechnet bis zum 31.12.2026 (Berlin). -->
+      <section class="s st-founder v2-nacht" id="founder" data-abschnitt="founder" data-farbe="nacht-gold" aria-labelledby="founder-titel">
+        <div class="st-founder__kopf">
+          <h2 id="founder-titel" class="plakat st-founder__titel">Sei von Anfang an&nbsp;dabei!</h2>
+          <!-- 08.11. (Chris: „Das ist eine Voranmeldung für den Testerclub, der im Januar startet. Punkt.“ – die Quintessenz sticht vor den Perks heraus) -->
+          <p class="st-founder__kern"><span>Jetzt voranmelden und maximal profitieren.</span> <span class="st-founder__kern-b">Los geht's im Januar&nbsp;2027.</span></p>
+          <p class="st-founder__frist"><span class="st-founder__ende">Founder-Aktion endet am 31.12.2026!</span> <span class="st-founder__tage" data-st-tage hidden></span></p>
+          <p class="st-founder__satz">Wer sich bis dahin voranmeldet, wird Founder und bekommt obendrauf:</p>
+        </div>
+        <div class="st-founder__pass">
+          <figure class="st-founder__ding st-founder__ding--abzeichen">
+            <span class="st-founder__bild" data-st-motiv="founder-abzeichen" data-farbe="gold" data-klaegs-bewundern data-st-klaegs-zeichnet aria-hidden="true"></span>
+            <figcaption><b>Founder-Abzeichen</b><span>exklusiv</span></figcaption>
+          </figure>
+          <figure class="st-founder__ding st-founder__ding--avatar">
+            <span class="st-founder__bild" data-st-motiv="founder-avatar" data-farbe="violett" aria-hidden="true"></span>
+            <figcaption><b>Founder-Avatar</b><span>limitiert</span></figcaption>
+          </figure>
+          <span class="st-founder__sitz" data-sitz="founder" data-sitz-art="oben" data-sitz-u="0.5" aria-hidden="true"></span>
+        </div>
+        <ul class="st-founder__vorteile" data-klaegs-folge="tippen">
+          <li><span class="st-founder__zeichen" data-st-motiv="muenze" data-farbe="gold" aria-hidden="true"></span><span class="st-founder__text"><b>150 Early-Bird-Punkte</b><span>gutgeschrieben im Januar</span></span></li>
+          <li><span class="st-founder__zeichen" data-st-motiv="reward-box" data-farbe="gold" aria-hidden="true"></span><span class="st-founder__text"><b>Erste Reward Box doppelt</b><span>40&nbsp;€ statt 20&nbsp;€ Warenwert, Versand kostenlos</span></span></li>
+          <li><span class="st-founder__zeichen" data-st-motiv="paket" data-farbe="erdbeere" aria-hidden="true"></span><span class="st-founder__text"><b>10&nbsp;×&nbsp;100&nbsp;€ Reward&nbsp;Boxen zu gewinnen</b><span><a href="/snaegs-staging/vorschau/claude-apple-3d/recht/teilnahmebedingungen.html#founder-aktion">Teilnahmebedingungen</a></span></span></li>
+          <!-- FB1 11.11. (F3: „Jetzt schon die Möglichkeit 5 Freunde einzuladen! Freunde, Familie, Arbeitskollegen, Gym Buddis“):
+               Punkte wie im Wiki (25 je Freund, höchstens 5); der Weg zum Einladen steht nach der Voranmeldung (Anmeldung.jsx) -->
+          <li><span class="st-founder__zeichen" data-st-motiv="umschlag" data-farbe="violett" aria-hidden="true"></span><span class="st-founder__text"><b>Jetzt schon 5&nbsp;Freunde einladen</b><span>Freunde, Familie, Kollegen, <span class="st-zusammen">Gym-Buddys:</span> bis zu 125&nbsp;Punkte extra</span></span></li>
+        </ul>
+        <div class="st-founder__aufruf">
+          <a class="v2-knopf v2-knopf--bonus st-voran" href="/snaegs-staging/vorschau/claude-apple-3d/vorregistrierung.html?von=start-founder" data-vorreg="start-founder" data-cta="haupt" data-hauptknopf data-naechstes="3">Jetzt voranmelden<span class="v2-bonus" aria-hidden="true"><span class="v2-muenze" data-muenze></span><span class="v2-bonus__plus">+150</span></span><span class="v2-sr">, 150 Early-Bird-Punkte</span></a>
+          <p class="v2-klein st-founder__klein">Kostenlose Voranmeldung, ab&nbsp;18. Dauert rund 2&nbsp;Minuten.</p>
+          <ul class="v2-vertrauen" aria-label="Sicher voranmelden"><li><span class="v2-vertrauen__zeichen v2-vertrauen__zeichen--schloss" aria-hidden="true"></span>SSL-verschlüsselt</li><li><span class="v2-vertrauen__zeichen v2-vertrauen__zeichen--sterne" aria-hidden="true"></span>DSGVO-konform</li><li><span class="v2-vertrauen__zeichen v2-vertrauen__zeichen--server" aria-hidden="true"></span>Server in Deutschland</li><li><span class="v2-vertrauen__zeichen v2-vertrauen__zeichen--brief" aria-hidden="true"></span>Kein Spam</li></ul>
+        </div>
+      </section>
+
+      <!-- T · Testerclub kurz (CEO Punkt 2 und 8): was du davon hast, vorsichtig versprochen („Vielleicht testest du sie
+           zuerst.“, solange Partnerschaften nicht feststehen), daneben der echte Mini-Fragebogen: Du wählst, Klägs hakt ab. -->
+      <section class="s st-probe" id="testerclub" data-abschnitt="testerclub" data-farbe="violett" aria-labelledby="testerclub-titel">
+        <div class="st-probe__feld" data-st-feld aria-hidden="true"></div>
+        <div class="st-probe__kopf">
+          <h2 id="testerclub-titel" class="plakat">Die <span data-bleed="cyan">neuesten Produkte</span>? Vielleicht testest du sie&nbsp;zuerst.</h2>
+          <!-- FB1 11.11. (F10, wörtlich; Headline bleibt, F9): Produkttest nach Auswahl gegen Punkte durch tägliche Fragen -->
+          <p>Bewirb dich für kostenlose Produkttests und erhalte mit etwas Glück neue Produkte direkt nach Hause. Oder sammle täglich Punkte mit spannenden Fragen und Aufgaben für deine nächste Reward&nbsp;Box.</p>
+        </div>
+        <!-- 08.11. (Chris): hinter dem selbst bedienbaren Bogen ein kleines Handy mit dem echten Survey (Bildschirmaufnahme
+             im Handy-Rahmen, wie bisher im Start-Hero), es unterstreicht, was das hier ist -->
+        <div class="st-probe__buehne">
+        <span class="st-mini" data-st-mini aria-hidden="true">
+          <span class="st-geraet__schirm" data-st-mini-schirm>
+            <video class="st-geraet__video" data-st-mini-video muted loop playsinline preload="none" poster="/snaegs-staging/vorschau/claude-apple-3d/assets/survey-poster-DUBensuB.webp">
+              <source src="/snaegs-staging/vorschau/claude-apple-3d/assets/survey-loop-25RC0tNk.webm" type="video/webm" />
+              <source src="/snaegs-staging/vorschau/claude-apple-3d/assets/survey-loop-CnvbSyO5.mp4" type="video/mp4" />
+            </video>
+          </span>
+          <img class="st-geraet__rahmen" src="/snaegs-staging/vorschau/claude-apple-3d/assets/handy-rahmen-ChLkOy5G.webp" alt="" width="720" height="1335" loading="lazy" decoding="async" />
+        </span>
+        <div class="st-bogen" data-st-bogen data-sitz="bogen" data-sitz-art="oben" data-sitz-u="0.42">
+          <p class="st-bogen__kopf"><span>Produkttest</span><span data-st-stand>Frage 1 von 2</span></p>
+          <fieldset class="st-bogen__frage" data-st-frage-nr="0">
+            <legend>Strawberry Cheesecake auf Erdnüssen. Wie klingt das?</legend>
+            <button type="button" class="st-wahl" data-st-wahl aria-pressed="false"><span class="st-box" aria-hidden="true"></span>Richtig gut</button>
+            <button type="button" class="st-wahl" data-st-wahl aria-pressed="false"><span class="st-box" aria-hidden="true"></span>Geht so</button>
+            <button type="button" class="st-wahl" data-st-wahl aria-pressed="false"><span class="st-box" aria-hidden="true"></span>Nicht meins</button>
+          </fieldset>
+          <fieldset class="st-bogen__frage" data-st-frage-nr="1" hidden>
+            <legend>Würde dir die Dose im Regal auffallen?</legend>
+            <button type="button" class="st-wahl" data-st-wahl aria-pressed="false"><span class="st-box" aria-hidden="true"></span>Sofort</button>
+            <button type="button" class="st-wahl" data-st-wahl aria-pressed="false"><span class="st-box" aria-hidden="true"></span>Eher nicht</button>
+          </fieldset>
+          <div class="st-bogen__danke" data-st-danke hidden>
+            <p class="st-bogen__satz">Genau so geht's! Teste neue Produkte oder sammle Punkte für deine Reward&nbsp;Box.</p>
+            <a class="v2-knopf v2-knopf--hell" href="/snaegs-staging/vorschau/claude-apple-3d/survey.html?von=start" data-st-survey data-naechstes="2">Produkttest ausprobieren</a>
+            <button type="button" class="v2-zeig" data-st-nochmal><span class="v2-zeig__zeichen" aria-hidden="true"></span>Nochmal</button>
+          </div>
+        </div>
+        </div>
+        <a class="st-weg st-probe__weg" href="/snaegs-staging/vorschau/claude-apple-3d/site/testerclub.html?von=start" data-st-weg>Zum SNÄGS Testerclub<span class="st-weg__pfeil" data-st-zeichen="pfeil-kurz" aria-hidden="true"></span></a>
+      </section>
+
+      <!-- A · Game Arena (CEO Punkt 3): neugierig machen, Januarstart, der Knopf ist sichtbar gesperrt („Startet im Januar
+           2027“, kein Link). Games-Texte verkaufen Spaß und Gewinn, nie Mechanik (Nachricht 14). -->
+      <section class="s st-arena v2-nacht" id="arena" data-abschnitt="arena" data-farbe="nacht" aria-labelledby="arena-titel">
+        <div class="st-arena__kopf">
+          <!-- 08.11. (Chris: „sehr schwache Headline … zeig ein bisschen was vom Game … startet im Januar, für alle, kostenlos,
+               Turniere kostenlos, Punkte und Boxen … dann nicht zum Game-Trailer, sondern zur Game Arena“) -->
+          <h2 id="arena-titel" class="plakat st-arena__titel">Play it. Ab Januar kostenlos.</h2>
+          <p class="st-arena__unter">Samstags zockst du im Turnier um Winner Boxen. Obendrauf zahlt jedes Game auf dein SNÄGS-Punktekonto ein, für deine nächste Reward&nbsp;Box.</p>
+          <div class="st-arena__handy" data-st-arena-handy aria-hidden="true"></div>
+        </div>
+        <span class="st-arena__sitz" data-sitz="arena" data-sitz-art="mitte" aria-hidden="true"></span>
+        <ul class="st-arena__liste">
+          <li><span class="st-arena__zeichen" data-st-motiv="versus" data-farbe="cyan" aria-hidden="true"></span><span>Kostenlos gegen Freunde, andere Mitglieder oder Bots&nbsp;zocken.</span></li>
+          <li><span class="st-arena__zeichen" data-st-motiv="pokal" data-farbe="gold" aria-hidden="true"></span><span>Jeden Samstag ein kostenloses Turnier mit echten&nbsp;Gewinnen.</span></li>
+          <li><span class="st-arena__zeichen" data-st-motiv="muenze" data-farbe="gold" aria-hidden="true"></span><span>Jedes Game bringt Punkte aufs SNÄGS-Punktekonto, auch wenn du&nbsp;verlierst.</span></li>
+        </ul>
+        <div class="st-arena__fuss">
+          <p class="st-gesperrt" aria-disabled="true"><span class="st-gesperrt__schloss" data-st-zeichen="schloss" aria-hidden="true"></span>Startet im Januar&nbsp;2027</p>
+          <a class="st-weg" href="/snaegs-staging/vorschau/claude-apple-3d/site/arena.html?von=start" data-st-weg>Zur Game Arena<span class="st-weg__pfeil" data-st-zeichen="pfeil-kurz" aria-hidden="true"></span></a>
+        </div>
+      </section>
+
+      <!-- P · Punktesystem und Reward Boxen (CEO Punkt 5): H2 ist der CEO-Slogan „Deine Meinung. Deine Punkte. Deine Rewards.“
+           („Mitmachen. Punkte sammeln. Belohnt werden.“ steht als H2 auf Rewards, nicht doppeln). Drei Schritte, daneben die
+           3D-Reward-Box mit Produkten aus der Asset-Datenbank: zeigen, was man bekommt, nicht nur Punkte. -->
+      <section class="s st-so" id="punkte" data-abschnitt="punkte" data-farbe="gold" aria-labelledby="punkte-titel">
+        <h2 id="punkte-titel" class="plakat st-so__titel">Deine&nbsp;Meinung. Deine&nbsp;Punkte. <span data-st-kernsatz>Deine&nbsp;Rewards.</span></h2>
+        <span class="st-so__sitz" data-sitz="punkte" data-sitz-art="mitte" aria-hidden="true"></span>
+        <!-- data-streifen: die Schritte liegen noch vor dir, darum hakt die Führung sie nicht automatisch ab (fuehrung.js) -->
+        <ol class="st-so__schritte" data-streifen>
+          <li class="st-schritt">
+            <span class="st-schritt__bild" data-st-motiv="fragebogen" data-farbe="erdbeere" aria-hidden="true"></span>
+            <span class="st-schritt__text"><span class="st-schritt__name">Mitmachen</span><span class="st-schritt__satz">Jeden Tag Produktfragen beantworten, ab Januar auch kostenlos zocken.</span></span>
+          </li>
+          <li class="st-schritt">
+            <span class="st-schritt__bild" data-st-motiv="muenzglas" data-farbe="gold" aria-hidden="true"></span>
+            <span class="st-schritt__text"><span class="st-schritt__name">Punkte sammeln</span><span class="st-schritt__satz">Fragen und Games zahlen auf ein gemeinsames Punktekonto ein.</span></span>
+          </li>
+          <li class="st-schritt">
+            <span class="st-schritt__bild" data-st-motiv="reward-box" data-farbe="gold" aria-hidden="true"></span>
+            <span class="st-schritt__text"><span class="st-schritt__name">Reward Box holen</span><span class="st-schritt__satz">2.500 Punkte tauschst du gegen eine Reward&nbsp;Box.</span></span>
+          </li>
+        </ol>
+        <!-- FB1-D 11.11. (F5, User-Tests: „Es muss rüberkommen, dass man einen eigenen Bereich hat mit Dashboard etc.“; Chris
+             zur ersten Fassung, einer kleinen Kontokarte unter der Box: „… dass man im Testerclub so einen Login-Bereich hat,
+             Notifications bekommt, da Punkte sammelt … Also, ich sehe fast gar keine Änderung.“): jetzt das echte Handy mit
+             dem App-Schirm „Dein Bereich“ (Baustein /snaegs-staging/vorschau/claude-apple-3d/site/v2/bereich, auch auf der Testerclub-Seite). Es steht zwischen den
+             Schritten und der Reward Box, so liest sich die Sektion als Mitmachen → dein Punktekonto in der App → Reward Box;
+             am Desktop als eigene Spalte gleichwertig neben der Box. Angemeldet (Avatar, „Hallo“, Founder-Abzeichen),
+             Punktekonto mit Weg zur Reward Box, Serie mit Wochen-Challenge, Buchungen, eine Benachrichtigung „Neuer Test für
+             dich“ (Muster Panel 2 der Testerclub-Seite). Nur Funktionen aus dem Wiki, Werte als Beispiel gekennzeichnet.
+             Texte: Entwurf (chris-voice-de geprüft), Endfassung Loki/Fury. -->
+        <div class="st-bereich">
+          <div class="st-bereich__text">
+            <h3 class="st-bereich__titel">Dein eigener Bereich</h3>
+            <p class="st-bereich__satz">In der SNÄGS-App siehst du deinen Punktestand, wie weit es bis zur Reward&nbsp;Box ist, deine Serie und deine Abzeichen. Passt ein Test zu deinem Profil, kriegst du Bescheid.</p>
+          </div>
+          <figure class="bereich" data-bereich role="img" aria-label="Beispiel deines Bereichs in der SNÄGS-App: Hallo, Lena, Founder. Punktekonto 1.650 Punkte, noch 850 bis zur Reward Box. Serie seit 6 Tagen, Wochen-Challenge 6 von 7 Tagen. Zuletzt 4 Punkte für eine Produktfrage, 2 für die Serie, 3 für den täglichen Login. Benachrichtigung: Neuer Test für dich, nüssje Strawberry Cheesecake passt zu deinem Profil.">
+            <div class="bereich__handy" data-bereich-handy>
+              <div class="bereich__schirm" data-bereich-schirm>
+                <div class="bereich__app">
+                  <div class="bereich__kopf">
+                    <span class="bereich__avatar" data-bereich-motiv="founder-avatar" data-farbe="violett"></span>
+                    <p class="bereich__hallo"><b>Hallo, Lena!</b><span class="bereich__rang"><span class="bereich__abzeichen" data-bereich-motiv="founder-abzeichen" data-farbe="gold"></span>Founder</span></p>
+                  </div>
+                  <div class="bereich__konto" data-bereich-dunkel>
+                    <p class="bereich__label"><span class="bereich__muenze" data-bereich-motiv="muenze" data-farbe="gold"></span>Dein Punktekonto</p>
+                    <p class="bereich__zahl"><b data-bereich-zahl data-ziel="1650">1.650</b><span>Punkte</span></p>
+                    <div class="bereich__weg"><span class="bereich__balken"><span class="bereich__fuell"></span></span><span class="bereich__box" data-bereich-motiv="reward-box" data-farbe="gold"></span></div>
+                    <p class="bereich__noch">noch 850 bis zur Reward&nbsp;Box</p>
+                  </div>
+                  <div class="bereich__serie">
+                    <span class="bereich__flamme" data-bereich-motiv="flamme" data-farbe="erdbeere"></span>
+                    <div class="bereich__serie-text"><b>Serie: 6 Tage</b><span>Wochen-Challenge 6/7</span><span class="bereich__tage"><i class="ist-voll"></i><i class="ist-voll"></i><i class="ist-voll"></i><i class="ist-voll"></i><i class="ist-voll"></i><i class="ist-voll"></i><i></i></span></div>
+                  </div>
+                  <div class="bereich__buch">
+                    <p class="bereich__buch-titel">Zuletzt</p>
+                    <ul><li><span>Produktfrage</span><b>+4</b></li><li><span>Serie</span><b>+2</b></li><li><span>Täglicher Login</span><b>+3</b></li></ul>
+                  </div>
+                </div>
+              </div>
+              <img class="bereich__rahmen" src="/snaegs-staging/vorschau/claude-apple-3d/assets/handy-rahmen-ChLkOy5G.webp" alt="" width="720" height="1335" loading="lazy" decoding="async" />
+            </div>
+            <div class="bereich__push">
+              <img class="bereich__push-icon" src="/snaegs-staging/vorschau/claude-apple-3d/assets/snaegs-icon-B_BpntQP.svg" alt="" width="34" height="34" />
+              <div class="bereich__push-text">
+                <p class="bereich__push-kopf"><b>SNÄGS Testerclub</b><span>jetzt</span></p>
+                <p class="bereich__push-titel">Neuer Test für dich</p>
+                <p class="bereich__push-satz">nüssje Strawberry Cheesecake passt zu deinem Profil.</p>
+              </div>
+            </div>
+            <p class="bereich__bsp">Beispiel</p>
+          </figure>
+        </div>
+        <figure class="st-box3d">
+          <span class="st-box3d__buehne" data-st-reward aria-hidden="true"><span class="st-box3d__waren" data-st-reward-waren></span></span>
+          <figcaption class="st-box3d__text"><b>Reward Box</b><span>Markenprodukte im Wert von rund 20&nbsp;€ UVP, Versand kostenlos. Als Founder bekommst du in deiner ersten Box das Doppelte: 40&nbsp;€.</span></figcaption>
+        </figure>
+        <div class="st-so__fuss">
+          <a class="st-so__mehr" href="/snaegs-staging/vorschau/claude-apple-3d/site/wiki.html?von=start-punkte" data-st-mehr data-naechstes="2">Alle Details zu Punkten<span class="st-so__pfeil" data-st-zeichen="pfeil-kurz" aria-hidden="true"></span></a>
+        </div>
+      </section>
+
+      <!-- S · Schluss (CEO Punkt 6: „Zum Schluss nochmals deutlich zur kostenlosen Registrierung auffordern.“): großes Wort,
+           Gold, Klägs hakt ab und schreibt die Antwort hin. Die Founder-Vorteile stehen direkt am Knopf. -->
+      <section class="s st-dabei" id="dabei" data-abschnitt="dabei" data-farbe="gold" aria-labelledby="dabei-titel">
+        <div class="v2-naht v2-naht--gold" data-st-naht aria-hidden="true"></div>
+        <h2 id="dabei-titel" class="st-dabei__frage"><span data-st-dabei>Bist du dabei?</span></h2>
+        <!-- 08.11. (Chris): Klägs' „Ja!“ steht unter der Frage, wo Luft ist (auch am Handy), nie über den Haken -->
+        <span class="st-dabei__ja" data-st-ja aria-hidden="true"></span>
+        <ul class="st-dabei__fakten">
+          <!-- FB1 11.11. (F15, wörtlich; Headline, Knopf, Design und Klägs bleiben exakt, F14/F16/F18) -->
+          <li class="st-dabei__gross"><span class="st-box" aria-hidden="true"></span>Jetzt kostenlos voranmelden</li>
+          <li><span class="st-box" aria-hidden="true"></span><span>150 <span class="st-zusammen">Early-Bird-Punkte</span> sichern</span></li>
+        </ul>
+        <div class="st-dabei__aufruf" data-sitz="dabei" data-sitz-art="oben" data-sitz-u="0.85">
+          <a class="v2-knopf v2-knopf--bonus v2-knopf--lang st-dabei__knopf" href="/snaegs-staging/vorschau/claude-apple-3d/vorregistrierung.html?von=start-ende" data-vorreg="start-ende" data-hauptknopf data-naechstes="3">Jetzt voranmelden<span class="v2-bonus" aria-hidden="true"><span class="v2-muenze" data-muenze></span><span class="v2-bonus__plus">+150</span></span><span class="v2-sr">, 150 Early-Bird-Punkte</span></a>
+          <p class="st-dabei__founder"><span class="st-dabei__abzeichen" data-st-zeichen="founder-abzeichen" aria-hidden="true"></span><span>Jetzt Founder werden und im Januar 2027 mit 150 Extrapunkten starten.</span></p>
+          <ul class="v2-vertrauen" aria-label="Sicher voranmelden"><li><span class="v2-vertrauen__zeichen v2-vertrauen__zeichen--schloss" aria-hidden="true"></span>SSL-verschlüsselt</li><li><span class="v2-vertrauen__zeichen v2-vertrauen__zeichen--sterne" aria-hidden="true"></span>DSGVO-konform</li><li><span class="v2-vertrauen__zeichen v2-vertrauen__zeichen--server" aria-hidden="true"></span>Server in Deutschland</li><li><span class="v2-vertrauen__zeichen v2-vertrauen__zeichen--brief" aria-hidden="true"></span>Kein Spam</li></ul>
+        </div>
+      </section>
+
+      <div data-v2="naechste"></div>
+    </main>
+
+    <footer class="v2-fuss" data-abschnitt="fuss">
+      <!-- QV 08.11.: Rückfall ohne JavaScript (wege/index.js ersetzt den Inhalt). Gleiche Ziele wie der echte Fuß, keine internen Labor-Links. -->
+      <p class="v2-fuss__claim">SNÄGS. Where Brands Meet Friends. Test&nbsp;it.&nbsp;Play&nbsp;it.&nbsp;Love&nbsp;it.</p>
+      <p class="v2-klein v2-fuss__links"><a href="/snaegs-staging/vorschau/claude-apple-3d/site/testerclub.html">SNÄGS Testerclub</a><a href="/snaegs-staging/vorschau/claude-apple-3d/site/arena.html">Game Arena</a><a href="/snaegs-staging/vorschau/claude-apple-3d/site/rewards.html">Rewards</a><a href="/snaegs-staging/vorschau/claude-apple-3d/site/wiki.html">Wiki</a><a href="/snaegs-staging/vorschau/claude-apple-3d/site/ueber-uns.html">Über uns</a><a href="/snaegs-staging/vorschau/claude-apple-3d/vorregistrierung.html?von=start-fuss">Founder werden</a></p>
+      <p><a href="https://business.frugends.com/">SNÄGS für Marken: Ihr Produkt bei den Richtigen testen lassen.</a></p>
+      <p class="v2-klein v2-fuss__links"><a href="/snaegs-staging/vorschau/claude-apple-3d/recht/impressum.html">Impressum</a><a href="/snaegs-staging/vorschau/claude-apple-3d/recht/datenschutz.html">Datenschutz</a><a href="/snaegs-staging/vorschau/claude-apple-3d/recht/agb.html">AGB</a><span>© 2026 Prime Fusion B.V.</span></p>
+    </footer>
+
+    <div data-v2="daumen"></div>
+    <svg class="st-filter" aria-hidden="true" width="0" height="0">
+      <filter id="v2-aquarell" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.012 0.03" numOctaves="3" seed="7" result="n" /><feDisplacementMap in="SourceGraphic" in2="n" scale="46" xChannelSelector="R" yChannelSelector="G" result="d" /><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3" result="korn" /><feColorMatrix in="korn" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -0.9 1.25" result="kornA" /><feComposite in="d" in2="kornA" operator="in" /></filter>
+    </svg>
+  </body>
+</html>
