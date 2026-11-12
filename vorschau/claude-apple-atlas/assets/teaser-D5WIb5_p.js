@@ -1,0 +1,1 @@
+import{t as e}from"./teaser-DS2V_ucT.js";export{e as mountTeaser};
