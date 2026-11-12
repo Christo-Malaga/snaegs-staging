@@ -31,6 +31,8 @@ import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment
 import { PALETTE } from "@sb/components/hero3d/palette.js";
 import { create as boxElement } from "@testerclub/hero/elemente/box.js";
 import { kleide, logoTextur, melde, zaehltZumKoerper } from "./kleid3d.js";
+import { APPLE_LEICHT } from "../../../src/umgebung.js";
+import BOX_STANDBILD from "../standbild/box-testerclub-handy.webp";
 
 const ARENA_ASPECT = 1920 / 1007; // parts.js: Seitenverhältnis des Aufdrucks
 const TEX = {
@@ -45,6 +47,8 @@ const LOGO_URL = "/burst/frugends-logo-arena.png";
 let webglJa = null;
 export function webglMoeglich() {
   if (webglJa !== null) return webglJa;
+  // 12.11. iPhone/iPad: WebGL ist dort immer da; die Probe-Leinwand kostete einen eigenen Kontext (am Gerät > 100 ms)
+  if (APPLE_LEICHT) return (webglJa = true);
   try {
     const c = document.createElement("canvas");
     c.width = c.height = 1;
@@ -90,7 +94,69 @@ function texturen(renderer, neu) {
  * @param {HTMLCanvasElement} canvas
  * @param {{art?: "ankunft"|"box", reduziert?: boolean, onBeat?: (name: string) => void}} o
  */
+/**
+ * 12.11. iPhone/iPad (APPLE_LEICHT): die Nacht-Box der Testerclub-Seite als Standbild aus genau dieser Szene
+ * (werkzeug/apple-3d-backen.cjs), kein zweiter WebGL-Kontext neben dem Hero. Gleiche Schnittstelle: Halten staucht das
+ * Bild (CSS), voll springt es hoch und federt, Rütteln schüttelt es. Die Leinwand bleibt leer darüber liegen und nimmt
+ * die Zeiger wie bisher.
+ */
+function standbildBuehne(canvas, { reduziert, onBild }) {
+  const img = new Image();
+  img.alt = "";
+  img.decoding = "async";
+  img.className = `${canvas.className} v2-3d-standbild`;
+  img.setAttribute("aria-hidden", "true");
+  img.src = BOX_STANDBILD;
+  canvas.before(img);
+  const r = () => {
+    const W = canvas.clientWidth || 390;
+    const H = canvas.clientHeight || 423;
+    return { x: W * 0.52, y: H * 0.42, breite: W * 0.24 };
+  };
+  let offen = false;
+  const neu = (k) => {
+    img.classList.remove(k);
+    void img.offsetWidth;
+    img.classList.add(k);
+  };
+  requestAnimationFrame(() => onBild?.(r(), { hold: 0 }));
+  return {
+    setze() {},
+    auspacken() {},
+    ruetteln() {
+      if (!reduziert) neu("ist-ruetteln");
+    },
+    laden(p) {
+      if (offen || reduziert) return;
+      const q = Math.min(1, Math.max(0, p));
+      img.style.transform = q ? `translateX(${((Math.random() - 0.5) * 3 * q).toFixed(2)}px) scale(${(1 + 0.035 * q).toFixed(3)}, ${(1 - 0.075 * q).toFixed(3)})` : "";
+    },
+    aufpoppen() {
+      offen = true;
+      img.style.transform = "";
+      if (!reduziert) neu("ist-auf");
+    },
+    schliessen() {
+      offen = false;
+      img.classList.remove("ist-auf");
+    },
+    drehen() {},
+    get offen() {
+      return offen;
+    },
+    get zustand() {
+      return { hold: 0, fall: 0, sichtbar: true, gestartet: true, standbild: true };
+    },
+    rand: r,
+    lage: () => null,
+    dispose() {
+      img.remove();
+    },
+  };
+}
+
 export function buehne(canvas, { art = "ankunft", reduziert = false, onBeat, onBild, halten = false } = {}) {
+  if (APPLE_LEICHT && art === "box" && canvas) return standbildBuehne(canvas, { reduziert, onBild });
   if (!webglMoeglich()) return null;
   const nacht = art === "box";
   const handy = matchMedia("(max-width: 700px)").matches;

@@ -1,1 +1,0 @@
-import{t as e}from"./teaser-CwGlLR4q.js";export{e as mountTeaser};
