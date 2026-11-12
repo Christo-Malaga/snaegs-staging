@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <link rel="icon" type="image/svg+xml" href="./v2/marke/snaegs-favicon.svg" />
+    <title>SNÄGS Symbole</title>
+    <meta name="description" content="Kontaktbogen der großen Symbole der SNÄGS-Website: Geist und Tinte je Größenstufe, vom Stift gezeichnet, von Klägs gemalt, die Zahl als Schraffur, Fotofenster im gezeichneten Gefäß." />
+    <link rel="preload" href="/snaegs-staging/vorschau/claude-klaegs-rand/fonts/tiktok-sans-latin-var.woff2" as="font" type="font/woff2" crossorigin />
+    <style>
+      :root {
+        --ton-ruhe: rgb(25 29 22 / 0.22);
+        --ton-neben: #6b6a66;
+        --ton-lesen: #3a3d37;
+        --nacht: #151812;
+        --nacht-papier: rgb(247 246 242 / 0.94);
+        --nacht-neben: rgb(247 246 242 / 0.62);
+      }
+      body { padding-bottom: 96px; }
+      .bogen-kopf { padding-block: 24px 0; }
+      .bogen-kopf .marke { font-size: 24px; }
+      .held-b { padding-block: clamp(40px, 9vh, 96px) clamp(24px, 4vh, 48px); }
+      .held-b .titel { max-width: none; }
+      .lead { margin: 22px 0 0; max-width: 40ch; color: var(--ton-lesen); font-size: var(--t-lead); font-weight: 320; line-height: 1.34; }
+      .abschnitt { padding-block: clamp(48px, 9vh, 112px) 0; }
+      .abschnitt__titel {
+        margin: 0; font-size: clamp(38px, 10.6vw, 44px); line-height: 0.9; font-weight: 560;
+        font-variation-settings: "opsz" 36, "slnt" -2, "wdth" 75; text-transform: uppercase; letter-spacing: -0.01em;
+      }
+      @media (min-width: 900px) { .abschnitt__titel { font-size: clamp(56px, 5vw, 80px); } }
+      .abschnitt__zeile { margin: 14px 0 0; max-width: 46ch; color: var(--ton-neben); font-size: var(--t-text); }
+      .reihe { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 36px clamp(28px, 4vw, 64px); margin-top: clamp(28px, 5vh, 48px); }
+      .sym { margin: 0; display: flex; flex-direction: column; align-items: flex-start; }
+      .sym__flaeche { position: relative; flex: none; }
+      .sym figcaption { margin-top: 8px; font-size: var(--t-klein); color: var(--ton-neben); font-weight: 500; letter-spacing: 0.01em; font-variant-numeric: tabular-nums; }
+      .sym figcaption b { color: var(--tinte); font-weight: 560; }
+      .eintrag { padding-block: clamp(36px, 6vh, 64px) 0; }
+      .eintrag__titel { margin: 0; font-size: var(--t-h3); font-weight: 560; font-variation-settings: "opsz" 30, "wdth" 92; line-height: 1.1; }
+      .eintrag__zeile { margin: 6px 0 0; color: var(--ton-neben); font-size: var(--t-klein); max-width: 62ch; }
+      .eintrag .reihe { margin-top: 18px; }
+      .nacht { margin-top: clamp(48px, 9vh, 112px); background: var(--nacht); color: var(--nacht-papier); padding-block: clamp(48px, 8vh, 96px); }
+      .nacht .abschnitt__zeile, .nacht figcaption { color: var(--nacht-neben); }
+      .nacht figcaption b { color: var(--nacht-papier); }
+      .fenster-reihe { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 36px clamp(28px, 4vw, 64px); margin-top: clamp(28px, 5vh, 48px); }
+      .fenster-reihe [data-gefaess="paket"] { width: min(320px, 82vw); height: min(270px, 69vw); }
+      .fenster-reihe [data-gefaess="handy"] { width: 190px; height: 340px; }
+    </style>
+    <script src="/snaegs-staging/vorschau/claude-klaegs-rand/site/labor/archiv.js" data-was="Symbole der Website v1 vom 5.11." data-aktuell="/snaegs-staging/vorschau/claude-klaegs-rand/site/v2/strich.html" data-aktuell-name="Asset-Datenbank: Zeichnungen und Motive"></script>
+  </head>
+  <body data-room="papier">
+    <header class="kopf bogen-kopf rahmenbreite">
+      <a class="marke" href="/" aria-label="SNÄGS, zur Stilprobe">SNÄGS</a>
+      <span class="kopf__hinweis">Symbole · Paket B1</span>
+    </header>
+
+    <main id="inhalt">
+      <section class="held-b rahmenbreite" aria-labelledby="titel">
+        <h1 id="titel" class="titel">Symbole.</h1>
+        <p class="lead">Was Klägs und der Stift groß malen. Jedes Symbol steht zuerst als Bleistift-Geist da, dann in Tinte.</p>
+      </section>
+
+      <section class="abschnitt rahmenbreite" aria-labelledby="t-klecks" data-reihe="klecks">
+        <h2 id="t-klecks" class="abschnitt__titel">Von Klägs gemalt.</h2>
+        <p class="abschnitt__zeile">Die Momente einer Seite. Klägs wird zum Punkt, malt über den Geist und quillt wieder auf.</p>
+        <div class="reihe" data-live="klecks">
+          <figure class="sym" data-name="haustuer" data-teile="tuer,schild|paket"><figcaption><b>haustuer</b> · S1, Klägs die Tür, der Stift das Paket</figcaption></figure>
+          <figure class="sym" data-name="raum"><figcaption><b>raum</b> · S1</figcaption></figure>
+          <figure class="sym" data-name="knoten"><figcaption><b>knoten</b> · S1</figcaption></figure>
+          <figure class="sym" data-name="pokal"><figcaption><b>pokal</b> · S2</figcaption></figure>
+          <figure class="sym" data-name="siegel"><figcaption><b>siegel</b> · S2</figcaption></figure>
+          <figure class="sym" data-name="linie"><figcaption><b>linie</b> · S1</figcaption></figure>
+        </div>
+      </section>
+
+      <section class="abschnitt rahmenbreite" aria-labelledby="t-stift" data-reihe="stift">
+        <h2 id="t-stift" class="abschnitt__titel">Vom Stift gezeichnet.</h2>
+        <p class="abschnitt__zeile">Stationen und Gefäße. Der unsichtbare Stift zieht Umriss, Details, Akzent.</p>
+        <div class="reihe" data-live="stift">
+          <figure class="sym" data-name="paket"><figcaption><b>paket</b> · S2</figcaption></figure>
+          <figure class="sym" data-name="sprechblase"><figcaption><b>sprechblase</b> · S2</figcaption></figure>
+          <figure class="sym" data-name="podest"><figcaption><b>podest</b> · S2</figcaption></figure>
+          <figure class="sym" data-name="winnerBox"><figcaption><b>winnerBox</b> · S2</figcaption></figure>
+          <figure class="sym" data-name="preisschild" data-stufe="S3"><figcaption><b>preisschild</b> · S3</figcaption></figure>
+          <figure class="sym" data-name="notizbuch"><figcaption><b>notizbuch</b> · S2</figcaption></figure>
+        </div>
+      </section>
+
+      <section class="abschnitt rahmenbreite" aria-labelledby="t-zahl" data-reihe="zahl">
+        <h2 id="t-zahl" class="abschnitt__titel">Die Zahl als Schraffur.</h2>
+        <p class="abschnitt__zeile">Die Glyphen von TikTok Sans, Zug für Zug schraffiert. Am Tag schraffiert Klägs, in der Nacht kratzt der Stift Papier frei.</p>
+        <div class="reihe" data-live="zahl">
+          <figure class="sym" data-zahl="80"><figcaption><b>zahlSchraffur("80")</b> · Tag</figcaption></figure>
+        </div>
+      </section>
+      <section class="nacht" aria-label="Die Zahl in der Nacht">
+        <div class="rahmenbreite">
+          <div class="reihe" data-live="nacht">
+            <figure class="sym" data-zahl="80" data-kratzen><figcaption><b>zahlSchraffur("80", …, { kratzen: true })</b> · Nacht</figcaption></figure>
+            <figure class="sym" data-name="schildArena" data-stufe="S3"><figcaption><b>schildArena</b> · S3, auf Papier invertiert</figcaption></figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="abschnitt rahmenbreite" aria-labelledby="t-fenster">
+        <h2 id="t-fenster" class="abschnitt__titel">Fotofenster.</h2>
+        <p class="abschnitt__zeile">Fotos sitzen nur in gezeichneten Gefäßen. Bis zum Bild steht dort der Geist des Gefäßes.</p>
+        <div class="fenster-reihe">
+          <figure class="sym"><div data-gefaess="paket"></div><figcaption><b>data-gefaess="paket"</b> · ohne Foto</figcaption></figure>
+          <figure class="sym"><div data-gefaess="handy"></div><figcaption><b>data-gefaess="handy"</b> · ohne Foto</figcaption></figure>
+        </div>
+      </section>
+
+      <section class="abschnitt rahmenbreite" aria-labelledby="t-katalog">
+        <h2 id="t-katalog" class="abschnitt__titel">Katalog.</h2>
+        <p class="abschnitt__zeile">Jedes Symbol in seiner Größenstufe, links der Geist, rechts die Tinte. Größen für diesen Bildschirm nach UI §1.5.</p>
+        <div data-katalog></div>
+      </section>
+    </main>
+
+    <script type="module">
+      import { starteSeite, geburt, sobald, warte, $, $$ } from "/snaegs-staging/vorschau/claude-klaegs-rand/src/seite.js";
+            import * as S from "/snaegs-staging/vorschau/claude-klaegs-rand/site/symbole.js";
+      import { alleFenster } from "/snaegs-staging/vorschau/claude-klaegs-rand/site/fenster.js";
+
+      const { klecks } = await starteSeite({ R: 36 });
+      await S.ladeZiffern("80");
+      const VW = innerWidth;
+      const VH = innerHeight;
+      const ALLE = new URLSearchParams(location.search).has("alle");
+      const sek = (ms) => `${(ms / 1000).toFixed(2).replace(".", ",")} s`;
+      const bericht = (window.__bogen = { dauer: {}, kanten: {}, fertig: false });
+      const PAD = 16;
+
+      const BESCHREIBUNG = {
+        haustuer: "Testerclub Hero. Die Tür aus motive.js, das Klingelschild bleibt leer, davor das Paket.",
+        paket: "Start Station 1, Tür Testerclub. Klägs den Karton, der Stift die Schnur. Fenster: Vorderseite.",
+        sprechblase: "Start Station 2. Blase aus G.frage, drei Kästchen, der Stift setzt den Haken.",
+        rewardBox: "Start Station 3, Rewards, Tür Rewards. G.box skaliert. Fenster: Vorderseite.",
+        preisschild: "Start Station 3, Rewards. Der Stift das Schild, Klägs streicht doppelt durch.",
+        pokal: "Start Station 4, Tür Arena. G.pokal, ganz von Klägs.",
+        raum: "Arena, der Moment. 200 Punkte in 6 Rängen, die vordersten 20 größer (Gold danach).",
+        strichliste: "Arena A2. Vier Fünferbündel, Klägs zieht den Strich nach dem 20., der Rest bleibt leise.",
+        podest: "Arena A3. Podest 2-1-3, darunter die Stapel 7 und 10. Die Stapel stehen sofort.",
+        winnerBox: "Arena, Rewards. Derselbe Karton mit Banderole und Pokal-Siegel.",
+        siegel: "Rewards. Klägs füllt die Scheibe, „nicht käuflich“ bleibt Papier.",
+        knoten: "Über uns. Zwei Linien, Marke und du, ineinander geschlungen.",
+        linie: "Über uns. Marke, Paket, Haus, Sprechblase und zurück zur Marke.",
+        haken: "„Du bist drin.“ G.haken skaliert.",
+        schildArena: "Tür Arena, Menü. Kleine Tintenfläche, der Pokal als Kratzer.",
+        handy: "Arena Game, Probe-Rahmen im Testerclub. Fenster: der Bildschirm.",
+        notizbuch: "Über uns. Zwei Seiten, Rücken, Deckel, Lesebändchen. Fenster: die Seiten.",
+        rund: "Testerclub „Die Marke will dein Urteil.“ Rundes Papierfenster.",
+      };
+
+      /** Fläche für ein Symbol der Größe g in eine Figur legen */
+      function flaeche(fig, name, g) {
+        const { w, h } = S.mass(name, g);
+        const f = document.createElement("div");
+        f.className = "sym__flaeche";
+        f.style.width = `${Math.ceil(w + 2 * PAD)}px`;
+        f.style.height = `${Math.ceil(h + 2 * PAD)}px`;
+        fig.prepend(f);
+        return { f, x: w / 2 + PAD, y: h / 2 + PAD };
+      }
+      const groesse = (name, st) => S.STUFEN[st ?? S.stufe(name).stufe].px(VW, VH);
+
+      /** reine Zeichenzeit: nur die Bilder, in denen der Stift an diesem Symbol arbeitet (ohne Warten, ohne Klecks' Notizen) */
+      function reinZeit(griff) {
+        const st = window.__stift.stift;
+        const spuren = new Set(griff.griffe.map((g) => g.spur).filter(Boolean));
+        let t = 0;
+        let last = performance.now();
+        let aus = false;
+        const tick = (now) => {
+          if (aus) return;
+          if (st.auf && spuren.has(st.auf.spur)) t += now - last;
+          last = now;
+          requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+        return griff.fertig.then(() => {
+          aus = true;
+          return t;
+        });
+      }
+
+      /* ── ein Stift, eine Schlange: was live entsteht, entsteht nacheinander ── */
+      let kette = Promise.resolve();
+      const reihe = (fn) => (kette = kette.then(fn).catch((e) => console.warn(e)));
+      let malt = false;
+
+      async function geboren(f, x, y) {
+        if (klecks.da) return;
+        await geburt(klecks, f, x, y);
+        await warte(900);
+      }
+
+      async function lebendig(fig, art) {
+        const name = fig.dataset.name;
+        const zahl = fig.dataset.zahl;
+        const st = fig.dataset.stufe;
+        let f;
+        let striche;
+        if (zahl) {
+          const h = S.STUFEN.zahl.px(VW);
+          const probe = S.zahlSchraffur(zahl, 0, 0, h, { dauer: false });
+          const lage = flaecheBox(fig, probe.box.w, probe.box.h);
+          f = lage.f;
+          striche = S.zahlSchraffur(zahl, lage.x, lage.y, h, { kratzen: fig.hasAttribute("data-kratzen") });
+        } else {
+          const g = groesse(name, st);
+          const lage = flaeche(fig, name, g);
+          f = lage.f;
+          striche = S.symbol(name, lage.x, lage.y, g, st ? { stufe: st } : {});
+        }
+        fig.dataset.bereit = "";
+        const gst = S.zeige(f, S.geist(striche));
+        const cap = $("figcaption", fig);
+        reihe(async () => {
+          malt = true;
+          if (art === "klecks") {
+            const p0 = striche.find((s) => !s.leise && !s.stempel)?.pts[0] ?? [0, 0];
+            const r = f.getBoundingClientRect();
+            if (!klecks.da) await geboren(f, p0[0], p0[1]);
+            else {
+              klecks.geheZu(Math.min(innerWidth - 40, r.left + p0[0]), r.top + p0[1] - klecks.R);
+              await warte(650);
+            }
+          } else await warte(200);
+          const teile = fig.dataset.teile?.split("|").map((t) => t.split(","));
+          const t0 = performance.now();
+          const erst = teile ? S.teil(striche, ...teile[0]) : striche;
+          const g1 = S.zeige(f, erst, { art });
+          const rein = await reinZeit(g1);
+          const ms = performance.now() - t0;
+          if (teile) await S.zeige(f, S.teil(striche, ...teile[1]), { art: "stift" }).fertig;
+          bericht.dauer[name ?? `zahl-${zahl}${fig.hasAttribute("data-kratzen") ? "-nacht" : ""}`] = { ms: Math.round(ms), rein: Math.round(rein), gesamt: Math.round(performance.now() - t0), schaetzung: S.dauer(erst), art, zuege: erst.filter((s) => !s.leise && !s.stempel).length };
+          cap.insertAdjacentHTML("beforeend", ` · ${sek(ms)}`);
+          gst.verblasse(500);
+          await warte(art === "klecks" ? 700 : 250);
+          malt = false;
+        });
+      }
+      function flaecheBox(fig, w, h) {
+        const f = document.createElement("div");
+        f.className = "sym__flaeche";
+        f.style.width = `${Math.ceil(w + 2 * PAD)}px`;
+        f.style.height = `${Math.ceil(h + 2 * PAD)}px`;
+        fig.prepend(f);
+        return { f, x: w / 2 + PAD, y: h / 2 + PAD };
+      }
+
+      for (const [sel, art] of [["[data-live='klecks'] .sym", "klecks"], ["[data-live='stift'] .sym", "stift"], ["[data-live='zahl'] .sym", "klecks"], ["[data-live='nacht'] .sym", "stift"]]) {
+        for (const fig of $$(sel)) sobald(fig, () => lebendig(fig, art), "0px 0px -18% 0px");
+      }
+
+      // Klecks bleibt bei der Reihe, die gerade dran ist; sonst rechts unten
+      (function folge() {
+        requestAnimationFrame(folge);
+        if (!klecks.da || malt || klecks.modus === "strich" || stift_traegt()) return;
+        const figs = $$("[data-live] .sym[data-bereit]");
+        const mitte = innerHeight * 0.45;
+        let ziel = null;
+        for (const fig of figs) {
+          const r = fig.getBoundingClientRect();
+          if (r.top < mitte && r.bottom > mitte * 0.5) ziel = [Math.min(innerWidth - klecks.R - 16, r.right - klecks.R), Math.max(klecks.R + 70, r.top - klecks.R * 0.6)];
+        }
+        if (!ziel) ziel = [innerWidth - klecks.R - 20, innerHeight - klecks.R - 28];
+        if (Math.hypot(ziel[0] - klecks.x, ziel[1] - klecks.y) > 24) klecks.geheZu(ziel[0], ziel[1]);
+      })();
+      function stift_traegt() {
+        return !!window.__stift?.stift?.traeger?.();
+      }
+
+      /* ── Fotofenster ── */
+      alleFenster();
+
+      /* ── Katalog: Geist und Tinte je Stufe ── */
+      const katalog = $("[data-katalog]");
+      const EINTRAEGE = [
+        ...S.NAMEN.map((n) => ({ titel: n, teile: [{ name: n }] })),
+        { titel: "Türschilder", zeile: "tuerschild(\"testerclub\" | \"arena\" | \"rewards\", …) in S3.", teile: ["testerclub", "arena", "rewards"].map((t) => ({ tuer: t, st: "S3" })) },
+        { titel: "Ein Symbol, drei Stufen", zeile: "paket in S1, S2 und S3: Strichbreite nach Größe, Schilder zeichnet der Stift.", teile: ["S1", "S2", "S3"].map((st) => ({ name: "paket", st, nurTinte: true })) },
+      ];
+      for (const e of EINTRAEGE) {
+        const box = document.createElement("article");
+        box.className = "eintrag";
+        const info = e.teile[0].name ? S.stufe(e.teile[0].name) : null;
+        const kopf = e.zeile ?? `${BESCHREIBUNG[e.titel] ?? ""}`;
+        const st = info ? `${info.stufe} ${info.name}, ${groesse(e.teile[0].name)} px` : "";
+        box.innerHTML = `<h3 class="eintrag__titel">${e.titel}</h3><p class="eintrag__zeile">${[st, kopf].filter(Boolean).join(" · ")}</p><div class="reihe"></div>`;
+        katalog.appendChild(box);
+        const r = $(".reihe", box);
+        const baue = () => {
+          for (const t of e.teile) {
+            const name = t.tuer ? { testerclub: "haustuer", arena: "schildArena", rewards: "rewardBox" }[t.tuer] : t.name;
+            const g = groesse(name, t.st);
+            for (const art of t.nurTinte ? ["sofort"] : ["geist", "sofort"]) {
+              const fig = document.createElement("figure");
+              fig.className = "sym";
+              fig.innerHTML = `<figcaption>${t.tuer ? `<b>${t.tuer}</b> · ` : ""}${art === "geist" ? "Geist" : t.st ? `${t.st} · ${g} px` : "Tinte"}</figcaption>`;
+              r.appendChild(fig);
+              const lage = flaeche(fig, name, g);
+              const striche = t.tuer ? S.tuerschild(t.tuer, lage.x, lage.y, g) : S.symbol(name, lage.x, lage.y, g, t.st ? { stufe: t.st } : {});
+              S.zeige(lage.f, art === "geist" ? S.geist(striche) : striche, { art });
+              fig.dataset.kante = `${name}-${art}-${t.st ?? ""}`;
+            }
+          }
+        };
+        if (ALLE) baue();
+        else sobald(box, baue, "0px 0px 400px 0px");
+      }
+      bericht.fertig = true;
+    </script>
+  </body>
+</html>
