@@ -1,1 +1,0 @@
-import{d as e}from"./tinte-DrRJJrkE.js";export{e as tinteSofort};
