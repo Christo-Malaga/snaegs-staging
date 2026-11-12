@@ -1,0 +1,1 @@
+import{t as e}from"./teaser-D-7mN3uO.js";export{e as mountTeaser};
