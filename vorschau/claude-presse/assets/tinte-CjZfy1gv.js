@@ -1,0 +1,1 @@
+import{d as e}from"./tinte-D877_MlJ.js";export{e as tinteSofort};
