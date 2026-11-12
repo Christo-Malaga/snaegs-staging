@@ -1,0 +1,1 @@
+import{d as e}from"./tinte-BLAcJLE8.js";export{e as tinteSofort};
