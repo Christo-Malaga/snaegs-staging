@@ -177,7 +177,10 @@ function tc3dLos() {
     .catch((e) => console.warn("[start] Testerclub 3D", e));
 }
 // Prüfhilfe: ?tc3d=aus lässt die Story weg (Vergleichsmessung der Frame-Zeiten), Rahmen und Poster bleiben
-if (!/[?&]tc3d=aus\b/.test(location.search)) imBild(clubGeraet, () => ("requestIdleCallback" in window ? requestIdleCallback(tc3dLos, { timeout: 1200 }) : setTimeout(tc3dLos, 300)), { rand: "0px" });
+// 12.11. iPhone/iPad (APPLE_LEICHT): Aufbau nur in einer ruhigen Lücke (ruhe.js), nie mitten im ersten Scrollen (der
+// Leerlauf-Rückruf mit Frist 1,2 s fiel sonst in eine Scrollbewegung)
+const tc3dPlanen = () => (APPLE_LEICHT ? inRuhe(tc3dLos, { vorn: true }) : "requestIdleCallback" in window ? requestIdleCallback(tc3dLos, { timeout: 1200 }) : setTimeout(tc3dLos, 300));
+if (!/[?&]tc3d=aus\b/.test(location.search)) imBild(clubGeraet, tc3dPlanen, { rand: "0px" });
 // 08.11. (Chris: „wenn Klick auf SNÄGS Testerclub Animation auch auf Testerclubseite wechseln, analog zu Game-Arena-
 // Mechanik“): Antippen führt zur Testerclub-Seite (mit Strg/Cmd in einem neuen Tab, wie ein Link), Enter ebenso
 const clubZiel = clubGeraet?.dataset.href || "/snaegs-staging/vorschau/claude-apple-3d/site/testerclub.html?von=start-held";
