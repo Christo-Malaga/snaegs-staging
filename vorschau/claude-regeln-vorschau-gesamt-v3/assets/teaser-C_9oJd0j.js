@@ -1,0 +1,1 @@
+import{t as e}from"./teaser-BMqEDPf8.js";export{e as mountTeaser};
