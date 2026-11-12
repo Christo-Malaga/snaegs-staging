@@ -87,4 +87,4 @@ Vaals, Niederlande
 E-Mail: info@snägs.de
 Telefon: +31 6 23145291
 
-Bildmaterial: Pressekit mit Logos, Klägs, Plattform-Ansichten und Pressebildern unter https://snägs.de/presse/ (komplett als ZIP: https://snägs.de/presse/snaegs-pressekit.zip); Porträt von Christian Scholz auf Anfrage an info@snägs.de. Abdruck honorarfrei zur redaktionellen Berichterstattung über SNÄGS bei Nennung der Quelle „SNÄGS“.
+Bildmaterial: Logo, Klägs, Ansichten der Plattform und Porträt von Christian Scholz unter https://snägs.de/presse/ (als ZIP: https://snägs.de/presse/snaegs-mediadaten.zip). Abdruck honorarfrei zur redaktionellen Berichterstattung über SNÄGS bei Nennung der Quelle „SNÄGS“.
