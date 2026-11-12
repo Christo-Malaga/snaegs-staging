@@ -28,7 +28,10 @@
 
 import { seite, imBild, brumm, auftauchen, kern } from "../v2/start.js";
 import { inRuhe, nahe } from "../v2/strich/ruhe.js";
-import { APPLE_WEBKIT } from "../../src/umgebung.js";
+import { APPLE_WEBKIT, APPLE_LEICHT } from "../../src/umgebung.js";
+// 12.11. iPhone/iPad (APPLE_LEICHT): Standbilder aus genau diesen 3D-Szenen statt WebGL-Aufbau mitten im Scrollen
+import ARENA_STANDBILD from "./standbild/arena-ausschnitt.webp";
+import REWARD_STANDBILD from "./standbild/reward-box.webp";
 import { entstehung } from "./entstehung.js";
 import { ton } from "./klang.js";
 import { marke, markiere } from "../../src/klecks/leitmotiv.js";
@@ -624,7 +627,24 @@ function arenaMontieren() {
     })
     .catch((e) => console.warn("[start] Arena-Ausschnitt", e));
 }
-if (arenaHandy) {
+/** Standbild in einen Bühnen-Host (iPhone/iPad): sofort da, kein WebGL, kein Shader-Aufbau */
+function standbild(host, src, klasse) {
+  const img = new Image();
+  img.alt = "";
+  img.decoding = "async";
+  img.className = klasse;
+  img.setAttribute("aria-hidden", "true");
+  img.src = src;
+  host.append(img);
+  return img;
+}
+// 12.11. (Chris' iPad-Video: „Play it“ 5 s schwarz): Der Ausschnitt ist ein zweiter voller Teaser (eigener WebGL-Kontext,
+// rund 15 Leinwände); sein Aufbau blockierte am iPad den Hauptfaden genau beim Eintritt in die Sektion. Auf iPhone/iPad
+// steht deshalb sofort ein Standbild aus dem echten Game (aus diesem Teaser gerendert).
+if (arenaHandy && APPLE_LEICHT) {
+  arenaDa = true;
+  standbild(arenaHandy, ARENA_STANDBILD, "st-arena__standbild");
+} else if (arenaHandy) {
   nahe(arenaHandy, () => HERO_FERTIG.then(() => inRuhe(arenaMontieren, { vorn: true })));
   // schon im Bild, bevor die Hero-Story durch ist (schnell heruntergescrollt): dann sobald das Scrollen ruht
   imBild(arenaHandy, () => inRuhe(arenaMontieren, { vorn: true }), { rand: "0px" });
@@ -758,7 +778,11 @@ async function rewardWarenNeu(auftritt = false) {
     }
   });
 }
-if (rewardEl) {
+// 12.11. iPhone/iPad: die Reward Box als Standbild (aus box3d mit den Waren gerendert), kein zweiter WebGL-Kontext
+// beim Scrollen (gemessen: Aufbau 236 + 260 ms und 430 ms Übergabe an die Grafik, am Gerät ein Mehrfaches)
+if (rewardEl && APPLE_LEICHT) {
+  standbild(rewardEl, REWARD_STANDBILD, "st-reward__standbild");
+} else if (rewardEl) {
   imBild(
     rewardEl,
     () =>
