@@ -1,0 +1,1 @@
+import{t as e}from"./teaser-Df6Mmjdf.js";export{e as mountTeaser};
