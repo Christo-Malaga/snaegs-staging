@@ -1,0 +1,757 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="robots" content="noindex" />
+    <link rel="icon" type="image/svg+xml" href="/snaegs-staging/vorschau/claude-kopf-ruhig/assets/snaegs-favicon-C7AnkDYR.svg" />
+    <title>Datenschutz · SNÄGS</title>
+    <meta name="description" content="Datenschutzerklärung von SNÄGS für Website, Voranmeldung und App: welche Daten wir verarbeiten, wozu, wie lange und was Marken davon sehen." />
+    <link rel="preload" href="/snaegs-staging/vorschau/claude-kopf-ruhig/fonts/tiktok-sans-latin-var.woff2" as="font" type="font/woff2" crossorigin />
+    <script type="module" crossorigin src="/snaegs-staging/vorschau/claude-kopf-ruhig/assets/modulepreload-polyfill-Dezn_h7o.js"></script>
+    <script type="module" crossorigin src="/snaegs-staging/vorschau/claude-kopf-ruhig/assets/preload-helper-Dx7zATPX.js"></script>
+    <script type="module" crossorigin src="/snaegs-staging/vorschau/claude-kopf-ruhig/assets/papier-7eMofWzM.js"></script>
+    <script type="module" crossorigin src="/snaegs-staging/vorschau/claude-kopf-ruhig/assets/spur-z5Wx2kCL.js"></script>
+    <script type="module" crossorigin src="/snaegs-staging/vorschau/claude-kopf-ruhig/assets/rolldown-runtime-QTnfLwEv.js"></script>
+    <script type="module" crossorigin src="/snaegs-staging/vorschau/claude-kopf-ruhig/assets/gesten-DuKU43vj.js"></script>
+    <script type="module" crossorigin src="/snaegs-staging/vorschau/claude-kopf-ruhig/assets/schrift-hand-DK7j0mFe.js"></script>
+    <script type="module" crossorigin src="/snaegs-staging/vorschau/claude-kopf-ruhig/assets/emotion-uztvslfK.js"></script>
+    <script type="module" crossorigin src="/snaegs-staging/vorschau/claude-kopf-ruhig/assets/pinsel-BTmdkUMS.js"></script>
+    <script type="module" crossorigin src="/snaegs-staging/vorschau/claude-kopf-ruhig/assets/bau-Bg0iddNZ.js"></script>
+    <script type="module" crossorigin src="/snaegs-staging/vorschau/claude-kopf-ruhig/assets/motive-konsum-BChtost6.js"></script>
+    <script type="module" crossorigin src="/snaegs-staging/vorschau/claude-kopf-ruhig/assets/motive-tech-DnTNqNqD.js"></script>
+    <script type="module" crossorigin src="/snaegs-staging/vorschau/claude-kopf-ruhig/assets/motive-symbole-DSNo2QMe.js"></script>
+    <script type="module" crossorigin src="/snaegs-staging/vorschau/claude-kopf-ruhig/assets/strich-qkjl39zy.js"></script>
+    <script type="module" crossorigin src="/snaegs-staging/vorschau/claude-kopf-ruhig/assets/seite-BrBgQhyn.js"></script>
+    <link rel="stylesheet" crossorigin href="/snaegs-staging/vorschau/claude-kopf-ruhig/assets/seite-DtnqDgS2.css">
+    <link rel="stylesheet" crossorigin href="/snaegs-staging/vorschau/claude-kopf-ruhig/assets/testerclub-BwVsqnBo.css">
+  </head>
+  <!-- Datenschutz SNÄGS, Website und App, Du-Form (Text-Agent T1, 11.11.2026). Markup-Vertrag: recht/_vorlage.html.
+       Grundlagen: recht/VERDIKT-UND-PLAN.md, research/R1-bestand-und-snaegs.md (2.3 A/B, 3, 4b, 5), research/R2-trnd-und-
+       rechtsrahmen.md (5, 6.2, 6.5, 6.6, 6.8), Gerüst Frugends fg-legal-datenschutz.liquid. Browser-Speicher-Schlüssel im
+       Code von website-v3 geprüft (site/*.js, src/snaegs-survey/*). Keine Rechtsberatung; P1 prüft ein Anwalt vor Januar.
+       Tabellen: erste Zelle th[scope=row], übrige td mit data-label (Spaltenname), damit das Kleid sie am Handy als Karten
+       setzen kann.
+
+       ANNAHMEN (gesetzt, wo Auftrag und Code nichts sagen):
+       1. Anonymous Bucket und Journey-Tracking der Testerclub-Vorlage werden NICHT übernommen: Quick-Check-Antworten gehen
+          erst mit dem Absenden der Voranmeldung an SNÄGS (deckt sich mit Vorstart.jsx:171).
+       2. Ernährungsangabe und weitere freiwillige Profilfelder (Kinder, Haustiere) auf Einwilligung (lit. a) gestützt,
+          Pflichtfelder auf Vertrag (lit. b). Ernährung gilt nicht als Gesundheitsdatum. Die Frage braucht im Quick-Check
+          die Option „Keine Angabe“ (in der Testerclub-Vorlage fehlt sie).
+       3. App: keine Werbe- oder Analyse-Werkzeuge von Dritten; Geräte- und Protokolldaten 14 Tage wie Server-Logs.
+       4. Gesundheitsangaben: Wer für eine Kampagne, die sie braucht, nicht einwilligt, kann sich für diesen Test nicht
+          bewerben (Schutz vor Unverträglichkeiten).
+       5. Prüfdaten gegen Missbrauch (Mehrfachkonten, Empfehlungen): 6 Monate, bei Verdacht bis zur Klärung.
+       6. Bewerbung und Auswahl für Produkttests wie Fragebogen-Rohdaten: 24 Monate, höchstens bis zur Kontolöschung;
+          Rohdaten werden mit dem Konto gelöscht oder anonymisiert. Auswahlkriterium auch „frühere Fragebögen ausgefüllt“ (R1 F9).
+       7. Fotos im Testfragebogen auf Einwilligung (lit. a), Freitexte auf Vertrag (lit. b).
+       8. Rangliste nach Kontolöschung: Platz bleibt ohne Nickname stehen.
+       9. Nachweis der Einwilligung in die Start-Mail: 3 Jahre nach Versand oder Widerruf (Verjährung); Versandnachweis von
+          Service-Mails 12 Monate (Vorlage email_log).
+       10. Lieferadresse im Konto bleibt gespeichert, bis das Mitglied sie ändert oder das Konto kündigt.
+       11. Cal.com kommt auf der Website nicht vor (nur Business). Push: Apple Inc. und Google LLC über DPF.
+       12. Namen von Hosting- und Mailanbieter stehen noch nicht fest: Kategorien plus „Namen auf Anfrage“ (Art. 13 Abs. 1
+           lit. e DSGVO erlaubt Kategorien von Empfängern).
+       13. Browser-Speicher: nur die Schlüssel aus R1 2.3 B Nr. 14, 15, 25. snaegs-produkttest-<id>-v1 (survey.html,
+           Kampagne.jsx) und frugends-quest-campaign-v5 (nur Business) fehlen hier bewusst; geht survey.html live, ergänzen. -->
+  <body class="v2 re" data-seite="datenschutz">
+    <a class="re-sprung" href="#inhalt">Zum Inhalt</a>
+    <header class="re-kopf">
+      <a class="re-kopf__marke" href="/snaegs-staging/vorschau/claude-kopf-ruhig/site/index.html"><img src="/snaegs-staging/vorschau/claude-kopf-ruhig/assets/snaegs-kopf-DpLZSmLl.svg" alt="SNÄGS, zur Startseite" width="124" height="34" decoding="async" /></a>
+      <span class="re-kopf__rubrik">Rechtliches</span>
+    </header>
+
+    <main id="inhalt">
+      <div class="re-titel">
+        <h1 class="plakat">Datenschutz</h1>
+        <p class="re-titel__unter">Welche Daten wir von dir verarbeiten, wozu und wie lange.</p>
+        <p class="re-titel__stand">Stand: 11. November 2026</p>
+      </div>
+
+      <!-- Handy: Inhaltsverzeichnis zum Aufklappen (legal-toc.js füllt und schließt nach dem Sprung) -->
+      <div class="re-toc-mobil">
+        <details class="legal-toc-mobile">
+          <summary><span>Inhalt</span><span class="re-toc-mobil__zeichen" aria-hidden="true"></span></summary>
+          <nav class="legal-toc" data-legal-toc aria-label="Inhaltsverzeichnis"></nav>
+        </details>
+      </div>
+
+      <div class="re-lesen">
+        <article class="legal-content re-text">
+          <!-- INHALT ANFANG -->
+
+          <!-- 1 ─────────────────────────────────────────────────────────────────────────────────────────────── -->
+          <section class="re-abschnitt" aria-labelledby="vorab">
+            <h2 id="vorab">1. Das Wichtigste vorab</h2>
+            <div class="re-kurz">
+              <p class="re-kurz__titel">Kurz gesagt</p>
+              <p>Marken bezahlen SNÄGS für Produkttests und Fragen, deine Antworten sehen sie aber nur anonym und zusammengefasst. Deine E-Mail-Adresse und deine Lieferadresse gehen nie an eine Marke, und Analyse- oder Werbe-Tracking gibt es bei uns nicht.</p>
+            </div>
+
+            <h3 id="vorab-geltung">1.1 Wofür diese Erklärung gilt</h3>
+            <p>Sie gilt für die Website snägs.de, für die Voranmeldung mit dem Quick-Check und ab Januar 2027 für die SNÄGS-App. Bis zum Start gibt es nur die Website mit der Voranmeldung. Konto, App, Produkttests, Punkte und Game Arena starten im Januar 2027; die Abschnitte 5 bis 8 gelten ab dann.</p>
+            <p>Für die Business-Seite, auf der wir Marken ansprechen, gibt es eine eigene Erklärung: <a href="/snaegs-staging/vorschau/claude-kopf-ruhig/recht/datenschutz-business.html">Datenschutz Business</a>.</p>
+
+            <h3 id="vorab-grundsaetze">1.2 Was du wissen solltest</h3>
+            <ul>
+              <li>Mitglied werden kannst du ab 18 und mit Wohnsitz in Deutschland. Die Mitgliedschaft ist kostenlos, Zahlungsdaten fragen wir nie ab.</li>
+              <li>Marken bekommen Ergebnisse nur anonymisiert und zusammengefasst, aus Gruppen von mindestens 10 Personen (<a href="#ergebnisse-fuer-marken">Abschnitt 10</a>).</li>
+              <li>Für Produkttests wählen wir nach deinem Profil aus. Auf Wunsch prüft ein Mensch die Auswahl (<a href="#produkttests">Abschnitt 6</a>).</li>
+              <li>Analyse- oder Werbe-Cookies, Pixel und Social-Plugins setzen wir nicht ein (<a href="#browser-speicher">Abschnitt 12</a>).</li>
+              <li>Unsere Dienstleister arbeiten in der EU. Nur die Push-Mitteilungen der App laufen über Apple oder Google in den USA (<a href="#dienstleister">Abschnitt 13</a>).</li>
+              <li>Für Auskunft, Löschung oder Widerruf genügt eine Mail an <a href="mailto:info@xn--sngs-moa.de">info@snägs.de</a> (<a href="#deine-rechte">Abschnitt 15</a>).</li>
+            </ul>
+
+            <h3 id="vorab-tabellen">1.3 So liest du diese Erklärung</h3>
+            <p>Jeder Abschnitt beginnt mit einem Kasten „Kurz gesagt“. Maßgeblich ist der Text darunter. Die Tabellen zeigen je Verarbeitung, welche Daten wir nutzen, wozu, auf welcher Rechtsgrundlage, wie lange und wer sie bekommt. Die Rechtsgrundlagen heißen dort so:</p>
+            <div class="re-tabelle">
+              <table>
+                <thead><tr><th scope="col">Kurzform</th><th scope="col">Was das heißt</th><th scope="col">Vorschrift</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row">Vertrag</th><td data-label="Was das heißt">Wir brauchen die Daten, um deine Mitgliedschaft, eine Aktion oder ein Turnier wie vereinbart durchzuführen.</td><td data-label="Vorschrift">Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;b DSGVO</td></tr>
+                  <tr><th scope="row">Einwilligung</th><td data-label="Was das heißt">Du hast zugestimmt. Du kannst jederzeit für die Zukunft widerrufen.</td><td data-label="Vorschrift">Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;a DSGVO</td></tr>
+                  <tr><th scope="row">Berechtigtes Interesse</th><td data-label="Was das heißt">Wir haben ein Interesse, etwa an Sicherheit oder am Schutz vor Missbrauch, und deine Interessen überwiegen nicht. Du kannst widersprechen (<a href="#rechte-widerspruch">15.2</a>).</td><td data-label="Vorschrift">Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;f DSGVO</td></tr>
+                  <tr><th scope="row">Gesetzliche Pflicht</th><td data-label="Was das heißt">Ein Gesetz verlangt es, etwa die Aufbewahrung nach Handels- oder Steuerrecht.</td><td data-label="Vorschrift">Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;c DSGVO</td></tr>
+                  <tr><th scope="row">Endgerät</th><td data-label="Was das heißt">Wir speichern etwas in deinem Browser, weil eine Funktion, die du nutzt, es unbedingt braucht.</td><td data-label="Vorschrift">§&nbsp;25 Abs.&nbsp;2 Nr.&nbsp;2 TDDDG</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- 2 ─────────────────────────────────────────────────────────────────────────────────────────────── -->
+          <section class="re-abschnitt" aria-labelledby="verantwortlich">
+            <h2 id="verantwortlich">2. Wer verantwortlich ist</h2>
+            <div class="re-kurz">
+              <p class="re-kurz__titel">Kurz gesagt</p>
+              <p>Verantwortlich ist die Prime Fusion B.V. in Vaals (Niederlande), zu der die Marke SNÄGS gehört. Fragen zum Datenschutz beantworten wir unter info@snägs.de.</p>
+            </div>
+
+            <h3 id="verantwortlich-anbieter">2.1 Verantwortlicher</h3>
+            <address>
+              Prime Fusion B.V.<br />
+              Lindenstraat 3<br />
+              6291 AE Vaals<br />
+              Niederlande
+            </address>
+            <p>Handelsregister der Kamer van Koophandel (KvK): 97395196. Vertreten durch Christian Scholz.</p>
+            <p>E-Mail: <a href="mailto:info@xn--sngs-moa.de">info@snägs.de</a>. Falls dein Mailprogramm keine Umlaute annimmt: <a href="mailto:info@xn--sngs-moa.de">info@xn--sngs-moa.de</a>, das ist dieselbe Adresse.</p>
+
+            <h3 id="verantwortlich-dsb">2.2 Datenschutzbeauftragter</h3>
+            <p>Einen Datenschutzbeauftragten haben wir nicht benannt. Mit allen Fragen zum Datenschutz wendest du dich direkt an <a href="mailto:info@xn--sngs-moa.de">info@snägs.de</a>.</p>
+
+            <h3 id="verantwortlich-aufsicht">2.3 Zuständige Aufsicht</h3>
+            <p>Unsere Hauptniederlassung liegt in den Niederlanden. Federführend zuständig ist deshalb die niederländische Datenschutzbehörde, die Autoriteit Persoonsgegevens. Beschweren kannst du dich auch bei jeder deutschen Datenschutz-Aufsichtsbehörde (<a href="#rechte-beschwerde">15.4</a>).</p>
+          </section>
+
+          <!-- 3 ─────────────────────────────────────────────────────────────────────────────────────────────── -->
+          <section class="re-abschnitt" aria-labelledby="website">
+            <h2 id="website">3. Wenn du die Website besuchst</h2>
+            <div class="re-kurz">
+              <p class="re-kurz__titel">Kurz gesagt</p>
+              <p>Bei jedem Aufruf speichert unser Hosting-Anbieter technische Zugriffsdaten wie deine IP-Adresse für 14 Tage. Schriften kommen von unserem eigenen Server, Instagram und TikTok sind nur verlinkt.</p>
+            </div>
+
+            <div class="re-tabelle">
+              <table>
+                <thead><tr><th scope="col">Was</th><th scope="col">Welche Daten</th><th scope="col">Wozu</th><th scope="col">Rechtsgrundlage</th><th scope="col">Wie lange</th><th scope="col">Wer bekommt sie</th></tr></thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Seitenaufruf (Server-Logs)</th>
+                    <td data-label="Welche Daten">IP-Adresse, Datum und Uhrzeit, aufgerufene Adresse, vorher besuchte Seite (Referrer), Browser und Betriebssystem</td>
+                    <td data-label="Wozu">Seite ausliefern, Fehler finden, Angriffe abwehren</td>
+                    <td data-label="Rechtsgrundlage">Berechtigtes Interesse an einer sicheren, funktionierenden Website (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;f DSGVO)</td>
+                    <td data-label="Wie lange">14 Tage</td>
+                    <td data-label="Wer bekommt sie">Hosting-Anbieter mit Servern in der EU (Auftragsverarbeiter)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p>Schriften liefern wir selbst aus. Dein Browser lädt nichts von Google Fonts oder anderen fremden Servern.</p>
+            <p>Instagram und TikTok verlinken wir nur. Erst wenn du einen Link antippst, verbindet sich dein Browser mit der Plattform. Ab dann gilt deren Datenschutzerklärung.</p>
+            <p>Teilst du eine Seite über die Teilen-Funktion deines Handys, wählst du selbst, wohin sie geht. Wir erfahren nicht, mit wem du teilst.</p>
+          </section>
+
+          <!-- 4 ─────────────────────────────────────────────────────────────────────────────────────────────── -->
+          <section class="re-abschnitt" aria-labelledby="voranmeldung">
+            <h2 id="voranmeldung">4. Voranmeldung und Quick-Check</h2>
+            <div class="re-kurz">
+              <p class="re-kurz__titel">Kurz gesagt</p>
+              <p>Bis zum Start im Januar 2027 meldest du dich mit Vorname und E-Mail-Adresse vor und beantwortest 8 Fragen für dein Profil. Deine Antworten bekommen wir erst, wenn du die Voranmeldung absendest.</p>
+            </div>
+
+            <h3 id="voranmeldung-ablauf">4.1 So läuft die Voranmeldung</h3>
+            <p>Der Quick-Check läuft in deinem Browser. Bis zum Absenden bleiben deine Antworten auf deinem Gerät (<a href="#browser-speicher">Abschnitt 12</a>). Mit dem Absenden schickst du uns deinen Vornamen, deine E-Mail-Adresse, deine Bestätigung, dass du mindestens 18 bist, und deine Antworten. Danach bekommst du einen Code per Mail. Erst mit diesem Code ist die Voranmeldung bestätigt.</p>
+
+            <h3 id="voranmeldung-ausstieg">4.2 Unter 18 oder nicht in Deutschland</h3>
+            <p>Gibst du im Quick-Check an, dass du unter 18 bist oder nicht in Deutschland wohnst, endet er an dieser Stelle. Wir speichern dann nichts. Auch die Antworten im Speicher deines Browsers löschen wir sofort.</p>
+
+            <h3 id="voranmeldung-daten">4.3 Welche Daten wir verarbeiten</h3>
+            <div class="re-tabelle">
+              <table>
+                <thead><tr><th scope="col">Was</th><th scope="col">Welche Daten</th><th scope="col">Wozu</th><th scope="col">Rechtsgrundlage</th><th scope="col">Wie lange</th><th scope="col">Wer bekommt sie</th></tr></thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Voranmeldung</th>
+                    <td data-label="Welche Daten">Vorname, E-Mail-Adresse, Bestätigung „ab 18“, Zeitpunkt</td>
+                    <td data-label="Wozu">dich vormerken, Founder-Vorteile zuordnen, dein Konto zum Start vorbereiten</td>
+                    <td data-label="Rechtsgrundlage">Vertrag (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;b DSGVO)</td>
+                    <td data-label="Wie lange">Unbestätigt: 30 Tage. Bestätigt: bis du dein App-Konto aktivierst. Ohne Konto löschen wir sie am 30.06.2027.</td>
+                    <td data-label="Wer bekommt sie">Hosting-Anbieter (EU, Auftragsverarbeiter)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Bestätigung per Code</th>
+                    <td data-label="Welche Daten">E-Mail-Adresse, Code, Zeitpunkt der Bestätigung</td>
+                    <td data-label="Wozu">prüfen, dass die Adresse dir gehört</td>
+                    <td data-label="Rechtsgrundlage">Vertrag (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;b DSGVO)</td>
+                    <td data-label="Wie lange">Code bis zur Bestätigung, Zeitpunkt so lange wie die Voranmeldung</td>
+                    <td data-label="Wer bekommt sie">E-Mail-Versanddienst und Hosting-Anbieter (beide EU, Auftragsverarbeiter)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Quick-Check</th>
+                    <td data-label="Welche Daten">was du am liebsten testen würdest, Altersgruppe, Bundesland, was gerade deine Woche füllt, wer bei dir mittestet, wie schnell du Neues ausprobierst (Skala 0 bis 10), wo du am meisten Zeit verbringst</td>
+                    <td data-label="Wozu">dein Profil für die Auswahl bei Produkttests (<a href="#produkttests">Abschnitt 6</a>)</td>
+                    <td data-label="Rechtsgrundlage">Vertrag (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;b DSGVO)</td>
+                    <td data-label="Wie lange">wie die Voranmeldung; mit dem App-Konto wird der Quick-Check Teil deines Profils</td>
+                    <td data-label="Wer bekommt sie">Hosting-Anbieter (EU, Auftragsverarbeiter)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Ernährung (freiwillig)</th>
+                    <td data-label="Welche Daten">wie du meistens isst, etwa vegetarisch oder vegan, oder „keine Angabe“</td>
+                    <td data-label="Wozu">dir passende Lebensmittel-Tests vorschlagen</td>
+                    <td data-label="Rechtsgrundlage">Einwilligung durch deine Antwort (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;a DSGVO)</td>
+                    <td data-label="Wie lange">wie der Quick-Check, bis du widerrufst. Widerruf per Mail, ab Januar 2027 auch selbst im Profil.</td>
+                    <td data-label="Wer bekommt sie">Hosting-Anbieter (EU, Auftragsverarbeiter)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Herkunft</th>
+                    <td data-label="Welche Daten">Empfehlungscode aus dem Link, Kennung des Links oder der Kampagne, über die du gekommen bist (utm-Werte)</td>
+                    <td data-label="Wozu">eine Empfehlung dem richtigen Mitglied gutschreiben; sehen, über welche Wege Mitglieder zu uns finden</td>
+                    <td data-label="Rechtsgrundlage">Empfehlung: Vertrag (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;b DSGVO). Kennung: berechtigtes Interesse (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;f DSGVO)</td>
+                    <td data-label="Wie lange">wie die Voranmeldung</td>
+                    <td data-label="Wer bekommt sie">Hosting-Anbieter (EU, Auftragsverarbeiter)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3 id="voranmeldung-pflicht">4.4 Was du angeben musst</h3>
+            <p>Vorname, E-Mail-Adresse, die Bestätigung „ab 18“ und die Antworten im Quick-Check brauchen wir. Ohne sie können wir dich nicht vormerken. Freiwillig sind die Ernährungsfrage und das Häkchen für die Start-Mail (<a href="#e-mails-und-push">Abschnitt 11</a>).</p>
+          </section>
+
+          <!-- 5 ─────────────────────────────────────────────────────────────────────────────────────────────── -->
+          <section class="re-abschnitt" aria-labelledby="konto-und-app">
+            <h2 id="konto-und-app">5. Konto und App</h2>
+            <div class="re-kurz">
+              <p class="re-kurz__titel">Kurz gesagt</p>
+              <p>Ab Januar 2027 führst du dein Konto in der SNÄGS-App, mit Profil, Punktekonto und Spielständen. In der App kannst du nichts kaufen, und sie enthält keine Werbe- oder Analyse-Werkzeuge fremder Anbieter.</p>
+            </div>
+
+            <p>Aktivierst du dein Konto, übernehmen wir deine Voranmeldung und deinen Quick-Check. Du wählst einen Nickname. Er erscheint in Ranglisten, dein Vorname nicht.</p>
+            <p>In der App kannst du nichts kaufen, Zahlungsdaten gibt es deshalb nicht. Werbung oder Analyse-Werkzeuge fremder Anbieter bauen wir nicht ein.</p>
+            <div class="re-tabelle">
+              <table>
+                <thead><tr><th scope="col">Was</th><th scope="col">Welche Daten</th><th scope="col">Wozu</th><th scope="col">Rechtsgrundlage</th><th scope="col">Wie lange</th><th scope="col">Wer bekommt sie</th></tr></thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Konto</th>
+                    <td data-label="Welche Daten">E-Mail-Adresse, Vorname, Nickname, Anmeldedaten, Bestätigung „ab 18“, Zeitpunkt der Registrierung</td>
+                    <td data-label="Wozu">deine Mitgliedschaft führen, dich anmelden</td>
+                    <td data-label="Rechtsgrundlage">Vertrag (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;b DSGVO)</td>
+                    <td data-label="Wie lange">bis zur Kündigung, danach 30 Tage</td>
+                    <td data-label="Wer bekommt sie">Hosting-Anbieter (EU, Auftragsverarbeiter)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Profil</th>
+                    <td data-label="Welche Daten">Angaben aus dem Quick-Check, später ergänzt um weitere Fragen, etwa Postleitzahl, Haushaltsgröße, Kinder im Haushalt oder Haustiere</td>
+                    <td data-label="Wozu">dich für passende Produkttests vorschlagen (<a href="#produkttests">Abschnitt 6</a>)</td>
+                    <td data-label="Rechtsgrundlage">Pflichtangaben: Vertrag (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;b DSGVO). Freiwillige Angaben: Einwilligung (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;a DSGVO)</td>
+                    <td data-label="Wie lange">bis zur Kündigung; freiwillige Angaben, bis du sie löschst</td>
+                    <td data-label="Wer bekommt sie">Hosting-Anbieter (EU, Auftragsverarbeiter)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Punktekonto und Spielstände</th>
+                    <td data-label="Welche Daten">Punkte mit Datum und Anlass, eingelöste Reward Boxen, Spielstände, Level und Abzeichen</td>
+                    <td data-label="Wozu">Punkte gutschreiben, deinen Fortschritt zeigen</td>
+                    <td data-label="Rechtsgrundlage">Vertrag (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;b DSGVO)</td>
+                    <td data-label="Wie lange">bis zur Kündigung, danach 30 Tage</td>
+                    <td data-label="Wer bekommt sie">Hosting-Anbieter (EU, Auftragsverarbeiter)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Geräte- und Protokolldaten</th>
+                    <td data-label="Welche Daten">Gerätetyp, Betriebssystem, App-Version, Fehlermeldungen, IP-Adresse</td>
+                    <td data-label="Wozu">die App stabil und sicher betreiben</td>
+                    <td data-label="Rechtsgrundlage">Berechtigtes Interesse (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;f DSGVO)</td>
+                    <td data-label="Wie lange">14 Tage</td>
+                    <td data-label="Wer bekommt sie">Hosting-Anbieter (EU, Auftragsverarbeiter)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Schutz vor Missbrauch</th>
+                    <td data-label="Welche Daten">Hinweise auf mehrere Konten einer Person, auffällig viele Anfragen in kurzer Zeit, gekürzte IP-Adresse</td>
+                    <td data-label="Wozu">Punkte, Tests und Gewinne fair verteilen</td>
+                    <td data-label="Rechtsgrundlage">Berechtigtes Interesse (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;f DSGVO)</td>
+                    <td data-label="Wie lange">6 Monate, bei einem Verdacht bis zur Klärung</td>
+                    <td data-label="Wer bekommt sie">Hosting-Anbieter (EU, Auftragsverarbeiter)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p>Die App lädst du aus dem App Store von Apple oder bei Google Play. Für den Download sind die Stores selbst verantwortlich, es gelten ihre Datenschutzerklärungen.</p>
+            <p>Deine Mitgliedschaft kannst du jederzeit beenden (<a href="/snaegs-staging/vorschau/claude-kopf-ruhig/recht/agb.html">AGB</a>). 30 Tage danach löschen wir dein Konto. Daten, die wir nach Handels- oder Steuerrecht aufbewahren müssen, sperren wir bis zum Ende der Frist.</p>
+          </section>
+
+          <!-- 6 ─────────────────────────────────────────────────────────────────────────────────────────────── -->
+          <section class="re-abschnitt" aria-labelledby="produkttests">
+            <h2 id="produkttests">6. Produkttests</h2>
+            <div class="re-kurz">
+              <p class="re-kurz__titel">Kurz gesagt</p>
+              <p>Für einen Produkttest bewirbst du dich, wir wählen nach deinem Profil aus, und wer ausgewählt ist, bekommt ein Testpaket. Deine Adresse bekommt nur unser Logistikdienstleister, die Marke sieht deine Antworten nur anonym und zusammengefasst.</p>
+            </div>
+
+            <h3 id="produkttests-ablauf">6.1 So läuft ein Produkttest</h3>
+            <p>Eine Marke bucht bei SNÄGS eine Kampagne. In der App bewirbst du dich für den Test. Wir stellen die Testgruppe zusammen, verschicken die Testpakete und schicken dir danach einen Fragebogen. Für Produkttests gibt es keine Punkte.</p>
+
+            <h3 id="produkttests-auswahl">6.2 Wie wir auswählen</h3>
+            <p>Ein Programm vergleicht dein Profil mit der Zielgruppe, die die Marke sucht. Typische Merkmale sind Altersgruppe, Bundesland, Haushalt und die Produktwelten, die dich interessieren. Mit zählt auch, ob du die Fragebögen früherer Tests ausgefüllt hast. Das Programm schlägt die Mitglieder vor, die am besten passen, daraus bilden wir die Testgruppe. Das ist Profiling nach Art.&nbsp;4 Nr.&nbsp;4 DSGVO.</p>
+            <p>Einen Anspruch auf Auswahl gibt es nicht. Eine Zu- oder Absage hat keine rechtliche Wirkung für dich und beeinträchtigt dich auch nicht in ähnlich erheblicher Weise. Eine automatisierte Entscheidung nach Art.&nbsp;22 DSGVO liegt deshalb nicht vor. Möchtest du trotzdem, dass ein Mensch deine Auswahl oder Absage prüft, schreib an <a href="mailto:info@xn--sngs-moa.de">info@snägs.de</a>.</p>
+
+            <h3 id="produkttests-daten">6.3 Welche Daten wir verarbeiten</h3>
+            <div class="re-tabelle">
+              <table>
+                <thead><tr><th scope="col">Was</th><th scope="col">Welche Daten</th><th scope="col">Wozu</th><th scope="col">Rechtsgrundlage</th><th scope="col">Wie lange</th><th scope="col">Wer bekommt sie</th></tr></thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Bewerbung und Auswahl</th>
+                    <td data-label="Welche Daten">Test, für den du dich bewirbst, Zeitpunkt, dein Profil, Ergebnis des Abgleichs, Zu- oder Absage</td>
+                    <td data-label="Wozu">Testgruppe zusammenstellen, dich benachrichtigen</td>
+                    <td data-label="Rechtsgrundlage">Vertrag (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;b DSGVO)</td>
+                    <td data-label="Wie lange">24 Monate, höchstens bis zur Löschung deines Kontos</td>
+                    <td data-label="Wer bekommt sie">Hosting-Anbieter (EU, Auftragsverarbeiter)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Versand des Testpakets</th>
+                    <td data-label="Welche Daten">Vor- und Nachname, Lieferadresse, Sendungsnummer</td>
+                    <td data-label="Wozu">dir das Testpaket zustellen</td>
+                    <td data-label="Rechtsgrundlage">Vertrag (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;b DSGVO)</td>
+                    <td data-label="Wie lange">Sendungsdaten bis zur Zustellung und Klärung von Rückfragen, danach nur nach gesetzlichen Aufbewahrungsfristen. Die Lieferadresse im Konto, bis du sie änderst oder kündigst.</td>
+                    <td data-label="Wer bekommt sie">Logistikdienstleister (EU, Auftragsverarbeiter). Die Marke bekommt deine Adresse nicht.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Testfragebogen</th>
+                    <td data-label="Welche Daten">deine Antworten (Auswahl, Skala, Freitext), Zeitpunkt</td>
+                    <td data-label="Wozu">Ergebnisse für die Marke auswerten (<a href="#ergebnisse-fuer-marken">Abschnitt 10</a>)</td>
+                    <td data-label="Rechtsgrundlage">Vertrag (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;b DSGVO)</td>
+                    <td data-label="Wie lange">Rohdaten 24 Monate, höchstens bis zur Löschung deines Kontos. Danach nur noch anonymisiert in Auswertungen.</td>
+                    <td data-label="Wer bekommt sie">Hosting-Anbieter (EU, Auftragsverarbeiter). Die Marke nur anonym und zusammengefasst.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Fotos (freiwillig)</th>
+                    <td data-label="Welche Daten">Fotos, die du im Fragebogen hochlädst</td>
+                    <td data-label="Wozu">zeigen, wie das Produkt bei Testern ankommt</td>
+                    <td data-label="Rechtsgrundlage">Einwilligung durch das Hochladen (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;a DSGVO)</td>
+                    <td data-label="Wie lange">wie der Testfragebogen, bis du widerrufst</td>
+                    <td data-label="Wer bekommt sie">Hosting-Anbieter (EU, Auftragsverarbeiter). An die Marke nur ohne Bezug zu dir oder mit deiner Einwilligung im Einzelfall.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Zitat oder Foto mit Bezug zu dir</th>
+                    <td data-label="Welche Daten">das Zitat oder Foto und die Angaben zu dir, die du freigibst, etwa Vorname oder Nickname</td>
+                    <td data-label="Wozu">Verwendung durch die Marke, die wir dir nennen, für den Zweck, den wir dir nennen</td>
+                    <td data-label="Rechtsgrundlage">gesonderte Einwilligung im Einzelfall (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;a DSGVO)</td>
+                    <td data-label="Wie lange">bis du widerrufst; der Widerruf wirkt für die Zukunft</td>
+                    <td data-label="Wer bekommt sie">die Marke aus der Einwilligung</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Gesundheitsangaben (nur bei Bedarf)</th>
+                    <td data-label="Welche Daten">Allergien oder Unverträglichkeiten, nur wenn eine Kampagne sie braucht</td>
+                    <td data-label="Wozu">dir keine Produkte schicken, die du nicht verträgst</td>
+                    <td data-label="Rechtsgrundlage">ausdrückliche Einwilligung (Art.&nbsp;9 Abs.&nbsp;2 lit.&nbsp;a DSGVO)</td>
+                    <td data-label="Wie lange">3 Monate nach Ende der Kampagne</td>
+                    <td data-label="Wer bekommt sie">Hosting-Anbieter (EU, Auftragsverarbeiter). Nie die Marke.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3 id="produkttests-gesundheit">6.4 Gesundheitsdaten</h3>
+            <p>Zum Start fragen wir keine Gesundheitsdaten ab. Braucht eine Kampagne sie doch, etwa bei einem Snack mit Nüssen, fragen wir nur mit deiner ausdrücklichen Einwilligung. Ohne sie kannst du dich für diesen einen Test nicht bewerben, für alle anderen schon. Deine Ernährungsangabe im Profil, etwa vegetarisch oder vegan, behandeln wir nicht als Gesundheitsangabe.</p>
+
+            <h3 id="produkttests-fotos">6.5 Tipp für Fotos</h3>
+            <p>Zeig auf Fotos am besten nur das Produkt. Sind andere Menschen zu sehen, brauchst du deren Erlaubnis.</p>
+          </section>
+
+          <!-- 7 ─────────────────────────────────────────────────────────────────────────────────────────────── -->
+          <section class="re-abschnitt" aria-labelledby="punkte">
+            <h2 id="punkte">7. Punkte, Reward Box, Freunde werben</h2>
+            <div class="re-kurz">
+              <p class="re-kurz__titel">Kurz gesagt</p>
+              <p>Ab Januar 2027 sammelst du Punkte mit täglichen Fragen, Aufgaben, Games und Empfehlungen und löst sie gegen eine Reward Box ein. Wenn du Freunde wirbst, teilst du deinen Link selbst; wir schicken niemandem eine Einladung.</p>
+            </div>
+
+            <div class="re-tabelle">
+              <table>
+                <thead><tr><th scope="col">Was</th><th scope="col">Welche Daten</th><th scope="col">Wozu</th><th scope="col">Rechtsgrundlage</th><th scope="col">Wie lange</th><th scope="col">Wer bekommt sie</th></tr></thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Tägliche Fragen und Aufgaben</th>
+                    <td data-label="Welche Daten">deine Antworten (Auswahl, Skala, Freitext), Frage, Zeitpunkt</td>
+                    <td data-label="Wozu">Punkte gutschreiben, Ergebnisse für Marken auswerten (<a href="#ergebnisse-fuer-marken">Abschnitt 10</a>)</td>
+                    <td data-label="Rechtsgrundlage">Vertrag (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;b DSGVO)</td>
+                    <td data-label="Wie lange">Rohdaten 24 Monate, höchstens bis zur Löschung deines Kontos, danach nur anonymisiert. Punktebuchungen bis zur Kündigung.</td>
+                    <td data-label="Wer bekommt sie">Hosting-Anbieter (EU, Auftragsverarbeiter). Marken nur anonym und zusammengefasst.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Games</th>
+                    <td data-label="Welche Daten">Spielstände, Ergebnisse, Bestwerte</td>
+                    <td data-label="Wozu">Spiel speichern, Punkte gutschreiben, Fortschritt zeigen</td>
+                    <td data-label="Rechtsgrundlage">Vertrag (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;b DSGVO)</td>
+                    <td data-label="Wie lange">bis zur Kündigung, danach 30 Tage</td>
+                    <td data-label="Wer bekommt sie">Hosting-Anbieter (EU, Auftragsverarbeiter)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Reward Box einlösen</th>
+                    <td data-label="Welche Daten">eingelöste Punkte, gewählte Box, Vor- und Nachname, Lieferadresse, Sendungsnummer</td>
+                    <td data-label="Wozu">dir die Reward Box zustellen</td>
+                    <td data-label="Rechtsgrundlage">Vertrag (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;b DSGVO)</td>
+                    <td data-label="Wie lange">Sendungsdaten bis zur Abwicklung, danach nur nach gesetzlichen Aufbewahrungsfristen</td>
+                    <td data-label="Wer bekommt sie">Logistikdienstleister (EU, Auftragsverarbeiter)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Freunde werben</th>
+                    <td data-label="Welche Daten">dein persönlicher Link oder Code, wer sich darüber angemeldet hat, Zeitpunkt, Gutschrift</td>
+                    <td data-label="Wozu">Punkte für die Empfehlung gutschreiben</td>
+                    <td data-label="Rechtsgrundlage">Vertrag (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;b DSGVO)</td>
+                    <td data-label="Wie lange">bis eines der beiden Konten gekündigt ist, danach 30 Tage</td>
+                    <td data-label="Wer bekommt sie">Hosting-Anbieter (EU, Auftragsverarbeiter)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Prüfung von Empfehlungen</th>
+                    <td data-label="Welche Daten">gekürzte IP-Adresse, Lieferadresse, Hinweise auf mehrere Konten einer Person</td>
+                    <td data-label="Wozu">Empfehlungen an sich selbst und Mehrfachkonten erkennen</td>
+                    <td data-label="Rechtsgrundlage">Berechtigtes Interesse (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;f DSGVO)</td>
+                    <td data-label="Wie lange">6 Monate nach der Gutschrift, bei einem Verdacht bis zur Klärung</td>
+                    <td data-label="Wer bekommt sie">Hosting-Anbieter (EU, Auftragsverarbeiter)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p>Wir verschicken keine Einladungen an deine Freunde. Du teilst deinen Link selbst, etwa im Messenger. Ihre Daten bekommen wir erst, wenn sie sich selbst anmelden.</p>
+            <p>Das Mitglied, das dich geworben hat, sieht nur, dass die Empfehlung gutgeschrieben wurde. Dein Profil, deine Antworten und deine Adresse sieht es nicht.</p>
+          </section>
+
+          <!-- 8 ─────────────────────────────────────────────────────────────────────────────────────────────── -->
+          <section class="re-abschnitt" aria-labelledby="game-arena">
+            <h2 id="game-arena">8. Game Arena und Ranglisten</h2>
+            <div class="re-kurz">
+              <p class="re-kurz__titel">Kurz gesagt</p>
+              <p>Spielst du ab Januar 2027 Turniere in der Game Arena, sehen andere Mitglieder in der App deinen Nickname, deine Platzierung und deinen Spielverlauf. Wähl deshalb einen Nickname, der nicht deinen echten Namen verrät.</p>
+            </div>
+
+            <p>Die Regeln für Turniere stehen in den <a href="/snaegs-staging/vorschau/claude-kopf-ruhig/recht/teilnahmebedingungen.html#game-arena">Teilnahmebedingungen der Game Arena</a>.</p>
+            <div class="re-tabelle">
+              <table>
+                <thead><tr><th scope="col">Was</th><th scope="col">Welche Daten</th><th scope="col">Wozu</th><th scope="col">Rechtsgrundlage</th><th scope="col">Wie lange</th><th scope="col">Wer bekommt sie</th></tr></thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Turniere und Ranglisten</th>
+                    <td data-label="Welche Daten">Nickname, Turnierraum, Ergebnisse, Platzierung, Spielverlauf</td>
+                    <td data-label="Wozu">Turnier durchführen, Rangliste zeigen, Fairplay prüfen</td>
+                    <td data-label="Rechtsgrundlage">Vertrag nach den Teilnahmebedingungen (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;b DSGVO)</td>
+                    <td data-label="Wie lange">bis zur Kündigung; danach steht dein Platz ohne Nickname in der Rangliste</td>
+                    <td data-label="Wer bekommt sie">andere Mitglieder in der App (Rangliste); Hosting-Anbieter (EU, Auftragsverarbeiter)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Gewinn</th>
+                    <td data-label="Welche Daten">Vor- und Nachname, Lieferadresse, Sendungsnummer</td>
+                    <td data-label="Wozu">dir die Winner Box zustellen</td>
+                    <td data-label="Rechtsgrundlage">Vertrag nach den Teilnahmebedingungen (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;b DSGVO)</td>
+                    <td data-label="Wie lange">bis zur Abwicklung, danach nur nach gesetzlichen Aufbewahrungsfristen</td>
+                    <td data-label="Wer bekommt sie">Logistikdienstleister (EU, Auftragsverarbeiter)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p>Ranglisten zeigen wir in der App. Sponsert eine Marke ein Turnier, bekommt sie nur zusammengefasste Zahlen, zum Beispiel wie viele Mitglieder gespielt haben. Nicknames und Ergebnisse einzelner Mitglieder geben wir nicht an die Marke.</p>
+          </section>
+
+          <!-- 9 ─────────────────────────────────────────────────────────────────────────────────────────────── -->
+          <section class="re-abschnitt" aria-labelledby="founder-aktion">
+            <h2 id="founder-aktion">9. Founder-Aktion</h2>
+            <div class="re-kurz">
+              <p class="re-kurz__titel">Kurz gesagt</p>
+              <p>Zur Founder-Aktion bis 31.12.2026 gehören Founder-Vorteile und eine Verlosung von 10 Produktboxen im Wert von je 100 € (UVP). Gewinnerdaten nutzen wir nur, um den Gewinn abzuwickeln.</p>
+            </div>
+
+            <p>Es gelten die <a href="/snaegs-staging/vorschau/claude-kopf-ruhig/recht/teilnahmebedingungen.html#founder-aktion">Teilnahmebedingungen der Founder-Aktion</a>. Das Häkchen für die Start-Mail brauchst du für die Teilnahme nicht.</p>
+            <div class="re-tabelle">
+              <table>
+                <thead><tr><th scope="col">Was</th><th scope="col">Welche Daten</th><th scope="col">Wozu</th><th scope="col">Rechtsgrundlage</th><th scope="col">Wie lange</th><th scope="col">Wer bekommt sie</th></tr></thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Founder-Vorteile</th>
+                    <td data-label="Welche Daten">Datum deiner Voranmeldung, Founder-Status, Founder-Punkte</td>
+                    <td data-label="Wozu">dir die Vorteile im App-Konto gutschreiben</td>
+                    <td data-label="Rechtsgrundlage">Vertrag nach den Teilnahmebedingungen (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;b DSGVO)</td>
+                    <td data-label="Wie lange">wie die Voranmeldung, danach wie dein Konto</td>
+                    <td data-label="Wer bekommt sie">Hosting-Anbieter (EU, Auftragsverarbeiter)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Verlosung</th>
+                    <td data-label="Welche Daten">Teilnahme, Ergebnis der Ziehung</td>
+                    <td data-label="Wozu">die Gewinner ziehen</td>
+                    <td data-label="Rechtsgrundlage">Vertrag nach den Teilnahmebedingungen (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;b DSGVO)</td>
+                    <td data-label="Wie lange">bis zur Abwicklung der Verlosung</td>
+                    <td data-label="Wer bekommt sie">Hosting-Anbieter (EU, Auftragsverarbeiter)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Gewinn</th>
+                    <td data-label="Welche Daten">Vorname, E-Mail-Adresse, Vor- und Nachname, Lieferadresse, Sendungsnummer</td>
+                    <td data-label="Wozu">dich benachrichtigen, dir die Produktbox zustellen</td>
+                    <td data-label="Rechtsgrundlage">Vertrag nach den Teilnahmebedingungen (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;b DSGVO)</td>
+                    <td data-label="Wie lange">bis zur Abwicklung, danach nur nach gesetzlichen Aufbewahrungsfristen</td>
+                    <td data-label="Wer bekommt sie">E-Mail-Versanddienst und Logistikdienstleister (beide EU, Auftragsverarbeiter)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- 10 ────────────────────────────────────────────────────────────────────────────────────────────── -->
+          <section class="re-abschnitt" aria-labelledby="ergebnisse-fuer-marken">
+            <h2 id="ergebnisse-fuer-marken">10. Was Marken sehen und was nie</h2>
+            <div class="re-kurz">
+              <p class="re-kurz__titel">Kurz gesagt</p>
+              <p>Marken bekommen Ergebnisse nur anonymisiert und zusammengefasst, immer aus Gruppen von mindestens 10 Personen. Kontaktdaten und Profil einzelner Mitglieder bekommt keine Marke, ein Zitat oder Foto von dir nur mit deiner Einwilligung im Einzelfall.</p>
+            </div>
+
+            <h3 id="marken-bekommen">10.1 Was Marken bekommen</h3>
+            <p>Marken bekommen Auswertungen zu Produkttests und Fragen. Darin steht etwa, wie viele Mitglieder ein Produkt wieder kaufen würden oder wie verschiedene Altersgruppen den Geschmack bewerten. Jede Zahl beruht auf mindestens 10 Personen, auch jede Aufschlüsselung nach Gruppen.</p>
+            <p>Freitexte prüfen wir, bevor eine Marke sie sieht. Was auf eine Person schließen lässt, etwa Namen oder Wohnorte, nehmen wir heraus. Solche anonymisierten Ergebnisse lassen keinen Rückschluss auf dich zu und sind deshalb keine personenbezogenen Daten mehr.</p>
+
+            <h3 id="marken-nie">10.2 Was Marken nie bekommen</h3>
+            <ul>
+              <li>deine E-Mail-Adresse und deine Lieferadresse</li>
+              <li>dein Profil</li>
+              <li>deine Antworten als einzelnen Datensatz, der sich dir zuordnen lässt</li>
+            </ul>
+            <p>Deinen Namen und Fotos oder Zitate, die dich erkennbar machen, bekommt eine Marke nur, wenn du im Einzelfall einwilligst (<a href="#marken-ausnahme">10.3</a>).</p>
+
+            <h3 id="marken-ausnahme">10.3 Zitat oder Foto mit deiner Einwilligung</h3>
+            <p>Möchte eine Marke ein Zitat oder Foto von dir verwenden, fragen wir dich vorher einzeln. Wir nennen dir die Marke, das Material und den Zweck. Ohne deine ausdrückliche Zustimmung geben wir nichts davon weiter. Deine Einwilligung kannst du jederzeit für die Zukunft widerrufen.</p>
+
+            <h3 id="marken-versand">10.4 Wer verschickt</h3>
+            <p>Testpakete verschicken wir selbst, über einen Logistikdienstleister, der in unserem Auftrag und nach unseren Weisungen arbeitet (Art.&nbsp;28 DSGVO). Deine Adresse bleibt deshalb bei uns.</p>
+          </section>
+
+          <!-- 11 ────────────────────────────────────────────────────────────────────────────────────────────── -->
+          <section class="re-abschnitt" aria-labelledby="e-mails-und-push">
+            <h2 id="e-mails-und-push">11. E-Mails und Push-Mitteilungen</h2>
+            <div class="re-kurz">
+              <p class="re-kurz__titel">Kurz gesagt</p>
+              <p>Service-Mails wie Bestätigungscode, Testauswahl, Versand oder Gewinn bekommst du ohne Einwilligung. Die Start-Mail gibt es nur mit Häkchen, Push nur, wenn du sie erlaubst, und beides kannst du jederzeit abschalten.</p>
+            </div>
+
+            <div class="re-tabelle">
+              <table>
+                <thead><tr><th scope="col">Was</th><th scope="col">Welche Daten</th><th scope="col">Wozu</th><th scope="col">Rechtsgrundlage</th><th scope="col">Wie lange</th><th scope="col">Wer bekommt sie</th></tr></thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Service-Mails</th>
+                    <td data-label="Welche Daten">E-Mail-Adresse, Vorname, Inhalt der Nachricht</td>
+                    <td data-label="Wozu">Bestätigungscode, Auswahl für einen Test, Versand, Gewinnbenachrichtigung</td>
+                    <td data-label="Rechtsgrundlage">Vertrag (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;b DSGVO)</td>
+                    <td data-label="Wie lange">Versandnachweis 12 Monate</td>
+                    <td data-label="Wer bekommt sie">E-Mail-Versanddienst (EU, Auftragsverarbeiter)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Start-Mail (freiwillig)</th>
+                    <td data-label="Welche Daten">E-Mail-Adresse, Vorname, dein Häkchen mit Zeitpunkt und Wortlaut</td>
+                    <td data-label="Wozu">dir Bescheid geben, wenn SNÄGS im Januar 2027 startet</td>
+                    <td data-label="Rechtsgrundlage">Einwilligung (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;a DSGVO, §&nbsp;7 Abs.&nbsp;2 Nr.&nbsp;2 UWG)</td>
+                    <td data-label="Wie lange">bis zum Versand der Start-Mail oder bis zu deinem Widerruf. Den Nachweis deiner Einwilligung danach 3 Jahre (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;c in Verbindung mit Art.&nbsp;7 Abs.&nbsp;1 DSGVO).</td>
+                    <td data-label="Wer bekommt sie">E-Mail-Versanddienst (EU, Auftragsverarbeiter)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Push-Mitteilungen</th>
+                    <td data-label="Welche Daten">Push-Kennung deines Geräts, deine Einstellungen</td>
+                    <td data-label="Wozu">Hinweise auf neue Fragen, Tests, Turniere und deine Punkte</td>
+                    <td data-label="Rechtsgrundlage">Einwilligung über die Abfrage deines Handys (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;a DSGVO, §&nbsp;25 Abs.&nbsp;1 TDDDG)</td>
+                    <td data-label="Wie lange">bis du Push abschaltest, die App löschst oder kündigst</td>
+                    <td data-label="Wer bekommt sie">Apple (Apple Push Notification Service) oder Google (Firebase Cloud Messaging), Übermittlung in die USA möglich (<a href="#dienstleister">Abschnitt 13</a>)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p>Die Start-Mail bestellst du ab über den Link in der Mail oder mit einer Nachricht an <a href="mailto:info@xn--sngs-moa.de">info@snägs.de</a>. Push schaltest du in der App oder in den Einstellungen deines Handys ab.</p>
+            <p>Einen Newsletter gibt es zum Start nicht. Führen wir einen ein, fragen wir vorher gesondert nach deiner Einwilligung.</p>
+          </section>
+
+          <!-- 12 ────────────────────────────────────────────────────────────────────────────────────────────── -->
+          <section class="re-abschnitt" aria-labelledby="browser-speicher">
+            <h2 id="browser-speicher">12. Browser-Speicher statt Cookies</h2>
+            <div class="re-kurz">
+              <p class="re-kurz__titel">Kurz gesagt</p>
+              <p>Wir setzen keine Cookies für Analyse oder Werbung ein, keine Pixel und keine Social-Plugins. Damit die Website funktioniert, merkt sich dein Browser ein paar Dinge auf deinem Gerät, die du in der Tabelle findest.</p>
+            </div>
+
+            <h3 id="speicher-nicht">12.1 Was wir nicht nutzen</h3>
+            <p>Auf unseren Seiten laufen keine Analyse-Werkzeuge, keine Werbe-Cookies und keine Pixel, zum Beispiel von Meta oder TikTok. Es gibt keine eingebetteten Social-Plugins und kein Tracking über andere Websites hinweg. Deshalb fragen wir dich auch nicht in einem Cookie-Banner.</p>
+
+            <h3 id="speicher-grundlage">12.2 Was im Browser liegt und warum das erlaubt ist</h3>
+            <p>Einige Funktionen speichern kleine Einträge im Speicher deines Browsers (sessionStorage und localStorage). Erlaubt ist das ohne Einwilligung, wenn es für einen Dienst, den du ausdrücklich nutzt, unbedingt erforderlich ist (§&nbsp;25 Abs.&nbsp;2 Nr.&nbsp;2 TDDDG). Die Einträge bleiben auf deinem Gerät. An uns geht davon nur, was du selbst mit der Voranmeldung abschickst (<a href="#voranmeldung">Abschnitt 4</a>).</p>
+            <p>Den Stand deiner Voranmeldung speichert dein Browser dauerhaft. Das ist für den Dienst, den du gewählt hast, unbedingt erforderlich: Du machst weiter, wo du aufgehört hast, auch nach einer Pause.</p>
+            <p>Einträge für die Sitzung löscht dein Browser, wenn du den Tab schließt. Dauerhafte Einträge löschst du in den Einstellungen deines Browsers, meist unter „Websitedaten löschen“.</p>
+
+            <h3 id="speicher-liste">12.3 Alle Einträge</h3>
+            <div class="re-tabelle">
+              <table>
+                <thead><tr><th scope="col">Name</th><th scope="col">Zweck</th><th scope="col">Dauer</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row"><code>snaegs-vorregistrierung-v4</code>, <code>snaegs-vorregistrierung-v3</code></th><td data-label="Zweck">deine Antworten im Quick-Check, dein Vorname und wie weit du bist. So machst du weiter, wo du aufgehört hast, und die Website erkennt, dass du vorgemerkt bist.</td><td data-label="Dauer">dauerhaft (localStorage), bis du ihn löschst. Beim Ausstieg im Quick-Check löschen wir ihn sofort.</td></tr>
+                  <tr><th scope="row"><code>snaegs:herkunft</code></th><td data-label="Zweck">Empfehlungscode und Kennung des Links, über den du gekommen bist, damit beides mit der Voranmeldung ankommt</td><td data-label="Dauer">Sitzung (sessionStorage)</td></tr>
+                  <tr><th scope="row"><code>snaegs:klecks</code></th><td data-label="Zweck">Zustand von Klägs, unserem Maskottchen, damit er beim Seitenwechsel nicht neu anfängt</td><td data-label="Dauer">Sitzung (sessionStorage)</td></tr>
+                  <tr><th scope="row"><code>snaegs:tuer</code></th><td data-label="Zweck">welchen Weg du gerade angetippt hast, für den Übergang zur nächsten Seite</td><td data-label="Dauer">bis die nächste Seite geladen ist (sessionStorage)</td></tr>
+                  <tr><th scope="row"><code>snaegs:vorgemerkt</code></th><td data-label="Zweck">Klägs zeigt dir nach der Voranmeldung nur einmal je Besuch den nächsten Schritt</td><td data-label="Dauer">Sitzung (sessionStorage)</td></tr>
+                  <tr><th scope="row"><code>snaegs:hier-art</code></th><td data-label="Zweck">wie Klägs zuletzt markiert hat, auf welcher Seite du bist, damit er es von Seite zu Seite anders macht</td><td data-label="Dauer">Sitzung (sessionStorage)</td></tr>
+                  <tr><th scope="row"><code>snaegs:band-zu</code></th><td data-label="Zweck">du hast das Hinweisband geschlossen, es bleibt zu</td><td data-label="Dauer">Sitzung (sessionStorage)</td></tr>
+                  <tr><th scope="row"><code>snaegs:cta-boost:</code> plus Seitenname</th><td data-label="Zweck">wie oft Klägs auf dieser Seite auf den Hauptknopf gezeigt hat, damit er dich nicht bedrängt</td><td data-label="Dauer">Sitzung (sessionStorage)</td></tr>
+                  <tr><th scope="row"><code>snaegs:entstehung</code></th><td data-label="Zweck">ob und wann du das Intro auf der Startseite gesehen hast; beim nächsten Besuch läuft die kurze Fassung</td><td data-label="Dauer">Sitzung (sessionStorage) und dauerhaft (localStorage, Zeitpunkt), bis du ihn löschst</td></tr>
+                  <tr><th scope="row"><code>snaegs-minigame-rekord</code></th><td data-label="Zweck">deine Bestwerte in den Minigames</td><td data-label="Dauer">dauerhaft (localStorage), bis du ihn löschst</td></tr>
+                  <tr><th scope="row"><code>snaegs:labor</code></th><td data-label="Zweck">nur auf der Laborseite: welche Karten du schon angesehen hast</td><td data-label="Dauer">dauerhaft (localStorage), bis du ihn löschst</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- 13 ────────────────────────────────────────────────────────────────────────────────────────────── -->
+          <section class="re-abschnitt" aria-labelledby="dienstleister">
+            <h2 id="dienstleister">13. Hosting und Dienstleister</h2>
+            <div class="re-kurz">
+              <p class="re-kurz__titel">Kurz gesagt</p>
+              <p>Unsere Dienstleister arbeiten in unserem Auftrag und nur nach unseren Weisungen, mit Sitz oder Servern in der EU. Die einzige Ausnahme sind Push-Mitteilungen über Apple und Google.</p>
+            </div>
+
+            <h3 id="dienstleister-liste">13.1 Wer Daten bekommt</h3>
+            <p>Jeder Auftragsverarbeiter arbeitet auf Grundlage eines Vertrags nach Art.&nbsp;28 DSGVO. Für Hosting, Mailversand und Logistik nennen wir hier die Art des Dienstleisters. Den Namen des Anbieters nennen wir dir auf Anfrage.</p>
+            <div class="re-tabelle">
+              <table>
+                <thead><tr><th scope="col">Wer</th><th scope="col">Wofür</th><th scope="col">Wo</th><th scope="col">Rolle</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row">Hosting-Anbieter</th><td data-label="Wofür">Website, App-Server, Datenbank, Server-Logs</td><td data-label="Wo">Server in der EU</td><td data-label="Rolle">Auftragsverarbeiter</td></tr>
+                  <tr><th scope="row">E-Mail-Versanddienst</th><td data-label="Wofür">Bestätigungscodes, Service-Mails, Start-Mail</td><td data-label="Wo">Sitz in der EU</td><td data-label="Rolle">Auftragsverarbeiter</td></tr>
+                  <tr><th scope="row">IONOS SE</th><td data-label="Wofür">unser Postfach info@snägs.de</td><td data-label="Wo">Deutschland</td><td data-label="Rolle">Auftragsverarbeiter</td></tr>
+                  <tr><th scope="row">Logistikdienstleister</th><td data-label="Wofür">Versand von Testpaketen, Reward Boxen und Gewinnen</td><td data-label="Wo">EU</td><td data-label="Rolle">Auftragsverarbeiter</td></tr>
+                  <tr><th scope="row">Apple und Google</th><td data-label="Wofür">Zustellung von Push-Mitteilungen der App</td><td data-label="Wo">Übermittlung in die USA möglich</td><td data-label="Rolle">Data Privacy Framework (<a href="#dienstleister-drittland">13.2</a>)</td></tr>
+                  <tr><th scope="row">App Store von Apple, Google Play</th><td data-label="Wofür">Download der App</td><td data-label="Wo">nach Angaben der Stores</td><td data-label="Rolle">eigene Verantwortung der Stores</td></tr>
+                  <tr><th scope="row">Behörden und Gerichte</th><td data-label="Wofür">nur, wenn ein Gesetz uns dazu verpflichtet</td><td data-label="Wo">–</td><td data-label="Rolle">gesetzliche Pflicht (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;c DSGVO)</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>Personenbezogene Daten verkaufen wir nicht. Für Werbezwecke geben wir sie an niemanden weiter.</p>
+
+            <h3 id="dienstleister-drittland">13.2 Daten außerhalb der EU</h3>
+            <p>Daten verlassen die EU nur bei Push-Mitteilungen der App. Apple Inc. und Google LLC sind nach dem EU-US Data Privacy Framework zertifiziert. Für zertifizierte Unternehmen gilt der Angemessenheitsbeschluss der EU-Kommission vom 10. Juli 2023 (Art.&nbsp;45 DSGVO).</p>
+          </section>
+
+          <!-- 14 ────────────────────────────────────────────────────────────────────────────────────────────── -->
+          <section class="re-abschnitt" aria-labelledby="speicherfristen">
+            <h2 id="speicherfristen">14. Speicherfristen</h2>
+            <div class="re-kurz">
+              <p class="re-kurz__titel">Kurz gesagt</p>
+              <p>Wir löschen Daten, sobald wir sie für ihren Zweck nicht mehr brauchen. Die wichtigsten Fristen stehen in der Tabelle, gesetzliche Aufbewahrungspflichten gehen vor.</p>
+            </div>
+
+            <div class="re-tabelle">
+              <table>
+                <thead><tr><th scope="col">Was</th><th scope="col">Wie lange</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row">Server-Logs, Geräte- und Protokolldaten der App</th><td data-label="Wie lange">14 Tage</td></tr>
+                  <tr><th scope="row">Unbestätigte Voranmeldung</th><td data-label="Wie lange">30 Tage</td></tr>
+                  <tr><th scope="row">Bestätigte Voranmeldung mit Quick-Check</th><td data-label="Wie lange">bis du dein App-Konto aktivierst. Ohne Konto löschen wir sie am 30.06.2027.</td></tr>
+                  <tr><th scope="row">Konto, Profil, Punkte, Spielstände</th><td data-label="Wie lange">bis zur Kündigung, danach 30 Tage</td></tr>
+                  <tr><th scope="row">Antworten auf Fragen, Testfragebögen, Bewerbungen (Rohdaten)</th><td data-label="Wie lange">24 Monate, höchstens bis zur Löschung deines Kontos; danach nur anonymisiert</td></tr>
+                  <tr><th scope="row">Gesundheitsangaben für eine Kampagne</th><td data-label="Wie lange">3 Monate nach Ende der Kampagne</td></tr>
+                  <tr><th scope="row">Versand- und Gewinnerdaten</th><td data-label="Wie lange">bis zur Abwicklung, danach nur nach gesetzlichen Aufbewahrungsfristen</td></tr>
+                  <tr><th scope="row">Prüfdaten gegen Missbrauch</th><td data-label="Wie lange">6 Monate, bei einem Verdacht bis zur Klärung</td></tr>
+                  <tr><th scope="row">Einwilligung in die Start-Mail</th><td data-label="Wie lange">bis zum Versand oder Widerruf, der Nachweis danach 3 Jahre</td></tr>
+                  <tr><th scope="row">Push-Kennung</th><td data-label="Wie lange">bis du Push abschaltest, die App löschst oder kündigst</td></tr>
+                  <tr><th scope="row">Browser-Speicher</th><td data-label="Wie lange">siehe <a href="#speicher-liste">12.3</a></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>Müssen wir Unterlagen nach Handels- oder Steuerrecht aufbewahren, sperren wir sie. Wir nutzen sie dann nur noch, um diese Pflicht zu erfüllen.</p>
+          </section>
+
+          <!-- 15 ────────────────────────────────────────────────────────────────────────────────────────────── -->
+          <section class="re-abschnitt" aria-labelledby="deine-rechte">
+            <h2 id="deine-rechte">15. Deine Rechte</h2>
+            <div class="re-kurz">
+              <p class="re-kurz__titel">Kurz gesagt</p>
+              <p>Du kannst Auskunft verlangen, Daten berichtigen oder löschen lassen und Einwilligungen jederzeit widerrufen. Eine Mail an info@snägs.de genügt, wir antworten innerhalb eines Monats.</p>
+            </div>
+
+            <h3 id="rechte-liste">15.1 Was du verlangen kannst</h3>
+            <ul>
+              <li><strong>Auskunft</strong> über die Daten, die wir zu dir haben, mit einer Kopie (Art.&nbsp;15 DSGVO)</li>
+              <li><strong>Berichtigung</strong> falscher oder unvollständiger Daten (Art.&nbsp;16 DSGVO)</li>
+              <li><strong>Löschung</strong>, soweit uns kein Gesetz zur Aufbewahrung verpflichtet (Art.&nbsp;17 DSGVO)</li>
+              <li><strong>Einschränkung</strong> der Verarbeitung, etwa solange wir prüfen, ob deine Daten stimmen (Art.&nbsp;18 DSGVO)</li>
+              <li><strong>Datenübertragbarkeit</strong>: die Daten, die du uns gegeben hast, in einem gängigen Format (Art.&nbsp;20 DSGVO)</li>
+              <li><strong>Widerruf</strong> jeder Einwilligung, jederzeit für die Zukunft. Was bis dahin geschah, bleibt rechtmäßig (Art.&nbsp;7 Abs.&nbsp;3 DSGVO).</li>
+              <li><strong>Prüfung durch einen Menschen</strong> bei der Auswahl für Produkttests (<a href="#produkttests-auswahl">6.2</a>)</li>
+            </ul>
+
+            <h3 id="rechte-widerspruch">15.2 Dein Widerspruchsrecht</h3>
+            <p>Stützen wir eine Verarbeitung auf unser berechtigtes Interesse (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;f DSGVO), kannst du jederzeit widersprechen. Voraussetzung sind Gründe, die sich aus deiner besonderen Situation ergeben (Art.&nbsp;21 Abs.&nbsp;1 DSGVO). Wir verarbeiten die Daten dann nicht mehr. Ausnahmen gelten nur, wenn wir zwingende schutzwürdige Gründe nachweisen, die deine Interessen überwiegen, oder wenn wir die Daten brauchen, um Rechtsansprüche durchzusetzen oder abzuwehren.</p>
+
+            <h3 id="rechte-ausueben">15.3 So machst du deine Rechte geltend</h3>
+            <p>Schreib an <a href="mailto:info@xn--sngs-moa.de">info@snägs.de</a>. Wir antworten innerhalb eines Monats, in schwierigen Fällen sagen wir dir in dieser Zeit, warum es länger dauert. Haben wir Zweifel, ob die Anfrage von dir kommt, fragen wir nach, am liebsten über die E-Mail-Adresse, mit der du bei uns angemeldet bist.</p>
+
+            <h3 id="rechte-beschwerde">15.4 Beschwerde bei einer Aufsichtsbehörde</h3>
+            <p>Du kannst dich bei einer Datenschutz-Aufsichtsbehörde beschweren (Art.&nbsp;77 DSGVO). Federführend für uns ist die Autoriteit Persoonsgegevens, Postbus 93374, 2509 AJ Den Haag, Niederlande (<a href="https://autoriteitpersoonsgegevens.nl" rel="noopener">autoriteitpersoonsgegevens.nl</a>). Du kannst dich aber auch an jede deutsche Aufsichtsbehörde wenden, zum Beispiel an die deines Bundeslands. Sie stimmt sich dann mit der niederländischen Behörde ab.</p>
+          </section>
+
+          <!-- 16 ────────────────────────────────────────────────────────────────────────────────────────────── -->
+          <section class="re-abschnitt" aria-labelledby="aenderungen">
+            <h2 id="aenderungen">16. Änderungen</h2>
+            <div class="re-kurz">
+              <p class="re-kurz__titel">Kurz gesagt</p>
+              <p>Wir passen diese Erklärung an, wenn sich etwas ändert, spätestens zum App-Start im Januar 2027. Brauchen wir für etwas Neues deine Einwilligung, fragen wir vorher.</p>
+            </div>
+
+            <p>Über wesentliche Änderungen informieren wir Mitglieder per Mail oder in der App, bevor sie gelten. Die aktuelle Fassung steht immer auf dieser Seite. Diese Fassung hat den Stand 11. November 2026.</p>
+          </section>
+          <!-- INHALT ENDE -->
+        </article>
+
+        <!-- Desktop: mitlaufende Seitenleiste mit allen Rechtstexten und „Auf dieser Seite“ (Scrollspy) -->
+        <aside class="legal-aside re-seite" aria-label="Rechtliches">
+          <div class="re-seite__karte">
+            <p class="re-seite__titel">Rechtliches</p>
+            <nav class="re-dok" aria-label="Rechtliche Dokumente">
+              <a href="/snaegs-staging/vorschau/claude-kopf-ruhig/recht/agb.html">AGB</a>
+              <a href="/snaegs-staging/vorschau/claude-kopf-ruhig/recht/datenschutz.html" aria-current="page">Datenschutz</a>
+              <a href="/snaegs-staging/vorschau/claude-kopf-ruhig/recht/teilnahmebedingungen.html">Teilnahmebedingungen</a>
+              <a href="/snaegs-staging/vorschau/claude-kopf-ruhig/recht/widerruf.html">Widerruf</a>
+              <a href="/snaegs-staging/vorschau/claude-kopf-ruhig/recht/impressum.html">Impressum</a>
+              <a href="/snaegs-staging/vorschau/claude-kopf-ruhig/recht/barrierefreiheit.html">Barrierefreiheit</a>
+              <a href="/snaegs-staging/vorschau/claude-kopf-ruhig/recht/datenschutz-business.html">Datenschutz Business</a>
+            </nav>
+            <p class="re-seite__titel re-seite__titel--toc">Auf dieser Seite</p>
+            <nav class="legal-toc" data-legal-toc aria-label="Inhaltsverzeichnis"></nav>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="re-fuss">
+      <ul aria-label="Rechtliches">
+        <li><a href="/snaegs-staging/vorschau/claude-kopf-ruhig/recht/agb.html">AGB</a></li>
+        <li><a href="/snaegs-staging/vorschau/claude-kopf-ruhig/recht/datenschutz.html" aria-current="page">Datenschutz</a></li>
+        <li><a href="/snaegs-staging/vorschau/claude-kopf-ruhig/recht/teilnahmebedingungen.html">Teilnahmebedingungen</a></li>
+        <li><a href="/snaegs-staging/vorschau/claude-kopf-ruhig/recht/widerruf.html">Widerruf</a></li>
+        <li><a href="/snaegs-staging/vorschau/claude-kopf-ruhig/recht/impressum.html">Impressum</a></li>
+      </ul>
+      <span>© 2026 Prime Fusion B.V.</span>
+    </footer>
+  </body>
+</html>

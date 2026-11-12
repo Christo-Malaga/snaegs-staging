@@ -1,0 +1,1 @@
+import{t as e}from"./teaser-AHDI-We7.js";export{e as mountTeaser};
