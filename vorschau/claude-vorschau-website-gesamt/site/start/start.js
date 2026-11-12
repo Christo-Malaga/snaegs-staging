@@ -545,6 +545,9 @@ const auftritt = (() => {
   return (host, z) => {
     if (!z?.starte) return z;
     if (REDUZIERT) z.starte();
+    // 12.11. iPhone/iPad: Motive stehen fertig im Endstand (strich/kern.js), schon bevor die Sektion kommt: aufbauen und
+    // setzen in einer ruhigen Minute (je Motiv ein Task), nicht erst „gut im Bild“
+    else if (APPLE_LEICHT) inRuhe(() => z.starte());
     else {
       warten.set(host, z);
       io.observe(host);
