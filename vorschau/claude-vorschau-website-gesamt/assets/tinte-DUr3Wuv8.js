@@ -1,0 +1,1 @@
+import{d as e}from"./tinte-CujIPTPC.js";export{e as tinteSofort};
