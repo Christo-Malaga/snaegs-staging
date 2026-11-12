@@ -1,0 +1,30 @@
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/kampagnen-blatt-BikHuhYk.js","assets/rolldown-runtime-CNC7AqOf.js","assets/preload-helper-DnzRsifI.js","assets/vb-texte-8urIO7kX.js","assets/vb-handy-CBlDSnjy.js","assets/vb-turnier-C39sW8-U.js","assets/kampagnen-blatt-DsAmoO7_.css","assets/vb-blatt-BDuQzaKK.css"])))=>i.map(i=>d[i]);
+import{t as e}from"./preload-helper-DnzRsifI.js";import{p as t}from"./vb-texte-8urIO7kX.js";import{t as n}from"./vb-handy-CBlDSnjy.js";/* empty css                 */import{n as r}from"./vb-turnier-C39sW8-U.js";var i=t.titel,a=(e,t=document)=>t.querySelector(e),o=null;async function s(n,i){n.classList.add(`vb-blatt`,`vb-turniere`),n.innerHTML=`
+    <div class="vb-tur__oben">
+      <header class="vb-kopf">
+        <p class="vb-kicker">${t.kicker}</p>
+        <h2 class="b2b-blatt__h2">${t.h2}</h2>
+        <p class="b2b-blatt__lead">${t.lead}</p>
+        <dl class="vb-zahlen">${t.zahlen.map(e=>`<div><dt>${e.dt}</dt><dd>${e.dd}</dd></div>`).join(``)}</dl>
+      </header>
+      <figure class="vb-tur__game">
+        <div class="vb-tur__geraet" data-vb-geraet></div>
+        <figcaption class="vb-fein">${t.game.zeile}</figcaption>
+      </figure>
+    </div>
+
+    <section class="vb-teil" aria-labelledby="vb-tur-ablauf-h">
+      <h3 class="vb-h3" id="vb-tur-ablauf-h">${t.ablauf.h3}</h3>
+      ${r()}
+    </section>
+
+    <div class="vb-teil vb-tur__wege">
+      ${t.wege.map((e,t)=>`<section class="vb-karte vb-tur__weg" aria-labelledby="vb-tur-weg-${t}">
+          <p class="vb-tur__buchstabe" aria-hidden="true">${e.buchstabe}</p>
+          <h3 class="vb-tur__weg-h" id="vb-tur-weg-${t}">${e.h}</h3>
+          <ul class="b2b-liste vb-liste">${e.punkte.map(e=>`<li>${e}</li>`).join(``)}</ul>
+          <p class="vb-tur__satz">${e.satz}</p>
+          ${e.setup?`<button type="button" class="b2b-weiter vb-tur__setup" data-vb-setup><span>${e.setup}</span></button>`:``}
+          <div class="vb-tur__kontakt" data-b2b-kontakt="${e.kontakt.bereich}" data-knopf="${e.kontakt.knopf}"${e.kontakt.kurz?` data-knopf-kurz="${e.kontakt.kurz}"`:``}></div>
+        </section>`).join(``)}
+    </div>`,o={container:n,b2b:i,geraet:null},c(),a(`[data-vb-setup]`,n)?.addEventListener(`click`,async()=>{try{(await e(()=>import(`./kampagnen-blatt-BikHuhYk.js`),__vite__mapDeps([0,1,2,3,4,5,6,7]))).waehleFormat?.(`tournament`)}catch(e){console.warn(`[vb] Kampagnen-Setup`,e)}i?.blatt?.(`kampagnen`)})}function c(){let e=a(`[data-vb-geraet]`,o.container);e&&(e.replaceChildren(),o.geraet=n(e,{aria:t.game.aria,bilder:t.game.bilder}))}function l(){o&&(o.geraet?.weg(),o.geraet=null)}document.addEventListener(`b2b:blatt`,e=>{!o||e.detail?.id!==`turniere`||!e.detail.offen||o.geraet||c()});export{s as rendere,i as titel,l as zu};
