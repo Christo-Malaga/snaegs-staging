@@ -1,0 +1,1 @@
+import{d as e}from"./tinte-BcmnM32i.js";export{e as tinteSofort};
