@@ -1,0 +1,1 @@
+import{t as e}from"./klecks-aUCfwk_P.js";export{e as Klecks};
