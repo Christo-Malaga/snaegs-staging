@@ -1,3 +1,6 @@
+// Mess-Anzeige nur bei ?mess=1 (Bauplan Statisch zuerst), Datei: /snaegs-staging/vorschau/claude-klaegs-xl/site/v2/wege/mess.js, Pfad relativ zu diesem Skript
+if (/[?&]mess=1(&|#|$)/.test(location.search)) document.head.appendChild(Object.assign(document.createElement("script"), { src: new URL("mess.js", document.currentScript.src).href }));
+
 // Vorab im <head> aller Website-Seiten (klassisches Skript, vor den Modulen). W-B 06.11.
 // Vibration erst nach der ersten Berührung: Chrome blockt navigator.vibrate() ohne Nutzergeste und meldet das als
 // Konsolenfehler (Intervention). Seiten und Module rufen vibrate frei auf (Ankunft der Box, Münzen); vor der ersten

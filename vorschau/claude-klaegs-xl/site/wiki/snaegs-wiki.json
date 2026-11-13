@@ -41,7 +41,7 @@
             },
             {
               "t": "li",
-              "x": "die Chance auf eine von 10 Produktboxen im Wert von je 100 €"
+              "x": "die Chance auf eine von 10 Reward Boxen im Wert von je 100 €"
             },
             {
               "t": "li",
@@ -65,12 +65,16 @@
           ]
         },
         {
-          "heading": "Die Produktboxen",
+          "heading": "10 Reward Boxen zu gewinnen",
           "slug": "produktboxen",
           "body": [
             {
               "t": "p",
-              "x": "Als Founder hast du die Chance auf eine von 10 Produktboxen im Wert von je 100 €. Die Teilnahmebedingungen veröffentlichen wir vor der Verlosung."
+              "x": "Als Founder hast du die Chance auf eine von 10 Reward Boxen im Wert von je 100 €. Wir verlosen sie, die Teilnahmebedingungen veröffentlichen wir vorher."
+            },
+            {
+              "t": "p",
+              "x": "Jede andere Reward Box tauschst du gegen 2.500 Punkte."
             }
           ]
         },
@@ -106,7 +110,7 @@
             },
             {
               "t": "p",
-              "x": "Beide Bereiche laufen auch allein. Du kannst nur testen, nur spielen oder beides."
+              "x": "Beide Bereiche laufen auch allein. Du kannst nur den SNÄGS Testerclub nutzen, nur in der Game Arena spielen oder beides."
             }
           ]
         },
@@ -228,6 +232,24 @@
             {
               "t": "p",
               "x": "Für jede ehrliche Antwort gibt's die Punkte, egal ob du die Marke magst."
+            }
+          ]
+        },
+        {
+          "heading": "Produkttests",
+          "slug": "produkttests",
+          "body": [
+            {
+              "t": "p",
+              "x": "Für Produkttests bewirbst du dich im SNÄGS Testerclub. Passt dein Profil zu einem Test, kriegst du Bescheid, und das Produkt kommt gratis zu dir nach Hause."
+            },
+            {
+              "t": "p",
+              "x": "Du testest das Produkt, teilst deine ehrliche Meinung und behältst es anschließend kostenlos."
+            },
+            {
+              "t": "p",
+              "x": "Für einen Produkttest gibt es keine zusätzlichen Punkte. Die sammelst du jeden Tag mit Fragen und Aufgaben, ab Januar auch mit Games."
             }
           ]
         },
@@ -404,11 +426,11 @@
           "body": [
             {
               "t": "p",
-              "x": "Wer jeden Tag in einem Bereich alles mitnimmt, hat die 2.500 Punkte nach 101 aktiven Tagen. Mit SNÄGS Testerclub und Game Arena zusammen sind es 72."
+              "x": "Je nachdem, wie aktiv du bist, kannst du dir deine Reward Box in etwa 2 bis 4 Monaten erspielen."
             },
             {
               "t": "p",
-              "x": "Early-Bird-Punkte, Freunde und dein Profil verkürzen den Weg."
+              "x": "Wenn du sowohl den SNÄGS Testerclub als auch die Game Arena nutzt, sammelst du schneller Punkte. Early-Bird-Punkte, Freundeempfehlungen und Profilboni können den Weg zusätzlich verkürzen."
             }
           ],
           "lernen": "zahlen"
@@ -506,7 +528,7 @@
             },
             {
               "t": "p",
-              "x": "Jede Woche trittst du mit deinen XP in einer kleinen Gruppe an, die Besten steigen auf. Auch wer nur testet, kann aufsteigen."
+              "x": "Jede Woche trittst du mit deinen XP in einer kleinen Gruppe an, die Besten steigen auf. Auch wer nur den SNÄGS Testerclub nutzt, kann aufsteigen."
             }
           ]
         },

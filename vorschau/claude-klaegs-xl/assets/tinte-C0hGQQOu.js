@@ -1,1 +1,0 @@
-import{d as e}from"./tinte-CIzNa88d.js";export{e as tinteSofort};

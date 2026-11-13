@@ -8,6 +8,8 @@ import * as G from "./stift/gesten.js";
 import * as E from "./stift/emotion.js";
 import { legePinsel, bluete, FARBE } from "./pinsel.js";
 import { Klecks, rolleR } from "./klecks/klecks.js";
+import { APPLE_LEICHT } from "./umgebung.js";
+import { gebackeneBluete } from "./klecks/bluete-leicht.js";
 
 export { stift, boxIn, grundlinie, G, E, bluete, FARBE };
 
@@ -97,6 +99,10 @@ export async function starteSeite(o = {}) {
     R: rolle === "seite" ? (innerWidth < 700 ? 24 : (o.R ?? 34)) : rolleR(rolle),
     pinsel: (rect, farbe) => {
       const liste = (Array.isArray(farbe) ? farbe : [farbe]).map((f) => FARBE[f]);
+      if (APPLE_LEICHT) {
+        const g = gebackeneBluete(rect, liste[0], { spread: 0.35, body: 0.7, wachsen: 1800, halten: 2600 });
+        if (g) return g;
+      }
       return bluete(rect, liste[0], { pigments: liste, duration: 1800, coverage: 0.5, spread: 0.35, body: 0.7, textSafe: false, avoid: "none", persist: 2600 });
     },
   });

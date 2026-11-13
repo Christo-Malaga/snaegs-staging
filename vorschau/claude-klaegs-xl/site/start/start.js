@@ -20,16 +20,23 @@
 //   3 Founder-Aktion (Nacht, v3): Abzeichen und Avatar aus der Asset-Datenbank (strich/motive-founder.js), Tage-Zähler bis
 //     31.12.2026; Klägs bewundert, tippt die Vorteile an und feiert den Knopf über den CTA-Boost (data-klaegs-*).
 //   4 Testerclub (violett, echter Mini-Fragebogen), Game Arena (Nacht, Knopf gesperrt), Punkte (drei Schritte, Klägs zieht
-//     sie entlang, daneben die 3D-Reward-Box mit Produkten), Schluss (Gold, „Alles kostenlos“ groß zum Abhaken).
+//     sie entlang, daneben die 3D-Reward-Box mit Produkten), Schluss (Gold, „Jetzt kostenlos voranmelden“ groß zum
+//     Abhaken, FB1 11.11.).
 // Fremde Module nur per Import: site/v2/start.js, site/v2/wege, site/v2/strich, site/v2/schau/box3d.js,
 // site/arena/teaser, site/v2/klecks/spiel.js, src/klecks/leitmotiv.js.
 // Regie (site/KLECKS-REGIE.md): kein Headset auf der Startseite. Jedes Zeichen kommt aus der Asset-Datenbank.
 
 import { seite, imBild, brumm, auftauchen, kern } from "../v2/start.js";
+import { inRuhe, nahe } from "../v2/strich/ruhe.js";
+import { APPLE_WEBKIT, APPLE_LEICHT } from "../../src/umgebung.js";
+// 12.11. iPhone/iPad (APPLE_LEICHT): Standbilder aus genau diesen 3D-Szenen statt WebGL-Aufbau mitten im Scrollen
+import ARENA_STANDBILD from "./standbild/arena-ausschnitt.webp";
+import REWARD_STANDBILD from "./standbild/reward-box.webp";
 import { entstehung } from "./entstehung.js";
 import { ton } from "./klang.js";
 import { marke, markiere } from "../../src/klecks/leitmotiv.js";
 import { FOUNDER_ENDE } from "../zustand.js";
+import { introGewuenscht, klaegsIntro } from "./klaegs-intro.js";
 
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -37,6 +44,19 @@ const html = document.documentElement;
 const MODUS = html.dataset.ent ?? "aus";
 const REDUZIERT = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const warte = (ms) => new Promise((r) => setTimeout(r, ms));
+/* FB1-K 11.11. (Chris: „… bei Starterwebseite … ein Klägs-Intro …, wo nur Klägs gezeigt wird, alles andere vielleicht
+   ausgeblendet wird und er spricht zu dir“): beim ersten Besuch je Gerät stellt sich Klägs vor (./klaegs-intro.js), danach
+   läuft der Hero-Moment wie gehabt. Solange lüftet die Arena nicht von selbst und die Testerclub-Story wartet (beides
+   liefe sonst ungesehen hinter dem Schleier ab). */
+const INTRO = MODUS === "aus" && introGewuenscht();
+let introFertig;
+const introVorbei = INTRO ? new Promise((r) => (introFertig = r)) : Promise.resolve();
+/** P2 11.11.: bis dahin läuft ein schwerer Moment (Klägs' Bestätigung am Bogen); schwere Aufbauten warten so lange */
+let lastBis = 0;
+/** P2 11.11.: die Hero-Story ist durch (oder kommt nicht); erst danach baut die Seite weitere 3D-Bühnen vorab */
+let heroFertig;
+const HERO_FERTIG = new Promise((r) => (heroFertig = r));
+setTimeout(() => heroFertig(), INTRO ? 20000 : 12000); // mit Klägs-Intro (~7 s) startet die Story später
 
 const held = $("#held");
 const sitzEl = $("[data-st-sitz]");
@@ -152,12 +172,15 @@ function tc3dLos() {
     .then((api) => {
       tc3d = api;
       window.__start.tc3d = api;
-      api?.start();
+      introVorbei.then(() => api?.start());
     })
     .catch((e) => console.warn("[start] Testerclub 3D", e));
 }
 // Prüfhilfe: ?tc3d=aus lässt die Story weg (Vergleichsmessung der Frame-Zeiten), Rahmen und Poster bleiben
-if (!/[?&]tc3d=aus\b/.test(location.search)) imBild(clubGeraet, () => ("requestIdleCallback" in window ? requestIdleCallback(tc3dLos, { timeout: 1200 }) : setTimeout(tc3dLos, 300)), { rand: "0px" });
+// 12.11. iPhone/iPad (APPLE_LEICHT): Aufbau nur in einer ruhigen Lücke (ruhe.js), nie mitten im ersten Scrollen (der
+// Leerlauf-Rückruf mit Frist 1,2 s fiel sonst in eine Scrollbewegung)
+const tc3dPlanen = () => (APPLE_LEICHT ? inRuhe(tc3dLos, { vorn: true }) : "requestIdleCallback" in window ? requestIdleCallback(tc3dLos, { timeout: 1200 }) : setTimeout(tc3dLos, 300));
+if (!/[?&]tc3d=aus\b/.test(location.search)) imBild(clubGeraet, tc3dPlanen, { rand: "0px" });
 // 08.11. (Chris: „wenn Klick auf SNÄGS Testerclub Animation auch auf Testerclubseite wechseln, analog zu Game-Arena-
 // Mechanik“): Antippen führt zur Testerclub-Seite (mit Strg/Cmd in einem neuen Tab, wie ein Link), Enter ebenso
 const clubZiel = clubGeraet?.dataset.href || "/snaegs-staging/vorschau/claude-klaegs-xl/site/testerclub.html?von=start-held";
@@ -175,7 +198,7 @@ const teaserDa = import("../arena/teaser/index.js")
     // wippt einmal (Klägs schaut hin), dann lüftet sich die Decke in 0,6 s, nach spätestens 2 s auch ohne Klägs; Tippen
     // lüftet sofort. Darunter bleibt ein ruhiges Standbild des Games, dann steht alles.
     teaser = mountTeaser(teaserHost, {
-      ruhe: { bleibt: true, selbst: 2000, dauer: 0.6, bild: 0, nah: 0 },
+      ruhe: { bleibt: true, selbst: INTRO ? 0 : 2000, dauer: 0.6, bild: 0, nah: 0 },
       aufdruck: { zeilen: ["COMING", "JANUARY"], unter: "2027" },
       ruheLabel: "Game Arena, startet im Januar 2027: ein Handy unter einer Decke mit „Coming January“. Antippen lüftet die Decke.",
       ruheLabelFrei: "Game Arena, startet im Januar 2027: Standbild aus dem Game.",
@@ -438,6 +461,7 @@ async function heroMoment() {
     K.ausflug = false;
     api.fuehrung?.halt?.(false);
     api.fuehrung?.platz?.(null);
+    heroFertig();
   }
 }
 
@@ -463,8 +487,13 @@ if (MODUS === "voll" || MODUS === "kurz") {
   });
 } else {
   held.dataset.ent = "da";
-  // Z6: Klägs taucht im Hero-Moment selbst auf (auftauchen statt Geburt mit Pfütze), dort wird auch sein Platz gewählt
-  s.klecks.then(() => heroMoment());
+  // Z6: Klägs taucht im Hero-Moment selbst auf (auftauchen statt Geburt mit Pfütze), dort wird auch sein Platz gewählt.
+  // FB1-K: beim ersten Besuch stellt er sich vorher vor; danach bringt ihn der Hero-Moment von der Bühne auf seinen Platz.
+  s.klecks.then(async (api) => {
+    if (INTRO && api) await klaegsIntro({ api, zeigeAuf: clubGeraet }).catch((e) => console.warn("[start] Klägs-Intro", e));
+    introFertig?.();
+    heroMoment();
+  });
   gratis();
 }
 
@@ -519,6 +548,9 @@ const auftritt = (() => {
   return (host, z) => {
     if (!z?.starte) return z;
     if (REDUZIERT) z.starte();
+    // 12.11. iPhone/iPad: Motive stehen fertig im Endstand (strich/kern.js), schon bevor die Sektion kommt: aufbauen und
+    // setzen in einer ruhigen Minute (je Motiv ein Task), nicht erst „gut im Bild“
+    else if (APPLE_LEICHT) inRuhe(() => z.starte());
     else {
       warten.set(host, z);
       io.observe(host);
@@ -527,8 +559,38 @@ const auftritt = (() => {
   };
 })();
 
+/** Papierkarte da (src/stift/papier.js, Worker; bei CPU 4× erst ~4,7 s nach dem Laden): erst dann baut der Vorlauf, sonst
+ *  tastet jede Spur das Papier Punkt für Punkt ab (langsamer Rückfall mit Zufallszahn statt echtem Papier) */
+const PAPIER = new Promise((da) => {
+  const h = document.documentElement;
+  if (h.dataset.papier === "bereit") return da();
+  const mo = new MutationObserver(() => h.dataset.papier === "bereit" && (mo.disconnect(), da()));
+  mo.observe(h, { attributes: true, attributeFilter: ["data-papier"] });
+  setTimeout(da, 8000);
+});
+
+/** P2 11.11.: ein Motiv vorab aufbauen, sobald Papier und Ruhe da sind (ruhe.js, je Motiv ein Task), spätestens wenn es
+ *  dran ist. Vorher baute eine Sektion alle Motive in einem Block beim Eintritt (Founder: bis 1,6 s bei CPU 4×). */
+function vorbau(bau, was) {
+  let z;
+  const hole = () => {
+    if (z === undefined) {
+      try {
+        z = bau() ?? null;
+      } catch (e) {
+        console.warn("[start]", was, e);
+        z = null;
+      }
+    }
+    return z;
+  };
+  PAPIER.then(() => inRuhe(hole));
+  return { starte: () => hole()?.starte?.() };
+}
+
 /* ── Motive aus der Asset-Datenbank (Founder, Game Arena, Punkte): zeichnen und einfärben beim ersten Sichtkontakt.
-   Das Founder-Abzeichen zeichnet Klägs selbst (klaegsZeichnet unten). ─────────────────────────────────────────── */
+   Das Founder-Abzeichen zeichnet Klägs selbst (klaegsZeichnet unten). Aufgebaut werden sie vorab (P2 11.11.: ab
+   anderthalb Bildhöhen vor der Sektion, je Motiv in einer ruhigen Minute), gestartet wie bisher erst gut im Bild. ── */
 async function motive(wurzel) {
   const B = await STRICH;
   if (!B?.zeichne) return;
@@ -537,46 +599,78 @@ async function motive(wurzel) {
     host.dataset.gezeichnet = "1";
     const motiv = host.dataset.stMotiv;
     const nacht = !!host.closest(".v2-nacht");
-    const r = host.getBoundingClientRect();
-    try {
-      const gross = r.width > 120;
-      auftritt(host, B.zeichne(host, motiv, { ton: nacht ? "papier" : "tinte", farbe: host.dataset.farbe ?? false, groesse: r.width * 0.94, ms: gross ? 2000 : 1500, start: false }));
-    } catch (e) {
-      console.warn("[start] Motiv", motiv, e);
-    }
+    auftritt(
+      host,
+      vorbau(() => {
+        const r = host.getBoundingClientRect();
+        const gross = r.width > 120;
+        return B.zeichne(host, motiv, { ton: nacht ? "papier" : "tinte", farbe: host.dataset.farbe ?? false, groesse: r.width * 0.94, ms: gross ? 2000 : 1500, start: false });
+      }, `Motiv ${motiv}`),
+    );
   });
 }
-for (const id of ["#founder", "#arena", "#punkte"]) imBild($(id), () => motive($(id)), { rand: "0px 0px 20% 0px" });
+for (const id of ["#founder", "#arena", "#punkte"]) imBild($(id), () => motive($(id)), { rand: "0px 0px 150% 0px" });
 
 /* ── 08.11. (Chris): in der Arena-Sektion ein kleiner Ausschnitt vom echten Game (Teaser im Ausschnitt-Modus, nicht der
    Trailer), er spielt, solange er im Bild ist ─────────────────────────────────────────────────────────────────────── */
+// P2 11.11. (mit P1): Der Ausschnitt ist ein zweiter voller Teaser (eigener WebGL-Kontext, rund 15 Leinwände, Texturen).
+// Er montierte mit 25 % Vorlauf genau im Übergang Bogen → „Play it“, wo am iPad der graue Ausfall lag, oft zugleich mit
+// Klägs' Bestätigung am Bogen. Jetzt: vorbereitet, sobald die Sektion in der Nähe ist (1,5 Bildhöhen), aber erst nach
+// der Hero-Story, in einer ruhigen Minute (nicht beim Scrollen, ruhe.js) und nie, solange ein anderer schwerer Moment
+// läuft (lastBis). Der Teaser rendert ohnehin nur, solange er im Bild ist (teaser/index.js), früher montiert kostet also
+// nur den Aufbau, keine Dauerlast.
 const arenaHandy = $("[data-st-arena-handy]");
-if (arenaHandy)
-  imBild(
-    arenaHandy,
-    () =>
-      import("../arena/teaser/index.js")
-        .then(({ mountTeaser }) => {
-          const t = mountTeaser(arenaHandy, { modus: "ausschnitte", ausschnitte: false, autoplay: true, start: 1 });
-          t.bereit?.then?.(() => t.zeige?.(1));
-        })
-        .catch((e) => console.warn("[start] Arena-Ausschnitt", e)),
-    { rand: "25% 0px 25% 0px" },
-  );
+let arenaDa = false;
+function arenaMontieren() {
+  if (arenaDa) return;
+  const rest = lastBis - performance.now();
+  if (rest > 0) return void setTimeout(() => inRuhe(arenaMontieren, { vorn: true }), rest + 80);
+  arenaDa = true;
+  import("../arena/teaser/index.js")
+    .then(({ mountTeaser }) => {
+      const t = mountTeaser(arenaHandy, { modus: "ausschnitte", ausschnitte: false, autoplay: true, start: 1 });
+      t.bereit?.then?.(() => t.zeige?.(1));
+    })
+    .catch((e) => console.warn("[start] Arena-Ausschnitt", e));
+}
+/** Standbild in einen Bühnen-Host (iPhone/iPad): sofort da, kein WebGL, kein Shader-Aufbau */
+function standbild(host, src, klasse) {
+  const img = new Image();
+  img.alt = "";
+  img.decoding = "async";
+  img.className = klasse;
+  img.setAttribute("aria-hidden", "true");
+  img.src = src;
+  host.append(img);
+  return img;
+}
+// 12.11. (Chris' iPad-Video: „Play it“ 5 s schwarz): Der Ausschnitt ist ein zweiter voller Teaser (eigener WebGL-Kontext,
+// rund 15 Leinwände); sein Aufbau blockierte am iPad den Hauptfaden genau beim Eintritt in die Sektion. Auf iPhone/iPad
+// steht deshalb sofort ein Standbild aus dem echten Game (aus diesem Teaser gerendert).
+if (arenaHandy && APPLE_LEICHT) {
+  arenaDa = true;
+  standbild(arenaHandy, ARENA_STANDBILD, "st-arena__standbild");
+} else if (arenaHandy) {
+  nahe(arenaHandy, () => HERO_FERTIG.then(() => inRuhe(arenaMontieren, { vorn: true })));
+  // schon im Bild, bevor die Hero-Story durch ist (schnell heruntergescrollt): dann sobald das Scrollen ruht
+  imBild(arenaHandy, () => inRuhe(arenaMontieren, { vorn: true }), { rand: "0px" });
+}
 
 /** Zeichen der Seite aus der Asset-Datenbank (Pfeile, Schloss der Game Arena, Founder-Abzeichen am Schluss) */
 const ZEICHEN_FARBE = { muenze: "gold", "founder-abzeichen": true };
 STRICH.then((B) => {
   if (!B?.zeichne) return;
+  // P2 11.11.: je Zeichen ein ruhiger Task (vorher alle in einem Block gleich nach dem Laden)
   for (const host of $$("[data-st-zeichen]")) {
-    try {
-      const name = host.dataset.stZeichen;
-      const nacht = !!host.closest(".v2-nacht");
-      const klein = (host.clientWidth || 18) < 30;
-      auftritt(host, B.zeichne(host, name, { groesse: host.clientWidth || 18, art: "filz", ms: klein ? 800 : 1300, start: false, ton: nacht ? "papier" : "tinte", farbe: ZEICHEN_FARBE[name] ?? false }));
-    } catch (e) {
-      console.warn("[start] Zeichen", host.dataset.stZeichen, e);
-    }
+    const name = host.dataset.stZeichen;
+    const nacht = !!host.closest(".v2-nacht");
+    auftritt(
+      host,
+      vorbau(() => {
+        const klein = (host.clientWidth || 18) < 30;
+        return B.zeichne(host, name, { groesse: host.clientWidth || 18, art: "filz", ms: klein ? 800 : 1300, start: false, ton: nacht ? "papier" : "tinte", farbe: ZEICHEN_FARBE[name] ?? false });
+      }, `Zeichen ${name}`),
+    );
   }
 });
 
@@ -690,7 +784,11 @@ async function rewardWarenNeu(auftritt = false) {
     }
   });
 }
-if (rewardEl) {
+// 12.11. iPhone/iPad: die Reward Box als Standbild (aus box3d mit den Waren gerendert), kein zweiter WebGL-Kontext
+// beim Scrollen (gemessen: Aufbau 236 + 260 ms und 430 ms Übergabe an die Grafik, am Gerät ein Mehrfaches)
+if (rewardEl && APPLE_LEICHT) {
+  standbild(rewardEl, REWARD_STANDBILD, "st-reward__standbild");
+} else if (rewardEl) {
   imBild(
     rewardEl,
     () =>
@@ -713,6 +811,9 @@ if (rewardEl) {
     rewardWarenNeu.t = setTimeout(() => rewardWarenNeu(), 180);
   }).observe(rewardEl);
 }
+
+/* FB1-D 11.11.: „Dein eigener Bereich“ (Handy mit App-Schirm in #punkte) steuert /snaegs-staging/vorschau/claude-klaegs-xl/site/v2/bereich/bereich.js, eigenes
+   Skript auf Start und Testerclub; hier nichts mehr dazu. */
 
 /* ── 2 So funktioniert's: Klecks hüpft die drei Schritte entlang und zeigt auf „Alle Details“ ─────────────────────────
    Takt 09.11. (Chris: „Schnell in die Kernaction von Klägs je Sektion im Viewport einsteigen; dann – sollte länger
@@ -872,7 +973,11 @@ async function waehle(w) {
         K.hopp(x, y, 26);
         await warte(520);
       }
-      K.gross?.({ farbe: "violett", halten: 900 });
+      // P2 11.11. (mit P1): Auf Apple ohne Aquarell-Blüte (eine WebGL-Simulation zusätzlich zu Zoom-Schleier und Wachsen,
+      // genau im Übergang zur Game Arena, wo am iPad der graue Ausfall lag); Wachsen, Schleier und Halten bleiben.
+      // Solange der Moment läuft, montiert die Seite nichts Schweres (lastBis).
+      lastBis = performance.now() + 2600;
+      K.gross?.({ farbe: "violett", halten: 900, bluete: !APPLE_WEBKIT });
     }
     ton("plopp");
   }
@@ -928,7 +1033,8 @@ async function dabeiAbhaken() {
       const r = $(".st-dabei__aufruf", dabei).getBoundingClientRect();
       return [Math.min(innerWidth - K.R - 10, r.right - K.R * 1.2), r.top - K.R + 3];
     };
-    // 08.11. (Chris): „Alles kostenlos“ und „Start im Januar 2027“ werden zuerst abgehakt (oben); das kleine „Ja!“ kommt
+    // 08.11. (Chris): die beiden Haken (FB1 11.11.: „Jetzt kostenlos voranmelden“, „150 Early-Bird-Punkte sichern“, vorher
+    // „Alles kostenlos“, „Start im Januar 2027“) werden zuerst abgehakt (oben); das kleine „Ja!“ kommt
     // danach nur manchmal (Zufall), und zwar unter der Frage im freien Platz [data-st-ja], nie neben den Haken
     const jaPlatz = $("[data-st-ja]", dabei);
     if (jaPlatz && Math.random() < 0.5) {
