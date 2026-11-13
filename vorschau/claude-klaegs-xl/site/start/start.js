@@ -1066,3 +1066,11 @@ for (const k of $$("[data-hauptknopf], [data-vorreg]")) s.tippbar(k, { art: "kno
 
 /* ── Aquarellkanten an den Themenwechseln ───────────────────────────────────────────────────────────────────────── */
 for (const n of $$("[data-st-naht]")) imBild(n, () => n.classList.add("ist-da"), { rand: "0px 0px -18% 0px" });
+
+/* ── C: Klägs XL (Brief C, PLAN 8.4, Vorschau): die eine XL-Bühne der Startseite, M-15 Hand-Kette (Probe, Meinung,
+   Punkte, Box) in #testerclub. Die Sektion hat ihren eigenen Kern (Probe: lauschen), darum spielt die Bühne erst beim
+   Verweilen danach (eine Geste pro Moment). Dazu die XL-Ketten im Leerlauf (regie-seiten.js). XL lädt in einer ruhigen
+   Minute; ?xl=0 schaltet ab. ── */
+s.klecks
+  .then((api) => import("../v2/klecks/xl-seite.js").then((m) => m.xlSeite(api).nachher($("#testerclub"), "M-15")))
+  .catch((e) => console.warn("[start] Klägs XL", e));

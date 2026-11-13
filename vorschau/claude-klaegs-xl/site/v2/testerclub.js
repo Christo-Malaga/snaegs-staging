@@ -272,6 +272,9 @@ async function los() {
     status.schritt = "szenen";
     klecks.bereit({ ...api, PRIO }, D);
     buehnen(api, z).catch((e) => console.warn("[v2] Bühnen", e));
+    // C: Klägs XL (Brief C, PLAN 8.4, Vorschau): die eine XL-Bühne, M-01 Beschwörung in #neu, erst beim Verweilen nach der
+    // Szene „neu“ (eine Geste pro Moment); dazu die XL-Ketten im Leerlauf (regie-seiten.js). ?xl=0 schaltet ab.
+    import("./klecks/xl-seite.js").then((m) => m.xlSeite(api).nachher($("#neu"), "M-01")).catch((e) => console.warn("[v2] Klägs XL", e));
     // „Wohin als Nächstes“: Klecks zeigt auf die Karten
     const c = $("[data-v2='naechste']");
     const n = c?.childElementCount ? c : $("[data-naechste-rf]");
