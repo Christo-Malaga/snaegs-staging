@@ -1,0 +1,1 @@
+import{d as e}from"./tinte-CiDLg1oj.js";export{e as tinteSofort};
