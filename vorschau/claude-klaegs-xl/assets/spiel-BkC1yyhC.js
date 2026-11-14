@@ -1,0 +1,1 @@
+import{i as e,n as t,r as n,t as r}from"./spiel-mV0T3wA5.js";export{r as FOLGE_NIEDERLAGE,t as SPIEL_FOLGE,n as simuliereSpiel,e as spielReaktionen};
