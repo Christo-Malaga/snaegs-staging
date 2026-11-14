@@ -1,0 +1,1 @@
+import{n as e}from"./dinge-marke-pyeU3Nsb.js";export{e as WORTMARKE};
