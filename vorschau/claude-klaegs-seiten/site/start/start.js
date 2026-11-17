@@ -832,7 +832,28 @@ const so = $("#punkte");
 // K1 16.11. (KONZEPT 5 Start #punkte): Kern = er tippt die Schritte 1 bis 3 klein an und nickt (1,4 s). Der lange Gang
 // (Sprung je Schritt, Zeigen auf „Alle Details“, Schwung unter „Deine Rewards.“) entfällt: das Nachspiel der Sektion ist
 // die Reward Box (unten), mehr als eines je Sektion sprengt das Budget.
-E.kern("punkte", $(".st-so__schritte", so), { gefuehl: "nicken", bezug: "tippen", dauer: 1400 });
+// 17.11. (Chris: „Startseiten Änderungen“, Vorschlag angenommen): der Schwung unter „Deine Rewards.“ kommt zurück, als
+// Abschluss des Kerns (Klägs bearbeitet das Element selbst, Gedächtnis klaegs-seiten-blind-gekippt): nach dem Antippen der
+// Schritte unterstreicht er den Kernsatz, einmal je Aufruf und nur, wenn der Satz gut im Bild steht (nie unter dem Kopf).
+const kernsatz = $("[data-st-kernsatz]", so);
+let kernsatzDa = false;
+E.kern(
+  "punkte",
+  $(".st-so__schritte", so),
+  {
+    gefuehl: "nicken",
+    bezug: "tippen",
+    dauer: 1400,
+    tu: async ({ klecks: K, signal }) => {
+      const ks = kernsatz?.getBoundingClientRect();
+      const kopf = document.querySelector(".v2-kopf, header")?.getBoundingClientRect().bottom ?? 0;
+      if (kernsatzDa || REDUZIERT || !ks || ks.top < kopf + 12 || ks.bottom > innerHeight * 0.8 || signal?.aborted) return;
+      kernsatzDa = true;
+      await markiere(K, "unterstreichen", kernsatz, { variante: "schwung", danach: "zufrieden", halten: 360, host: so, signal });
+    },
+  },
+  { maxMs: 4200 },
+);
 // Lohn am Zähler: läuft „Dein Punktekonto“ hoch (site/v2/bereich/bereich.js), folgt er der Zahl; steht der Nutzer dort,
 // punkte-rausch (Ersatz jubel), Gold nur hier
 const punkteZahl = $("[data-bereich-zahl]", so);
