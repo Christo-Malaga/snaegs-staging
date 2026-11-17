@@ -1,1 +1,0 @@
-import{r as e}from"./pinsel-BTmdkUMS.js";export{e as legePinsel};
