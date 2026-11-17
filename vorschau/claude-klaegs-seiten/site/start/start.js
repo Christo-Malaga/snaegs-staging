@@ -995,12 +995,14 @@ async function dabeiAbhaken() {
     // Takt 09.11.: Kern ohne Vorlauf (vorher 0,35 s Pause und bis zu 2 s Warten); er hüpft auf einen Punkt auf dem Papier
     K.ausflug = true; // eigener Gang: die Führung holt ihn nicht mitten im Abhaken auf ihren Platz zurück
     // erst neben die Liste (kam er von weit her, fehlte sonst der erste Haken), dann in einem Zug abhaken
-    for (let t = 0; t < 600 && K.modus !== "sitzen"; t += 60) await warte(60);
+    // KS 17.11.: höchstens 300 ms aufs Landen warten (vorher 600 ms); hopp() nimmt das Ziel auch mitten im Sprung an
+    for (let t = 0; t < 300 && K.modus !== "sitzen"; t += 60) await warte(60);
     const liste = $(".st-dabei__fakten", dabei).getBoundingClientRect();
     const nx = Math.min(innerWidth - K.R - 10, liste.right + K.R + 18);
     const ny = liste.top + K.R * 0.9;
-    if (!REDUZIERT && Math.hypot(K.x - nx, K.y - ny) > K.R) await huepfeHin(K, nx, ny, 26, 1000);
+    // KS 17.11.: der Kern beginnt mit dem Sprung zur Liste (vorher erst danach gemeldet, 0,9 s nach dem Eintritt)
     kern("Dabei: abhaken");
+    if (!REDUZIERT && Math.hypot(K.x - nx, K.y - ny) > K.R) await huepfeHin(K, nx, ny, 26, 1000);
     await markiere(K, "abhaken", null, { ziele: $$(".st-dabei__fakten .st-box"), gefuehl: "zufrieden", halten: 240, stimmung: "froh" });
     const heim = () => {
       const r = $(".st-dabei__aufruf", dabei).getBoundingClientRect();

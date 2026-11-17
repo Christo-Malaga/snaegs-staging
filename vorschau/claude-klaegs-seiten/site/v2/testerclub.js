@@ -9,6 +9,9 @@
 import { zeichner } from "./schau/zeichnen.js";
 import { baueSektionen, starteHeld } from "./schau/sektionen.js";
 import "./marke/testerclub-bleed.js"; // T1 08.11.: „SNÄGS Testerclub“ und Abschnitts-Highlights mit Aquarell-Bleed
+// 17.11.: Klägs' Start statisch (vorher dynamisch nach den Sektionen; im Wettlauf mit der 3D-Bühne kam er erst 0,9–1,4 s
+// nach dem Laden an), damit er im ersten Augenblick mit der Geburt beginnen kann
+import { starte, PRIO } from "./start.js";
 
 const REDUZIERT = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const HANDY = matchMedia("(max-width: 899px)");
@@ -277,7 +280,9 @@ function klecksProxy() {
             const pruefe = () => {
               if (r.laeuft?.fest && performance.now() - t0 < 2600) return void setTimeout(pruefe, 50);
               if (o.el?.isConnected) {
-                const b = o.el.getBoundingClientRect();
+                // KS 17.11.: die Sektion zählt, nicht das Element (Testerclub #urteil: der Kartenstapel lag nach der Bühne
+                // „gratis“ noch unter dem Rand, die Szene entfiel, obwohl man mitten in der Sektion war)
+                const b = (o.el.closest("section, [data-abschnitt]") ?? o.el).getBoundingClientRect();
                 if (b.bottom < 0 || b.top > innerHeight) return weiter(false);
               }
               weiter(Promise.resolve(dSzenen.spiele(name, o)).catch((e) => console.warn("[v2] Szene", name, e)));
@@ -403,7 +408,21 @@ function elementeTesterclub(E, api, klecks, tippbar) {
 }
 
 /* ── Start ── */
+// 17.11. (Chris: „Beginne die Action grundsätzlich schneller; Menschen scrollen nicht in Slowmo“): die Klägs-Module laden ab
+// dem ersten Augenblick, und Klägs entsteht parallel zu Rahmen und Sektionen (vorher danach: Module bis 1,4 s, Geburt erst
+// 1,7–2 s nach dem Laden, gemessen 390 ohne GPU); seine Führung wartet auf die Sektionen.
+let MODULE = null;
+const klecksModule = () =>
+  (MODULE ??= Promise.all([
+    lade(KLECKS, "./klecks/index.js"),
+    import("./klecks/element.js").catch((e) => (console.warn("[v2] element.js", e), null)),
+    import("../../src/klecks/aufmerksamkeit.js").catch(() => null),
+  ]));
 async function los() {
+  let sektionenDa;
+  const sektionen = new Promise((r) => (sektionenDa = r));
+  const geboren = starte({ seite: "testerclub", stimmung: "froh", R: 30, geburt: "[data-anker]", warte: sektionen });
+  geboren.catch(() => null); // Fehler meldet der Block unten
   const [{ tippbar }, z0] = await Promise.all([rahmen(), zeichner()]);
   // Bedienzeichen aus der Asset-Datenbank statt CSS-Masken (Regie R, Nachricht 6)
   import("./klecks/zeichen.js").then((m) => m.zeichenAusDatenbank()).catch((e) => console.warn("[v2] Zeichen", e));
@@ -414,18 +433,14 @@ async function los() {
   status.schritt = "sektionen";
   baueSektionen({ z, klecks, tippbar, kantenVonC: status.wege === "C" });
   for (const k of $$("[data-hauptknopf], [data-vorreg]")) tippbar(k, { art: "knopf" });
+  sektionenDa();
   status.schritt = "module";
-  const [{ starte, PRIO }, D, EL, AU] = await Promise.all([
-    import("./start.js"),
-    lade(KLECKS, "./klecks/index.js"),
-    import("./klecks/element.js").catch((e) => (console.warn("[v2] element.js", e), null)),
-    import("../../src/klecks/aufmerksamkeit.js").catch(() => null),
-  ]);
+  const [D, EL, AU] = await klecksModule();
   if (AU?.finger) fingerUnten = () => !!AU.finger.unten;
   if (D?.gf) gf = D.gf;
   try {
     status.schritt = "klecks";
-    const api = await starte({ seite: "testerclub", stimmung: "froh", R: 30, geburt: "[data-anker]" });
+    const api = await geboren;
     status.schritt = "szenen";
     // Klägs-Seiten 16.11.: Element-Schnittstelle (Budget, Leitmenge, Protokoll window.__klaegsTakt); lädt Klägs XL selbst
     const E = EL?.elemente ? EL.elemente({ klecks: Promise.resolve({ ...api, PRIO }) }, { seite: "testerclub" }) : null;
@@ -453,6 +468,7 @@ async function los() {
   document.documentElement.dataset.v2 = "bereit";
 }
 
+klecksModule();
 // Die Hero-Bühne startet sofort, nicht erst nach Rahmen, Strich und Klecks (2-Sekunden-Pitch)
 try {
   starteHeld();

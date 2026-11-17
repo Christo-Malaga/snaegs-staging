@@ -1,0 +1,1 @@
+import{d as e}from"./tinte-BMI4ItIN.js";export{e as tinteSofort};
