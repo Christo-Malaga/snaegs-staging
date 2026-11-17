@@ -695,7 +695,8 @@ const arenaSek = $("#arena");
 if (arenaSek) {
   // 17.11. (Chris: „Versuche noch etwas mehr auf die dinge zu zeigen“, klaegs-beweis.mjs): entschlossen (XL, bereit zum Spielen)
   // statt squee (gesperrt, spielte immer den Ersatz), dabei zeigt er aufs Handy
-  E.kern("arena", arenaHandy ?? arenaSek, { gefuehl: "entschlossen", ersatz: "aufgeregt", bezug: arenaHandy ? "zeigen" : "blick", dauer: 1200 });
+  // KR 17.11. abends (Chris: „Vieles sieht einfach identisch aus“): eigener Bezug je Sektion, Nachbarn nicht gleich: entschlossen stupst er das Game-Handy an (bereit zum Spielen), #testerclub davor zeigt
+  E.kern("arena", arenaHandy ?? arenaSek, { gefuehl: "entschlossen", ersatz: "aufgeregt", bezug: arenaHandy ? "stupsen" : "blick", dauer: 1200 });
   E.nachspiel("arena", $(".st-gesperrt", arenaSek), { gefuehl: "ups", bezug: "stupsen", dauer: 2000, danach: { gefuehl: "zwinkern" } });
 }
 
@@ -735,7 +736,8 @@ async function abzeichenZeichnen() {
 // Kern beim Eintritt über die Element-Schnittstelle (eigener Beobachter: imBild wartet am Handy auf Scroll-Ruhe, der Kern
 // aber gehört in die ersten 600 ms nach dem Eintritt, auch beim Scrollen)
 // 17.11. (Chris: „Versuche noch etwas mehr auf die dinge zu zeigen“, klaegs-beweis.mjs): er zeigt aufs Abzeichen, es federt
-if (abzeichen) E.kern("founder", abzeichen, { gefuehl: "funkeln", ersatz: "stolz", bezug: "zeigen", dauer: 1200 });
+// KR 17.11. abends (Chris: „Vieles sieht einfach identisch aus“): eigener Bezug je Sektion, Nachbarn nicht gleich: er tippt stolz aufs Abzeichen (statt Zeigen wie in #testerclub und #arena)
+if (abzeichen) E.kern("founder", abzeichen, { gefuehl: "funkeln", ersatz: "stolz", bezug: "tippen", dauer: 1200 });
 if (abzeichen) imBild(abzeichen, abzeichenZeichnen, { rand: "-10% 0px -22% 0px" }); // Takt 09.11.: früher (vorher -18 % / -30 %)
 
 /* ── Founder-Aktion: Tage bis zum 31.12.2026 (Kalendertage in Berlin), danach verschwindet der Zähler ──────────── */

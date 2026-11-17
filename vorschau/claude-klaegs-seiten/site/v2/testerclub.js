@@ -349,6 +349,14 @@ function klecksProxy() {
   return p;
 }
 
+let E_FRUEH = null;
+/** KR 17.11. abends: Hero-Kern Testerclub. Das Paket packt sich auf der Bühne aus (3D, starteHeld); Klägs staunt mit
+ *  offener Kinnlade und lehnt sich zur Bühne (zeigt, wenn er nah sitzt). Thema der Seite: Auspacken ist der Moment. */
+function heldKern(E) {
+  const buehne = $("#held [data-held-buehne]") ?? $("#held [data-auspacken]");
+  if (buehne) E.kern("held", buehne, { gefuehl: "kinnlade", ersatz: "aufgeregt", bezug: "zeigen", dauer: 1300, danach: { gefuehl: "freude" } }, { sofort: true });
+}
+
 /* ── Klägs-Seiten 16.11.: Antworten, Nachspiele und Ruhezonen der Seite (KONZEPT 5, Testerclub) ── */
 function elementeTesterclub(E, api, klecks, tippbar) {
   const k = api.klecks;
@@ -426,8 +434,18 @@ const klecksModule = () =>
 async function los() {
   let sektionenDa;
   const sektionen = new Promise((r) => (sektionenDa = r));
-  const geboren = starte({ seite: "testerclub", stimmung: "froh", R: 30, geburt: "[data-anker]", warte: sektionen });
-  geboren.catch(() => null); // Fehler meldet der Block unten
+  // KR 17.11. abends (Chris: „Wenn ich auf andere Seiten gehe, ist er immer noch sehr träge“): die Element-Schnittstelle
+  // schließt sich an, sobald Klägs aufgetaucht ist (nicht erst nach Rahmen, Sektionen und Modulen), und der Hero hat einen
+  // eigenen Kern: das Paket packt sich aus, Klägs staunt mit (vorher war die erste Action der CTA-Boost nach 1,8–1,9 s)
+  let fruehLos;
+  const frueh = new Promise((r) => (fruehLos = r));
+  const geboren = starte({ seite: "testerclub", stimmung: "froh", R: 30, geburt: "[data-anker]", warte: sektionen, frueh: (a) => fruehLos({ ...a, PRIO }) });
+  geboren.catch(() => fruehLos(null)); // Fehler meldet der Block unten
+  E_FRUEH = klecksModule().then(([, EL]) => {
+    const E = EL?.elemente ? EL.elemente({ klecks: frueh.then((a) => a ?? geboren.then((x) => (x ? { ...x, PRIO } : null))) }, { seite: "testerclub" }) : null;
+    if (E) heldKern(E);
+    return E;
+  });
   const [{ tippbar }, z0] = await Promise.all([rahmen(), zeichner()]);
   // Bedienzeichen aus der Asset-Datenbank statt CSS-Masken (Regie R, Nachricht 6)
   import("./klecks/zeichen.js").then((m) => m.zeichenAusDatenbank()).catch((e) => console.warn("[v2] Zeichen", e));
@@ -448,7 +466,8 @@ async function los() {
     const api = await geboren;
     status.schritt = "szenen";
     // Klägs-Seiten 16.11.: Element-Schnittstelle (Budget, Leitmenge, Protokoll window.__klaegsTakt); lädt Klägs XL selbst
-    const E = EL?.elemente ? EL.elemente({ klecks: Promise.resolve({ ...api, PRIO }) }, { seite: "testerclub" }) : null;
+    // KR 17.11.: dieselbe Instanz wie früh angeschlossen (E_FRUEH)
+    const E = (await E_FRUEH) ?? (EL?.elemente ? EL.elemente({ klecks: Promise.resolve({ ...api, PRIO }) }, { seite: "testerclub" }) : null);
     klecks.bereit({ ...api, PRIO }, D, E);
     buehnen(api, z).catch((e) => console.warn("[v2] Bühnen", e));
     if (E) elementeTesterclub(E, api, klecks, tippbar);
