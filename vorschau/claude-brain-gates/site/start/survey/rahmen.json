@@ -1,0 +1,26 @@
+{
+ "quelle": "werkzeug/rahmen-roh.png (3D-Handy des Game-Teasers, reduzierte Bewegung, Decke gehoben)",
+ "box": [
+  1080,
+  2002
+ ],
+ "ecken": [
+  [
+   0.12779,
+   0.11334
+  ],
+  [
+   0.80739,
+   0.10059
+  ],
+  [
+   0.81938,
+   0.91735
+  ],
+  [
+   0.15163,
+   0.90484
+  ]
+ ],
+ "radius": 0.1366
+}
