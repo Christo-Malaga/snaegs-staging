@@ -368,14 +368,18 @@ function elementeTesterclub(E, api, klecks, tippbar) {
   // Am Handy liegt das Regal beim Eintritt noch unter dem Rand: dann gilt der Doppelblick der Überschrift („Trends …“)
   const regalK = $("#neu [data-regal]");
   const titelNeu = $("#neu-titel");
-  const neuZiel = () => (regalK && regalK.getBoundingClientRect().top < innerHeight * 0.95 ? regalK : titelNeu ?? regalK);
+  const doseK = $("#neu [data-dose]");
+  const imBildK = (x) => x && x.getBoundingClientRect().top < innerHeight * 0.95;
+  const neuZiel = () => (imBildK(doseK) ? doseK : imBildK(regalK) ? regalK : titelNeu ?? regalK);
   const neuS = $("#neu");
   if (neuS && (regalK || titelNeu)) {
     const io = new IntersectionObserver(
       (es) => {
         if (!es.some((e) => e.isIntersecting)) return;
         io.disconnect();
-        E.kern("neu", neuZiel(), { gefuehl: "doppelblick", ersatz: "neugier", bezug: "blick" }, { sofort: true });
+        // 17.11. (Chris: „Versuche noch etwas mehr auf die dinge zu zeigen“, klaegs-beweis.mjs): Doppelblick, dabei zeigt er auf die Dose
+        const z = neuZiel();
+        E.kern("neu", z, { gefuehl: "doppelblick", ersatz: "neugier", bezug: z === titelNeu ? "blick" : "zeigen" }, { sofort: true });
       },
       { rootMargin: "0px 0px -10% 0px" }, // 17.11. Chris „Action grundsätzlich schneller“: Eintritt bei 90 %
     );
@@ -385,7 +389,7 @@ function elementeTesterclub(E, api, klecks, tippbar) {
   const dose = $("#neu [data-dose]");
   if (dose) {
     tippbar(dose, { art: "objekt" });
-    klecks.interaktiv(dose, "dose", { antwort: () => E.antwort(dose, { gefuehl: "squee", ersatz: "aufgeregt", bezug: "blick" }) });
+    klecks.interaktiv(dose, "dose", { antwort: () => E.antwort(dose, { gefuehl: "funkeln", ersatz: "aufgeregt", bezug: "blick" }) }); // 17.11.: squee gesperrt (G4), funkeln ist XL
   }
   // #neu Nachspiel: die Lupe W-05 am Regal (einziges Ding der Seite); ohne XL nur das Gefühl
   const regal = $("#neu [data-regal]");

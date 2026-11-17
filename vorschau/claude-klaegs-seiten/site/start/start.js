@@ -693,7 +693,9 @@ if (arenaHandy && APPLE_LEICHT) {
    Nachspiel beim Verweilen: er stupst den Schloss-Hinweis an, ein kurzes „ups“ (zu bis Januar), dann zwinkert er ── */
 const arenaSek = $("#arena");
 if (arenaSek) {
-  E.kern("arena", arenaHandy ?? arenaSek, { gefuehl: "squee", ersatz: "aufgeregt", bezug: "blick", dauer: 1200 });
+  // 17.11. (Chris: „Versuche noch etwas mehr auf die dinge zu zeigen“, klaegs-beweis.mjs): entschlossen (XL, bereit zum Spielen)
+  // statt squee (gesperrt, spielte immer den Ersatz), dabei zeigt er aufs Handy
+  E.kern("arena", arenaHandy ?? arenaSek, { gefuehl: "entschlossen", ersatz: "aufgeregt", bezug: arenaHandy ? "zeigen" : "blick", dauer: 1200 });
   E.nachspiel("arena", $(".st-gesperrt", arenaSek), { gefuehl: "ups", bezug: "stupsen", dauer: 2000, danach: { gefuehl: "zwinkern" } });
 }
 
@@ -732,7 +734,8 @@ async function abzeichenZeichnen() {
 }
 // Kern beim Eintritt über die Element-Schnittstelle (eigener Beobachter: imBild wartet am Handy auf Scroll-Ruhe, der Kern
 // aber gehört in die ersten 600 ms nach dem Eintritt, auch beim Scrollen)
-if (abzeichen) E.kern("founder", abzeichen, { gefuehl: "funkeln", ersatz: "stolz", bezug: "blick", dauer: 1200 });
+// 17.11. (Chris: „Versuche noch etwas mehr auf die dinge zu zeigen“, klaegs-beweis.mjs): er zeigt aufs Abzeichen, es federt
+if (abzeichen) E.kern("founder", abzeichen, { gefuehl: "funkeln", ersatz: "stolz", bezug: "zeigen", dauer: 1200 });
 if (abzeichen) imBild(abzeichen, abzeichenZeichnen, { rand: "-10% 0px -22% 0px" }); // Takt 09.11.: früher (vorher -18 % / -30 %)
 
 /* ── Founder-Aktion: Tage bis zum 31.12.2026 (Kalendertage in Berlin), danach verschwindet der Zähler ──────────── */
@@ -971,7 +974,10 @@ s.tippbar($("[data-st-nochmal]"), { art: "knopf" });
 // K1 16.11. (KONZEPT 5 Start #testerclub): neu = neugierig. Neugieriger Blick auf „neuesten Produkte“, dann lugt er (Gesicht
 // „lugen“). Die Aktion lugen-rand entfällt an der Überschrift: sie legte ein Deckblatt mit verkleinerter Kopie über die
 // Schrift und endete oben auf dem Element (Aufnahme 16.11.)
-E.kern("testerclub", $("[data-bleed]", probe), { gefuehl: "neugier", bezug: "blick", dauer: 1200, danach: { gefuehl: "lugen" } });
+// 17.11. (Chris: „Versuche noch etwas mehr auf die dinge zu zeigen“, klaegs-beweis.mjs): Doppelblick aufs Mini-Survey, dabei
+// zeigt er auf die erste Antwort (Einladung zum Tippen); ohne Bogen wie bisher der Blick aufs Wort
+const ersteWahl = $("[data-st-wahl]", probe);
+E.kern("testerclub", ersteWahl ?? $("[data-bleed]", probe), { gefuehl: "doppelblick", ersatz: "neugier", bezug: ersteWahl ? "zeigen" : "blick", dauer: 1200, danach: { gefuehl: "lugen" } });
 imBild(probe, () => {
   // Violett ist „du“: eine ruhige Aquarellfläche hinter dem Bogen (CSS, Filter #v2-aquarell), keine Flecken
   $("[data-st-feld]")?.classList.add("ist-da");
