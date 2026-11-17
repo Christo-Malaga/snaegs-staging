@@ -372,7 +372,7 @@ function elementeTesterclub(E, api, klecks, tippbar) {
         io.disconnect();
         E.kern("neu", neuZiel(), { gefuehl: "doppelblick", ersatz: "neugier", bezug: "blick" }, { sofort: true });
       },
-      { rootMargin: "0px 0px -22% 0px" },
+      { rootMargin: "0px 0px -10% 0px" }, // 17.11. Chris „Action grundsätzlich schneller“: Eintritt bei 90 %
     );
     io.observe(neuS);
   }
