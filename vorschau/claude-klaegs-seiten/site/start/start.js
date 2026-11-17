@@ -976,7 +976,7 @@ s.tippbar($("[data-st-nochmal]"), { art: "knopf" });
 // Schrift und endete oben auf dem Element (Aufnahme 16.11.)
 // 17.11. (Chris: „Versuche noch etwas mehr auf die dinge zu zeigen“, klaegs-beweis.mjs): Doppelblick aufs Mini-Survey, dabei
 // zeigt er auf die erste Antwort (Einladung zum Tippen); ohne Bogen wie bisher der Blick aufs Wort
-const ersteWahl = $("[data-st-wahl]", probe);
+const ersteWahl = $("[data-st-mini]", probe) ?? $("[data-st-wahl]", probe); // das Handy mit dem echten Survey liegt näher als der Bogen
 E.kern("testerclub", ersteWahl ?? $("[data-bleed]", probe), { gefuehl: "doppelblick", ersatz: "neugier", bezug: ersteWahl ? "zeigen" : "blick", dauer: 1200, danach: { gefuehl: "lugen" } });
 imBild(probe, () => {
   // Violett ist „du“: eine ruhige Aquarellfläche hinter dem Bogen (CSS, Filter #v2-aquarell), keine Flecken

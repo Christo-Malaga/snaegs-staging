@@ -378,7 +378,8 @@ function elementeTesterclub(E, api, klecks, tippbar) {
         if (!es.some((e) => e.isIntersecting)) return;
         io.disconnect();
         // 17.11. (Chris: „Versuche noch etwas mehr auf die dinge zu zeigen“, klaegs-beweis.mjs): Doppelblick, dabei zeigt er auf die Dose
-        const z = neuZiel();
+        // das Ding immer direkt: liegt es noch unter dem Rand, beginnt der Kern mit dem Gefühl und zeigt, sobald es kommt
+        const z = doseK ?? regalK ?? neuZiel();
         E.kern("neu", z, { gefuehl: "doppelblick", ersatz: "neugier", bezug: z === titelNeu ? "blick" : "zeigen" }, { sofort: true });
       },
       { rootMargin: "0px 0px -10% 0px" }, // 17.11. Chris „Action grundsätzlich schneller“: Eintritt bei 90 %
