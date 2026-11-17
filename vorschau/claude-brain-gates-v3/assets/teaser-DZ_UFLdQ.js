@@ -1,0 +1,1 @@
+import{t as e}from"./teaser-lKz0eMCU.js";export{e as mountTeaser};

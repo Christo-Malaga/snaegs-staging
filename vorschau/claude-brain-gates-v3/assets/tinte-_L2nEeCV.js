@@ -1,0 +1,1 @@
+import{d as e}from"./tinte-D40t_cOO.js";export{e as tinteSofort};
