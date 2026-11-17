@@ -1,0 +1,1 @@
+import{t as e}from"./teaser-BTFBQjrl.js";export{e as mountTeaser};
