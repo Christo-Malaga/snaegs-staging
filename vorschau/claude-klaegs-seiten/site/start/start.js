@@ -958,31 +958,62 @@ imBild(probe, () => {
 
 /* ── 4 Dabei: Klecks hakt die drei Fakten in einem Zug ab und schreibt die Antwort hin ─────────────────────────────── */
 const dabei = $("#dabei");
-// K1 16.11. (KONZEPT 5 Start #dabei): Die Frage geht an dich, er hält die Hand hin (high-five-glas, Ersatz winken); den
-// Knopf betont danach der CTA-Boost. Beim Verweilen hakt er „Jetzt kostenlos voranmelden“ ab (Bestand, FB1: Klägs bleibt),
-// als einziges Nachspiel der Sektion; das „Ja!“ von Hand entfällt (ein Moment pro Sektion).
-E.kern("dabei", $("[data-st-dabei]", dabei), { gefuehl: "high-five-glas", ersatz: "winken", bezug: "blick", dauer: 1400 });
-E.nachspiel(
-  "dabei",
-  $(".st-dabei__fakten", dabei),
-  {
-    gefuehl: "zufrieden",
-    dauer: 3000,
-    tu: async ({ klecks: K, signal }) => {
-      const boxen = $$(".st-dabei__fakten .st-box", dabei);
-      if (!boxen.length || REDUZIERT) return void boxen.forEach((b) => b.classList.add("ist-angekreuzt"));
-      K.ausflug = true;
-      const liste = $(".st-dabei__fakten", dabei).getBoundingClientRect();
-      const nx = Math.min(innerWidth - K.R - 10, liste.right + K.R + 18);
-      const ny = liste.top + K.R * 0.9;
-      if (Math.hypot(K.x - nx, K.y - ny) > K.R) await huepfeHin(K, nx, ny, 22, 700);
-      if (signal?.aborted) return;
-      kern("Dabei: abhaken");
-      await markiere(K, "abhaken", null, { ziele: boxen, gefuehl: "zufrieden", halten: 200, stimmung: "froh", signal });
-    },
-  },
-  {},
-);
+// 17.11. (Chris, Android: „Klägs kreuzt nicht mehr an“): K1/B1 hatten das Abhaken zum Nachspiel gemacht (das Budget
+// sperrte es fast immer, „4-je-minute“) und das „Ja!“ gestrichen. Das Abhaken ist der Moment dieser Sektion: wieder Kern
+// wie live (direkt über das Leitmotiv, beim Eintritt, mit „Ja!“ und Zeigen auf den Knopf), kein zusätzliches high-five-glas.
+// Direkt über das Leitmotiv (fünf Takte, ein Stift), nicht über die Warteschlange: dort verdrängte ihn ein Hinweis der
+// Führung, bevor der erste Haken stand. Die Führung pausiert so lange.
+let dabeiGespielt = false;
+async function dabeiAbhaken() {
+  const api = await s.klecks;
+  const K = api?.klecks;
+  if (dabeiGespielt || !K?.da) return;
+  dabeiGespielt = true;
+  api.fuehrung?.halt?.(true);
+  try {
+    // Takt 09.11.: Kern ohne Vorlauf (vorher 0,35 s Pause und bis zu 2 s Warten); er hüpft auf einen Punkt auf dem Papier
+    K.ausflug = true; // eigener Gang: die Führung holt ihn nicht mitten im Abhaken auf ihren Platz zurück
+    // erst neben die Liste (kam er von weit her, fehlte sonst der erste Haken), dann in einem Zug abhaken
+    for (let t = 0; t < 600 && K.modus !== "sitzen"; t += 60) await warte(60);
+    const liste = $(".st-dabei__fakten", dabei).getBoundingClientRect();
+    const nx = Math.min(innerWidth - K.R - 10, liste.right + K.R + 18);
+    const ny = liste.top + K.R * 0.9;
+    if (!REDUZIERT && Math.hypot(K.x - nx, K.y - ny) > K.R) await huepfeHin(K, nx, ny, 26, 1000);
+    kern("Dabei: abhaken");
+    await markiere(K, "abhaken", null, { ziele: $$(".st-dabei__fakten .st-box"), gefuehl: "zufrieden", halten: 240, stimmung: "froh" });
+    const heim = () => {
+      const r = $(".st-dabei__aufruf", dabei).getBoundingClientRect();
+      return [Math.min(innerWidth - K.R - 10, r.right - K.R * 1.2), r.top - K.R + 3];
+    };
+    // 08.11. (Chris): die beiden Haken (FB1 11.11.: „Jetzt kostenlos voranmelden“, „150 Early-Bird-Punkte sichern“, vorher
+    // „Alles kostenlos“, „Start im Januar 2027“) werden zuerst abgehakt (oben); das kleine „Ja!“ kommt
+    // danach nur manchmal (Zufall), und zwar unter der Frage im freien Platz [data-st-ja], nie neben den Haken
+    const jaPlatz = $("[data-st-ja]", dabei);
+    if (jaPlatz && Math.random() < 0.5) {
+      await warte(REDUZIERT ? 0 : 600 + Math.random() * 1400);
+      await markiere(K, "schreiben", jaPlatz, { text: "Ja!", wo: "in", schrift: "hand", gefuehl: "stolz" });
+    }
+    // weg von seinem Ja! (er verdeckt nie Text): auf den Platz am Knopf
+    for (let t = 0; t < 1400 && (K.strich || K.formen || K.modus !== "sitzen"); t += 80) await warte(80);
+    const [hx, hy] = heim();
+    K.hopp(hx, hy, 28);
+    await warte(560);
+    // Hände: er zeigt auf den Knopf (ein Ziel, kein Wählen zwischen Antworten)
+    const knopf = $("[data-hauptknopf]", dabei);
+    K.schau(knopf);
+    if (!REDUZIERT) {
+      await warte(520);
+      await K.geste?.("zeigen", { ziel: knopf, dauer: 1100 });
+    }
+  } catch (e) {
+    console.warn("[start] dabei", e);
+  } finally {
+    K.ausflug = false;
+    api.fuehrung?.halt?.(false);
+    api.fuehrung?.platz?.(null);
+  }
+}
+imBild(dabei, dabeiAbhaken);
 for (const k of $$("[data-hauptknopf], [data-vorreg]")) s.tippbar(k, { art: "knopf" });
 
 /* ── Aquarellkanten an den Themenwechseln ───────────────────────────────────────────────────────────────────────── */
