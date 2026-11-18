@@ -1,0 +1,1 @@
+var e=null;function t(t,{vorSenden:n=()=>{},nachher:r=()=>{}}={}){e={kampagne:t,vorSenden:n,nachher:r}}var n=()=>e,r=null,i=e=>r=e??null,a=()=>r;export{t as i,a as n,i as r,n as t};
