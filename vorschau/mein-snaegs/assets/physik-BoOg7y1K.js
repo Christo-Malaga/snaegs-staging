@@ -1,0 +1,1 @@
+import{r as e}from"./physik-CW9oguMP.js";export{e as federStoss};
