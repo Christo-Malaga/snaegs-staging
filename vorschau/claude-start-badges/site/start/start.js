@@ -39,8 +39,7 @@ import { marke, markiere } from "../../src/klecks/leitmotiv.js";
 import { FOUNDER_ENDE } from "../zustand.js";
 import { introGewuenscht, klaegsIntro } from "./klaegs-intro.js";
 // SB 18.11.: die neuen Badges (Founder-Coin mit Reward in #founder, Erster Test, Winner, Founder-Badge in #dabei)
-import { founderBadge, founderCoin, kleinesBadge } from "./badges-start.js";
-import BADGE_F1 from "../v2/founder/seq/badge-f1-1.webp";
+import { founderNativ, kleinesBadge, COIN } from "./badges-start.js";
 
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -723,15 +722,16 @@ STRICH.then((B) => {
 
 /* ── SB 18.11. (Chris: „Ich möchte die Webseiten startseite mit den neuen Badges sehen“, nur Staging): Statt des
    gezeichneten Abzeichens (bis 18.11.: zeichnete sich beim Eintritt selbst, klecks/zeichnet.js ohne Klägs) steht der
-   Founder-Coin F1 mit dem Avatar GuteMine91. Der Reward-Erhalt spielt inline, sobald die Bühne zur Hälfte im Bild ist
-   (./badges-start.js). Klägs' Kern bleibt (G2): Er tippt stolz auf die Münze und funkelt; nur das Ziel ist neu. ── */
-const coinZiel = $("[data-st-coin]");
+   Founder-Coin F1 aus freigestellten Ebenen: rechts der Rahmen mit dem Pixel-Avatar, links kleiner die Badge; beim ersten
+   Eintritt baut sich der Rahmen auf, danach erscheint die Badge (./badges-start.js). Klägs' Kern bleibt (G2): Er tippt
+   stolz auf den Rahmen und funkelt; nur das Ziel ist neu. ── */
+// Ziel ist der Rahmen samt Luft darüber: Klägs setzt sich oben an sein Ziel und soll das Siegel nicht verdecken
+const coinZiel = $("[data-st-coin-ziel]");
 // Kern beim Eintritt über die Element-Schnittstelle (eigener Beobachter: imBild wartet am Handy auf Scroll-Ruhe, der Kern
 // aber gehört in die ersten 600 ms nach dem Eintritt, auch beim Scrollen)
 // KR 17.11. abends (Chris: „Vieles sieht einfach identisch aus“): eigener Bezug je Sektion, Nachbarn nicht gleich: er tippt stolz drauf (statt Zeigen wie in #testerclub und #arena)
 if (coinZiel) E.kern("founder", coinZiel, { gefuehl: "funkeln", ersatz: "stolz", bezug: "tippen", dauer: 1200 });
-founderBadge($("[data-st-founder-gross]"), BADGE_F1);
-founderCoin($("[data-st-coin]"), $("[data-st-coin-titel]"));
+founderNativ($("[data-st-coin]"), $("[data-st-founder-gross]"));
 // kleine Badges der Familie: Erster Test am Bogen (#testerclub), Winner am Game-Handy (#arena); Standbild und CSS-Idle
 for (const host of $$("[data-st-badge]")) kleinesBadge(host);
 // #dabei: das Founder-Badge als gebackenes Standbild der Münze (Größenklasse „Badge im Profil“); das Abhaken bleibt
@@ -740,7 +740,7 @@ for (const host of $$("[data-st-founder-badge]")) {
   img.alt = "";
   img.decoding = "async";
   img.loading = "lazy";
-  img.src = BADGE_F1;
+  img.src = COIN.badge;
   host.append(img);
 }
 
