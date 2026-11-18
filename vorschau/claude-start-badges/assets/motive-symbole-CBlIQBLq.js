@@ -1,0 +1,1 @@
+import{t as e}from"./motive-symbole-Ddgiclo1.js";export{e as MOTIVE};
