@@ -1,0 +1,1 @@
+import{n as e}from"./dinge-marke-JbCDcjUi.js";export{e as WORTMARKE};

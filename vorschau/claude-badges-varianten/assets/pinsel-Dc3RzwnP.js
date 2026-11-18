@@ -1,0 +1,1 @@
+import{r as e}from"./pinsel-DJm4MA5V.js";export{e as legePinsel};

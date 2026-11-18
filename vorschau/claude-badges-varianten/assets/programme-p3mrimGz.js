@@ -1,0 +1,1 @@
+async function e(e,{pause:t=()=>new Promise(e=>setTimeout(e,0)),weg:n=()=>!1}={}){let r=[...e.info?.programs??[]];for(let e of r){if(n()||(await t(),n()))return;try{e.getUniforms?.(),e.getAttributes?.()}catch{}}}var t=(e=300)=>()=>new Promise(t=>`requestIdleCallback`in window?requestIdleCallback(()=>t(),{timeout:e}):setTimeout(t,0));export{e as n,t};
