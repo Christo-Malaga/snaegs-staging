@@ -1,0 +1,1 @@
+import{t as e}from"./motive-tech-BVZJG2hF.js";export{e as MOTIVE};
