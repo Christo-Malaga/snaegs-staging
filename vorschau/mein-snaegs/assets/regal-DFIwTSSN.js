@@ -1,1 +1,0 @@
-import{n as e,t}from"./regal-BAenPez3.js";export{t as default,e as zeigeRegal};
