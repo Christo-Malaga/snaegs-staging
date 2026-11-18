@@ -38,6 +38,9 @@ import { ton } from "./klang.js";
 import { marke, markiere } from "../../src/klecks/leitmotiv.js";
 import { FOUNDER_ENDE } from "../zustand.js";
 import { introGewuenscht, klaegsIntro } from "./klaegs-intro.js";
+// SB 18.11.: die neuen Badges (Founder-Coin mit Reward in #founder, Erster Test, Winner, Founder-Badge in #dabei)
+import { founderCoin, kleinesBadge } from "./badges-start.js";
+import BADGE_F1 from "../v2/founder/seq/badge-f1-1.webp";
 
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -718,27 +721,27 @@ STRICH.then((B) => {
   }
 });
 
-/* ── Klägs zeichnet das Founder-Abzeichen selbst (N38): Er wird zum Strich und zieht die Kontur des Abzeichens aus der
-   Asset-Datenbank (klecks/zeichnet.js, die Linie ist die des Motivs), danach zieht das Motiv seine Details und färbt sich
-   golden ein. Klägs schaut stolz auf sein Werk. Einmal, wenn das Abzeichen gut im Bild ist und niemand scrollt. ── */
-const abzeichen = $("[data-st-klaegs-zeichnet]");
-let abzeichenDa = false;
-async function abzeichenZeichnen() {
-  if (abzeichenDa || !abzeichen) return;
-  abzeichenDa = true;
-  const nacht = !!abzeichen.closest(".v2-nacht");
-  const o = { ton: nacht ? "papier" : "tinte", farbe: abzeichen.dataset.farbe ?? "gold", groesse: abzeichen.getBoundingClientRect().width * 0.94 };
-  const { klaegsZeichnet } = await import("../v2/klecks/zeichnet.js");
-  // K1 16.11. (KONZEPT 5 Start #founder): Kern = funkeln am Abzeichen (Ersatz Stolz), während es sich zeichnet und golden
-  // einfärbt. Klägs zieht die Kontur nicht mehr selbst: das dauerte über 3 s und lag über dem Kern-Budget (1,4 s).
-  klaegsZeichnet(null, abzeichen, abzeichen.dataset.stMotiv, o);
-}
+/* ── SB 18.11. (Chris: „Ich möchte die Webseiten startseite mit den neuen Badges sehen“, nur Staging): Statt des
+   gezeichneten Abzeichens (bis 18.11.: zeichnete sich beim Eintritt selbst, klecks/zeichnet.js ohne Klägs) steht der
+   Founder-Coin F1 mit dem Avatar GuteMine91. Der Reward-Erhalt spielt inline, sobald die Bühne zur Hälfte im Bild ist
+   (./badges-start.js). Klägs' Kern bleibt (G2): Er tippt stolz auf die Münze und funkelt; nur das Ziel ist neu. ── */
+const coinZiel = $("[data-st-coin-ziel]");
 // Kern beim Eintritt über die Element-Schnittstelle (eigener Beobachter: imBild wartet am Handy auf Scroll-Ruhe, der Kern
 // aber gehört in die ersten 600 ms nach dem Eintritt, auch beim Scrollen)
-// 17.11. (Chris: „Versuche noch etwas mehr auf die dinge zu zeigen“, klaegs-beweis.mjs): er zeigt aufs Abzeichen, es federt
-// KR 17.11. abends (Chris: „Vieles sieht einfach identisch aus“): eigener Bezug je Sektion, Nachbarn nicht gleich: er tippt stolz aufs Abzeichen (statt Zeigen wie in #testerclub und #arena)
-if (abzeichen) E.kern("founder", abzeichen, { gefuehl: "funkeln", ersatz: "stolz", bezug: "tippen", dauer: 1200 });
-if (abzeichen) imBild(abzeichen, abzeichenZeichnen, { rand: "-10% 0px -22% 0px" }); // Takt 09.11.: früher (vorher -18 % / -30 %)
+// KR 17.11. abends (Chris: „Vieles sieht einfach identisch aus“): eigener Bezug je Sektion, Nachbarn nicht gleich: er tippt stolz drauf (statt Zeigen wie in #testerclub und #arena)
+if (coinZiel) E.kern("founder", coinZiel, { gefuehl: "funkeln", ersatz: "stolz", bezug: "tippen", dauer: 1200 });
+founderCoin($("[data-st-coin]"));
+// kleine Badges der Familie: Erster Test am Bogen (#testerclub), Winner am Game-Handy (#arena); Standbild und CSS-Idle
+for (const host of $$("[data-st-badge]")) kleinesBadge(host);
+// #dabei: das Founder-Badge als gebackenes Standbild der Münze (Größenklasse „Badge im Profil“); das Abhaken bleibt
+for (const host of $$("[data-st-founder-badge]")) {
+  const img = new Image();
+  img.alt = "";
+  img.decoding = "async";
+  img.loading = "lazy";
+  img.src = BADGE_F1;
+  host.append(img);
+}
 
 /* ── Founder-Aktion: Tage bis zum 31.12.2026 (Kalendertage in Berlin), danach verschwindet der Zähler ──────────── */
 function tageBisEnde() {

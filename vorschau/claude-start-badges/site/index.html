@@ -29,7 +29,7 @@
         }
       })();
     </script>
-    <script type="module" crossorigin src="/snaegs-staging/vorschau/claude-start-badges/assets/website-DNK68M5Z.js"></script>
+    <script type="module" crossorigin src="/snaegs-staging/vorschau/claude-start-badges/assets/website-CotBQf4I.js"></script>
     <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-start-badges/assets/modulepreload-polyfill-Dezn_h7o.js">
     <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-start-badges/assets/umgebung-KH9xfuQS.js">
     <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-start-badges/assets/rolldown-runtime-QTnfLwEv.js">
@@ -71,7 +71,7 @@
     <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-start-badges/assets/element-VfRakBSG.js">
     <link rel="stylesheet" crossorigin href="/snaegs-staging/vorschau/claude-start-badges/assets/style-6W3tpVMn.css">
     <link rel="stylesheet" crossorigin href="/snaegs-staging/vorschau/claude-start-badges/assets/bereich-DVKMm9vJ.css">
-    <link rel="stylesheet" crossorigin href="/snaegs-staging/vorschau/claude-start-badges/assets/website-DjnHjNiD.css">
+    <link rel="stylesheet" crossorigin href="/snaegs-staging/vorschau/claude-start-badges/assets/website-Bof0Ch_S.css">
     <link rel="stylesheet" crossorigin href="/snaegs-staging/vorschau/claude-start-badges/assets/testerclub-CO5nccF9.css">
     <link rel="stylesheet" crossorigin href="/snaegs-staging/vorschau/claude-start-badges/assets/wege-fDMuYQSM.css">
   </head>
@@ -169,15 +169,18 @@
           <p class="st-founder__frist"><span class="st-founder__ende">Founder-Aktion endet am 31.12.2026!</span> <span class="st-founder__tage" data-st-tage hidden></span></p>
           <p class="st-founder__satz">Wer sich bis dahin voranmeldet, wird Founder und bekommt obendrauf:</p>
         </div>
-        <div class="st-founder__pass">
-          <figure class="st-founder__ding st-founder__ding--abzeichen">
-            <span class="st-founder__bild" data-st-motiv="founder-abzeichen" data-farbe="gold" data-klaegs-bewundern="kern" data-st-klaegs-zeichnet aria-hidden="true"></span>
-            <figcaption><b>Founder-Abzeichen</b><span>exklusiv</span></figcaption>
-          </figure>
-          <figure class="st-founder__ding st-founder__ding--avatar">
-            <span class="st-founder__bild" data-st-motiv="founder-avatar" data-farbe="violett" aria-hidden="true"></span>
-            <figcaption><b>Founder-Avatar</b><span>limitiert</span></figcaption>
-          </figure>
+        <!-- SB 18.11. (Chris: „Ich möchte die Webseiten startseite mit den neuen Badges sehen“, nur Staging): statt der zwei
+             gezeichneten Dinge der Founder-Coin F1 (Runde 8, site/v2/founder) mit dem Avatar GuteMine91. Beim ersten Blick
+             spielt der Reward-Erhalt inline (Badge springt aus dem Kästchen, wirft sich, kommt als Rahmen mit Avatar zurück,
+             das Siegel schlägt auf), danach Idle; Antippen spielt ihn neu (site/start/badges-start.js). Abzeichen und Avatar
+             sind dieselbe Münze, die zwei Vorteile stehen darunter. Klägs tippt stolz auf die Münze (Kern wie bisher). -->
+        <div class="st-founder__pass st-founder__pass--coin">
+          <div class="st-coin" data-st-coin></div>
+          <span class="st-coin__ziel" data-st-coin-ziel data-klaegs-bewundern="kern" aria-hidden="true"></span>
+          <div class="st-coin__perks">
+            <p><b>Founder-Abzeichen</b><span>exklusiv</span></p>
+            <p><b>Founder-Avatar</b><span>limitiert</span></p>
+          </div>
           <span class="st-founder__sitz" data-sitz="founder" data-sitz-art="oben" data-sitz-u="0.5" aria-hidden="true"></span>
         </div>
         <ul class="st-founder__vorteile" data-klaegs-folge="tippen">
@@ -207,6 +210,12 @@
         <!-- 08.11. (Chris): hinter dem selbst bedienbaren Bogen ein kleines Handy mit dem echten Survey (Bildschirmaufnahme
              im Handy-Rahmen, wie bisher im Start-Hero), es unterstreicht, was das hier ist -->
         <div class="st-probe__buehne">
+        <!-- SB 18.11.: das Badge „Erster Test“ (Familie Founder-Coin, mit Klägs) am Bogen: das bekommst du für deinen ersten
+             Produkttest. Klein, Idle, kein eigener Reward (site/start/badges-start.js). -->
+        <figure class="st-probe__abz" role="img" aria-label="Abzeichen Erster Test">
+          <span data-st-badge="tester" data-grund="hell"></span>
+          <figcaption aria-hidden="true"><span>Abzeichen</span>Erster Test</figcaption>
+        </figure>
         <span class="st-mini" data-st-mini aria-hidden="true">
           <span class="st-geraet__schirm" data-st-mini-schirm>
             <video class="st-geraet__video" data-st-mini-video muted loop playsinline preload="none" poster="/snaegs-staging/vorschau/claude-start-badges/assets/survey-poster-DUBensuB.webp">
@@ -247,7 +256,11 @@
                Turniere kostenlos, Punkte und Boxen … dann nicht zum Game-Trailer, sondern zur Game Arena“) -->
           <h2 id="arena-titel" class="plakat st-arena__titel">Play it. Ab Januar kostenlos.</h2>
           <p class="st-arena__unter">Samstags zockst du im Turnier um Winner Boxen. Obendrauf zahlt jedes Game auf dein SNÄGS-Punktekonto ein, für deine nächste Reward&nbsp;Box.</p>
-          <div class="st-arena__handy" data-st-arena-handy aria-hidden="true"></div>
+          <!-- SB 18.11.: das Badge „Winner“ (Familie Founder-Coin) lehnt am Game-Handy: das gibt's im Samstagsturnier -->
+          <div class="st-arena__geraet">
+            <div class="st-arena__handy" data-st-arena-handy aria-hidden="true"></div>
+            <span class="st-arena__abz" role="img" aria-label="Abzeichen Winner"><span data-st-badge="sieger" data-grund="dunkel"></span></span>
+          </div>
         </div>
         <span class="st-arena__sitz" data-sitz="arena" data-sitz-art="mitte" aria-hidden="true"></span>
         <ul class="st-arena__liste">
@@ -296,13 +309,13 @@
             <h3 class="st-bereich__titel">Dein eigener Bereich</h3>
             <p class="st-bereich__satz">In der SNÄGS-App siehst du deinen Punktestand, wie weit es bis zur Reward&nbsp;Box ist, deine Serie und deine Abzeichen. Passt ein Test zu deinem Profil, kriegst du Bescheid.</p>
           </div>
-          <figure class="bereich" data-bereich role="img" aria-label="Beispiel deines Bereichs in der SNÄGS-App: Hallo, Lena, Founder. Punktekonto 1.650 Punkte, noch 850 bis zur Reward Box. Serie seit 6 Tagen, Wochen-Challenge 6 von 7 Tagen. Zuletzt 4 Punkte für eine Produktfrage, 2 für die Serie, 3 für den täglichen Login. Benachrichtigung: Neuer Test für dich, nüssje Strawberry Cheesecake passt zu deinem Profil.">
+          <figure class="bereich" data-bereich role="img" aria-label="Beispiel deines Bereichs in der SNÄGS-App: Hallo, GuteMine91, Founder. Punktekonto 1.650 Punkte, noch 850 bis zur Reward Box. Serie seit 6 Tagen, Wochen-Challenge 6 von 7 Tagen. Zuletzt 4 Punkte für eine Produktfrage, 2 für die Serie, 3 für den täglichen Login. Benachrichtigung: Neuer Test für dich, nüssje Strawberry Cheesecake passt zu deinem Profil.">
             <div class="bereich__handy" data-bereich-handy>
               <div class="bereich__schirm" data-bereich-schirm>
                 <div class="bereich__app">
                   <div class="bereich__kopf">
-                    <span class="bereich__avatar" data-bereich-motiv="founder-avatar" data-farbe="violett"></span>
-                    <p class="bereich__hallo"><b>Hallo, Lena!</b><span class="bereich__rang"><span class="bereich__abzeichen" data-bereich-motiv="founder-abzeichen" data-farbe="gold"></span>Founder</span></p>
+                    <span class="bereich__avatar st-avatar"><img src="/snaegs-staging/vorschau/claude-start-badges/img/avatar/gutemine91-16.png" alt="" width="46" height="46" decoding="async" loading="lazy" /></span>
+                    <p class="bereich__hallo"><b>Hallo, GuteMine91!</b><span class="bereich__rang"><span class="bereich__abzeichen" data-bereich-motiv="founder-abzeichen" data-farbe="gold"></span>Founder</span></p>
                   </div>
                   <div class="bereich__konto" data-bereich-dunkel>
                     <p class="bereich__label"><span class="bereich__muenze" data-bereich-motiv="muenze" data-farbe="gold"></span>Dein Punktekonto</p>
@@ -356,7 +369,7 @@
         </ul>
         <div class="st-dabei__aufruf" data-sitz="dabei" data-sitz-art="oben" data-sitz-u="0.85">
           <a class="v2-knopf v2-knopf--bonus v2-knopf--lang st-dabei__knopf" href="/snaegs-staging/vorschau/claude-start-badges/vorregistrierung.html?von=start-ende" data-vorreg="start-ende" data-hauptknopf data-naechstes="3">Jetzt voranmelden<span class="v2-bonus" aria-hidden="true"><span class="v2-muenze" data-muenze></span><span class="v2-bonus__plus">+150</span></span><span class="v2-sr">, 150 Early-Bird-Punkte</span></a>
-          <p class="st-dabei__founder"><span class="st-dabei__abzeichen" data-st-zeichen="founder-abzeichen" aria-hidden="true"></span><span>Jetzt Founder werden und im Januar 2027 mit 150 Extrapunkten starten.</span></p>
+          <p class="st-dabei__founder"><span class="st-dabei__abzeichen st-dabei__badge" data-st-founder-badge aria-hidden="true"></span><span>Jetzt Founder werden und im Januar 2027 mit 150 Extrapunkten starten.</span></p>
           <ul class="v2-vertrauen" aria-label="Sicher voranmelden"><li><span class="v2-vertrauen__zeichen v2-vertrauen__zeichen--schloss" aria-hidden="true"></span>SSL-verschlüsselt</li><li><span class="v2-vertrauen__zeichen v2-vertrauen__zeichen--sterne" aria-hidden="true"></span>DSGVO-konform</li><li><span class="v2-vertrauen__zeichen v2-vertrauen__zeichen--server" aria-hidden="true"></span>Server in Deutschland</li><li><span class="v2-vertrauen__zeichen v2-vertrauen__zeichen--brief" aria-hidden="true"></span>Kein Spam</li></ul>
         </div>
       </section>
