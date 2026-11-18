@@ -1,0 +1,1 @@
+import{n as e}from"./dinge-marke-CP64FP5m.js";export{e as WORTMARKE};
