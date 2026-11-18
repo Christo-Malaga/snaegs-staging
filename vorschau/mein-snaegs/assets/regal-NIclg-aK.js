@@ -1,1 +1,0 @@
-import{n as e,t}from"./regal-GwVjG5fx.js";export{t as default,e as zeigeRegal};
