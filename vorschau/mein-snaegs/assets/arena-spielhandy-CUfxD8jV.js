@@ -1,0 +1,1 @@
+var e=`/snaegs-staging/vorschau/mein-snaegs/assets/arena-spielhandy-BmvTW6Yo.webp`;export{e as t};

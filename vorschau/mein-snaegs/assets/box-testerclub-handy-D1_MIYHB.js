@@ -1,0 +1,1 @@
+var e=`/snaegs-staging/vorschau/mein-snaegs/assets/box-testerclub-handy-B-lLlID4.webp`;export{e as t};

@@ -1,0 +1,1 @@
+var e=`/snaegs-staging/vorschau/mein-snaegs/assets/snaegs-kopf-DpLZSmLl.svg`;export{e as t};

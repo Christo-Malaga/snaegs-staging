@@ -1,1 +1,0 @@
-import{n as e}from"./dinge-marke-Co3gF_XG.js";export{e as WORTMARKE};

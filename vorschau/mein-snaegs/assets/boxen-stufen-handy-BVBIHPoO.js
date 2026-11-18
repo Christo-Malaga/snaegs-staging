@@ -1,0 +1,1 @@
+var e=`/snaegs-staging/vorschau/mein-snaegs/assets/boxen-stufen-handy-PZlJI1rc.webp`;export{e as t};

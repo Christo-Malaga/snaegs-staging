@@ -1,0 +1,1 @@
+var e=`/snaegs-staging/vorschau/mein-snaegs/assets/snaegs-icon-B_BpntQP.svg`;export{e as t};
