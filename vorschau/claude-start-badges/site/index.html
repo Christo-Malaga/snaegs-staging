@@ -29,7 +29,7 @@
         }
       })();
     </script>
-    <script type="module" crossorigin src="/snaegs-staging/vorschau/claude-start-badges/assets/website-CotBQf4I.js"></script>
+    <script type="module" crossorigin src="/snaegs-staging/vorschau/claude-start-badges/assets/website-D32bP3-c.js"></script>
     <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-start-badges/assets/modulepreload-polyfill-Dezn_h7o.js">
     <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-start-badges/assets/umgebung-KH9xfuQS.js">
     <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-start-badges/assets/rolldown-runtime-QTnfLwEv.js">
@@ -71,7 +71,7 @@
     <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-start-badges/assets/element-VfRakBSG.js">
     <link rel="stylesheet" crossorigin href="/snaegs-staging/vorschau/claude-start-badges/assets/style-6W3tpVMn.css">
     <link rel="stylesheet" crossorigin href="/snaegs-staging/vorschau/claude-start-badges/assets/bereich-DVKMm9vJ.css">
-    <link rel="stylesheet" crossorigin href="/snaegs-staging/vorschau/claude-start-badges/assets/website-Bof0Ch_S.css">
+    <link rel="stylesheet" crossorigin href="/snaegs-staging/vorschau/claude-start-badges/assets/website-BMk0CmM6.css">
     <link rel="stylesheet" crossorigin href="/snaegs-staging/vorschau/claude-start-badges/assets/testerclub-CO5nccF9.css">
     <link rel="stylesheet" crossorigin href="/snaegs-staging/vorschau/claude-start-badges/assets/wege-fDMuYQSM.css">
   </head>
@@ -169,18 +169,22 @@
           <p class="st-founder__frist"><span class="st-founder__ende">Founder-Aktion endet am 31.12.2026!</span> <span class="st-founder__tage" data-st-tage hidden></span></p>
           <p class="st-founder__satz">Wer sich bis dahin voranmeldet, wird Founder und bekommt obendrauf:</p>
         </div>
-        <!-- SB 18.11. (Chris: „Ich möchte die Webseiten startseite mit den neuen Badges sehen“, nur Staging): statt der zwei
-             gezeichneten Dinge der Founder-Coin F1 (Runde 8, site/v2/founder) mit dem Avatar GuteMine91. Beim ersten Blick
-             spielt der Reward-Erhalt inline (Badge springt aus dem Kästchen, wirft sich, kommt als Rahmen mit Avatar zurück,
-             das Siegel schlägt auf), danach Idle; Antippen spielt ihn neu (site/start/badges-start.js). Abzeichen und Avatar
-             sind dieselbe Münze, die zwei Vorteile stehen darunter. Klägs tippt stolz auf die Münze (Kern wie bisher). -->
+        <!-- SB 18.11. (Chris: „Ich möchte die Webseiten startseite mit den neuen Badges sehen“, nur Staging; Präzisierung über den
+             Koordinator): Die zwei gezeichneten Dinge weichen dem Founder-Coin F1 (Runde 8, site/v2/founder). Links die Founder-
+             BADGE (Münze mit Kästchen und Haken, Idle; am Handy vorgerendert), rechts der Founder-Coin RAHMEN mit dem Avatar
+             GuteMine91 (Foto-Effekt Einzug, Idle). Beim ersten Eintritt spielt dort der Reward-Erhalt inline, sein Titel steht
+             unter beiden; Antippen spielt ihn neu (site/start/badges-start.js). Beschriftungen wie bisher. Klägs tippt stolz
+             auf den Rahmen (Kern wie bisher, nur das Ziel ist neu). -->
         <div class="st-founder__pass st-founder__pass--coin">
-          <div class="st-coin" data-st-coin></div>
-          <span class="st-coin__ziel" data-st-coin-ziel data-klaegs-bewundern="kern" aria-hidden="true"></span>
-          <div class="st-coin__perks">
-            <p><b>Founder-Abzeichen</b><span>exklusiv</span></p>
-            <p><b>Founder-Avatar</b><span>limitiert</span></p>
-          </div>
+          <figure class="st-founder__ding st-founder__ding--abzeichen">
+            <span class="st-founder__bild" data-st-founder-gross role="img" aria-label="Founder-Abzeichen: Münze mit Kästchen und Haken"></span>
+            <figcaption><b>Founder-Abzeichen</b><span>exklusiv</span></figcaption>
+          </figure>
+          <figure class="st-founder__ding st-founder__ding--avatar">
+            <span class="st-founder__bild st-coin" data-st-coin data-klaegs-bewundern="kern"></span>
+            <figcaption><b>Founder-Avatar</b><span>limitiert</span></figcaption>
+          </figure>
+          <div class="st-coin__titel" data-st-coin-titel aria-hidden="true"></div>
           <span class="st-founder__sitz" data-sitz="founder" data-sitz-art="oben" data-sitz-u="0.5" aria-hidden="true"></span>
         </div>
         <ul class="st-founder__vorteile" data-klaegs-folge="tippen">

@@ -39,7 +39,7 @@ import { marke, markiere } from "../../src/klecks/leitmotiv.js";
 import { FOUNDER_ENDE } from "../zustand.js";
 import { introGewuenscht, klaegsIntro } from "./klaegs-intro.js";
 // SB 18.11.: die neuen Badges (Founder-Coin mit Reward in #founder, Erster Test, Winner, Founder-Badge in #dabei)
-import { founderCoin, kleinesBadge } from "./badges-start.js";
+import { founderBadge, founderCoin, kleinesBadge } from "./badges-start.js";
 import BADGE_F1 from "../v2/founder/seq/badge-f1-1.webp";
 
 const $ = (s, r = document) => r.querySelector(s);
@@ -725,12 +725,13 @@ STRICH.then((B) => {
    gezeichneten Abzeichens (bis 18.11.: zeichnete sich beim Eintritt selbst, klecks/zeichnet.js ohne Klägs) steht der
    Founder-Coin F1 mit dem Avatar GuteMine91. Der Reward-Erhalt spielt inline, sobald die Bühne zur Hälfte im Bild ist
    (./badges-start.js). Klägs' Kern bleibt (G2): Er tippt stolz auf die Münze und funkelt; nur das Ziel ist neu. ── */
-const coinZiel = $("[data-st-coin-ziel]");
+const coinZiel = $("[data-st-coin]");
 // Kern beim Eintritt über die Element-Schnittstelle (eigener Beobachter: imBild wartet am Handy auf Scroll-Ruhe, der Kern
 // aber gehört in die ersten 600 ms nach dem Eintritt, auch beim Scrollen)
 // KR 17.11. abends (Chris: „Vieles sieht einfach identisch aus“): eigener Bezug je Sektion, Nachbarn nicht gleich: er tippt stolz drauf (statt Zeigen wie in #testerclub und #arena)
 if (coinZiel) E.kern("founder", coinZiel, { gefuehl: "funkeln", ersatz: "stolz", bezug: "tippen", dauer: 1200 });
-founderCoin($("[data-st-coin]"));
+founderBadge($("[data-st-founder-gross]"), BADGE_F1);
+founderCoin($("[data-st-coin]"), $("[data-st-coin-titel]"));
 // kleine Badges der Familie: Erster Test am Bogen (#testerclub), Winner am Game-Handy (#arena); Standbild und CSS-Idle
 for (const host of $$("[data-st-badge]")) kleinesBadge(host);
 // #dabei: das Founder-Badge als gebackenes Standbild der Münze (Größenklasse „Badge im Profil“); das Abhaken bleibt

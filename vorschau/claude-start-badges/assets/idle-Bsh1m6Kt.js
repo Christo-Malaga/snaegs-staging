@@ -1,0 +1,1 @@
+import{t as e}from"./idle-Dzsf79XL.js";export{e as idle};

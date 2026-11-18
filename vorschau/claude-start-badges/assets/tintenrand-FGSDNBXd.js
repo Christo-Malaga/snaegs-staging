@@ -1,0 +1,1 @@
+var e=`/snaegs-staging/vorschau/claude-start-badges/assets/einzug-BxzvGlVQ.webp`,t=`/snaegs-staging/vorschau/claude-start-badges/assets/tintenrand-CjMCZa1b.webp`;export{e as n,t};
