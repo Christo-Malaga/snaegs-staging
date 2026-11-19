@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>SNÄGS · Badges und Reward-Animationen (Entwurf)</title>
+<link rel="icon" href="../../partner/badges/founder-badge.png">
+<!-- Partnerseite (Chris 19.11.2026: Partnerseite für Walter Stephani „und alle zugehörigen Animationen etc. natürlich“).
+     Muster: LinkedIn-Partnerseite (snaegs-social-assets social/staging). Nur Staging, Branch claude/badges-partner, wird nie
+     übernommen. Live-Animation aus site/start/badges-start.js, Downloads in public/partner/badges/ (Quelle: SNÄGS Assets,
+     badges-und-rewards/). -->
+<style>
+  @font-face { font-family: "TikTok Sans"; font-style: normal; font-weight: 300 900; font-stretch: 75% 150%;
+    src: url(../../fonts/tiktok-sans-latin-var.woff2) format("woff2"); }
+  :root { --papier: #f7f6f2; --papier-tief: #ecebe5; --tinte: #191d16; --neben: #6b6a66; --nacht: #151812;
+    --nacht-papier: rgb(247 246 242 / 0.95); --nacht-neben: rgb(247 246 242 / 0.66); }
+  * { box-sizing: border-box; }
+  html { background: var(--papier); overflow-x: clip; }
+  body { margin: 0; color: var(--tinte); font: 16px/1.5 "TikTok Sans", system-ui, sans-serif; overflow-x: clip; }
+  .seite { max-width: 1180px; margin: 0 auto; padding: 40px 16px 72px; }
+  header img { height: 44px; display: block; }
+  h1 { margin: 26px 0 6px; font-size: clamp(30px, 5vw, 46px); line-height: 1.02; font-weight: 820; font-variation-settings: "opsz" 48, "wdth" 75; }
+  .stand { color: var(--neben); margin: 0 0 8px; max-width: 720px; }
+  h2 { margin: 64px 0 6px; font-size: 24px; line-height: 1.15; font-weight: 780; font-variation-settings: "opsz" 24, "wdth" 86; }
+  h3 { margin: 28px 0 8px; font-size: 17px; font-weight: 700; }
+  p.hinweis { margin: 0 0 16px; color: var(--neben); max-width: 720px; }
+  a { color: var(--tinte); font-weight: 600; text-underline-offset: 3px; }
+  .laden { margin: 12px 0 0; font-size: 14px; color: var(--neben); line-height: 1.7; }
+  .live { margin: 10px 0 0; font-size: 15px; }
+  .live a { margin-right: 14px; white-space: nowrap; }
+
+  /* Live: Founder-Coin wie in #founder der Startseite (auf Nacht) */
+  .nacht { margin: 18px -16px 0; padding: 44px 16px 40px; background: var(--nacht); color: var(--papier); }
+  @media (min-width: 1212px) { .nacht { margin-inline: 0; border-radius: 8px; } }
+  .buehne { max-width: 460px; margin: 0 auto; }
+  .st-founder__pass { position: relative; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 18px; align-items: end; }
+  .st-founder__ding { margin: 0; display: grid; justify-items: center; row-gap: 12px; }
+  .st-founder__ding figcaption { display: grid; justify-items: center; row-gap: 2px; text-align: center; }
+  .st-founder__ding figcaption b { font-size: 17px; font-weight: 760; font-variation-settings: "opsz" 18, "wdth" 90; color: var(--papier); }
+  .st-founder__ding figcaption span { font-size: 14.5px; color: var(--nacht-neben); }
+  .nochmal { display: block; margin: 30px auto 0; padding: 9px 18px; border: 1.5px solid var(--nacht-papier); border-radius: 999px; background: none;
+    color: var(--papier); font: 600 15px "TikTok Sans", sans-serif; cursor: pointer; }
+  @media (min-width: 900px) { .buehne { max-width: 520px; } }
+
+  /* Medien */
+  .reihe { display: grid; gap: 22px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); align-items: start; }
+  .reihe--breit { grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr)); }
+  figure.medium { margin: 0; }
+  .medium video, .medium img.bild { display: block; width: 100%; height: auto; background: #fff; border-radius: 8px;
+    box-shadow: 0 1px 0 rgba(0,0,0,.06), 0 10px 30px rgba(25,29,22,.10); }
+  .medium video.hoch { max-height: 560px; width: auto; max-width: 100%; margin: 0 auto; }
+  .medium figcaption { margin-top: 8px; font-size: 14px; color: var(--neben); }
+  .kacheln { display: flex; flex-wrap: wrap; gap: 18px; }
+  .kachel { margin: 0; width: 160px; }
+  .kachel span.flaeche { display: grid; place-items: center; aspect-ratio: 1; border-radius: 8px; background: var(--papier-tief); }
+  .kachel--nacht span.flaeche { background: var(--nacht); }
+  .kachel img { width: 82%; height: auto; display: block; image-rendering: auto; }
+  .kachel img.pixel { image-rendering: pixelated; width: 60%; border-radius: 50%; }
+  .kachel figcaption { margin-top: 8px; font-size: 14px; color: var(--neben); line-height: 1.4; }
+  /* klein und live: Erster Test, Winner (Standbild aus der 3D-Szene, Idle per CSS) */
+  .klein-live { display: grid; place-items: center; padding: 26px 0; border-radius: 8px; background: var(--papier-tief); }
+  .klein-live .st-abz { --px: 150px; }
+  footer { margin-top: 72px; color: var(--neben); font-size: 14px; }
+</style>
+  <script type="module" crossorigin src="/snaegs-staging/vorschau/claude-badges-partner/assets/partner-badges-Co9pVVdV.js"></script>
+  <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-badges-partner/assets/modulepreload-polyfill-Dezn_h7o.js">
+  <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-badges-partner/assets/umgebung-KH9xfuQS.js">
+  <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-badges-partner/assets/preload-helper-jX6vT36v.js">
+  <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-badges-partner/assets/ruhe-CPRKRlbF.js">
+  <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/claude-badges-partner/assets/badges-start-CR_wpYF5.js">
+  <link rel="stylesheet" crossorigin href="/snaegs-staging/vorschau/claude-badges-partner/assets/badges-start-DVb5K47g.css">
+</head>
+<body>
+<div class="seite">
+  <header><img src="../../partner/badges/snaegs-wortmarke.svg" alt="SNÄGS"></header>
+  <h1>Badges und Reward-Animationen</h1>
+  <p class="stand">Entwürfe, Stand 19. November 2026. Drei Badges einer Familie: der Founder-Coin für alle, die sich bis 31.12.2026 voranmelden, „Erster Test“ im Testerclub und „Winner“ für das Samstagsturnier der Game Arena. Die Animationen laufen hier live im Browser; Videos und freigestellte Bilder lassen sich laden.</p>
+
+  <h2>Founder-Coin auf der Startseite</h2>
+  <p class="hinweis">Zuerst erscheint der Rahmen mit dem Avatar, danach die Founder-Badge. Beide sind freigestellt und bewegen sich ohne WebGL, auch am Handy. Antippen des Rahmens spielt den Auftritt noch einmal.</p>
+  <div class="nacht">
+    <div class="buehne">
+      <div class="st-founder__pass st-founder__pass--coin">
+        <figure class="st-founder__ding st-founder__ding--abzeichen">
+          <span class="st-founder__bild"><span data-st-founder-gross role="img" aria-label="Founder-Abzeichen: Münze mit Kästchen und Haken"></span></span>
+          <figcaption><b>Founder-Abzeichen</b><span>exklusiv</span></figcaption>
+        </figure>
+        <figure class="st-founder__ding st-founder__ding--avatar">
+          <span class="st-founder__bild"><span data-st-coin></span></span>
+          <figcaption><b>Founder-Avatar</b><span>limitiert</span></figcaption>
+        </figure>
+      </div>
+      <button type="button" class="nochmal" data-nochmal>Nochmal ansehen</button>
+    </div>
+  </div>
+  <p class="live">Live: <a href="../index.html#founder">Startseite, Abschnitt „Sei von Anfang an dabei!“</a></p>
+
+  <h3>Freigestellte Bilder (PNG mit Transparenz)</h3>
+  <div class="kacheln">
+    <figure class="kachel"><span class="flaeche"><img src="../../partner/badges/founder-badge.png" alt="Founder-Badge"></span>
+      <figcaption><a href="../../partner/badges/founder-badge.png" download>Founder-Badge</a><br>560 × 560</figcaption></figure>
+    <figure class="kachel kachel--nacht"><span class="flaeche"><img src="../../partner/badges/founder-rahmen-mit-avatar.png" alt="Founder-Rahmen mit Avatar"></span>
+      <figcaption><a href="../../partner/badges/founder-rahmen-mit-avatar.png" download>Rahmen mit Avatar</a><br>840 × 840</figcaption></figure>
+    <figure class="kachel"><span class="flaeche"><img src="../../partner/badges/founder-rahmen-leer.png" alt="Founder-Rahmen ohne Bild"></span>
+      <figcaption><a href="../../partner/badges/founder-rahmen-leer.png" download>Rahmen ohne Bild</a><br>840 × 840, Fenster durchsichtig</figcaption></figure>
+    <figure class="kachel"><span class="flaeche"><img class="pixel" src="../../partner/badges/avatar-pixel-512.png" alt="Pixel-Avatar"></span>
+      <figcaption><a href="../../partner/badges/avatar-pixel-512.png" download>Pixel-Avatar</a><br>512 × 512, frei erfunden</figcaption></figure>
+  </div>
+  <h3>So steht es auf der Seite</h3>
+  <div class="reihe reihe--breit">
+    <figure class="medium"><img class="bild" src="../../partner/badges/startseite-founder-handy.png" alt="Startseite am Handy: Founder-Abzeichen und Founder-Avatar" loading="lazy">
+      <figcaption>Handy, 390 px · <a href="../../partner/badges/startseite-founder-handy.png" download>laden</a></figcaption></figure>
+    <figure class="medium"><img class="bild" src="../../partner/badges/startseite-desktop.png" alt="Startseite am Desktop: Founder, Testerclub, Arena, Voranmeldung" loading="lazy">
+      <figcaption>Desktop, 1440 px: Founder, Testerclub, Game Arena, Voranmeldung · <a href="../../partner/badges/startseite-desktop.png" download>laden</a></figcaption></figure>
+  </div>
+
+  <h2>Founder-Coin: Reward „Abgehakt“</h2>
+  <p class="hinweis">Der Moment, in dem man Founder wird: Ein leeres Kästchen wird abgehakt, die Münze springt heraus, dreht sich und zeigt das eigene Profilfoto im Founder-Rahmen. Danach wiegt sich die Münze ruhig im Idle. Die Fotos im Video sind Testfotos (Unsplash).</p>
+  <p class="live">Live: <a href="../v2/founder.html?erhalt=1">Reward</a> <a href="../v2/founder.html?idle=1">Idle</a> <a href="../v2/founder.html?reward=0">Rahmen und Badge mit eigenem Foto</a> <a href="../v2/founder.html?groessen=1">alle Größen</a></p>
+  <div class="reihe">
+    <figure class="medium"><video class="hoch" src="../../partner/badges/founder-reward-handy.mp4" muted loop playsinline controls preload="metadata"></video>
+      <figcaption>Reward am Handy, 5 s · <a href="../../partner/badges/founder-reward-handy.mp4" download>MP4</a></figcaption></figure>
+    <figure class="medium"><video class="hoch" src="../../partner/badges/founder-idle-handy.mp4" muted loop playsinline controls preload="metadata"></video>
+      <figcaption>Idle am Handy, 16 s · <a href="../../partner/badges/founder-idle-handy.mp4" download>MP4</a></figcaption></figure>
+  </div>
+  <div class="reihe reihe--breit" style="margin-top:22px">
+    <figure class="medium"><video src="../../partner/badges/founder-reward-desktop.mp4" muted loop playsinline controls preload="metadata"></video>
+      <figcaption>Reward am Desktop, 5 s · <a href="../../partner/badges/founder-reward-desktop.mp4" download>MP4</a></figcaption></figure>
+    <figure class="medium"><video src="../../partner/badges/founder-idle-desktop.mp4" muted loop playsinline controls preload="metadata"></video>
+      <figcaption>Idle am Desktop, 20 s · <a href="../../partner/badges/founder-idle-desktop.mp4" download>MP4</a></figcaption></figure>
+    <figure class="medium"><img class="bild" src="../../partner/badges/founder-reward-storyboard.png" alt="Storyboard des Rewards Abgehakt in acht Bildern" loading="lazy">
+      <figcaption>Storyboard, 3,9 s in acht Schritten · <a href="../../partner/badges/founder-reward-storyboard.png" download>PNG</a></figcaption></figure>
+  </div>
+
+  <h2>Erster Test (Testerclub)</h2>
+  <p class="hinweis">Für den ersten Produkttest: eine Plakette in der Form unseres Kästchens, darin das Paket mit Klägs. Im Reward „Gestempelt“ setzt Klägs den Haken selbst: Er stempelt das Paket, die Plakette steigt heraus, und er springt darauf.</p>
+  <p class="live">Live: <a href="../v2/badges.html?reward=tester">Reward</a> <a href="../v2/badges.html?idle=tester">Idle</a></p>
+  <div class="reihe">
+    <figure class="medium"><div class="klein-live"><span data-st-badge="tester" data-grund="hell"></span></div>
+      <figcaption>Live, wie im Testerclub-Abschnitt der Startseite · <a href="../../partner/badges/erster-test.png" download>PNG 640 × 640</a></figcaption></figure>
+    <figure class="medium"><video class="hoch" src="../../partner/badges/erster-test-reward-handy.mp4" muted loop playsinline controls preload="metadata"></video>
+      <figcaption>Reward am Handy, 12 s · <a href="../../partner/badges/erster-test-reward-handy.mp4" download>MP4</a></figcaption></figure>
+    <figure class="medium"><img class="bild" src="../../partner/badges/erster-test-reward-storyboard.png" alt="Storyboard des Rewards Gestempelt" loading="lazy">
+      <figcaption>Storyboard · <a href="../../partner/badges/erster-test-reward-storyboard.png" download>PNG</a></figcaption></figure>
+  </div>
+
+  <h2>Winner (Game Arena)</h2>
+  <p class="hinweis">Für die Gewinner des Samstagsturniers, die besten 20 von 200: ein Sechseck mit Pokal und zwei Bandenden. Im Reward „Der Raum“ bleiben von 200 Spielern erst 60, dann 20; danach steigt die Plakette wie eine hochgeworfene Münze.</p>
+  <p class="live">Live: <a href="../v2/badges.html?reward=sieger">Reward</a> <a href="../v2/badges.html?idle=sieger">Idle</a></p>
+  <div class="reihe">
+    <figure class="medium"><div class="klein-live"><span data-st-badge="sieger" data-grund="hell"></span></div>
+      <figcaption>Live, wie im Arena-Abschnitt der Startseite · <a href="../../partner/badges/winner.png" download>PNG 640 × 640</a></figcaption></figure>
+    <figure class="medium"><video class="hoch" src="../../partner/badges/winner-reward-handy.mp4" muted loop playsinline controls preload="metadata"></video>
+      <figcaption>Reward am Handy, 8 s · <a href="../../partner/badges/winner-reward-handy.mp4" download>MP4</a></figcaption></figure>
+    <figure class="medium"><img class="bild" src="../../partner/badges/winner-reward-storyboard.png" alt="Storyboard des Rewards Der Raum" loading="lazy">
+      <figcaption>Storyboard · <a href="../../partner/badges/winner-reward-storyboard.png" download>PNG</a></figcaption></figure>
+  </div>
+
+  <h2>Die Familie</h2>
+  <p class="hinweis">Alle drei Badges groß und in den kleinen Größen 32 und 20 px, auf Papier und auf Nacht.</p>
+  <p class="live">Live: <a href="../v2/badges.html?familie=1">Familie</a></p>
+  <figure class="medium" style="margin:0;max-width:900px"><img class="bild" src="../../partner/badges/familie.png" alt="Founder-Coin, Erster Test und Winner als Familie" loading="lazy">
+    <figcaption><a href="../../partner/badges/familie.png" download>PNG</a></figcaption></figure>
+
+  <footer>Entwurf, nur zur Abstimmung. Weitere Entwürfe: <a href="https://christo-malaga.github.io/snaegs-staging/vorschau/linkedin-assets/">LinkedIn-Auftritt</a>. Schrift: TikTok Sans (SIL Open Font License). Testfotos: Unsplash-Lizenz.</footer>
+</div>
+</body>
+</html>
