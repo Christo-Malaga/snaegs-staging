@@ -1,1 +1,0 @@
-import{d as e}from"./tinte-CjaU90TV.js";export{e as tinteSofort};

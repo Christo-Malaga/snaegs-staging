@@ -8,6 +8,8 @@ import * as G from "./stift/gesten.js";
 import * as E from "./stift/emotion.js";
 import { legePinsel, bluete, FARBE } from "./pinsel.js";
 import { Klecks, rolleR } from "./klecks/klecks.js";
+import { APPLE_LEICHT } from "./umgebung.js";
+import { gebackeneBluete } from "./klecks/bluete-leicht.js";
 
 export { stift, boxIn, grundlinie, G, E, bluete, FARBE };
 
@@ -87,16 +89,24 @@ export function seitenOptionen(o = {}) {
  * Rolle (o.rolle): „seite“ = Guide auf Webseiten (R 24 Handy, sonst o.R ?? 34), „survey“ = deutlich größer
  * (R 42 Handy / 48, klecks.js ROLLEN). Ohne Angabe: Seiten mit #survey sind Surveys.
  * Links mit data-stift-hover unterstreicht der Stift, Knöpfe mit data-stift-kreis kreist er ein.
+ * o.papierMs: höchstens so lange auf die Papierkarte warten (Standard: bis sie steht). Website v2 17.11. (Chris: „Beginne
+ * die Action grundsätzlich schneller“): 0, Klecks entsteht sofort; Spur und Körper nehmen das Papier, sobald es steht
+ * (spur.js Zufallszahn bis dahin, klecks.js Tinte ohne Muster), gemessen bis 1,1 s Wartezeit vor der Geburt.
  */
 export async function starteSeite(o = {}) {
   legePapier();
   legePinsel();
-  await Promise.all([document.fonts.ready, papier.ready]);
+  const bogen = o.papierMs == null ? papier.ready : Promise.race([papier.ready, new Promise((r) => setTimeout(r, o.papierMs))]);
+  await Promise.all([document.fonts.ready, bogen]);
   const rolle = o.rolle ?? VOR.rolle ?? (document.getElementById("survey") ? "survey" : "seite");
   const klecks = new Klecks({
     R: rolle === "seite" ? (innerWidth < 700 ? 24 : (o.R ?? 34)) : rolleR(rolle),
     pinsel: (rect, farbe) => {
       const liste = (Array.isArray(farbe) ? farbe : [farbe]).map((f) => FARBE[f]);
+      if (APPLE_LEICHT) {
+        const g = gebackeneBluete(rect, liste[0], { spread: 0.35, body: 0.7, wachsen: 1800, halten: 2600 });
+        if (g) return g;
+      }
       return bluete(rect, liste[0], { pigments: liste, duration: 1800, coverage: 0.5, spread: 0.35, body: 0.7, textSafe: false, avoid: "none", persist: 2600 });
     },
   });
@@ -140,10 +150,12 @@ export async function starteSeite(o = {}) {
 /**
  * Klecks entsteht: Der Stift setzt einen Punkt, der Punkt schwillt an und öffnet die Augen.
  * host-lokal x/y = Unterkante, auf der er sitzen wird.
+ * o.kurz (Promise, Website v2 17.11.): erfüllt sie sich, bevor der Punkt fertig ist (der Nutzer scrollt schon), ist er
+ * sofort da; der Punkt verblasst wie sonst auch. Ohne o.kurz unverändert.
  */
-export function geburt(klecks, host, x, y) {
+export function geburt(klecks, host, x, y, o = {}) {
   const punkt = stift.zeichne(host, G.punkt(x, y - 3, 900, { r: 3.2 }), { sofort: true, stimmung: "ruhig", warte: 260 });
-  return punkt.fertig.then(() => {
+  return (o.kurz ? Promise.race([punkt.fertig, o.kurz]) : punkt.fertig).then(() => {
     const hb = host.getBoundingClientRect();
     klecks.geboren(hb.left + x, hb.top + y - klecks.R + 2);
     setTimeout(() => punkt.verblasse(500), 120);

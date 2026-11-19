@@ -1,0 +1,1 @@
+import{t as e}from"./motive-konsum-D8FSqJul.js";export{e as MOTIVE};

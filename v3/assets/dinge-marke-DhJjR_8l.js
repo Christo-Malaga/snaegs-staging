@@ -1,0 +1,1 @@
+import{n as e}from"./dinge-marke-B29tk34G.js";export{e as WORTMARKE};

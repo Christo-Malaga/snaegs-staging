@@ -1,0 +1,1 @@
+import{t as e}from"./klecks-DIf7NtYf.js";export{e as Klecks};

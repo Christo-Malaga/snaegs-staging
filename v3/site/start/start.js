@@ -20,16 +20,24 @@
 //   3 Founder-Aktion (Nacht, v3): Abzeichen und Avatar aus der Asset-Datenbank (strich/motive-founder.js), Tage-Zähler bis
 //     31.12.2026; Klägs bewundert, tippt die Vorteile an und feiert den Knopf über den CTA-Boost (data-klaegs-*).
 //   4 Testerclub (violett, echter Mini-Fragebogen), Game Arena (Nacht, Knopf gesperrt), Punkte (drei Schritte, Klägs zieht
-//     sie entlang, daneben die 3D-Reward-Box mit Produkten), Schluss (Gold, „Alles kostenlos“ groß zum Abhaken).
+//     sie entlang, daneben die 3D-Reward-Box mit Produkten), Schluss (Gold, „Jetzt kostenlos voranmelden“ groß zum
+//     Abhaken, FB1 11.11.).
 // Fremde Module nur per Import: site/v2/start.js, site/v2/wege, site/v2/strich, site/v2/schau/box3d.js,
 // site/arena/teaser, site/v2/klecks/spiel.js, src/klecks/leitmotiv.js.
 // Regie (site/KLECKS-REGIE.md): kein Headset auf der Startseite. Jedes Zeichen kommt aus der Asset-Datenbank.
 
 import { seite, imBild, brumm, auftauchen, kern } from "../v2/start.js";
+import { elemente, traeger } from "../v2/klecks/element.js";
+import { inRuhe, nahe } from "../v2/strich/ruhe.js";
+import { APPLE_LEICHT } from "../../src/umgebung.js";
+// 12.11. iPhone/iPad (APPLE_LEICHT): Standbilder aus genau diesen 3D-Szenen statt WebGL-Aufbau mitten im Scrollen
+import ARENA_STANDBILD from "./standbild/arena-ausschnitt.webp";
+import REWARD_STANDBILD from "./standbild/reward-box.webp";
 import { entstehung } from "./entstehung.js";
 import { ton } from "./klang.js";
 import { marke, markiere } from "../../src/klecks/leitmotiv.js";
 import { FOUNDER_ENDE } from "../zustand.js";
+import { introGewuenscht, klaegsIntro } from "./klaegs-intro.js";
 
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -37,6 +45,19 @@ const html = document.documentElement;
 const MODUS = html.dataset.ent ?? "aus";
 const REDUZIERT = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const warte = (ms) => new Promise((r) => setTimeout(r, ms));
+/* FB1-K 11.11. (Chris: „… bei Starterwebseite … ein Klägs-Intro …, wo nur Klägs gezeigt wird, alles andere vielleicht
+   ausgeblendet wird und er spricht zu dir“): beim ersten Besuch je Gerät stellt sich Klägs vor (./klaegs-intro.js), danach
+   läuft der Hero-Moment wie gehabt. Solange lüftet die Arena nicht von selbst und die Testerclub-Story wartet (beides
+   liefe sonst ungesehen hinter dem Schleier ab). */
+const INTRO = MODUS === "aus" && introGewuenscht();
+let introFertig;
+const introVorbei = INTRO ? new Promise((r) => (introFertig = r)) : Promise.resolve();
+/** P2 11.11.: bis dahin läuft ein schwerer Moment (Klägs' Bestätigung am Bogen); schwere Aufbauten warten so lange */
+let lastBis = 0;
+/** P2 11.11.: die Hero-Story ist durch (oder kommt nicht); erst danach baut die Seite weitere 3D-Bühnen vorab */
+let heroFertig;
+const HERO_FERTIG = new Promise((r) => (heroFertig = r));
+setTimeout(() => heroFertig(), INTRO ? 20000 : 12000); // mit Klägs-Intro (~7 s) startet die Story später
 
 const held = $("#held");
 const sitzEl = $("[data-st-sitz]");
@@ -67,9 +88,8 @@ const sitz = () => {
 };
 
 /* ── Abläufe je Sektion (Quintessenz, je ≤ 4 s), gespielt vom Regisseur der Seite ─────────────────────────────── */
-const ABLAEUFE = {
-  probe: [{ gefuehl: "lauschen", warte: 1200 }],
-};
+// K1 16.11.: die Sektionen spielen ihre Kernhandlung über die Element-Schnittstelle (E unten), nicht mehr als Ablauf hier
+const ABLAEUFE = {};
 
 const s = seite({
   seite: "start",
@@ -77,10 +97,29 @@ const s = seite({
   R: 30,
   geburt: false,
   ablaeufe: ABLAEUFE,
-  einmal: ["probe"],
+  einmal: [],
   immerScharf: ["[data-st-arena]", "[data-st-mehr]", "[data-st-weg]"],
 });
 window.__start = { s, MODUS };
+
+/* ── K1 16.11. Klägs XL auf den Seiten (docs/konzepte/klaegs-seiten/KONZEPT.md 5, Start): je Sektion eine Kernhandlung
+   am Element beim Eintritt, höchstens ein Nachspiel beim Verweilen, Antworten auf jede Eingabe; Budget und Protokoll in
+   site/v2/klecks/element.js. Gefühle XL tragen, ein Ding gibt es nur einmal (M-10 an der Reward Box). ── */
+const E = elemente(s, { seite: "start" });
+window.__start.E = E;
+// Ruhe: Fuß und „Wohin jetzt?“ (KONZEPT 6), dort nur Blick
+E.ruhe(".v2-fuss");
+E.ruhe("[data-v2='naechste']");
+/** Antwort auf das Antippen einer Welt oben: aufgeregt und zeigt aufs Gerät, je Welt einmal (KONZEPT 5 Start #held) */
+const weltGetippt = new Set();
+function weltAntwort(welt, el) {
+  const k = s.api?.klecks;
+  if (!k?.da || k.griff || k.strich) return;
+  // im Hero-Moment (er führt sich selbst) oder schon gefeiert: nur der Blick
+  if (k.ausflug || weltGetippt.has(welt)) return void k.schau?.(el);
+  weltGetippt.add(welt);
+  E.antwort(el, { gefuehl: "aufgeregt", bezug: "zeigen", dauer: 800 }, { sektion: "held" });
+}
 
 /* ── Testerclub-Gerät: der Rahmen ist das 3D-Handy des Game-Teasers (freigestellt, survey/handy-rahmen.webp), darin
    die Bildschirmaufnahme des echten Surveys. Der Bildschirm sitzt per matrix3d genau in den gemessenen Ecken
@@ -145,23 +184,29 @@ function tc3dLos() {
           const k = s.api?.klecks;
           if (id !== "dose" || !k?.da || k.ausflug || k.griff || k.strich || k.formen || REDUZIERT) return;
           k.schau(clubGeraet);
-          setTimeout(() => k.fuehle?.("staunen-leise"), 320);
+          setTimeout(() => k.fuehle?.("neugier"), 320); // K1 16.11.: staunen-leise fiel in Runde 4 durch
         },
       }),
     )
     .then((api) => {
       tc3d = api;
       window.__start.tc3d = api;
-      api?.start();
+      introVorbei.then(() => api?.start());
     })
     .catch((e) => console.warn("[start] Testerclub 3D", e));
 }
 // Prüfhilfe: ?tc3d=aus lässt die Story weg (Vergleichsmessung der Frame-Zeiten), Rahmen und Poster bleiben
-if (!/[?&]tc3d=aus\b/.test(location.search)) imBild(clubGeraet, () => ("requestIdleCallback" in window ? requestIdleCallback(tc3dLos, { timeout: 1200 }) : setTimeout(tc3dLos, 300)), { rand: "0px" });
+// 12.11. iPhone/iPad (APPLE_LEICHT): Aufbau nur in einer ruhigen Lücke (ruhe.js), nie mitten im ersten Scrollen (der
+// Leerlauf-Rückruf mit Frist 1,2 s fiel sonst in eine Scrollbewegung)
+const tc3dPlanen = () => (APPLE_LEICHT ? inRuhe(tc3dLos, { vorn: true }) : "requestIdleCallback" in window ? requestIdleCallback(tc3dLos, { timeout: 1200 }) : setTimeout(tc3dLos, 300));
+if (!/[?&]tc3d=aus\b/.test(location.search)) imBild(clubGeraet, tc3dPlanen, { rand: "0px" });
 // 08.11. (Chris: „wenn Klick auf SNÄGS Testerclub Animation auch auf Testerclubseite wechseln, analog zu Game-Arena-
 // Mechanik“): Antippen führt zur Testerclub-Seite (mit Strg/Cmd in einem neuen Tab, wie ein Link), Enter ebenso
 const clubZiel = clubGeraet?.dataset.href || "/snaegs-staging/v3/site/testerclub.html?von=start-held";
-const zumClub = (e) => (e.ctrlKey || e.metaKey ? window.open(clubZiel, "_blank", "noopener") : location.assign(clubZiel));
+const zumClub = (e) => {
+  weltAntwort("club", clubGeraet);
+  return e.ctrlKey || e.metaKey ? window.open(clubZiel, "_blank", "noopener") : location.assign(clubZiel);
+};
 clubGeraet?.addEventListener("click", zumClub);
 clubGeraet?.addEventListener("keydown", (e) => e.key === "Enter" && zumClub(e));
 s.tippbar(clubGeraet, { art: "karte" });
@@ -175,7 +220,7 @@ const teaserDa = import("../arena/teaser/index.js")
     // wippt einmal (Klägs schaut hin), dann lüftet sich die Decke in 0,6 s, nach spätestens 2 s auch ohne Klägs; Tippen
     // lüftet sofort. Darunter bleibt ein ruhiges Standbild des Games, dann steht alles.
     teaser = mountTeaser(teaserHost, {
-      ruhe: { bleibt: true, selbst: 2000, dauer: 0.6, bild: 0, nah: 0 },
+      ruhe: { bleibt: true, selbst: INTRO ? 0 : 2000, dauer: 0.6, bild: 0, nah: 0 },
       aufdruck: { zeilen: ["COMING", "JANUARY"], unter: "2027" },
       ruheLabel: "Game Arena, startet im Januar 2027: ein Handy unter einer Decke mit „Coming January“. Antippen lüftet die Decke.",
       ruheLabelFrei: "Game Arena, startet im Januar 2027: Standbild aus dem Game.",
@@ -222,11 +267,8 @@ teaserHost?.addEventListener("click", (e) => {
     else location.assign(arenaWeg.href);
     return;
   }
-  // Klägs schaut hin, wenn sich die Decke hebt (ein leises Staunen, keine Reaktionsflut)
-  const k = s.api?.klecks;
-  if (!k?.da || k.griff || k.strich || k.ausflug || REDUZIERT) return;
-  k.schau(teaserHost);
-  setTimeout(() => k.fuehle?.("staunen-leise"), 380);
+  // Klägs schaut hin, wenn sich die Decke hebt: aufgeregt, er zeigt aufs Gerät (K1 16.11., je Welt einmal)
+  weltAntwort("arena", teaserHost);
 });
 
 /* ── Testerclub präsent: violette Lasur hinter dem Handy (Violett = du). Den Namen „SNÄGS Testerclub“ unterlegt der
@@ -318,6 +360,16 @@ function ohneRing(K) {
   };
   requestAnimationFrame(schritt);
 }
+/** Kern im Hero: Blick über die drei Takt-Worte, beim dritten herz-hoch (Ersatz verliebt); wartet, bis er durch ist */
+async function taktKern() {
+  const h1 = $("#held-titel");
+  const takte = $$(".st-takt", held);
+  if (!h1 || !E.kern("held", h1, { gefuehl: "herz-hoch", ersatz: "verliebt", bezug: "blick", dauer: 1400 }, { sofort: true, heim: false, blickFolge: takte })) return;
+  for (let t = 0; t < 2200; t += 80) {
+    await warte(80);
+    if (!E.stand().laeuft) break;
+  }
+}
 let heroGespielt = false;
 let gratisDa = false;
 async function heroMoment() {
@@ -372,6 +424,10 @@ async function heroMoment() {
     log(zugedeckt ? "taucht-auf-arena" : "taucht-auf-knopf");
     await bisErSitzt(K, 1800, ort);
     if (!imBildOben()) return;
+    // K1 16.11. (KONZEPT 5 Start #held): Kern zuerst. Er liest die drei Takt-Worte mit, „Love“ ist sein Wort (herz-hoch)
+    await taktKern();
+    log("takt-kern");
+    if (!imBildOben()) return;
     if (REDUZIERT) {
       K.schau(knopf);
       return;
@@ -388,7 +444,7 @@ async function heroMoment() {
       for (let t = 0; t < 1600 && tz.ruhe?.bewegt; t += 60) await warte(60);
       log("arena-frei");
       await warte(160);
-      K.fuehle?.("staunen-leise");
+      K.fuehle?.(traeger("doppelblick", "neugier")); // K1 16.11.: leises Staunen = doppelblick
       await warte(820);
       if (!imBildOben()) return;
       // 3 zum Knopf: ein Sprung auf seinen Platz dort (Oberkante rechts oder neben dem Knopf, nie auf Schrift)
@@ -438,6 +494,7 @@ async function heroMoment() {
     K.ausflug = false;
     api.fuehrung?.halt?.(false);
     api.fuehrung?.platz?.(null);
+    heroFertig();
   }
 }
 
@@ -463,8 +520,13 @@ if (MODUS === "voll" || MODUS === "kurz") {
   });
 } else {
   held.dataset.ent = "da";
-  // Z6: Klägs taucht im Hero-Moment selbst auf (auftauchen statt Geburt mit Pfütze), dort wird auch sein Platz gewählt
-  s.klecks.then(() => heroMoment());
+  // Z6: Klägs taucht im Hero-Moment selbst auf (auftauchen statt Geburt mit Pfütze), dort wird auch sein Platz gewählt.
+  // FB1-K: beim ersten Besuch stellt er sich vorher vor; danach bringt ihn der Hero-Moment von der Bühne auf seinen Platz.
+  s.klecks.then(async (api) => {
+    if (INTRO && api) await klaegsIntro({ api, zeigeAuf: clubGeraet }).catch((e) => console.warn("[start] Klägs-Intro", e));
+    introFertig?.();
+    heroMoment();
+  });
   gratis();
 }
 
@@ -519,6 +581,9 @@ const auftritt = (() => {
   return (host, z) => {
     if (!z?.starte) return z;
     if (REDUZIERT) z.starte();
+    // 12.11. iPhone/iPad: Motive stehen fertig im Endstand (strich/kern.js), schon bevor die Sektion kommt: aufbauen und
+    // setzen in einer ruhigen Minute (je Motiv ein Task), nicht erst „gut im Bild“
+    else if (APPLE_LEICHT) inRuhe(() => z.starte());
     else {
       warten.set(host, z);
       io.observe(host);
@@ -527,8 +592,38 @@ const auftritt = (() => {
   };
 })();
 
+/** Papierkarte da (src/stift/papier.js, Worker; bei CPU 4× erst ~4,7 s nach dem Laden): erst dann baut der Vorlauf, sonst
+ *  tastet jede Spur das Papier Punkt für Punkt ab (langsamer Rückfall mit Zufallszahn statt echtem Papier) */
+const PAPIER = new Promise((da) => {
+  const h = document.documentElement;
+  if (h.dataset.papier === "bereit") return da();
+  const mo = new MutationObserver(() => h.dataset.papier === "bereit" && (mo.disconnect(), da()));
+  mo.observe(h, { attributes: true, attributeFilter: ["data-papier"] });
+  setTimeout(da, 8000);
+});
+
+/** P2 11.11.: ein Motiv vorab aufbauen, sobald Papier und Ruhe da sind (ruhe.js, je Motiv ein Task), spätestens wenn es
+ *  dran ist. Vorher baute eine Sektion alle Motive in einem Block beim Eintritt (Founder: bis 1,6 s bei CPU 4×). */
+function vorbau(bau, was) {
+  let z;
+  const hole = () => {
+    if (z === undefined) {
+      try {
+        z = bau() ?? null;
+      } catch (e) {
+        console.warn("[start]", was, e);
+        z = null;
+      }
+    }
+    return z;
+  };
+  PAPIER.then(() => inRuhe(hole));
+  return { starte: () => hole()?.starte?.() };
+}
+
 /* ── Motive aus der Asset-Datenbank (Founder, Game Arena, Punkte): zeichnen und einfärben beim ersten Sichtkontakt.
-   Das Founder-Abzeichen zeichnet Klägs selbst (klaegsZeichnet unten). ─────────────────────────────────────────── */
+   Das Founder-Abzeichen zeichnet Klägs selbst (klaegsZeichnet unten). Aufgebaut werden sie vorab (P2 11.11.: ab
+   anderthalb Bildhöhen vor der Sektion, je Motiv in einer ruhigen Minute), gestartet wie bisher erst gut im Bild. ── */
 async function motive(wurzel) {
   const B = await STRICH;
   if (!B?.zeichne) return;
@@ -537,46 +632,89 @@ async function motive(wurzel) {
     host.dataset.gezeichnet = "1";
     const motiv = host.dataset.stMotiv;
     const nacht = !!host.closest(".v2-nacht");
-    const r = host.getBoundingClientRect();
-    try {
-      const gross = r.width > 120;
-      auftritt(host, B.zeichne(host, motiv, { ton: nacht ? "papier" : "tinte", farbe: host.dataset.farbe ?? false, groesse: r.width * 0.94, ms: gross ? 2000 : 1500, start: false }));
-    } catch (e) {
-      console.warn("[start] Motiv", motiv, e);
-    }
+    auftritt(
+      host,
+      vorbau(() => {
+        const r = host.getBoundingClientRect();
+        const gross = r.width > 120;
+        return B.zeichne(host, motiv, { ton: nacht ? "papier" : "tinte", farbe: host.dataset.farbe ?? false, groesse: r.width * 0.94, ms: gross ? 2000 : 1500, start: false });
+      }, `Motiv ${motiv}`),
+    );
   });
 }
-for (const id of ["#founder", "#arena", "#punkte"]) imBild($(id), () => motive($(id)), { rand: "0px 0px 20% 0px" });
+for (const id of ["#founder", "#arena", "#punkte"]) imBild($(id), () => motive($(id)), { rand: "0px 0px 150% 0px" });
 
 /* ── 08.11. (Chris): in der Arena-Sektion ein kleiner Ausschnitt vom echten Game (Teaser im Ausschnitt-Modus, nicht der
    Trailer), er spielt, solange er im Bild ist ─────────────────────────────────────────────────────────────────────── */
+// P2 11.11. (mit P1): Der Ausschnitt ist ein zweiter voller Teaser (eigener WebGL-Kontext, rund 15 Leinwände, Texturen).
+// Er montierte mit 25 % Vorlauf genau im Übergang Bogen → „Play it“, wo am iPad der graue Ausfall lag, oft zugleich mit
+// Klägs' Bestätigung am Bogen. Jetzt: vorbereitet, sobald die Sektion in der Nähe ist (1,5 Bildhöhen), aber erst nach
+// der Hero-Story, in einer ruhigen Minute (nicht beim Scrollen, ruhe.js) und nie, solange ein anderer schwerer Moment
+// läuft (lastBis). Der Teaser rendert ohnehin nur, solange er im Bild ist (teaser/index.js), früher montiert kostet also
+// nur den Aufbau, keine Dauerlast.
 const arenaHandy = $("[data-st-arena-handy]");
-if (arenaHandy)
-  imBild(
-    arenaHandy,
-    () =>
-      import("../arena/teaser/index.js")
-        .then(({ mountTeaser }) => {
-          const t = mountTeaser(arenaHandy, { modus: "ausschnitte", ausschnitte: false, autoplay: true, start: 1 });
-          t.bereit?.then?.(() => t.zeige?.(1));
-        })
-        .catch((e) => console.warn("[start] Arena-Ausschnitt", e)),
-    { rand: "25% 0px 25% 0px" },
-  );
+let arenaDa = false;
+function arenaMontieren() {
+  if (arenaDa) return;
+  const rest = lastBis - performance.now();
+  if (rest > 0) return void setTimeout(() => inRuhe(arenaMontieren, { vorn: true }), rest + 80);
+  arenaDa = true;
+  import("../arena/teaser/index.js")
+    .then(({ mountTeaser }) => {
+      const t = mountTeaser(arenaHandy, { modus: "ausschnitte", ausschnitte: false, autoplay: true, start: 1 });
+      t.bereit?.then?.(() => t.zeige?.(1));
+    })
+    .catch((e) => console.warn("[start] Arena-Ausschnitt", e));
+}
+/** Standbild in einen Bühnen-Host (iPhone/iPad): sofort da, kein WebGL, kein Shader-Aufbau */
+function standbild(host, src, klasse) {
+  const img = new Image();
+  img.alt = "";
+  img.decoding = "async";
+  img.className = klasse;
+  img.setAttribute("aria-hidden", "true");
+  img.src = src;
+  host.append(img);
+  return img;
+}
+// 12.11. (Chris' iPad-Video: „Play it“ 5 s schwarz): Der Ausschnitt ist ein zweiter voller Teaser (eigener WebGL-Kontext,
+// rund 15 Leinwände); sein Aufbau blockierte am iPad den Hauptfaden genau beim Eintritt in die Sektion. Auf iPhone/iPad
+// steht deshalb sofort ein Standbild aus dem echten Game (aus diesem Teaser gerendert).
+if (arenaHandy && APPLE_LEICHT) {
+  arenaDa = true;
+  standbild(arenaHandy, ARENA_STANDBILD, "st-arena__standbild");
+} else if (arenaHandy) {
+  nahe(arenaHandy, () => HERO_FERTIG.then(() => inRuhe(arenaMontieren, { vorn: true })));
+  // schon im Bild, bevor die Hero-Story durch ist (schnell heruntergescrollt): dann sobald das Scrollen ruht
+  imBild(arenaHandy, () => inRuhe(arenaMontieren, { vorn: true }), { rand: "0px" });
+}
+
+/* ── K1 16.11. (KONZEPT 5 Start #arena): Vorfreude aufs Game. Kern: squee (Ersatz aufgeregt) mit Blick aufs Handy;
+   Nachspiel beim Verweilen: er stupst den Schloss-Hinweis an, ein kurzes „ups“ (zu bis Januar), dann zwinkert er ── */
+const arenaSek = $("#arena");
+if (arenaSek) {
+  // 17.11. (Chris: „Versuche noch etwas mehr auf die dinge zu zeigen“, klaegs-beweis.mjs): entschlossen (XL, bereit zum Spielen)
+  // statt squee (gesperrt, spielte immer den Ersatz), dabei zeigt er aufs Handy
+  // KR 17.11. abends (Chris: „Vieles sieht einfach identisch aus“): eigener Bezug je Sektion, Nachbarn nicht gleich: entschlossen stupst er das Game-Handy an (bereit zum Spielen), #testerclub davor zeigt
+  E.kern("arena", arenaHandy ?? arenaSek, { gefuehl: "entschlossen", ersatz: "aufgeregt", bezug: arenaHandy ? "stupsen" : "blick", dauer: 1200 });
+  E.nachspiel("arena", $(".st-gesperrt", arenaSek), { gefuehl: "ups", bezug: "stupsen", dauer: 2000, danach: { gefuehl: "zwinkern" } });
+}
 
 /** Zeichen der Seite aus der Asset-Datenbank (Pfeile, Schloss der Game Arena, Founder-Abzeichen am Schluss) */
 const ZEICHEN_FARBE = { muenze: "gold", "founder-abzeichen": true };
 STRICH.then((B) => {
   if (!B?.zeichne) return;
+  // P2 11.11.: je Zeichen ein ruhiger Task (vorher alle in einem Block gleich nach dem Laden)
   for (const host of $$("[data-st-zeichen]")) {
-    try {
-      const name = host.dataset.stZeichen;
-      const nacht = !!host.closest(".v2-nacht");
-      const klein = (host.clientWidth || 18) < 30;
-      auftritt(host, B.zeichne(host, name, { groesse: host.clientWidth || 18, art: "filz", ms: klein ? 800 : 1300, start: false, ton: nacht ? "papier" : "tinte", farbe: ZEICHEN_FARBE[name] ?? false }));
-    } catch (e) {
-      console.warn("[start] Zeichen", host.dataset.stZeichen, e);
-    }
+    const name = host.dataset.stZeichen;
+    const nacht = !!host.closest(".v2-nacht");
+    auftritt(
+      host,
+      vorbau(() => {
+        const klein = (host.clientWidth || 18) < 30;
+        return B.zeichne(host, name, { groesse: host.clientWidth || 18, art: "filz", ms: klein ? 800 : 1300, start: false, ton: nacht ? "papier" : "tinte", farbe: ZEICHEN_FARBE[name] ?? false });
+      }, `Zeichen ${name}`),
+    );
   }
 });
 
@@ -588,55 +726,19 @@ let abzeichenDa = false;
 async function abzeichenZeichnen() {
   if (abzeichenDa || !abzeichen) return;
   abzeichenDa = true;
-  const api = await s.klecks;
-  const K = api?.klecks;
   const nacht = !!abzeichen.closest(".v2-nacht");
   const o = { ton: nacht ? "papier" : "tinte", farbe: abzeichen.dataset.farbe ?? "gold", groesse: abzeichen.getBoundingClientRect().width * 0.94 };
   const { klaegsZeichnet } = await import("../v2/klecks/zeichnet.js");
-  const frei = K?.da && !REDUZIERT && !K.griff && !K.strich && !K.formen;
-  if (!frei) return void klaegsZeichnet(null, abzeichen, abzeichen.dataset.stMotiv, o);
-  // über den Regisseur (Rang Seite), damit der CTA-Boost und die Führung so lange warten
-  s.tu(
-    async ({ klecks: k, signal }) => {
-      api.fuehrung?.halt?.(true);
-      k.ausflug = true;
-      try {
-        k.schau(abzeichen);
-        k.fuehle?.("neugier");
-        await warte(120); // Takt 09.11.: kurzer Blick, dann gleich der Kern (vorher 380 ms)
-        if (signal?.aborted) return klaegsZeichnet(null, abzeichen, abzeichen.dataset.stMotiv, o);
-        kern("Founder-Abzeichen zeichnen");
-        const sitzF = $(".st-founder__sitz");
-        const { fertig } = await klaegsZeichnet(k, abzeichen, abzeichen.dataset.stMotiv, {
-          ...o,
-          stimmung: "ruhig",
-          formKlein: 0.8,
-          auslauf: () => {
-            const r = (sitzF ?? abzeichen).getBoundingClientRect();
-            return { x: r.left + r.width / 2 + scrollX, y: r.top + r.height / 2 + k.R * 0.6 + scrollY };
-          },
-        });
-        await fertig;
-        for (let t = 0; t < 1600 && (k.strich || k.formen); t += 80) await warte(80);
-        k.schau(abzeichen);
-        k.fuehle?.("stolz");
-        await warte(1100);
-      } finally {
-        k.ausflug = false;
-        api.fuehrung?.halt?.(false);
-        api.fuehrung?.platz?.(null);
-      }
-    },
-    { name: "Klägs zeichnet das Founder-Abzeichen", verfall: 6000 },
-  );
+  // K1 16.11. (KONZEPT 5 Start #founder): Kern = funkeln am Abzeichen (Ersatz Stolz), während es sich zeichnet und golden
+  // einfärbt. Klägs zieht die Kontur nicht mehr selbst: das dauerte über 3 s und lag über dem Kern-Budget (1,4 s).
+  klaegsZeichnet(null, abzeichen, abzeichen.dataset.stMotiv, o);
 }
+// Kern beim Eintritt über die Element-Schnittstelle (eigener Beobachter: imBild wartet am Handy auf Scroll-Ruhe, der Kern
+// aber gehört in die ersten 600 ms nach dem Eintritt, auch beim Scrollen)
+// 17.11. (Chris: „Versuche noch etwas mehr auf die dinge zu zeigen“, klaegs-beweis.mjs): er zeigt aufs Abzeichen, es federt
+// KR 17.11. abends (Chris: „Vieles sieht einfach identisch aus“): eigener Bezug je Sektion, Nachbarn nicht gleich: er tippt stolz aufs Abzeichen (statt Zeigen wie in #testerclub und #arena)
+if (abzeichen) E.kern("founder", abzeichen, { gefuehl: "funkeln", ersatz: "stolz", bezug: "tippen", dauer: 1200 });
 if (abzeichen) imBild(abzeichen, abzeichenZeichnen, { rand: "-10% 0px -22% 0px" }); // Takt 09.11.: früher (vorher -18 % / -30 %)
-
-/* ── Kernsatz (N38): Klägs unterstreicht „Deine Rewards.“ in einem Zug (Leitmotiv, Malen-Modus), einmal, ruhig; das
-   spielt als erster Takt seines Gangs durch die Punkte (schritteEntlang), damit nie zwei Momente zugleich laufen ── */
-const kernsatz = $("[data-st-kernsatz]");
-let kernsatzDa = false;
-
 
 /* ── Founder-Aktion: Tage bis zum 31.12.2026 (Kalendertage in Berlin), danach verschwindet der Zähler ──────────── */
 function tageBisEnde() {
@@ -656,6 +758,10 @@ if (tageEl) {
   }
 }
 for (const k of $$("[data-st-weg]")) s.tippbar(k, { art: "knopf" });
+// K1 16.11. (KONZEPT 5 Start #founder): Frist freundlich statt drängend. Beim Verweilen, nur wenn die Folge der Vorteile
+// (CTA-Boost) nicht schon lief, einmal je Sitzung: Daumen drücken mit Blick auf die Tage
+const folgeLief = () => (window.__ctaBoost?.protokoll ?? []).some((e) => e.was === "start" && /folge/.test(String(e.art ?? "")));
+if (tageEl && !tageEl.hidden) E.nachspiel("founder", tageEl, { gefuehl: "daumen-druecken", ersatz: "vorfreude", bezug: "blick", dauer: 1200 }, { wenn: () => !folgeLief(), sitzung: "start-tage" });
 
 /* ── Punkte: die 3D-Reward-Box, hinter ihr schauen Markenprodukte heraus (zeigen, was man bekommt) ─────────────── */
 const rewardEl = $("[data-st-reward]");
@@ -690,7 +796,11 @@ async function rewardWarenNeu(auftritt = false) {
     }
   });
 }
-if (rewardEl) {
+// 12.11. iPhone/iPad: die Reward Box als Standbild (aus box3d mit den Waren gerendert), kein zweiter WebGL-Kontext
+// beim Scrollen (gemessen: Aufbau 236 + 260 ms und 430 ms Übergabe an die Grafik, am Gerät ein Mehrfaches)
+if (rewardEl && APPLE_LEICHT) {
+  standbild(rewardEl, REWARD_STANDBILD, "st-reward__standbild");
+} else if (rewardEl) {
   imBild(
     rewardEl,
     () =>
@@ -714,6 +824,9 @@ if (rewardEl) {
   }).observe(rewardEl);
 }
 
+/* FB1-D 11.11.: „Dein eigener Bereich“ (Handy mit App-Schirm in #punkte) steuert /snaegs-staging/v3/site/v2/bereich/bereich.js, eigenes
+   Skript auf Start und Testerclub; hier nichts mehr dazu. */
+
 /* ── 2 So funktioniert's: Klecks hüpft die drei Schritte entlang und zeigt auf „Alle Details“ ─────────────────────────
    Takt 09.11. (Chris: „Schnell in die Kernaction von Klägs je Sektion im Viewport einsteigen; dann – sollte länger
    verweilt werden – authentische Animationen je Sektion nachlagern“): Kern zuerst: gleich beim Eintritt hüpft er
@@ -721,93 +834,51 @@ if (rewardEl) {
    der Gang ab, sobald jemand 24 px scrollte, und begann erst nach 1,6 s Warten. Nachspiel: Zeigen auf „Alle Details“,
    dann der Schwung unter „Deine Rewards.“ (vorher der erste Takt). Ist die Sektion aus dem Bild, ist der Gang vorbei. */
 const so = $("#punkte");
-let soGespielt = false;
-async function schritteEntlang() {
-  const api = await s.klecks;
-  const K = api?.klecks;
-  if (soGespielt || !K?.da || REDUZIERT) return;
-  soGespielt = true;
-  api.fuehrung?.halt?.(true);
-  const kopfH = parseFloat(getComputedStyle(html).getPropertyValue("--v2-kopf-h")) || 56;
-  // vorbei, sobald die Sektion aus dem Bild ist (seine Ziele liegen auf dem Papier, Scrollen allein beendet nichts)
-  const weg = () => {
-    const r = so.getBoundingClientRect();
-    return r.bottom < kopfH + 40 || r.top > innerHeight - 40;
-  };
-  try {
-    // ist er gerade mitten in einem Sprung, kurz abwarten (höchstens 0,4 s)
-    await bisErSitzt(K, 400);
-    if (weg()) return;
-    // eigener Gang: die Führung setzt ihn so lange nicht auf ihren Platz zurück (fuehrung.js folge())
-    K.ausflug = true;
-    kern("Punkte: 1 → 2 → 3");
-    // je Schritt: er landet rechts neben dem Namen (nie auf Text, nie auf der Zeichnung) und schaut auf das Bild;
-    // dafür wird er kleiner (0,72), sonst reichte er in die erste Zeile unter dem Namen
-    const KLEIN = 0.72;
-    K.groesse?.(KLEIN, { tempo: 260, bounce: 0.2 });
-    // v3: die Schritte stehen auch am Desktop als Zeilen (Bild links, Name rechts), darum überall der Platz rechts neben
-    // dem Namen; die Spaltenlogik (Bild über dem Namen) gilt nur, wenn der Name wirklich unter dem Bild steht
-    const erst = $(".st-schritt", so);
-    const n0 = $(".st-schritt__name", erst)?.getBoundingClientRect();
-    const b0 = $(".st-schritt__bild", erst)?.getBoundingClientRect();
-    const quer = !!n0 && !!b0 && n0.top >= b0.bottom - 4;
-    for (const schritt of $$(".st-schritt", so)) {
-      if (weg()) break;
-      const name = $(".st-schritt__name", schritt);
-      const bild = $(".st-schritt__bild", schritt);
-      // kommt der Schritt gerade erst von unten herein (man scrollt), kurz auf ihn warten; ist er schon oben vorbei,
-      // überspringen
-      for (let t = 0; t < 700 && name.getBoundingClientRect().bottom > innerHeight - 8; t += 60) await warte(60);
-      const n = name.getBoundingClientRect();
-      const b = bild.getBoundingClientRect();
-      if (Math.min(n.top, b.top) < kopfH + 8 || n.bottom > innerHeight - 8) continue;
-      const r = K.R * KLEIN;
-      // Handy: rechts neben dem Namen (die Zeichnung steht links davon); Desktop (Spalten): rechts neben der Zeichnung,
-      // dort ist Luft, der Name steht darunter
-      const x = quer ? b.right + r + 12 : Math.min(innerWidth - r - 12, n.right + r + 12);
-      // Handy: Unterkante bündig mit dem Namen, so reicht er nie in den Satz darunter (UA 07.11.: Klägs nie über Text).
-      // V3A 07.11.: groesse() hält die Unterkante fest (klecks.js), die liegt bei y + K.R, nicht bei y + r. Darum mit dem
-      // vollen R rechnen; vorher hing er rund 8 px plus Rand in der ersten Satzzeile.
-      const y = quer ? b.top + b.height * 0.55 : n.bottom - K.R * 1.04;
-      K.schau(bild);
-      await huepfeHin(K, x, y, 22, 900);
-      K.fuehle?.(bild.dataset.farbe === "gold" ? "vorfreude" : "neugier");
-      await warte(380);
-    }
-    K.groesse?.(1, { tempo: 260, bounce: 0.2 });
-    if (weg()) return;
-    // Nachspiel: neben „Alle Details“ (direkt unter den Schritten) und darauf zeigen
-    const mehr = $("[data-st-mehr]", so);
-    const m = mehr.getBoundingClientRect();
-    if (m.bottom > kopfH && m.top < innerHeight) {
-      const x = Math.min(innerWidth - K.R - 12, m.right + K.R + 18);
-      const y = m.top + m.height / 2 - K.R * 0.3;
-      await huepfeHin(K, x, y, 24, 900);
-      if (weg()) return;
-      K.schau(mehr);
-      await warte(200);
-      await K.geste?.("zeigen", { ziel: mehr, dauer: 700 });
-      K.fuehle?.("zwinkern");
-      await warte(600);
-    }
-    // Nachspiel: ein Schwung unter „Deine Rewards.“, solange er gut im Bild ist
-    const ks = kernsatz?.getBoundingClientRect();
-    if (!weg() && ks && !kernsatzDa && ks.top > kopfH + 12 && ks.bottom < innerHeight * 0.8) {
+// K1 16.11. (KONZEPT 5 Start #punkte): Kern = er tippt die Schritte 1 bis 3 klein an und nickt (1,4 s). Der lange Gang
+// (Sprung je Schritt, Zeigen auf „Alle Details“, Schwung unter „Deine Rewards.“) entfällt: das Nachspiel der Sektion ist
+// die Reward Box (unten), mehr als eines je Sektion sprengt das Budget.
+// 17.11. (Chris: „Startseiten Änderungen“, Vorschlag angenommen): der Schwung unter „Deine Rewards.“ kommt zurück, als
+// Abschluss des Kerns (Klägs bearbeitet das Element selbst, Gedächtnis klaegs-seiten-blind-gekippt): nach dem Antippen der
+// Schritte unterstreicht er den Kernsatz, einmal je Aufruf und nur, wenn der Satz gut im Bild steht (nie unter dem Kopf).
+const kernsatz = $("[data-st-kernsatz]", so);
+let kernsatzDa = false;
+E.kern(
+  "punkte",
+  $(".st-so__schritte", so),
+  {
+    gefuehl: "nicken",
+    bezug: "tippen",
+    dauer: 1400,
+    tu: async ({ klecks: K, signal }) => {
+      const ks = kernsatz?.getBoundingClientRect();
+      const kopf = document.querySelector(".v2-kopf, header")?.getBoundingClientRect().bottom ?? 0;
+      if (kernsatzDa || REDUZIERT || !ks || ks.top < kopf + 12 || ks.bottom > innerHeight * 0.8 || signal?.aborted) return;
       kernsatzDa = true;
-      // die Tinte liegt in der Sektion (sie wandert mit, wenn sich oben etwas verschiebt, z. B. das Band verschwindet)
-      await markiere(K, "unterstreichen", kernsatz, { variante: "schwung", danach: "zufrieden", halten: 360, host: so });
-      for (let t = 0; t < 1400 && (K.strich || K.formen || K.modus !== "sitzen"); t += 80) await warte(80);
-    }
-  } catch (e) {
-    console.warn("[start] schritte", e);
-  } finally {
-    K.groesse?.(1, { tempo: 260, bounce: 0.2 });
-    K.ausflug = false;
-    api.fuehrung?.halt?.(false);
-    api.fuehrung?.platz?.(null);
-  }
+      await markiere(K, "unterstreichen", kernsatz, { variante: "schwung", danach: "zufrieden", halten: 360, host: so, signal });
+    },
+  },
+  { maxMs: 4200 },
+);
+// Lohn am Zähler: läuft „Dein Punktekonto“ hoch (site/v2/bereich/bereich.js), folgt er der Zahl; steht der Nutzer dort,
+// punkte-rausch (Ersatz jubel), Gold nur hier
+const punkteZahl = $("[data-bereich-zahl]", so);
+if (punkteZahl) {
+  let zaehlt = 0;
+  let fertig = false;
+  const wert = () => Number(String(punkteZahl.textContent).replace(/\D/g, "")) || 0;
+  const mo = new MutationObserver(() => {
+    // erst, wenn die Zahl wirklich hochläuft (bereich.js setzt vorher „0“), und wenn sie am Ziel steht
+    const ziel = Number(punkteZahl.dataset.ziel) || 0;
+    if (fertig || !wert() || (ziel && wert() < ziel)) return;
+    clearTimeout(zaehlt);
+    zaehlt = setTimeout(() => {
+      fertig = true;
+      mo.disconnect();
+      E.zahl(punkteZahl, { von: 0, auf: wert() }, { gefuehl: "punkte-rausch", ersatz: "jubel", bezug: "blick", dauer: 1500 });
+    }, 120);
+  });
+  mo.observe(punkteZahl, { childList: true, characterData: true, subtree: true });
 }
-imBild(so, schritteEntlang); // Takt 09.11.: ab 78 % der Bildhöhe (vorher erst im mittleren Drittel)
 s.tippbar($("[data-st-mehr]"), { art: "knopf" });
 s.tippbar($("[data-st-intro]"), { art: "knopf" });
 
@@ -844,6 +915,8 @@ async function waehle(w) {
   w.classList.add("ist-gewaehlt");
   ton("tipp");
   brumm(8);
+  // K1 16.11. (KONZEPT 5 Start #testerclub, DQ2): je Antwort dieselbe Quittung, nie wertend; das Finale ist der Dank
+  E.serie("bogen", frageNr, fragen.length + 1, { gefuehl: "nicken", bezug: "blick", el: w });
   const K = s.api?.klecks;
   const b = $(".st-box", w);
   let m = null;
@@ -872,8 +945,12 @@ async function waehle(w) {
         K.hopp(x, y, 26);
         await warte(520);
       }
-      K.gross?.({ farbe: "violett", halten: 900 });
+      // Solange der Moment läuft, montiert die Seite nichts Schweres (lastBis).
+      lastBis = performance.now() + 2600;
     }
+    // K1 16.11.: Dank für die Meinung (dankbar, Ersatz freude) mit Blick auf „Danke“, statt des großen violetten Auftritts
+    // (K.gross mit Blüte): ein Gefühl pro Moment, der Farbhof bleibt der der Sektion
+    E.serie("bogen", fragen.length, fragen.length + 1, null, { gefuehl: "dankbar", ersatz: "freude", bezug: "blick", el: danke });
     ton("plopp");
   }
   beschaeftigt = false;
@@ -896,14 +973,23 @@ $("[data-st-nochmal]", bogen)?.addEventListener("click", () => {
 s.tippbar($("[data-st-survey]"), { art: "knopf" });
 s.tippbar($("[data-st-nochmal]"), { art: "knopf" });
 
-imBild(probe, async () => {
-  s.szene("probe", { ziel: $("[data-st-wahl]") });
+// K1 16.11. (KONZEPT 5 Start #testerclub): neu = neugierig. Neugieriger Blick auf „neuesten Produkte“, dann lugt er (Gesicht
+// „lugen“). Die Aktion lugen-rand entfällt an der Überschrift: sie legte ein Deckblatt mit verkleinerter Kopie über die
+// Schrift und endete oben auf dem Element (Aufnahme 16.11.)
+// 17.11. (Chris: „Versuche noch etwas mehr auf die dinge zu zeigen“, klaegs-beweis.mjs): Doppelblick aufs Mini-Survey, dabei
+// zeigt er auf die erste Antwort (Einladung zum Tippen); ohne Bogen wie bisher der Blick aufs Wort
+const ersteWahl = $("[data-st-mini]", probe) ?? $("[data-st-wahl]", probe); // das Handy mit dem echten Survey liegt näher als der Bogen
+E.kern("testerclub", ersteWahl ?? $("[data-bleed]", probe), { gefuehl: "doppelblick", ersatz: "neugier", bezug: ersteWahl ? "zeigen" : "blick", dauer: 1200, danach: { gefuehl: "lugen" } });
+imBild(probe, () => {
   // Violett ist „du“: eine ruhige Aquarellfläche hinter dem Bogen (CSS, Filter #v2-aquarell), keine Flecken
   $("[data-st-feld]")?.classList.add("ist-da");
 }); // Takt 09.11.: ab 78 % der Bildhöhe (vorher -25 % oben und unten)
 
 /* ── 4 Dabei: Klecks hakt die drei Fakten in einem Zug ab und schreibt die Antwort hin ─────────────────────────────── */
 const dabei = $("#dabei");
+// 17.11. (Chris, Android: „Klägs kreuzt nicht mehr an“): K1/B1 hatten das Abhaken zum Nachspiel gemacht (das Budget
+// sperrte es fast immer, „4-je-minute“) und das „Ja!“ gestrichen. Das Abhaken ist der Moment dieser Sektion: wieder Kern
+// wie live (direkt über das Leitmotiv, beim Eintritt, mit „Ja!“ und Zeigen auf den Knopf), kein zusätzliches high-five-glas.
 // Direkt über das Leitmotiv (fünf Takte, ein Stift), nicht über die Warteschlange: dort verdrängte ihn ein Hinweis der
 // Führung, bevor der erste Haken stand. Die Führung pausiert so lange.
 let dabeiGespielt = false;
@@ -917,18 +1003,21 @@ async function dabeiAbhaken() {
     // Takt 09.11.: Kern ohne Vorlauf (vorher 0,35 s Pause und bis zu 2 s Warten); er hüpft auf einen Punkt auf dem Papier
     K.ausflug = true; // eigener Gang: die Führung holt ihn nicht mitten im Abhaken auf ihren Platz zurück
     // erst neben die Liste (kam er von weit her, fehlte sonst der erste Haken), dann in einem Zug abhaken
-    for (let t = 0; t < 600 && K.modus !== "sitzen"; t += 60) await warte(60);
+    // KS 17.11.: höchstens 300 ms aufs Landen warten (vorher 600 ms); hopp() nimmt das Ziel auch mitten im Sprung an
+    for (let t = 0; t < 300 && K.modus !== "sitzen"; t += 60) await warte(60);
     const liste = $(".st-dabei__fakten", dabei).getBoundingClientRect();
     const nx = Math.min(innerWidth - K.R - 10, liste.right + K.R + 18);
     const ny = liste.top + K.R * 0.9;
-    if (!REDUZIERT && Math.hypot(K.x - nx, K.y - ny) > K.R) await huepfeHin(K, nx, ny, 26, 1000);
+    // KS 17.11.: der Kern beginnt mit dem Sprung zur Liste (vorher erst danach gemeldet, 0,9 s nach dem Eintritt)
     kern("Dabei: abhaken");
+    if (!REDUZIERT && Math.hypot(K.x - nx, K.y - ny) > K.R) await huepfeHin(K, nx, ny, 26, 1000);
     await markiere(K, "abhaken", null, { ziele: $$(".st-dabei__fakten .st-box"), gefuehl: "zufrieden", halten: 240, stimmung: "froh" });
     const heim = () => {
       const r = $(".st-dabei__aufruf", dabei).getBoundingClientRect();
       return [Math.min(innerWidth - K.R - 10, r.right - K.R * 1.2), r.top - K.R + 3];
     };
-    // 08.11. (Chris): „Alles kostenlos“ und „Start im Januar 2027“ werden zuerst abgehakt (oben); das kleine „Ja!“ kommt
+    // 08.11. (Chris): die beiden Haken (FB1 11.11.: „Jetzt kostenlos voranmelden“, „150 Early-Bird-Punkte sichern“, vorher
+    // „Alles kostenlos“, „Start im Januar 2027“) werden zuerst abgehakt (oben); das kleine „Ja!“ kommt
     // danach nur manchmal (Zufall), und zwar unter der Frage im freien Platz [data-st-ja], nie neben den Haken
     const jaPlatz = $("[data-st-ja]", dabei);
     if (jaPlatz && Math.random() < 0.5) {
@@ -955,8 +1044,12 @@ async function dabeiAbhaken() {
     api.fuehrung?.platz?.(null);
   }
 }
-imBild(dabei, dabeiAbhaken); // Takt 09.11.: ab 78 % der Bildhöhe (vorher erst im mittleren Drittel)
+imBild(dabei, dabeiAbhaken);
 for (const k of $$("[data-hauptknopf], [data-vorreg]")) s.tippbar(k, { art: "knopf" });
 
 /* ── Aquarellkanten an den Themenwechseln ───────────────────────────────────────────────────────────────────────── */
 for (const n of $$("[data-st-naht]")) imBild(n, () => n.classList.add("ist-da"), { rand: "0px 0px -18% 0px" });
+
+/* ── K1 16.11.: Die M-15-Bühne (Hand-Kette in #testerclub) entfällt (Runde 4: probe-kette unlesbar). Das einzige Ding der
+   Startseite ist M-10 an der Reward Box als Nachspiel in #punkte; Klägs XL lädt die Element-Schnittstelle (element.js). ── */
+E.nachspiel("punkte", rewardEl, { ding: "M-10", gefuehl: "verliebt", bezug: "anschmiegen", dauer: 3000 }, { sitzung: "start-box" });
