@@ -1,10 +1,10 @@
 {
- "erzeugt": "2026-11-19T13:13:06.097Z",
+ "erzeugt": "2026-11-19T14:42:29.131Z",
  "stand": {
   "branch": "main",
-  "commit": "1481690",
-  "datum": "19.11.2026 13:13",
-  "betreff": "Merge claude/gruendung-labor-uebernommen (Einrichtung der Gründung)"
+  "commit": "d400251",
+  "datum": "19.11.2026 14:42",
+  "betreff": "Gehirn: Schleife S12, alte Branches löschen (Chris' Ja, aus der Cloud nicht möglich)"
  },
  "uebergabe": "Übergabe (Stand 19.11.2026, Gründung)",
  "surveys": [
@@ -259,6 +259,12 @@
    "seit": "19.11.",
    "was": "Zugriffe der Umgebung „SNÄGS Survey OS“: Netz eingeschränkt (Registries, GitHub, christo-malaga.github.io); snaegs-staging hängt nicht von selbst an der Session. Chris: „Es muss natürlich zugriff auf ALLES relevante haben“",
    "schritt": "Zu Beginn der ersten Session dort: snaegs-staging mit Schreibrecht anhängen (add_repo) und einmal vorschlagen, das Netz der Umgebung auf uneingeschränkt zu stellen (update_environment); beides gibt Chris frei"
+  },
+  {
+   "nr": "S12",
+   "seit": "19.11.",
+   "was": "Alte Branches löschen (Chris 19.11.: „Branches löscgen, einen behalten -> wie du vorschlägst“): im Labor claude/survey-stand, survey-feinschliff, survey-bilder, survey-webkit (alle vollständig in website-v3 bzw. master), hier claude/dashboard-vorschau (in main). claude/badges-partner im Labor bleibt (Partnerseite für Walter Stephani). Aus der Cloud geht Löschen nicht: git push --delete meldet „Everything up-to-date“ und löscht nichts",
+   "schritt": "Chris löscht auf GitHub oder lokal; danach diese Zeile streichen"
   }
  ],
  "entscheidungen": [
