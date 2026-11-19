@@ -1,0 +1,343 @@
+{
+ "erzeugt": "2026-11-19T13:05:19.906Z",
+ "stand": {
+  "branch": "main",
+  "commit": "16fbdc2",
+  "datum": "19.11.2026 13:05",
+  "betreff": "Merge claude/dashboard-vorschau: Dashboard, Vorschau, Kohärenz (Einrichtung der Gründung)"
+ },
+ "uebergabe": "Übergabe (Stand 19.11.2026, Gründung)",
+ "surveys": [
+  {
+   "titel": "Produkttest nüssje",
+   "seite": "survey.html",
+   "text": "Sechs Level mit je fünf Fragen, Münzen, Level-Clear, Boss, Loot. Die Referenz für Haptik und Psychologie.",
+   "art": "Demo, im Code"
+  },
+  {
+   "titel": "Quick-Check",
+   "seite": "vorregistrierung.html",
+   "text": "Acht Grundfragen der Voranmeldung, dieselbe Engine in kurzer Form.",
+   "art": "Demo, im Code"
+  }
+ ],
+ "bausteine": [
+  {
+   "titel": "Mechaniken",
+   "seite": "mechaniken.html",
+   "anzahl": 17,
+   "liste": [
+    "abreissen",
+    "sammeln",
+    "lineal",
+    "stein",
+    "kette",
+    "tasche",
+    "runde",
+    "teller",
+    "rad",
+    "fang",
+    "takt",
+    "hotspot",
+    "lupe",
+    "geschmack",
+    "duell",
+    "ladung",
+    "spur"
+   ],
+   "text": "Jede Frage-Mechanik einzeln auf dem Prüfstand."
+  },
+  {
+   "titel": "Minigames",
+   "seite": "minigames.html",
+   "anzahl": 3,
+   "liste": [
+    "huetchen",
+    "schnipsen",
+    "tintenfang"
+   ],
+   "text": "Echte Spiele mit Klägs, in drei Stufen."
+  },
+  {
+   "titel": "Münzen",
+   "seite": "muenzen.html",
+   "anzahl": null,
+   "liste": [],
+   "text": "Die Belohnung: Flug, Schwall, Regen, Stapel."
+  },
+  {
+   "titel": "Klägs-Repertoire",
+   "seite": "klecks-repertoire.html",
+   "anzahl": null,
+   "liste": [],
+   "text": "Alles, was Klägs kann: Gefühle, Gesten, Requisiten."
+  }
+ ],
+ "produkte": [
+  "nuessje"
+ ],
+ "templates": [],
+ "gates": [
+  {
+   "id": "G1",
+   "name": "Läuft",
+   "regel": "Build grün, Rauchtest grün: alle Seiten ohne Skriptfehler und ohne 404, der Produkttest lässt sich anspielen",
+   "messung": "cd app && npm run build && npm run pruefen",
+   "stand": "grün (19.11.)",
+   "ampel": "gruen"
+  },
+  {
+   "id": "G2",
+   "name": "Handy zuerst",
+   "regel": "Jeder Screen bei 390 × 844 und 320 × 640 vollständig bedienbar, nichts angeschnitten, kein seitliches Scrollen",
+   "messung": "Aufnahme je Screen, scrollWidth = Breite",
+   "stand": "offen, kein Skript",
+   "ampel": "offen"
+  },
+  {
+   "id": "G3",
+   "name": "Zu Ende gespielt",
+   "regel": "Jeder Survey und jede Mechanik wird am Handy durchgespielt, nicht nur geladen (ANFORDERUNGEN 29)",
+   "messung": "Durchlauf-Skript oder Filmstreifen bis zum Ende",
+   "stand": "offen, kein Skript",
+   "ampel": "offen"
+  },
+  {
+   "id": "G4",
+   "name": "Produkt im Bild",
+   "regel": "Es ist ein Produkttest: Produkt sichtbar und zentral, echtes Bild, nie Attrappe (ANFORDERUNGEN 5)",
+   "messung": "Sichtprüfung Start, Level-Start, Pack-Fragen",
+   "stand": "offen, kein Skript",
+   "ampel": "offen"
+  },
+  {
+   "id": "G5",
+   "name": "Belohnung ohne Zahl",
+   "regel": "Belohnung bei jeder Interaktion; keine festen Punktwerte, keine Reward-Versprechen (ANFORDERUNGEN 8, 9)",
+   "messung": "Text-Scan nach Zahl + Punkteinheit im Survey",
+   "stand": "offen, kein Skript",
+   "ampel": "offen"
+  },
+  {
+   "id": "G6",
+   "name": "Klägs neutral",
+   "regel": "Klägs zeigt bei gleichwertigen Antworten nie auf eine einzelne und wählt nie für den Nutzer (ANFORDERUNGEN 24, 45)",
+   "messung": "Sichtprüfung je Mechanik, Regel in der Klägs-Führung",
+   "stand": "offen, kein Skript",
+   "ampel": "offen"
+  },
+  {
+   "id": "G7",
+   "name": "Klägs echt",
+   "regel": "Klägs kommt aus seiner Engine, Design unverändert, nie nachgezeichnet",
+   "messung": "Diff: keine Klägs-Grafik außerhalb app/src/klecks",
+   "stand": "offen, kein Skript",
+   "ampel": "offen"
+  },
+  {
+   "id": "G8",
+   "name": "Fläche",
+   "regel": "Interaktionsfläche mindestens 50 % des Screens, Ziel 75 % (ANFORDERUNGEN 19)",
+   "messung": "Messung der Trefferfläche je Mechanik",
+   "stand": "offen, kein Skript",
+   "ampel": "offen"
+  },
+  {
+   "id": "G9",
+   "name": "CI",
+   "regel": "Nur CI-Farben, kein Glow, Motive nur aus der Strich-Engine",
+   "messung": "Sichtprüfung, Farb-Scan",
+   "stand": "offen, kein Skript",
+   "ampel": "offen"
+  },
+  {
+   "id": "G10",
+   "name": "Leicht am Handy",
+   "regel": "Auf iPhone und iPad kein Hänger: keine Aufgabe über 50 ms im Ablauf, WebGL sparsam (Quellen: lang/quellen/labor/apple-leicht.md)",
+   "messung": "Messung mit CPU 4×; echtes Gerät durch Chris",
+   "stand": "offen, kein Skript",
+   "ampel": "offen"
+  },
+  {
+   "id": "G11",
+   "name": "Reproduzierbar",
+   "regel": "Jeder Survey in surveys/ nennt Schema-Version und die Version jedes Templates; derselbe Datensatz ergibt denselben Survey",
+   "messung": "Schema-Validierung beim Build",
+   "stand": "offen, kein Skript",
+   "ampel": "offen"
+  },
+  {
+   "id": "G12",
+   "name": "Herkunft",
+   "regel": "Jede Datei aus Labor, Vorlage oder Asset-Datenbank hat einen Herkunftseintrag; Abweichungen von der Quelle sind benannt",
+   "messung": "node werkzeug/labor-abgleich.mjs",
+   "stand": "grün (19.11.)",
+   "ampel": "gruen"
+  },
+  {
+   "id": "G13",
+   "name": "Gehirn aktuell",
+   "regel": "Übergabe fortgeschrieben, Feedback wörtlich abgelegt, Session-Protokoll da",
+   "messung": "Stop-Hook",
+   "stand": "grün (19.11.)",
+   "ampel": "gruen"
+  },
+  {
+   "id": "G14",
+   "name": "Kohärent",
+   "regel": "Framework-Paket unverändert und in allen Repos der Session gleich; Verweise zwischen OS, Asset-Datenbank und Labor stimmen (README, surveys/README.md der Datenbank, app/HERKUNFT.md)",
+   "messung": "node werkzeug/framework-abgleich.mjs (Start-Hook), node werkzeug/labor-abgleich.mjs",
+   "stand": "grün (19.11.)",
+   "ampel": "gruen"
+  },
+  {
+   "id": "G15",
+   "name": "Im Netz geprüft",
+   "regel": "Kein Link an Chris, bevor die Vorschau online ist und selbst geöffnet wurde (390 und 1440, last-modified nach dem Push)",
+   "messung": "npm run vorschau, dann Aufruf der Adresse",
+   "stand": "grün (19.11.)",
+   "ampel": "gruen"
+  }
+ ],
+ "schleifen": [
+  {
+   "nr": "S1",
+   "seit": "19.11.",
+   "was": "Chris' Spezifikation steht aus („Ich werde das gleich weiter spezifizieren“). Offene Fragen: feedback/2026-11-19-auftrag-survey-content-os.md",
+   "schritt": "Spezifikation wörtlich ablegen, dann Plan"
+  },
+  {
+   "nr": "S2",
+   "seit": "19.11.",
+   "was": "Prinzipien sind Fassung 0. Die Quellen (ANFORDERUNGEN, QUEST-BRAIN, Research, Labor-Gedächtnis) sind noch nicht vollständig destilliert",
+   "schritt": "Alle Dateien in lang/quellen/ lesen, prinzipien.md auf Fassung 1 bringen, Widersprüche benennen"
+  },
+  {
+   "nr": "S3",
+   "seit": "19.11.",
+   "was": "Inventur der Bausteine fehlt: 24 Dateien in mechaniken/, 12 in minigames/, dazu Level-Clear, Boss, Loot, Münzen. Welche Frageart bedient welche Mechanik, was ist an nüssje fest verdrahtet?",
+   "schritt": "Tabelle Baustein · Frageart · Daten rein · fest verdrahtet · Reifegrad nach templates/INVENTUR.md"
+  },
+  {
+   "nr": "S4",
+   "seit": "19.11.",
+   "was": "Schema fehlt: Survey-Spec, Produkt-Datensatz, Fragebogen-Eingang",
+   "schritt": "Aus fragen.js, produkte/nuessje.js und der Vorlage (QUEST_TEMPLATES) ableiten, schema/ füllen, Demo-Survey als Datensatz nach surveys/"
+  },
+  {
+   "nr": "S5",
+   "seit": "19.11.",
+   "was": "Gates G2 bis G11 ohne Skript. Nur G1 und G12 werden gemessen",
+   "schritt": "Durchspiel-Skript bis zum Ende (G3), Aufnahme je Screen bei 390 und 320 (G2), Messung G10"
+  },
+  {
+   "nr": "S7",
+   "seit": "19.11.",
+   "was": "Demo-Surveys: „da geht aber noch was“ bei Haptik und Psychologie",
+   "schritt": "Erst nach S2 und S3: Kritik je Level gegen die Prinzipien, Vorschläge mit Beleg an Chris"
+  },
+  {
+   "nr": "S8",
+   "seit": "19.11.",
+   "was": "Labor und OS laufen doppelt. Website und Business-Seite nutzen den Survey weiter aus dem Labor (claude/survey-stand ist dort noch nicht übernommen)",
+   "schritt": "Mit Chris klären: wann das Labor das OS einbindet; bis dahin Abgleich mit werkzeug/labor-abgleich.mjs"
+  },
+  {
+   "nr": "S9",
+   "seit": "19.11.",
+   "was": "Am echten iPhone ungeprüft. Die Cloud hat kein WebKit",
+   "schritt": "Chris testet die Vorschau am Gerät: …/vorschau/survey-os/main/"
+  },
+  {
+   "nr": "S10",
+   "seit": "19.11.",
+   "was": "Framework-Paket: Quelle ist Chris' lokales Framework-Repo. Hier liegt der Stand vom 17.11., gleich wie in der Asset-Datenbank (G14 grün)",
+   "schritt": "Jede Session: Start-Hook lesen; ist ein Nachbar neuer, mit werkzeug/framework-abgleich.mjs --holen nachziehen. Chris: lokal cloud-sync um dieses Repo erweitern"
+  },
+  {
+   "nr": "S11",
+   "seit": "19.11.",
+   "was": "Zugriffe der Umgebung „SNÄGS Survey OS“: Netz eingeschränkt (Registries, GitHub, christo-malaga.github.io); snaegs-staging hängt nicht von selbst an der Session. Chris: „Es muss natürlich zugriff auf ALLES relevante haben“",
+   "schritt": "Zu Beginn der ersten Session dort: snaegs-staging mit Schreibrecht anhängen (add_repo) und einmal vorschlagen, das Netz der Umgebung auf uneingeschränkt zu stellen (update_environment); beides gibt Chris frei"
+  }
+ ],
+ "entscheidungen": [
+  {
+   "id": "E10",
+   "datum": "19.11.2026",
+   "titel": "Kohärenz ist Pflicht und wird gemessen"
+  },
+  {
+   "id": "E9",
+   "datum": "19.11.2026",
+   "titel": "Vorschau über snaegs-staging, veröffentlicht von der Session"
+  },
+  {
+   "id": "E8",
+   "datum": "19.11.2026",
+   "titel": "Oberfläche ist ein Dashboard ohne eigene Inhalte"
+  },
+  {
+   "id": "E7",
+   "datum": "19.11.2026",
+   "titel": "Aufsatzpunkt ist der konsolidierte Labor-Stand claude/survey-stand"
+  },
+  {
+   "id": "E6",
+   "datum": "19.11.2026",
+   "titel": "Das Gehirn hat drei Schichten und hängt am Harness"
+  },
+  {
+   "id": "E5",
+   "datum": "19.11.2026",
+   "titel": "Im Baum liegt nur die finale Iteration"
+  },
+  {
+   "id": "E4",
+   "datum": "19.11.2026",
+   "titel": "Assets kommen aus der Datenbank SNÄGS Assets"
+  },
+  {
+   "id": "E3",
+   "datum": "19.11.2026",
+   "titel": "Engines als Kopie mit Herkunft, kein Nachbau"
+  },
+  {
+   "id": "E2",
+   "datum": "19.11.2026",
+   "titel": "app/ zuerst lauffähig, Templates entstehen daraus in Schritten"
+  },
+  {
+   "id": "E1",
+   "datum": "19.11.2026",
+   "titel": "Eigenes Repo snaegs-survey-os"
+  }
+ ],
+ "feedback": [
+  {
+   "datei": "2026-11-19-oberflaeche-staging-kohaerenz.md",
+   "datum": "19.11.2026",
+   "titel": "Oberfläche, Staging, Kohärenz (Chris, 19.11.2026)",
+   "status": "verarbeitet am 19.11. (Dashboard, Vorschau-Weg, Gate G14); die Zugriffe der neuen Umgebung bleiben als"
+  },
+  {
+   "datei": "2026-11-19-auftrag-survey-content-os.md",
+   "datum": "19.11.2026",
+   "titel": "Auftrag Survey Content OS (Chris, 19.11.2026)",
+   "status": "offen, Chris spezifiziert weiter („Ich werde das gleich weiter spezifizieren“)."
+  }
+ ],
+ "prinzipien": {
+  "anzahl": 19,
+  "fassung": "0"
+ },
+ "herkunft": {
+  "labor": "c3322c3",
+  "branch": "claude/survey-stand"
+ },
+ "framework": {
+  "commit": "38f74d8de2",
+  "datum": "2026-11-17",
+  "hash": "4509625408f3"
+ }
+}
