@@ -1,10 +1,10 @@
 {
- "erzeugt": "2026-11-19T13:05:19.906Z",
+ "erzeugt": "2026-11-19T13:13:06.097Z",
  "stand": {
   "branch": "main",
-  "commit": "16fbdc2",
-  "datum": "19.11.2026 13:05",
-  "betreff": "Merge claude/dashboard-vorschau: Dashboard, Vorschau, Kohärenz (Einrichtung der Gründung)"
+  "commit": "1481690",
+  "datum": "19.11.2026 13:13",
+  "betreff": "Merge claude/gruendung-labor-uebernommen (Einrichtung der Gründung)"
  },
  "uebergabe": "Übergabe (Stand 19.11.2026, Gründung)",
  "surveys": [
@@ -239,8 +239,8 @@
   {
    "nr": "S8",
    "seit": "19.11.",
-   "was": "Labor und OS laufen doppelt. Website und Business-Seite nutzen den Survey weiter aus dem Labor (claude/survey-stand ist dort noch nicht übernommen)",
-   "schritt": "Mit Chris klären: wann das Labor das OS einbindet; bis dahin Abgleich mit werkzeug/labor-abgleich.mjs"
+   "was": "Labor und OS führen den Survey doppelt. Website (website-v3) und Business-Seite (master) nutzen ihn weiter aus dem Labor; der Feinschliff ist dort seit 19.11. übernommen, live ist er noch nicht (Deploy nur auf Chris' Wort)",
+   "schritt": "Mit Chris klären: wann das Labor das OS einbindet. Bis dahin vor jeder Änderung an kopierten Dateien werkzeug/labor-abgleich.mjs gegen website-v3"
   },
   {
    "nr": "S9",
@@ -333,7 +333,7 @@
  },
  "herkunft": {
   "labor": "c3322c3",
-  "branch": "claude/survey-stand"
+  "branch": "website-v3"
  },
  "framework": {
   "commit": "38f74d8de2",
