@@ -1,1 +1,0 @@
-import{i as e,n as t,r as n,t as r}from"./tests-BeTp7xRr.js";export{e as default,r as detailsAuf,t as detailsMalen,n as testHandlung};
