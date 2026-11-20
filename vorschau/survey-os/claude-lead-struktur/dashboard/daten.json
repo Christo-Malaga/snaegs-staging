@@ -1,10 +1,10 @@
 {
- "erzeugt": "2026-11-20T13:30:01.806Z",
+ "erzeugt": "2026-11-20T13:36:29.162Z",
  "stand": {
   "branch": "claude/lead-struktur",
-  "commit": "deaa523",
-  "datum": "20.11.2026 13:29",
-  "betreff": "Fundament: Register, Schema, Generator, Laufzeit für Surveys aus Daten, Lernstand"
+  "commit": "26caaa0",
+  "datum": "20.11.2026 13:36",
+  "betreff": "Vorschau: Surveys aus Daten spielen auch unter der Basis; Durchspielen vor dem Veröffentlichen"
  },
  "uebergabe": "Übergabe (Stand 20.11.2026, Fundament: Register, Schema, Generator, Laufzeit aus Daten)",
  "surveys": [
@@ -633,8 +633,8 @@
   {
    "id": "G15",
    "name": "Im Netz geprüft",
-   "regel": "Kein Link an Chris, bevor die Vorschau online ist und selbst geöffnet wurde (390 und 1440, last-modified nach dem Push)",
-   "messung": "npm run vorschau, dann Aufruf der Adresse",
+   "regel": "Kein Link an Chris, bevor die Vorschau online ist und selbst geöffnet wurde (390 und 1440, last-modified nach dem Push). Surveys aus Daten werden dort zu Ende gespielt, nicht nur geladen",
+   "messung": "npm run vorschau (spielt jeden Survey unter der Basis, sonst geht nichts online), dann node pruefstand/spiel.mjs --alle --adresse <vorschau>",
    "stand": "grün (20.11.)",
    "ampel": "gruen"
   },
