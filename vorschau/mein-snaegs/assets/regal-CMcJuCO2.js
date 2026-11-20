@@ -1,0 +1,1 @@
+import{n as e,t}from"./regal-BumV1sHi.js";export{t as default,e as zeigeRegal};
