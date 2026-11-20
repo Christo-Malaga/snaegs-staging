@@ -1,0 +1,1 @@
+var e=`snaegs-mein`;function t(){try{return window.parent!==window&&window.parent.location.origin===location.origin}catch{return!1}}function n(n,r={}){return t()?(window.parent.postMessage({quelle:e,typ:n,...r},location.origin),!0):!1}function r(){n(`schliessen`)||(location.href=`/snaegs-staging/vorschau/mein-snaegs/site/mein.html`)}export{r as i,t as n,n as r,e as t};
