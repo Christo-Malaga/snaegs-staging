@@ -1,12 +1,12 @@
 {
- "erzeugt": "2026-11-20T13:36:29.162Z",
+ "erzeugt": "2026-11-20T15:32:18.262Z",
  "stand": {
   "branch": "claude/lead-struktur",
-  "commit": "26caaa0",
-  "datum": "20.11.2026 13:36",
-  "betreff": "Vorschau: Surveys aus Daten spielen auch unter der Basis; Durchspielen vor dem Veröffentlichen"
+  "commit": "1c6aad3",
+  "datum": "20.11.2026 15:32",
+  "betreff": "Erzeugte Surveys laufen auf der Kampagne des Produkttests (Chris 20.11., hebt E14 auf)"
  },
- "uebergabe": "Übergabe (Stand 20.11.2026, Fundament: Register, Schema, Generator, Laufzeit aus Daten)",
+ "uebergabe": "Übergabe (Stand 20.11.2026 abends: erzeugte Surveys laufen auf der Kampagne des Produkttests)",
  "surveys": [
   {
    "titel": "Produkttest nüssje",
@@ -23,8 +23,8 @@
   {
    "titel": "Kurztest nüssje Strawberry Cheesecake (Beispiel)",
    "seite": "spiel.html?s=beispiel-nuessje-kurztest",
-   "text": "Aus einem Fragebogen erzeugt: 12 Fragen, 1 Lücke(n). Datensatz surveys/beispiel-nuessje-kurztest.json.",
-   "art": "Daten · entwurf · Schema 1.0.0"
+   "text": "Aus einem Fragebogen erzeugt: 13 Fragen, 1 Lücke(n). Datensatz surveys/beispiel-nuessje-kurztest.json.",
+   "art": "Daten · entwurf · Schema 1.1.0"
   }
  ],
  "bausteine": [
@@ -186,14 +186,14 @@
    "titel": "Geschmackskarte",
    "version": "1.0.0",
    "frageart": "Mechanik · map",
-   "status": "gebunden: Produkt mit achsen"
+   "status": "frei für den Generator"
   },
   {
    "id": "hotspot",
    "titel": "Blickfang auf der Packung",
    "version": "1.0.0",
    "frageart": "Mechanik · choice",
-   "status": "nein"
+   "status": "gebunden: Produkt nuessje-strawberry-cheesecake"
   },
   {
    "id": "lupe",
@@ -296,13 +296,6 @@
  ],
  "bedarf": [
   {
-   "quelle": "engine",
-   "id": "traeger-kampagne",
-   "prio": 1,
-   "was": "Träger „Kampagne (Level-Run)“ aus Daten spielen: liest QUEST_TEMPLATES der Vorlage und feste Frage-IDs; ein fremder Fragebogen läuft hier noch nicht (Schleife S14)",
-   "wartet": []
-  },
-  {
    "quelle": "generator",
    "id": "freitext",
    "prio": 1,
@@ -310,13 +303,6 @@
    "wartet": [
     "beispiel-nuessje-kurztest:verbessern"
    ]
-  },
-  {
-   "quelle": "engine",
-   "id": "hotspot",
-   "prio": 2,
-   "was": "Mechanik „Blickfang auf der Packung“ entkoppeln: vier Bereiche der nüssje-Dose (color, logo, flavor, crunch) mit festen Koordinaten",
-   "wartet": []
   },
   {
    "quelle": "engine",
@@ -442,9 +428,9 @@
   "naechster": "Lücke schließen, auf die ein Fragebogen wartet: freitext (beispiel-nuessje-kurztest:verbessern)",
   "haengt": [],
   "feedback": {
-   "gesamt": 4,
+   "gesamt": 5,
    "offen": 0,
-   "inArbeit": 2,
+   "inArbeit": 3,
    "verarbeitet": 2,
    "liste": [
     {
@@ -469,6 +455,13 @@
      "tage": 0
     },
     {
+     "datei": "2026-11-20-erzeugter-survey-ohne-haptikstruktur.md",
+     "titel": "Feedback 20.11.2026 · Der erzeugte Survey nutzt nicht die bestehende Haptikstruktur",
+     "status": "in Arbeit (Korrektur im selben Turn begonnen: erzeugte Surveys laufen auf der Kampagne)",
+     "zustand": "in Arbeit",
+     "tage": 0
+    },
+    {
      "datei": "2026-11-20-lead-struktur-lernen-generieren.md",
      "titel": "Auftrag 20.11.2026 · Lead übernehmen: strukturieren, zusammenführen, lernen, generieren",
      "status": "in Arbeit (Fundament gebaut am 20.11., Branch claude/lead-struktur; offen ist, was in schleifen.md steht)",
@@ -478,16 +471,16 @@
    ]
   },
   "gates": {
-   "gruen": 10,
+   "gruen": 11,
    "rot": 0,
    "offen": 9,
-   "gesamt": 19
+   "gesamt": 20
   },
   "wissen": {
-   "prinzipien": 20,
+   "prinzipien": 23,
    "fassung": "0",
-   "entscheidungen": 16,
-   "aenderungen": 5
+   "entscheidungen": 18,
+   "aenderungen": 10
   }
  },
  "experimente": [
@@ -504,7 +497,7 @@
   {
    "id": "X3",
    "titel": "Mechanik „kette“ wirkt mit sechs Wörtern leer",
-   "status": "offen"
+   "status": "entschieden (seit generator 0.2.0 wählt die Regel „andere Wirkung als zuvor“ für zwei aus sechs die Tasche)"
   },
   {
    "id": "X4",
@@ -514,6 +507,21 @@
   {
    "id": "X5",
    "titel": "Die Etappe hat keinen großen Moment am Ende",
+   "status": "entschieden (E17: erzeugte Surveys laufen auf der Kampagne mit Boss und Finale)"
+  },
+  {
+   "id": "X6",
+   "titel": "Spiegeln nach der Antwort trifft Klägs am falschen Ort",
+   "status": "offen"
+  },
+  {
+   "id": "X7",
+   "titel": "Vormachen mit leerem Zettel",
+   "status": "offen"
+  },
+  {
+   "id": "X8",
+   "titel": "Etwas ragt in Level 1 kurz über den rechten Rand",
    "status": "offen"
   }
  ],
@@ -663,6 +671,14 @@
    "ampel": "gruen"
   },
   {
+   "id": "G20",
+   "name": "Auf dem Produkttest gebaut",
+   "regel": "Ein erzeugter Survey zeigt jeden Moment des Produkttests (Start am Produkt, Level-Start, Antwort-Flug, Kettenreaktion, Testkarte, Minigame, Boss, Finale) oder nennt im Bericht, welcher fehlt und warum. Nie drei Fragen gleicher Wirkung hintereinander, unter den ersten vier mindestens drei verschiedene. Kein Format aus Tipp-Flächen ohne ausdrückliche Festlegung im Fragebogen",
+   "messung": "node pruefstand/spiel.mjs --alle (prüft jeden Moment im Lauf), baukasten.mjs (Wirkung, mit Negativfall)",
+   "stand": "grün (20.11.)",
+   "ampel": "gruen"
+  },
+  {
    "id": "G19",
    "name": "Nur der Generator schreibt Surveys",
    "regel": "surveys/*.json entsteht aus eingang/, nie von Hand; freigegeben wird erst ohne Lücken und nach Chris' Abnahme",
@@ -729,8 +745,8 @@
   {
    "nr": "S14",
    "seit": "20.11.",
-   "was": "Kampagne aus Daten fehlt (E14). Lange Fragebögen (über 15 Fragen), Level, Testkarte, Boss und Minigames gibt es nur für den nüssje-Run. hotspot und lupe hängen fest an der nüssje-Dose bzw. der Creator-Szene",
-   "schritt": "In Schritten (E2): zuerst den nüssje-Run als Datensatz spiegeln, ohne dass er sich sichtbar ändert (Vorher-Nachher-Aufnahmen); dann kampagne.js aus einer Spec speisen; hotspot mit Bereichen und Koordinaten aus dem Produkt"
+   "was": "Kampagne aus Daten: läuft, Reste offen (E17). Erzeugte Surveys spielen auf der Kampagne. Offen: Der nüssje-Run selbst liegt noch nicht als Datensatz vor; hotspot läuft nur für die nüssje-Dose (feste Bereiche), lupe gar nicht; das Profil nach Level 1 gibt es nur im nüssje-Run; der Text der Testkarten („Alle zwei gesammelt“) und die Boss-Teile sind generisch",
+   "schritt": "hotspot mit Bereichen und Koordinaten aus dem Produkt; nüssje-Run als Datensatz spiegeln (Vorher-Nachher-Aufnahmen); Durchspiel-Skript auch für survey.html"
   },
   {
    "nr": "S15",
@@ -749,9 +765,31 @@
    "seit": "20.11.",
    "was": "Asset-Datenbank und Mein SNÄGS wissen noch nichts vom neuen Stand. surveys/README.md der Asset-Datenbank nennt templates/, schema/, generator/ als „im Aufbau“; die Beispiel-Produktbilder (Mondbeere, Kieselfein, zwei nüssje-Sorten) liegen jetzt auch in app/public/produkte/",
    "schritt": "Nach „übernehmen“: Verweis in der Asset-Datenbank nachziehen (diese Session hatte dort nur Lesezugriff); Bilder langfristig aus der Datenbank beziehen (E4)"
+  },
+  {
+   "nr": "S18",
+   "seit": "20.11.",
+   "was": "Leben, Fassung 1 (E18): Vormachen und Ziele mit Tiefe laufen im OS als Schicht über der Engine. Spiegeln nach der Antwort ist nur ein Versuch (?spiegel=1): Es trifft Klägs im Kopf und über Überschriften und widerspricht der Regel „nie auf den Wert einer Antwort“",
+   "schritt": "Chris' Ja zur Regel einholen. Dann im Labor in Klägs' Führung bauen (Reaktion nach der Landung, eigener Platz, nie am Level-Ende), Tiefe und Bedeutung der Ziele in die Stylesheets der Mechaniken übernehmen, Vormachen je Geste (nicht nur der leere Zettel)"
+  },
+  {
+   "nr": "S19",
+   "seit": "20.11.",
+   "was": "Demo-Surveys nach den Engine-Änderungen nur per Rauchtest geprüft. kampagne.js, Kampagne.jsx, LevelStart, LevelClear, Loot, Start, Testkarte lesen jetzt wahlweise eine Spec; ohne Spec soll alles gleich bleiben",
+   "schritt": "Durchspiel-Skript für survey.html (S5) und Vorher-Nachher-Aufnahmen; dem Labor die Änderung anbieten oder beim nächsten Abgleich als Abweichung führen"
   }
  ],
  "entscheidungen": [
+  {
+   "id": "E18",
+   "datum": "20.11.2026",
+   "titel": "Leben: Vormachen und Ziele mit Tiefe ja, Spiegeln offen (braucht Chris' Ja)"
+  },
+  {
+   "id": "E17",
+   "datum": "20.11.2026",
+   "titel": "Erzeugte Surveys laufen auf der Kampagne des Produkttests (hebt E14 auf)"
+  },
   {
    "id": "E16",
    "datum": "20.11.2026",
@@ -765,7 +803,7 @@
   {
    "id": "E14",
    "datum": "20.11.2026",
-   "titel": "Surveys aus Daten spielt die Etappe; die Kampagne bleibt vorerst Demo"
+   "titel": "Surveys aus Daten spielt die Etappe; die Kampagne bleibt vorerst Demo (AUFGEHOBEN durch E17, am selben Tag)"
   },
   {
    "id": "E13",
@@ -841,6 +879,12 @@
    "status": "in Arbeit (Fundament gebaut am 20.11., Branch claude/lead-struktur; offen ist, was in schleifen.md steht)"
   },
   {
+   "datei": "2026-11-20-erzeugter-survey-ohne-haptikstruktur.md",
+   "datum": "20.11.2026",
+   "titel": "Feedback 20.11.2026 · Der erzeugte Survey nutzt nicht die bestehende Haptikstruktur",
+   "status": "in Arbeit (Korrektur im selben Turn begonnen: erzeugte Surveys laufen auf der Kampagne)"
+  },
+  {
    "datei": "2026-11-20-ersteindruck-produktfeedback.md",
    "datum": "20.11.2026",
    "titel": "Feedback 20.11.2026 · Ersteindruck ist Produktfeedback, Klägs live erweitern",
@@ -860,7 +904,7 @@
   }
  ],
  "prinzipien": {
-  "anzahl": 20,
+  "anzahl": 23,
   "fassung": "0"
  },
  "herkunft": {
