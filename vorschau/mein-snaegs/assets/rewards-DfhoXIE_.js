@@ -1,1 +1,0 @@
-import{n as e,r as t,t as n}from"./rewards-ULt0d3FB.js";export{n as default,e as tischInsBlatt,t as tischZurueck};
