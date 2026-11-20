@@ -1,0 +1,18 @@
+import{t as e}from"./boxen-stufen-handy-BVBIHPoO.js";import{t}from"./blaetter-CqbRKFP5.js";import{a as n,d as r,t as i}from"./teile-DsX-DnJd.js";/* empty css                 */import{b as a,h as o,l as s}from"./texte-Bo9HVV74.js";var c=null,l=null,u=0,d={premium:`Premium Winner Box`,standard:`Winner Box`,mini:`Mini Winner Box`},f=e=>Promise.resolve().then(()=>l.api.hole(e)).catch(t=>(console.warn(`[reward-winner]`,e,t),null)),p=e=>String(e).includes(`-`)?`Platz ${String(e).replace(`-`,` bis `)}`:`Platz ${e}`;async function m(){let e=++u,[m,h]=await Promise.all([`arena/turniere`,`arena/teilnahmen`].map(f));if(e!==u||!c)return;let g=l.regeln,_=(m??[]).slice().sort((e,t)=>e.datum.localeCompare(t.datum)),v=_.find(e=>[`anmeldung_offen`,`angekuendigt`].includes(e.status)&&!e.sponsor)??_.find(e=>[`anmeldung_offen`,`angekuendigt`].includes(e.status)),y=_.find(e=>e.sponsor&&e!==v&&[`anmeldung_offen`,`angekuendigt`].includes(e.status)),b=_.filter(e=>e.status===`endgueltig`).at(-1),x=e=>(h??[]).find(t=>t.turnierId===e?.id),S=(v??b)?.preise??[],C=c.querySelector(`[data-w-inhalt]`),w=x(v),T=x(b);C.innerHTML=`
+    <p class="r-rewards-winner__satz">${a(v?.raeumeMax??g.turnierRaeumeMax,g.gewinnerJeRaum)}</p>
+    <p class="r-rewards-blatt__fein">Winner Boxen kosten keine Punkte und hängen nicht von deinem Punktestand ab.</p>
+    ${v?`<div class="r-rewards-termin">
+            <span class="r-rewards-termin__motiv" data-motiv="kalender" aria-hidden="true"></span>
+            <p><b>${o(v.datum).replace(/^Heute$/,`Heute`)}${v.startUhrzeit?`, ${n(v.startUhrzeit)} Uhr`:``}</b><span>${w?`Du bist angemeldet.`:`Anmelden geht in der App, ${r(v.plaetzeMax)} Plätze.`}</span></p>
+          </div>
+          <p class="ms-beispiel">Uhrzeit als Beispiel</p>`:``}
+    <h2 class="ms-gruppe">Was es je Raum gibt</h2>
+    <ul class="r-rewards-preise">${S.map(e=>`<li class="ist-${n(e.box)}"><span class="r-rewards-preise__platz">${p(e.platz)}</span><span class="r-rewards-preise__box">${d[e.box]??n(e.box)}</span><span class="r-rewards-preise__wert">${r(e.warenwertEuroUvp)}&nbsp;€</span></li>`).join(``)}</ul>
+    <p class="r-rewards-blatt__fein">Warenwert als UVP, Versand kostenlos.</p>
+    ${T?.rang?`<p class="r-rewards-winner__ergebnis">Letzter Samstag: Platz ${r(T.rang)} in deinem Raum.${T.winnerBox?` Dafür gab es die ${d[T.winnerBox]}.`:` Die besten ${r(g.gewinnerJeRaum)} gewinnen.`}</p>`:``}
+    ${y?`<div class="r-rewards-winner__marke"><p class="ms-anzeige">${n(y.sponsor.kennzeichnung??`Anzeige · ${y.sponsor.marke}`)}</p><p>Am ${s(y.datum)} spielt ihr ein Turnier mit ${n(y.sponsor.marke)}.</p></div>`:``}
+    ${t.includes(`app`)?`<div class="r-rewards-quelle__knoepfe"><button type="button" class="ms-knopf" data-w-app>Mitspielen in der App${i}</button></div>`:`<p class="r-rewards-winner__app">Mitspielen geht in der App.</p>`}`,C.querySelectorAll(`[data-motiv]`).forEach(e=>l.motiv(e));let E=C.querySelector(`[data-w-app]`);E&&(l.tippbar(E,{art:`knopf`}),E.addEventListener(`click`,()=>l.blatt(`app`,{von:E})))}var h={titel:`Winner Box`,rendere(t,n){c=t,l=n,t.classList.add(`r-rewards-blatt`),t.innerHTML=`
+      <figure class="r-rewards-winner__buehne">
+        <img src="${e}" alt="Drei Winner Boxen: Mini, Winner Box und Premium, nach Größe gestaffelt" width="390" height="250" decoding="async" />
+      </figure>
+      <div data-w-inhalt><span class="ms-skelett ms-skelett--zeile"></span></div>`,m(),document.addEventListener(`b2b:blatt`,e=>e.detail?.id===`reward-winner`&&e.detail.offen&&m())},zu(){}};export{h as default};
