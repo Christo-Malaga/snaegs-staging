@@ -1,1 +1,0 @@
-import{n as e}from"./dinge-marke-DLuvInCa.js";export{e as WORTMARKE};
