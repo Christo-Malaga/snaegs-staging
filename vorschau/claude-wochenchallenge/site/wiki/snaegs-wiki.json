@@ -492,7 +492,7 @@
       "slug": "wochenchallenge",
       "subtitle": "125 Punkte in der Woche, jeden Sonntag 50 Winner Boxen.",
       "icon": "",
-      "motiv": "winner-box",
+      "motiv": "kalender",
       "weiter": {
         "text": "Zur Wochenchallenge",
         "href": "/snaegs-staging/vorschau/claude-wochenchallenge/site/gewinnspiele.html?von=wiki-wochenchallenge#wochenchallenge"
@@ -770,7 +770,7 @@
           "body": [
             {
               "t": "p",
-              "x": "Neben Punkten sammelst du XP, deine Erfahrungspunkte. Es gibt sie für Fragen, Games, aktive Tage und Wochen-Challenges."
+              "x": "Neben Punkten sammelst du XP, deine Erfahrungspunkte. Es gibt sie für Fragen, Games, aktive Tage und Wochenaufgaben."
             },
             {
               "t": "p",
