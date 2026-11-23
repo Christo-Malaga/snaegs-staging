@@ -1,0 +1,49 @@
+Du bist dabei, {{vorname}}.
+
+Deine Voranmeldung für den SNÄGS Testerclub ist angekommen. Du bist jetzt Founder, und deine ersten Punkte liegen schon auf deinem Konto.
+
+DEIN SNÄGS-PUNKTEKONTO (gesichert)
++150 Early-Bird-Punkte, gutgeschrieben am {{datum}}
+
+  Quick-Check, 8 Antworten          +80
+  Halbzeit- und Komplett-Bonus      +20
+  Voranmeldung als Founder          +50
+  ---------------------------------------
+  Auf deinem Konto           150 Punkte
+
+Fest verbunden mit {{email}}. Du musst nichts weiter tun: Die Punkte verfallen nicht und warten auf den Start.
+
+
+SO GEHT ES WEITER
+
+[x] Heute
+    Voranmeldung abgeschlossen, 150 Punkte gesichert.
+[ ] Kurz vor dem Start
+    Du bekommst eine Mail mit allen Schritten, damit du deine Punkte gleich einsetzen kannst.
+[ ] Januar 2027: Start
+    Der SNÄGS Testerclub und die Game Arena starten. Deine Punkte zählen ab dem ersten Tag.
+
+
+DEINE FOUNDER-VORTEILE
+Alles kostenlos, auch der Versand der Reward Boxen. Nur für Voranmeldungen bis 31.12.2026.
+
+- Abzeichen und Avatar: limitiert, nur für Founder
+- Erste Reward Box: 40 € statt 20 €
+- 10 Reward Boxen à 100 €: zu gewinnen
+- 5 Freunde einladen: bis 125 Punkte extra
+
+Freunde einladen: https://xn--sngs-moa.de/site/testerclub.html
+
+
+DIE NÄCHSTE MAIL KOMMT IM JANUAR
+Darin steht Schritt für Schritt, wie du die Punkte von heute direkt einsetzt. Damit sie sicher ankommt: Speichere unsere Adresse in deinen Kontakten.
+
+Bis bald,
+dein SNÄGS-Team
+
+--
+Du bekommst diese Mail, weil du dich mit {{email}} für den SNÄGS Testerclub vorangemeldet hast.
+SNÄGS ist eine Marke der Prime Fusion B.V., Lindenstraat 3, 6291 AE Vaals, Niederlande. info@snägs.de
+Impressum: https://xn--sngs-moa.de/recht/impressum.html
+Datenschutz: https://xn--sngs-moa.de/recht/datenschutz.html
+Abmelden: {{abmelden}}
