@@ -6,7 +6,7 @@
     <meta name="robots" content="noindex" />
     <link rel="icon" type="image/svg+xml" href="/snaegs-staging/vorschau/claude-vorschau-gesamt/assets/snaegs-favicon-C7AnkDYR.svg" />
     <title>Datenschutz Business · SNÄGS</title>
-    <meta name="description" content="Datenschutzerklärung der Business-Seite von SNÄGS: Seitenaufruf, Kontaktformular, Terminbuchung über Cal.com und Ansprache von Unternehmen." />
+    <meta name="description" content="Datenschutzerklärung der Business-Seite von SNÄGS: Seitenaufruf, Kontaktformular und Ansprache von Unternehmen." />
     <link rel="preload" href="/snaegs-staging/vorschau/claude-vorschau-gesamt/fonts/tiktok-sans-latin-var.woff2" as="font" type="font/woff2" crossorigin />
     <script type="module" crossorigin src="/snaegs-staging/vorschau/claude-vorschau-gesamt/assets/modulepreload-polyfill-Dezn_h7o.js"></script>
     <script type="module" crossorigin src="/snaegs-staging/vorschau/claude-vorschau-gesamt/assets/preload-helper-Au-gQNdi.js"></script>
@@ -38,6 +38,13 @@
        1. Formular: Rechtsgrundlage Einwilligung (lit. a), weil das Häkchen heute „Ich bin einverstanden …“ sagt; bei
           Vertragsbezug zusätzlich lit. b. Alternative: Häkchen zum reinen Hinweis umbauen, dann nur lit. b/f.
        2. Die Anfrage läuft technisch über den Hosting-Anbieter (EU) und landet als Mail im IONOS-Postfach; kein CRM.
+          ÜBERHOLT 14.11.2026 (Jack: „kein serverside, free und clientside“, „ohne registrierung“): Der Browser schickt
+          das Formular an FormSubmit (formsubmit.co, Devro LABS; kein Konto, kein Schlüssel), FormSubmit leitet als Mail ins
+          IONOS-Postfach weiter. Laut formsubmit.co: Anfragen 30 Tage aufbewahrt; Rechtsform, Sitz, Serverstandort und
+          Unterauftragnehmer nicht angegeben; kein DPA, keine SCC, keine Aussage zur DSGVO gefunden. Deshalb hier: keine
+          Auftragsverarbeitung behauptet, Drittland-Übermittlung auf ausdrückliche Einwilligung (Art. 49 Abs. 1 lit. a) mit
+          Risikohinweis gestützt, Häkchen-Text in business/index.html entsprechend erweitert.
+          PRÜFEN vor Livegang (Rechtsberatung): ob das trägt; sonst Dienst mit DPA/SCC oder EU-Dienst wählen.
        3. Cal.com: Auftragsverarbeitungsvertrag (DPA) abgeschlossen und DPF-Zertifizierung aktiv, beides vor Livegang
           prüfen; Cal.com-Konto läuft auf SNÄGS. Protokolldaten beim Laden des Kalenders nach den Fristen von Cal.com.
        4. Terminbuchung: 6 Monate nach dem Termin, bei Auftrag wie Vertragsunterlagen.
@@ -45,7 +52,13 @@
           Löschung 12 Monate nach der letzten Ansprache; nach Widerspruch nur Sperrvermerk (Name, E-Mail).
        6. Nachweis einer Werbe-Einwilligung: 3 Jahre nach Widerruf (Verjährung).
        7. Kopf und Fuß bleiben wie in der Vorlage (Logo verlinkt /snaegs-staging/vorschau/claude-vorschau-gesamt/site/index.html, Fuß ohne „Datenschutz Business“),
-          weil nur der Inhalt geändert werden durfte; aria-current deshalb nur in der Seitenleiste. -->
+          weil nur der Inhalt geändert werden durfte; aria-current deshalb nur in der Seitenleiste.
+
+       CAL.COM AUSGEBLENDET (14.11.2026, Jack: „blende alles im code aus, was mit cal.com zu tun hat“): Die Terminbuchung
+       über Cal.com ist auf der Business-Seite aus (Schalter TERMINBUCHUNG in business/teile/terminbuchung.js). Deshalb hier:
+       alter Abschnitt 5 „Terminbuchung über Cal.com“ unten als Kommentar erhalten, Abschnitte 6–10 auf 5–9 vorgerückt,
+       Cal.com aus Kurzfassung, 1.2, Browser-Speicher und Dienstleister-Tabelle genommen (dort jeweils als Kommentar).
+       Zurück: Schalter auf true, Abschnitt 5 einkommentieren, Nummern und Verweise zurück (git revert des Commits genügt). -->
   <body class="v2 re" data-seite="datenschutz-business">
     <a class="re-sprung" href="#inhalt">Zum Inhalt</a>
     <header class="re-kopf">
@@ -56,8 +69,8 @@
     <main id="inhalt">
       <div class="re-titel">
         <h1 class="plakat">Datenschutz Business</h1>
-        <p class="re-titel__unter">Wie wir Daten verarbeiten, wenn Sie unsere Business-Seite besuchen, anfragen oder einen Termin buchen.</p>
-        <p class="re-titel__stand">Stand: 11. November 2026</p>
+        <p class="re-titel__unter">Wie wir Daten verarbeiten, wenn Sie unsere Business-Seite besuchen oder anfragen.</p>
+        <p class="re-titel__stand">Stand: 14. November 2026</p>
       </div>
 
       <!-- Handy: Inhaltsverzeichnis zum Aufklappen (legal-toc.js füllt und schließt nach dem Sprung) -->
@@ -77,20 +90,21 @@
             <h2 id="vorab">1. Das Wichtigste vorab</h2>
             <div class="re-kurz">
               <p class="re-kurz__titel">Kurz gesagt</p>
-              <p>Diese Erklärung gilt für die Business-Seite von SNÄGS, für Anfragen, Terminbuchungen und unsere Ansprache von Unternehmen. Analyse- oder Werbe-Cookies setzen wir nicht ein, und den Kalender von Cal.com laden wir erst, wenn Sie ihn anfordern.</p>
+              <p>Diese Erklärung gilt für die Business-Seite von SNÄGS, für Anfragen und unsere Ansprache von Unternehmen. Analyse- oder Werbe-Cookies setzen wir nicht ein. Das Formular verschicken wir über den Dienst FormSubmit.</p>
             </div>
 
             <h3 id="vorab-geltung">1.1 Wofür diese Erklärung gilt</h3>
-            <p>Sie gilt für die Business-Seite von SNÄGS, für Anfragen über das Kontaktformular oder per E-Mail, für Terminbuchungen und dafür, wie wir Unternehmen von uns aus ansprechen. Für Mitglieder von SNÄGS gilt die <a href="/snaegs-staging/vorschau/claude-vorschau-gesamt/recht/datenschutz.html">Datenschutzerklärung der Website</a>.</p>
+            <p>Sie gilt für die Business-Seite von SNÄGS, für Anfragen über das Kontaktformular oder per E-Mail und dafür, wie wir Unternehmen von uns aus ansprechen. Für Mitglieder von SNÄGS gilt die <a href="/snaegs-staging/vorschau/claude-vorschau-gesamt/recht/datenschutz.html">Datenschutzerklärung der Website</a>.</p>
             <p>Arbeiten Sie mit uns an einer Kampagne, bekommt Ihr Unternehmen Ergebnisse nur anonymisiert und zusammengefasst, aus Gruppen von mindestens 10 Mitgliedern. Kontaktdaten von Mitgliedern geben wir nicht weiter. Die Einzelheiten stehen in <a href="/snaegs-staging/vorschau/claude-vorschau-gesamt/recht/datenschutz.html#ergebnisse-fuer-marken">Abschnitt 10 der Erklärung für Mitglieder</a>.</p>
 
             <h3 id="vorab-grundsaetze">1.2 Was Sie wissen sollten</h3>
             <ul>
-              <li>Analyse- oder Werbe-Cookies, Pixel und Social-Plugins setzen wir nicht ein (<a href="#browser-speicher">Abschnitt 7</a>).</li>
-              <li>Ihre Anfrage landet in unserem Postfach bei IONOS in Deutschland (<a href="#kontaktformular">Abschnitt 4</a>).</li>
-              <li>Daten verlassen die EU nur bei der Terminbuchung über Cal.com in den USA, abgesichert über das EU-US Data Privacy Framework (<a href="#terminbuchung">Abschnitt 5</a>).</li>
-              <li>Werbende E-Mails schicken wir Ihnen nur mit Ihrer Einwilligung (<a href="#ansprache">Abschnitt 6</a>).</li>
-              <li>Für Auskunft, Löschung oder Widerspruch genügt eine Mail an <a href="mailto:info@xn--sngs-moa.de">info@snägs.de</a> (<a href="#ihre-rechte">Abschnitt 9</a>).</li>
+              <li>Analyse- oder Werbe-Cookies, Pixel und Social-Plugins setzen wir nicht ein (<a href="#browser-speicher">Abschnitt 6</a>).</li>
+              <li>Ihre Anfrage aus dem Formular schickt Ihr Browser an den Formular-Dienst FormSubmit, der sie in unser Postfach bei IONOS in Deutschland weiterleitet (<a href="#kontaktformular">Abschnitt 4</a>).</li>
+              <li>Daten verlassen die EU nur, wenn Sie das Formular absenden: FormSubmit verarbeitet sie außerhalb der EU, mit Ihrer ausdrücklichen Einwilligung über das Häkchen im Formular (<a href="#formular-drittland">Abschnitt 4.1</a>).</li>
+              <!-- Cal.com ausgeblendet: <li>Daten verlassen die EU nur bei der Terminbuchung über Cal.com in den USA, abgesichert über das EU-US Data Privacy Framework (<a href="#terminbuchung">Abschnitt 5</a>).</li> -->
+              <li>Werbende E-Mails schicken wir Ihnen nur mit Ihrer Einwilligung (<a href="#ansprache">Abschnitt 5</a>).</li>
+              <li>Für Auskunft, Löschung oder Widerspruch genügt eine Mail an <a href="mailto:info@xn--sngs-moa.de">info@snägs.de</a> (<a href="#ihre-rechte">Abschnitt 8</a>).</li>
             </ul>
 
             <h3 id="vorab-tabellen">1.3 So lesen Sie diese Erklärung</h3>
@@ -101,7 +115,7 @@
                 <tbody>
                   <tr><th scope="row">Vertrag</th><td data-label="Was das heißt">Wir brauchen die Daten, um einen Vertrag mit Ihnen anzubahnen oder durchzuführen.</td><td data-label="Vorschrift">Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;b DSGVO</td></tr>
                   <tr><th scope="row">Einwilligung</th><td data-label="Was das heißt">Sie haben zugestimmt. Sie können jederzeit für die Zukunft widerrufen.</td><td data-label="Vorschrift">Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;a DSGVO</td></tr>
-                  <tr><th scope="row">Berechtigtes Interesse</th><td data-label="Was das heißt">Wir haben ein Interesse, etwa an einer sicheren Website oder an neuen Kunden, und Ihre Interessen überwiegen nicht. Sie können widersprechen (<a href="#rechte-widerspruch">9.2</a>).</td><td data-label="Vorschrift">Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;f DSGVO</td></tr>
+                  <tr><th scope="row">Berechtigtes Interesse</th><td data-label="Was das heißt">Wir haben ein Interesse, etwa an einer sicheren Website oder an neuen Kunden, und Ihre Interessen überwiegen nicht. Sie können widersprechen (<a href="#rechte-widerspruch">8.2</a>).</td><td data-label="Vorschrift">Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;f DSGVO</td></tr>
                   <tr><th scope="row">Gesetzliche Pflicht</th><td data-label="Was das heißt">Ein Gesetz verlangt es, etwa die Aufbewahrung nach Handels- oder Steuerrecht.</td><td data-label="Vorschrift">Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;c DSGVO</td></tr>
                   <tr><th scope="row">Endgerät</th><td data-label="Was das heißt">Wir speichern etwas in Ihrem Browser, weil eine Funktion, die Sie nutzen, es unbedingt braucht.</td><td data-label="Vorschrift">§&nbsp;25 Abs.&nbsp;2 Nr.&nbsp;2 TDDDG</td></tr>
                 </tbody>
@@ -131,7 +145,7 @@
             <p>Einen Datenschutzbeauftragten haben wir nicht benannt. Mit allen Fragen zum Datenschutz wenden Sie sich direkt an <a href="mailto:info@xn--sngs-moa.de">info@snägs.de</a>.</p>
 
             <h3 id="verantwortlich-aufsicht">2.3 Zuständige Aufsicht</h3>
-            <p>Unsere Hauptniederlassung liegt in den Niederlanden. Federführend zuständig ist deshalb die niederländische Datenschutzbehörde, die Autoriteit Persoonsgegevens. Beschweren können Sie sich auch bei jeder deutschen Datenschutz-Aufsichtsbehörde (<a href="#rechte-beschwerde">9.4</a>).</p>
+            <p>Unsere Hauptniederlassung liegt in den Niederlanden. Federführend zuständig ist deshalb die niederländische Datenschutzbehörde, die Autoriteit Persoonsgegevens. Beschweren können Sie sich auch bei jeder deutschen Datenschutz-Aufsichtsbehörde (<a href="#rechte-beschwerde">8.4</a>).</p>
           </section>
 
           <!-- 3 ─────────────────────────────────────────────────────────────────────────────────────────────── -->
@@ -166,7 +180,7 @@
             <h2 id="kontaktformular">4. Kontaktformular und E-Mail</h2>
             <div class="re-kurz">
               <p class="re-kurz__titel">Kurz gesagt</p>
-              <p>Ihre Anfrage aus dem Formular kommt als E-Mail in unserem Postfach bei IONOS an. Wir nutzen sie, um Ihnen zu antworten, und löschen sie 6 Monate nach Abschluss, wenn daraus kein Auftrag wird.</p>
+              <p>Ihre Anfrage aus dem Formular schickt Ihr Browser an den Formular-Dienst FormSubmit, der sie als E-Mail in unser Postfach bei IONOS weiterleitet. Wir nutzen sie, um Ihnen zu antworten, und löschen sie 6 Monate nach Abschluss, wenn daraus kein Auftrag wird.</p>
             </div>
 
             <div class="re-tabelle">
@@ -179,7 +193,7 @@
                     <td data-label="Wozu">Ihre Anfrage beantworten, ein Gespräch vorbereiten</td>
                     <td data-label="Rechtsgrundlage">Einwilligung über das Häkchen (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;a DSGVO). Zielt Ihre Anfrage auf einen Vertrag, zusätzlich Vertrag (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;b DSGVO).</td>
                     <td data-label="Wie lange">6 Monate nach Abschluss der Anfrage. Wird daraus ein Auftrag, wie unter „Kampagne und Vertrag“.</td>
-                    <td data-label="Wer bekommt sie">Hosting-Anbieter (EU) für die Übermittlung, IONOS SE (Deutschland) für das Postfach, beide Auftragsverarbeiter</td>
+                    <td data-label="Wer bekommt sie">FormSubmit (Devro LABS, außerhalb der EU) für die Übermittlung, IONOS SE (Deutschland, Auftragsverarbeiter) für das Postfach</td>
                   </tr>
                   <tr>
                     <th scope="row">E-Mail und Telefon</th>
@@ -202,9 +216,14 @@
             </div>
             <p>Name, Firma und E-Mail-Adresse brauchen wir, um Ihnen zu antworten. Alle anderen Felder sind freiwillig.</p>
             <p>Ihre Einwilligung können Sie jederzeit per E-Mail widerrufen. Dann löschen wir Ihre Anfrage, soweit wir sie nicht für einen Vertrag mit Ihnen brauchen.</p>
+
+            <h3 id="formular-drittland">4.1 Formular-Dienst FormSubmit und Übermittlung ins Ausland</h3>
+            <p>Wenn Sie das Formular absenden, schickt Ihr Browser Ihre Angaben direkt an FormSubmit (formsubmit.co), einen kostenlosen Dienst von Devro LABS. FormSubmit erhält dabei auch Ihre IP-Adresse und Angaben zu Ihrem Browser und leitet die Anfrage als E-Mail an uns weiter. Nach eigenen Angaben bewahrt FormSubmit Anfragen 30 Tage auf.</p>
+            <p>FormSubmit sitzt außerhalb der EU und nennt weder seinen Serverstandort noch Garantien nach der DSGVO, etwa Standardvertragsklauseln. Ein angemessenes Datenschutzniveau ist deshalb nicht sichergestellt: Behörden im Land des Anbieters könnten auf Ihre Daten zugreifen, und Ihre Rechte lassen sich dort womöglich schwerer durchsetzen. Wir übermitteln Ihre Angaben nur, weil Sie mit dem Häkchen im Formular ausdrücklich eingewilligt haben (Art.&nbsp;49 Abs.&nbsp;1 lit.&nbsp;a DSGVO). Möchten Sie das nicht, schreiben Sie uns einfach direkt an <a href="mailto:info@xn--sngs-moa.de">info@snägs.de</a>.</p>
           </section>
 
-          <!-- 5 ─────────────────────────────────────────────────────────────────────────────────────────────── -->
+          <!-- 5 AUSGEBLENDET (Cal.com, 14.11.2026). Zum Wiederherstellen diesen Kommentar auflösen und die Abschnitte
+               danach wieder um eins hochzählen.
           <section class="re-abschnitt" aria-labelledby="terminbuchung">
             <h2 id="terminbuchung">5. Terminbuchung über Cal.com</h2>
             <div class="re-kurz">
@@ -245,19 +264,20 @@
             <h3 id="termin-drittland">5.3 Übermittlung in die USA</h3>
             <p>Cal.com, Inc. sitzt in den USA und ist nach dem EU-US Data Privacy Framework zertifiziert. Für zertifizierte Unternehmen gilt der Angemessenheitsbeschluss der EU-Kommission vom 10. Juli 2023 (Art.&nbsp;45 DSGVO). Cal.com arbeitet für uns auf Grundlage eines Vertrags nach Art.&nbsp;28 DSGVO.</p>
           </section>
+          -->
 
-          <!-- 6 ─────────────────────────────────────────────────────────────────────────────────────────────── -->
+          <!-- 5 ─────────────────────────────────────────────────────────────────────────────────────────────── -->
           <section class="re-abschnitt" aria-labelledby="ansprache">
-            <h2 id="ansprache">6. Wenn wir Unternehmen ansprechen</h2>
+            <h2 id="ansprache">5. Wenn wir Unternehmen ansprechen</h2>
             <div class="re-kurz">
               <p class="re-kurz__titel">Kurz gesagt</p>
               <p>Wir sprechen Marken auch von uns aus an, vor allem über LinkedIn, und nutzen dafür berufliche Kontaktdaten aus öffentlichen Quellen. Werbende E-Mails schicken wir nur mit Ihrer Einwilligung, und Sie können der Ansprache jederzeit widersprechen.</p>
             </div>
 
-            <h3 id="ansprache-quellen">6.1 Woher wir Ihre Daten haben</h3>
+            <h3 id="ansprache-quellen">5.1 Woher wir Ihre Daten haben</h3>
             <p>Haben Sie uns Ihre Daten nicht selbst gegeben, stammen sie aus beruflichen Quellen. Das sind Ihr Profil in einem Netzwerk wie LinkedIn, die Website Ihres Unternehmens, eine Veranstaltung, auf der wir uns begegnet sind, oder eine Empfehlung. Private Angaben nutzen wir dafür nicht.</p>
 
-            <h3 id="ansprache-daten">6.2 Welche Daten wir verarbeiten</h3>
+            <h3 id="ansprache-daten">5.2 Welche Daten wir verarbeiten</h3>
             <div class="re-tabelle">
               <table>
                 <thead><tr><th scope="col">Was</th><th scope="col">Welche Daten</th><th scope="col">Wozu</th><th scope="col">Rechtsgrundlage</th><th scope="col">Wie lange</th><th scope="col">Wer bekommt sie</th></tr></thead>
@@ -283,19 +303,19 @@
             </div>
             <p>Schreiben wir Sie über LinkedIn an, verarbeitet die LinkedIn Ireland Unlimited Company die Nachricht in eigener Verantwortung. Es gilt die Datenschutzerklärung von LinkedIn.</p>
 
-            <h3 id="ansprache-widerspruch">6.3 Widerspruch gegen die Ansprache</h3>
+            <h3 id="ansprache-widerspruch">5.3 Widerspruch gegen die Ansprache</h3>
             <p>Sie können der Ansprache jederzeit ohne Angabe von Gründen widersprechen (Art.&nbsp;21 Abs.&nbsp;2 und 3 DSGVO). Eine kurze Antwort auf unsere Nachricht oder eine Mail an <a href="mailto:info@xn--sngs-moa.de">info@snägs.de</a> genügt. Danach sprechen wir Sie nicht mehr an. Wir behalten nur einen Sperrvermerk mit Ihrem Namen und Ihrer E-Mail-Adresse, damit das so bleibt.</p>
           </section>
 
-          <!-- 7 ─────────────────────────────────────────────────────────────────────────────────────────────── -->
+          <!-- 6 ─────────────────────────────────────────────────────────────────────────────────────────────── -->
           <section class="re-abschnitt" aria-labelledby="browser-speicher">
-            <h2 id="browser-speicher">7. Browser-Speicher statt Cookies</h2>
+            <h2 id="browser-speicher">6. Browser-Speicher statt Cookies</h2>
             <div class="re-kurz">
               <p class="re-kurz__titel">Kurz gesagt</p>
               <p>Die Business-Seite setzt keine Cookies für Analyse oder Werbung ein. Ihr Browser merkt sich nur ein paar Anzeige-Zustände und Ihren Stand in der Beispiel-Umfrage, alles auf Ihrem Gerät.</p>
             </div>
 
-            <p>Auf der Business-Seite laufen keine Analyse-Werkzeuge, keine Werbe-Cookies und keine Pixel. Social-Plugins betten wir nicht ein. Cookies von Cal.com entstehen erst, wenn Sie den Kalender laden (<a href="#terminbuchung">Abschnitt 5</a>).</p>
+            <p>Auf der Business-Seite laufen keine Analyse-Werkzeuge, keine Werbe-Cookies und keine Pixel. Social-Plugins betten wir nicht ein. <!-- Cal.com ausgeblendet: Cookies von Cal.com entstehen erst, wenn Sie den Kalender laden (Abschnitt 5). --></p>
             <p>Einige Funktionen speichern kleine Einträge im Speicher Ihres Browsers (sessionStorage und localStorage). Erlaubt ist das ohne Einwilligung, wenn es für eine Funktion, die Sie ausdrücklich nutzen, unbedingt erforderlich ist (§&nbsp;25 Abs.&nbsp;2 Nr.&nbsp;2 TDDDG). Die Einträge bleiben auf Ihrem Gerät, wir bekommen sie nicht. Das gilt auch für Ihre Antworten in der Beispiel-Umfrage.</p>
             <p>Einträge für die Sitzung löscht Ihr Browser, wenn Sie den Tab schließen. Dauerhafte Einträge löschen Sie in den Einstellungen Ihres Browsers, meist unter „Websitedaten löschen“.</p>
             <div class="re-tabelle">
@@ -312,12 +332,12 @@
             </div>
           </section>
 
-          <!-- 8 ─────────────────────────────────────────────────────────────────────────────────────────────── -->
+          <!-- 7 ─────────────────────────────────────────────────────────────────────────────────────────────── -->
           <section class="re-abschnitt" aria-labelledby="dienstleister">
-            <h2 id="dienstleister">8. Dienstleister und Drittland</h2>
+            <h2 id="dienstleister">7. Dienstleister und Drittland</h2>
             <div class="re-kurz">
               <p class="re-kurz__titel">Kurz gesagt</p>
-              <p>Unsere Dienstleister arbeiten in unserem Auftrag und nur nach unseren Weisungen, mit Sitz oder Servern in der EU. Die einzige Ausnahme ist Cal.com für die Terminbuchung.</p>
+              <p>Unsere Dienstleister arbeiten in unserem Auftrag und nur nach unseren Weisungen, mit Sitz oder Servern in der EU. Die einzige Ausnahme ist FormSubmit für das Kontaktformular.<!-- Cal.com ausgeblendet: Die einzige Ausnahme ist Cal.com für die Terminbuchung. --></p>
             </div>
 
             <p>Jeder Auftragsverarbeiter arbeitet auf Grundlage eines Vertrags nach Art.&nbsp;28 DSGVO. Für das Hosting nennen wir hier die Art des Dienstleisters, den Namen des Anbieters nennen wir Ihnen auf Anfrage.</p>
@@ -325,9 +345,10 @@
               <table>
                 <thead><tr><th scope="col">Wer</th><th scope="col">Wofür</th><th scope="col">Wo</th><th scope="col">Rolle</th></tr></thead>
                 <tbody>
-                  <tr><th scope="row">Hosting-Anbieter</th><td data-label="Wofür">Business-Seite, Übermittlung des Kontaktformulars, Server-Logs</td><td data-label="Wo">Server in der EU</td><td data-label="Rolle">Auftragsverarbeiter</td></tr>
+                  <tr><th scope="row">Hosting-Anbieter</th><td data-label="Wofür">Business-Seite, Server-Logs</td><td data-label="Wo">Server in der EU</td><td data-label="Rolle">Auftragsverarbeiter</td></tr>
+                  <tr><th scope="row">FormSubmit (Devro LABS)</th><td data-label="Wofür">Kontaktformular, Weiterleitung an unser Postfach</td><td data-label="Wo">außerhalb der EU, Standort nicht angegeben</td><td data-label="Rolle">Übermittlung mit Ihrer Einwilligung (<a href="#formular-drittland">4.1</a>)</td></tr>
                   <tr><th scope="row">IONOS SE</th><td data-label="Wofür">unser Postfach info@snägs.de</td><td data-label="Wo">Deutschland</td><td data-label="Rolle">Auftragsverarbeiter</td></tr>
-                  <tr><th scope="row">Cal.com, Inc.</th><td data-label="Wofür">Terminbuchung</td><td data-label="Wo">USA</td><td data-label="Rolle">Auftragsverarbeiter, Data Privacy Framework (<a href="#termin-drittland">5.3</a>)</td></tr>
+                  <!-- Cal.com ausgeblendet: <tr><th scope="row">Cal.com, Inc.</th><td>Terminbuchung</td><td>USA</td><td>Auftragsverarbeiter, Data Privacy Framework (5.3)</td></tr> -->
                   <tr><th scope="row">LinkedIn Ireland Unlimited Company</th><td data-label="Wofür">Nachrichten, wenn wir Sie dort anschreiben</td><td data-label="Wo">Irland</td><td data-label="Rolle">eigene Verantwortung</td></tr>
                   <tr><th scope="row">Behörden und Gerichte</th><td data-label="Wofür">nur, wenn ein Gesetz uns dazu verpflichtet</td><td data-label="Wo">–</td><td data-label="Rolle">gesetzliche Pflicht (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;c DSGVO)</td></tr>
                 </tbody>
@@ -336,15 +357,15 @@
             <p>Personenbezogene Daten verkaufen wir nicht. Für Werbezwecke Dritter geben wir sie an niemanden weiter.</p>
           </section>
 
-          <!-- 9 ─────────────────────────────────────────────────────────────────────────────────────────────── -->
+          <!-- 8 ─────────────────────────────────────────────────────────────────────────────────────────────── -->
           <section class="re-abschnitt" aria-labelledby="ihre-rechte">
-            <h2 id="ihre-rechte">9. Ihre Rechte</h2>
+            <h2 id="ihre-rechte">8. Ihre Rechte</h2>
             <div class="re-kurz">
               <p class="re-kurz__titel">Kurz gesagt</p>
               <p>Sie können Auskunft verlangen, Daten berichtigen oder löschen lassen, Einwilligungen widerrufen und der Ansprache widersprechen. Eine Mail an info@snägs.de genügt, wir antworten innerhalb eines Monats.</p>
             </div>
 
-            <h3 id="rechte-liste">9.1 Was Sie verlangen können</h3>
+            <h3 id="rechte-liste">8.1 Was Sie verlangen können</h3>
             <ul>
               <li><strong>Auskunft</strong> über die Daten, die wir zu Ihnen haben, mit einer Kopie (Art.&nbsp;15 DSGVO)</li>
               <li><strong>Berichtigung</strong> falscher oder unvollständiger Daten (Art.&nbsp;16 DSGVO)</li>
@@ -354,26 +375,26 @@
               <li><strong>Widerruf</strong> jeder Einwilligung, jederzeit für die Zukunft. Was bis dahin geschah, bleibt rechtmäßig (Art.&nbsp;7 Abs.&nbsp;3 DSGVO).</li>
             </ul>
 
-            <h3 id="rechte-widerspruch">9.2 Ihr Widerspruchsrecht</h3>
+            <h3 id="rechte-widerspruch">8.2 Ihr Widerspruchsrecht</h3>
             <p>Stützen wir eine Verarbeitung auf unser berechtigtes Interesse (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;f DSGVO), können Sie jederzeit widersprechen. Voraussetzung sind Gründe, die sich aus Ihrer besonderen Situation ergeben (Art.&nbsp;21 Abs.&nbsp;1 DSGVO). Wir verarbeiten die Daten dann nicht mehr. Ausnahmen gelten nur, wenn wir zwingende schutzwürdige Gründe nachweisen, die Ihre Interessen überwiegen, oder wenn wir die Daten brauchen, um Rechtsansprüche durchzusetzen oder abzuwehren.</p>
-            <p>Der Ansprache zu Werbezwecken können Sie ohne jede Begründung widersprechen (Art.&nbsp;21 Abs.&nbsp;2 DSGVO). Dann nutzen wir Ihre Daten dafür nicht mehr (<a href="#ansprache-widerspruch">6.3</a>).</p>
+            <p>Der Ansprache zu Werbezwecken können Sie ohne jede Begründung widersprechen (Art.&nbsp;21 Abs.&nbsp;2 DSGVO). Dann nutzen wir Ihre Daten dafür nicht mehr (<a href="#ansprache-widerspruch">5.3</a>).</p>
 
-            <h3 id="rechte-ausueben">9.3 So machen Sie Ihre Rechte geltend</h3>
+            <h3 id="rechte-ausueben">8.3 So machen Sie Ihre Rechte geltend</h3>
             <p>Schreiben Sie an <a href="mailto:info@xn--sngs-moa.de">info@snägs.de</a>. Wir antworten innerhalb eines Monats, in schwierigen Fällen sagen wir Ihnen in dieser Zeit, warum es länger dauert. Haben wir Zweifel, ob die Anfrage von Ihnen kommt, fragen wir nach.</p>
 
-            <h3 id="rechte-beschwerde">9.4 Beschwerde bei einer Aufsichtsbehörde</h3>
+            <h3 id="rechte-beschwerde">8.4 Beschwerde bei einer Aufsichtsbehörde</h3>
             <p>Sie können sich bei einer Datenschutz-Aufsichtsbehörde beschweren (Art.&nbsp;77 DSGVO). Federführend für uns ist die Autoriteit Persoonsgegevens, Postbus 93374, 2509 AJ Den Haag, Niederlande (<a href="https://autoriteitpersoonsgegevens.nl" rel="noopener">autoriteitpersoonsgegevens.nl</a>). Sie können sich aber auch an jede deutsche Aufsichtsbehörde wenden, zum Beispiel an die Behörde des Bundeslands, in dem Ihr Unternehmen sitzt. Sie stimmt sich dann mit der niederländischen Behörde ab.</p>
           </section>
 
-          <!-- 10 ────────────────────────────────────────────────────────────────────────────────────────────── -->
+          <!-- 9 ────────────────────────────────────────────────────────────────────────────────────────────── -->
           <section class="re-abschnitt" aria-labelledby="aenderungen">
-            <h2 id="aenderungen">10. Änderungen</h2>
+            <h2 id="aenderungen">9. Änderungen</h2>
             <div class="re-kurz">
               <p class="re-kurz__titel">Kurz gesagt</p>
               <p>Wir passen diese Erklärung an, wenn sich unsere Verarbeitung oder die Rechtslage ändert. Die aktuelle Fassung steht immer auf dieser Seite.</p>
             </div>
 
-            <p>Brauchen wir für etwas Neues Ihre Einwilligung, fragen wir vorher. Diese Fassung hat den Stand 11. November 2026.</p>
+            <p>Brauchen wir für etwas Neues Ihre Einwilligung, fragen wir vorher. Diese Fassung hat den Stand 14. November 2026.</p>
           </section>
           <!-- INHALT ENDE -->
         </article>
