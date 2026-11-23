@@ -700,6 +700,12 @@ if (arenaSek) {
   E.nachspiel("arena", $(".st-gesperrt", arenaSek), { gefuehl: "ups", bezug: "stupsen", dauer: 2000, danach: { gefuehl: "zwinkern" } });
 }
 
+/* ── W · SNÄGS Wochenchallenge (Christian Scholz 23.11., §22): zusätzlicher Teaser zwischen Game Arena und Punkten. Kern beim
+   Eintritt: „Jede Woche 50 Winner Boxen!“, Klägs ist hin und weg (mind-blown, Ersatz aufgeregt) und zeigt auf die drei
+   Winner-Box-Stufen; eigener Bezug, #arena davor stupst ── */
+const wocheSek = $("#wochenchallenge");
+if (wocheSek) E.kern("wochenchallenge", $("[data-st-woche-boxen]", wocheSek) ?? wocheSek, { gefuehl: "mind-blown", ersatz: "aufgeregt", bezug: "zeigen", dauer: 1200 });
+
 /** Zeichen der Seite aus der Asset-Datenbank (Pfeile, Schloss der Game Arena, Founder-Abzeichen am Schluss) */
 const ZEICHEN_FARBE = { muenze: "gold", "founder-abzeichen": true };
 STRICH.then((B) => {

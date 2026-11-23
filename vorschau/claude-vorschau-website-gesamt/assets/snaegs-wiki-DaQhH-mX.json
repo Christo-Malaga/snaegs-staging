@@ -1,0 +1,954 @@
+{
+  "title": "SNÄGS Wiki",
+  "tagline": "Punkte, Boxen und Ligen zum Nachschlagen.",
+  "categories": [
+    {
+      "n": 1,
+      "title": "Founder-Aktion",
+      "slug": "founder",
+      "subtitle": "Bis 31.12.2026 registrieren und Founder werden.",
+      "icon": "",
+      "motiv": "founder-abzeichen",
+      "weiter": {
+        "text": "Jetzt Founder werden",
+        "href": "/snaegs-staging/vorschau/claude-vorschau-website-gesamt/vorregistrierung.html?von=wiki-founder"
+      },
+      "intro": [],
+      "sections": [
+        {
+          "heading": "Was Founder bekommen",
+          "slug": "vorteile",
+          "body": [
+            {
+              "t": "p",
+              "x": "Wer sich bis 31.12.2026 kostenlos registriert, ist Founder und bekommt:"
+            },
+            {
+              "t": "li",
+              "x": "150 Early-Bird-Punkte, gutgeschrieben im Januar 2027"
+            },
+            {
+              "t": "li",
+              "x": "das Founder-Abzeichen, das nur Founder tragen"
+            },
+            {
+              "t": "li",
+              "x": "einen limitierten Founder-Avatar"
+            },
+            {
+              "t": "li",
+              "x": "die erste Reward Box mit doppeltem Warenwert: 40 € statt 20 €"
+            },
+            {
+              "t": "li",
+              "x": "die Chance auf eine von 10 Reward Boxen im Wert von je 100 €"
+            },
+            {
+              "t": "li",
+              "x": "bis zu 125 Punkte extra, wenn du Freunde einlädst"
+            },
+            {
+              "t": "p",
+              "x": "Den Versand der Reward Boxen übernehmen wir."
+            }
+          ],
+          "lernen": "zahlen"
+        },
+        {
+          "heading": "Bis wann",
+          "slug": "frist",
+          "body": [
+            {
+              "t": "p",
+              "x": "Die Founder-Aktion endet am 31.12.2026. Bis dahin registrierst du dich kostenlos und sicherst dir alle Founder-Vorteile."
+            }
+          ]
+        },
+        {
+          "heading": "10 Reward Boxen zu gewinnen",
+          "slug": "produktboxen",
+          "body": [
+            {
+              "t": "p",
+              "x": "Als Founder hast du die Chance auf eine von 10 Reward Boxen im Wert von je 100 €. Wir verlosen sie, die Teilnahmebedingungen veröffentlichen wir vorher."
+            },
+            {
+              "t": "p",
+              "x": "Jede andere Reward Box tauschst du gegen 2.500 Punkte."
+            }
+          ]
+        },
+        {
+          "heading": "Abzeichen und Avatar",
+          "slug": "abzeichen",
+          "body": [
+            {
+              "t": "p",
+              "x": "Abzeichen und Founder-Avatar findest du ab Januar in der SNÄGS-App in deinem Profil. Sie zeigen, dass du von Anfang an dabei bist, und haben keinen Punktewert."
+            }
+          ]
+        }
+      ],
+      "missing": []
+    },
+    {
+      "n": 2,
+      "title": "Punktekonto",
+      "slug": "punktekonto",
+      "subtitle": "Ein Konto für SNÄGS Testerclub und Game Arena.",
+      "icon": "",
+      "motiv": "muenzglas",
+      "intro": [],
+      "sections": [
+        {
+          "heading": "Ein Konto für alles",
+          "slug": "ein-konto",
+          "body": [
+            {
+              "t": "p",
+              "x": "Mit deinem SNÄGS-Account hast du ein SNÄGS-Punktekonto. Punkte aus dem SNÄGS Testerclub und aus der Game Arena landen dort zusammen."
+            },
+            {
+              "t": "p",
+              "x": "Beide Bereiche laufen auch allein. Du kannst nur den SNÄGS Testerclub nutzen, nur in der Game Arena spielen oder beides."
+            }
+          ]
+        },
+        {
+          "heading": "Stand und Historie",
+          "slug": "historie",
+          "body": [
+            {
+              "t": "p",
+              "x": "In der SNÄGS-App siehst du deinen Punktestand und jede Buchung. So kann das aussehen:"
+            },
+            {
+              "t": "li",
+              "x": "+150 Early-Bird-Punkte aus der Registrierung"
+            },
+            {
+              "t": "li",
+              "x": "+3 Täglicher Login"
+            },
+            {
+              "t": "li",
+              "x": "+4 Produktfrage"
+            },
+            {
+              "t": "li",
+              "x": "+5 Game abgeschlossen"
+            },
+            {
+              "t": "li",
+              "x": "+25 Freund eingeladen"
+            },
+            {
+              "t": "li",
+              "x": "−2.500 Reward Box eingelöst"
+            }
+          ],
+          "auszug": true,
+          "lernen": "zahlen"
+        },
+        {
+          "heading": "Punkte, Winner Boxen und XP",
+          "slug": "drei-systeme",
+          "body": [
+            {
+              "t": "p",
+              "x": "Drei Dinge laufen getrennt voneinander:"
+            },
+            {
+              "t": "li",
+              "x": "Punkte sammelst du jeden Tag und tauschst sie gegen eine Reward Box."
+            },
+            {
+              "t": "li",
+              "x": "Winner Boxen werden jede Woche unter allen verlost, die ihre Wochenchallenge schaffen. Punkte kosten sie nicht."
+            },
+            {
+              "t": "li",
+              "x": "XP zeigen deinen Fortschritt in Ligen und beim Avatar. Gegen Boxen tauschen kannst du sie nie."
+            }
+          ]
+        }
+      ],
+      "missing": []
+    },
+    {
+      "n": 3,
+      "title": "Jeden Tag Punkte",
+      "slug": "jeden-tag",
+      "subtitle": "Bis zu 35 Punkte am Tag.",
+      "icon": "",
+      "motiv": "flamme",
+      "intro": [],
+      "sections": [
+        {
+          "heading": "Wofür es Punkte gibt",
+          "slug": "punkte",
+          "body": [
+            {
+              "t": "li",
+              "x": "3 Punkte fürs erste Reinschauen in die App, einmal am Tag"
+            },
+            {
+              "t": "li",
+              "x": "2 Punkte für deine Serie, ab dem zweiten Tag in Folge"
+            },
+            {
+              "t": "li",
+              "x": "4 Punkte je Produktfrage, bis zu 5 Fragen am Tag"
+            },
+            {
+              "t": "li",
+              "x": "5 Punkte je abgeschlossenem Game, bis zu 4 Games am Tag"
+            }
+          ],
+          "lernen": "zahlen"
+        },
+        {
+          "heading": "Deine Serie",
+          "slug": "serie",
+          "body": [
+            {
+              "t": "p",
+              "x": "Die Serie läuft, solange du jeden Tag mindestens eine Frage beantwortest oder ein Game abschließt. Nur reinschauen reicht dafür nicht."
+            },
+            {
+              "t": "p",
+              "x": "Lässt du einen Tag aus, beginnt sie wieder bei Tag 1. Auch eine lange Serie bringt 2 Punkte am Tag, nicht mehr."
+            }
+          ]
+        },
+        {
+          "heading": "Produktfragen",
+          "slug": "fragen",
+          "body": [
+            {
+              "t": "p",
+              "x": "Im SNÄGS Testerclub warten jeden Tag bis zu fünf Fragen zu Produkten und Marken. Jede Frage zählt einmal."
+            },
+            {
+              "t": "p",
+              "x": "Für jede ehrliche Antwort gibt's die Punkte, egal ob du die Marke magst."
+            }
+          ]
+        },
+        {
+          "heading": "Produkttests",
+          "slug": "produkttests",
+          "body": [
+            {
+              "t": "p",
+              "x": "Für Produkttests bewirbst du dich im SNÄGS Testerclub. Passt dein Profil zu einem Test, kriegst du Bescheid, und das Produkt kommt gratis zu dir nach Hause."
+            },
+            {
+              "t": "p",
+              "x": "Du testest das Produkt, teilst deine ehrliche Meinung und behältst es anschließend kostenlos."
+            },
+            {
+              "t": "p",
+              "x": "Für einen Produkttest gibt es keine zusätzlichen Punkte. Die sammelst du jeden Tag mit Fragen und Aufgaben, ab Januar auch mit Games."
+            }
+          ]
+        },
+        {
+          "heading": "Game Arena",
+          "slug": "games",
+          "body": [
+            {
+              "t": "p",
+              "x": "Auch ein verlorenes Game bringt 5 Punkte. Ob du gegen Freunde, andere Spieler oder einen Bot spielst, ist egal."
+            },
+            {
+              "t": "p",
+              "x": "Weiterspielen darfst du, so lange du willst. Punkte gibt's für die ersten vier abgeschlossenen Games am Tag."
+            }
+          ]
+        },
+        {
+          "heading": "Dein Tageslimit",
+          "slug": "tageslimit",
+          "body": [
+            {
+              "t": "li",
+              "x": "Nur SNÄGS Testerclub: bis 25 Punkte am Tag"
+            },
+            {
+              "t": "li",
+              "x": "Nur Game Arena: bis 25 Punkte am Tag"
+            },
+            {
+              "t": "li",
+              "x": "Beides: bis 35 Punkte am Tag"
+            },
+            {
+              "t": "p",
+              "x": "Machst du beides, ist bei 35 Schluss, auch wenn du mehr Fragen und Games schaffst. Die Reihenfolge ist egal."
+            },
+            {
+              "t": "p",
+              "x": "Am ersten Tag sind es 2 Punkte weniger, weil die Serie erst ab dem zweiten zählt. Um Mitternacht beginnt ein neuer Tag."
+            }
+          ],
+          "lernen": "zahlen"
+        },
+        {
+          "heading": "Zählt auch für die Wochenchallenge",
+          "slug": "wochenchallenge",
+          "body": [
+            {
+              "t": "p",
+              "x": "Deine täglichen Aktivitäten bringen dich jetzt noch weiter. Neben deinen normalen Punkten sammelst du automatisch Fortschritt für die SNÄGS Wochenchallenge."
+            },
+            {
+              "t": "p",
+              "x": "Erreiche innerhalb einer Woche 125 anrechenbare Punkte und sichere dir deine Chance auf eine von 50 Winner Boxen. Deine Punkte auf dem Punktekonto bleiben dabei vollständig erhalten."
+            },
+            {
+              "t": "p",
+              "x": "Die Tageslimits oben ändern sich dadurch nicht."
+            }
+          ],
+          "lernen": "zahlen"
+        }
+      ],
+      "missing": []
+    },
+    {
+      "n": 4,
+      "title": "Freunde & Profil",
+      "slug": "freunde-profil",
+      "subtitle": "Bis zu 150 Punkte extra, je einmal.",
+      "icon": "",
+      "motiv": "umschlag",
+      "intro": [],
+      "sections": [
+        {
+          "heading": "Freunde einladen",
+          "slug": "freunde",
+          "body": [
+            {
+              "t": "p",
+              "x": "Teil deinen persönlichen Link, zum Beispiel per WhatsApp oder Instagram. Für jeden Freund, der dabeibleibt, bekommst du 25 Punkte."
+            },
+            {
+              "t": "p",
+              "x": "Belohnt werden bis zu fünf Freunde, also bis zu 125 Punkte. Mehr Freunde einladen darfst du gern."
+            }
+          ],
+          "lernen": "zahlen"
+        },
+        {
+          "heading": "Wann ein Freund zählt",
+          "slug": "bedingungen",
+          "body": [
+            {
+              "t": "p",
+              "x": "Dabei bleibt, wer"
+            },
+            {
+              "t": "li",
+              "x": "sich über deinen Link registriert,"
+            },
+            {
+              "t": "li",
+              "x": "seine E-Mail-Adresse bestätigt,"
+            },
+            {
+              "t": "li",
+              "x": "die App lädt und sich anmeldet"
+            },
+            {
+              "t": "li",
+              "x": "und in den ersten 30 Tagen an 7 Tagen eine Frage beantwortet oder ein Game abschließt."
+            },
+            {
+              "t": "p",
+              "x": "Dann schreiben wir dir die 25 Punkte gut. Dich selbst einladen geht nicht."
+            }
+          ],
+          "lernen": "zahlen"
+        },
+        {
+          "heading": "Profil komplett",
+          "slug": "profil",
+          "body": [
+            {
+              "t": "p",
+              "x": "Füll dein Interessenprofil einmal vollständig aus, dann bekommst du 25 Punkte. Damit finden wir die Tests, die zu dir passen."
+            },
+            {
+              "t": "p",
+              "x": "Bei freiwilligen Angaben kannst du „Keine Angabe“ wählen. Die 25 Punkte gibt's einmal, auch wenn du dein Profil später änderst."
+            },
+            {
+              "t": "p",
+              "x": "Punkte für Freunde und Profil zählen nicht zum Tageslimit."
+            }
+          ]
+        }
+      ],
+      "missing": []
+    },
+    {
+      "n": 5,
+      "title": "Reward Box",
+      "slug": "reward-box",
+      "subtitle": "2.500 Punkte gegen Markenprodukte für rund 20 € UVP.",
+      "icon": "",
+      "motiv": "reward-box",
+      "weiter": {
+        "text": "Die Boxen ansehen",
+        "href": "/snaegs-staging/vorschau/claude-vorschau-website-gesamt/site/rewards.html#reward"
+      },
+      "intro": [],
+      "sections": [
+        {
+          "heading": "Was du bekommst",
+          "slug": "inhalt",
+          "body": [
+            {
+              "t": "p",
+              "x": "Für 2.500 Punkte bekommst du eine Reward Box mit Produkten unserer Markenpartner, zusammen rund 20 € UVP. Der Versand ist für dich kostenlos."
+            },
+            {
+              "t": "p",
+              "x": "Als Founder bekommst du deine erste Reward Box mit doppeltem Warenwert: 40 € statt 20 €."
+            }
+          ],
+          "lernen": "zahlen"
+        },
+        {
+          "heading": "So löst du ein",
+          "slug": "einloesen",
+          "body": [
+            {
+              "t": "li",
+              "x": "In der App die Reward Box wählen."
+            },
+            {
+              "t": "li",
+              "x": "Lieferadresse bestätigen."
+            },
+            {
+              "t": "li",
+              "x": "Erst dann gehen 2.500 Punkte vom Konto ab, und die Box kommt zu dir."
+            }
+          ],
+          "schritte": true
+        },
+        {
+          "heading": "Wie lange es dauert",
+          "slug": "dauer",
+          "body": [
+            {
+              "t": "p",
+              "x": "Je nachdem, wie aktiv du bist, kannst du dir deine Reward Box in etwa 2 bis 4 Monaten erspielen."
+            },
+            {
+              "t": "p",
+              "x": "Wenn du sowohl den SNÄGS Testerclub als auch die Game Arena nutzt, sammelst du schneller Punkte. Early-Bird-Punkte, Freundeempfehlungen und Profilboni können den Weg zusätzlich verkürzen."
+            }
+          ],
+          "lernen": "zahlen"
+        },
+        {
+          "heading": "Solange der Vorrat reicht",
+          "slug": "vorrat",
+          "body": [
+            {
+              "t": "p",
+              "x": "Ist gerade keine Box verfügbar, siehst du das in der App. Deine Punkte bleiben auf dem Konto."
+            }
+          ]
+        },
+        {
+          "heading": "Reward Box und Winner Box",
+          "slug": "unterschied",
+          "body": [
+            {
+              "t": "li",
+              "x": "Reward Box: rund 20 € Warenwert, für 2.500 Punkte."
+            },
+            {
+              "t": "li",
+              "x": "Winner Boxen: 10 bis 50 € Warenwert, in der wöchentlichen Verlosung oder bei angekündigten Sonderturnieren. Sie kosten keine Punkte."
+            },
+            {
+              "t": "p",
+              "x": "Beide laufen unabhängig voneinander. Wer eine Winner Box gewinnt, behält alle Punkte für die nächste Reward Box."
+            }
+          ],
+          "lernen": "zahlen"
+        }
+      ],
+      "missing": []
+    },
+    {
+      "n": 6,
+      "title": "Wochenchallenge & Winner Boxen",
+      "slug": "wochenchallenge",
+      "subtitle": "125 Punkte in der Woche, jeden Sonntag 50 Winner Boxen.",
+      "icon": "",
+      "motiv": "kalender",
+      "weiter": {
+        "text": "Zur Wochenchallenge",
+        "href": "/snaegs-staging/vorschau/claude-vorschau-website-gesamt/site/gewinnspiele.html?von=wiki-wochenchallenge#wochenchallenge"
+      },
+      "intro": [],
+      "sections": [
+        {
+          "heading": "Was ist die SNÄGS Wochenchallenge?",
+          "slug": "was-ist",
+          "body": [
+            {
+              "t": "p",
+              "x": "Die SNÄGS Wochenchallenge ist eine zusätzliche Möglichkeit, jede Woche eine Winner Box zu gewinnen. Durch deine normalen Aktivitäten im SNÄGS Testerclub und in der Game Arena sammelst du Fortschritt für dein persönliches Wochenziel."
+            },
+            {
+              "t": "p",
+              "x": "Sobald du innerhalb einer Woche 125 anrechenbare Punkte gesammelt hast, qualifizierst du dich für die nächste Verlosung. Die Teilnahme ist kostenlos und ab 18 Jahren möglich."
+            }
+          ]
+        },
+        {
+          "heading": "Wann findet die Wochenchallenge statt?",
+          "slug": "wann",
+          "body": [
+            {
+              "t": "p",
+              "x": "Die Wochenchallenge startet jeden Montag um 00:00 Uhr. Du hast bis Sonntag um 17:00 Uhr Zeit, dein Wochenziel zu erreichen. Die Verlosung findet jeden Sonntag um 18:00 Uhr statt."
+            },
+            {
+              "t": "p",
+              "x": "Am darauffolgenden Montag beginnt automatisch eine neue Wochenchallenge. Los geht's im Januar 2027. Alle Uhrzeiten gelten für Deutschland und die Niederlande."
+            }
+          ],
+          "lernen": "zahlen"
+        },
+        {
+          "heading": "Muss ich jeden Tag aktiv sein?",
+          "slug": "jeden-tag",
+          "body": [
+            {
+              "t": "p",
+              "x": "Nein. Du entscheidest selbst, wann du innerhalb der Woche aktiv sein möchtest. Es gibt keine Pflicht, täglich Fragen zu beantworten oder Spiele zu absolvieren."
+            },
+            {
+              "t": "p",
+              "x": "Entscheidend ist ausschließlich, dass du innerhalb des festgelegten Zeitraums dein Wochenziel erreichst."
+            }
+          ]
+        },
+        {
+          "heading": "Wie viele Punkte brauche ich?",
+          "slug": "punkte",
+          "body": [
+            {
+              "t": "p",
+              "x": "Für die Teilnahme an der Wochenverlosung benötigst du 125 anrechenbare Aktivitätspunkte innerhalb einer Woche. Die bestehenden Tageslimits bleiben erhalten."
+            },
+            {
+              "t": "p",
+              "x": "Du kannst dein Ziel über den SNÄGS Testerclub, die Game Arena oder eine Kombination aus beiden Bereichen erreichen."
+            }
+          ],
+          "lernen": "zahlen"
+        },
+        {
+          "heading": "Verliere ich meine Punkte durch die Wochenchallenge?",
+          "slug": "punktekonto",
+          "body": [
+            {
+              "t": "p",
+              "x": "Nein. Deine normalen Punkte bleiben vollständig erhalten. Die Wochenchallenge ist eine zusätzliche Funktion und hat keinen negativen Einfluss auf dein Punktekonto."
+            },
+            {
+              "t": "p",
+              "x": "Du kannst weiterhin Punkte sammeln und diese wie gewohnt für Reward Boxen einsetzen."
+            }
+          ]
+        },
+        {
+          "heading": "Zählen Founder-Punkte und Empfehlungsboni?",
+          "slug": "sonderpunkte",
+          "body": [
+            {
+              "t": "p",
+              "x": "Nein. Einmalige Sonderpunkte wie Founder-Boni, Early-Bird-Punkte oder Empfehlungsboni zählen nicht für die Qualifikation zur Wochenverlosung. Berücksichtigt werden ausschließlich die dafür vorgesehenen regulären Aktivitäten."
+            }
+          ]
+        },
+        {
+          "heading": "Wie qualifiziere ich mich?",
+          "slug": "qualifizieren",
+          "body": [
+            {
+              "t": "p",
+              "x": "Sobald du dein Wochenziel von 125 Punkten erreicht hast, erhältst du automatisch den Status „Qualifiziert“. Eine zusätzliche Anmeldung ist nicht erforderlich, sofern du die geltenden Teilnahmebedingungen akzeptiert hast und teilnahmeberechtigt bist."
+            }
+          ]
+        },
+        {
+          "heading": "Bekomme ich mehr Gewinnchancen, wenn ich mehr Punkte sammle?",
+          "slug": "eine-chance",
+          "body": [
+            {
+              "t": "p",
+              "x": "Nein. Jeder qualifizierte Nutzer erhält genau eine Gewinnchance pro Woche. Zusätzliche Punkte erhöhen die Gewinnwahrscheinlichkeit nicht. In einer Verlosung gewinnst du höchstens eine Winner Box."
+            }
+          ]
+        },
+        {
+          "heading": "Was kann ich gewinnen?",
+          "slug": "gewinne",
+          "body": [
+            {
+              "t": "p",
+              "x": "Jeden Sonntag werden insgesamt 50 Winner Boxen mit unterschiedlichen Warenwerten verlost. Der höchste Gewinn ist eine Premium Winner Box mit einem Warenwert von 50 €."
+            },
+            {
+              "t": "li",
+              "x": "1 × Premium Winner Box mit 50 € Warenwert"
+            },
+            {
+              "t": "li",
+              "x": "1 × Premium Winner Box mit 35 € Warenwert"
+            },
+            {
+              "t": "li",
+              "x": "1 × Winner Box mit 25 € Warenwert"
+            },
+            {
+              "t": "li",
+              "x": "7 × Winner Box mit je 20 € Warenwert"
+            },
+            {
+              "t": "li",
+              "x": "10 × Winner Box mit je 15 € Warenwert"
+            },
+            {
+              "t": "li",
+              "x": "30 × Mini Winner Box mit je 10 € Warenwert"
+            },
+            {
+              "t": "p",
+              "x": "Zusammen 700 € Warenwert nach UVP, jede Woche. Welche Box du gewinnst, entscheidet das Los."
+            }
+          ],
+          "lernen": "zahlen"
+        },
+        {
+          "heading": "Wann erfahre ich, ob ich gewonnen habe?",
+          "slug": "benachrichtigung",
+          "body": [
+            {
+              "t": "p",
+              "x": "Die Verlosung findet sonntags um 18:00 Uhr statt. Die Gewinner werden nach der Ziehung und der erforderlichen Prüfung über ihren Gewinn informiert, in der App und gegebenenfalls zusätzlich per E-Mail."
+            }
+          ]
+        },
+        {
+          "heading": "Kann ich jede Woche erneut teilnehmen?",
+          "slug": "jede-woche",
+          "body": [
+            {
+              "t": "p",
+              "x": "Ja. Jede Woche beginnt eine neue Wochenchallenge. Du kannst dich jede Woche erneut qualifizieren, unabhängig davon, ob du bereits einmal gewonnen hast."
+            }
+          ]
+        },
+        {
+          "heading": "Was passiert mit meinem Wochenfortschritt?",
+          "slug": "fortschritt",
+          "body": [
+            {
+              "t": "p",
+              "x": "Der Fortschritt der Wochenchallenge wird zum Beginn einer neuen Woche zurückgesetzt. Dein Punktekonto bleibt davon unberührt."
+            }
+          ]
+        },
+        {
+          "heading": "Sind die Winner Boxen kostenlos?",
+          "slug": "kostenlos",
+          "body": [
+            {
+              "t": "p",
+              "x": "Ja. Für die Winner Boxen werden keine Punkte abgezogen. Auch der Versand ist für die Gewinner kostenlos."
+            },
+            {
+              "t": "p",
+              "x": "Die genauen Teilnahmebedingungen erscheinen vor dem Start."
+            }
+          ]
+        }
+      ],
+      "missing": []
+    },
+    {
+      "n": 7,
+      "title": "Sonderturniere",
+      "slug": "sonderturniere",
+      "subtitle": "Besondere Events, rechtzeitig angekündigt.",
+      "icon": "",
+      "motiv": "pokal",
+      "weiter": {
+        "text": "Zur Game Arena",
+        "href": "/snaegs-staging/vorschau/claude-vorschau-website-gesamt/site/arena.html?von=wiki-sonderturniere#sonderturniere"
+      },
+      "intro": [],
+      "sections": [
+        {
+          "heading": "Was Sonderturniere sind",
+          "slug": "was",
+          "body": [
+            {
+              "t": "p",
+              "x": "SNÄGS veranstaltet neben der wöchentlichen Wochenchallenge auch besondere Gaming-Turniere. Diese Turniere finden nicht nach einem festen Wochenplan statt."
+            },
+            {
+              "t": "p",
+              "x": "Sie werden von Markenpartnern gesponsert oder von SNÄGS selbst zu besonderen Anlässen veranstaltet."
+            }
+          ]
+        },
+        {
+          "heading": "Wer mitspielen kann",
+          "slug": "teilnahme",
+          "body": [
+            {
+              "t": "p",
+              "x": "Die Teilnahmebedingungen können je nach Turnier unterschiedlich sein. Bei einigen Events kann jeder direkt mitspielen. Bei anderen Veranstaltungen ist eine vorherige Qualifikation erforderlich."
+            },
+            {
+              "t": "p",
+              "x": "Auch die Teilnehmerzahl, die Preise und der genaue Ablauf können sich unterscheiden."
+            }
+          ]
+        },
+        {
+          "heading": "Wann du davon erfährst",
+          "slug": "ankuendigung",
+          "body": [
+            {
+              "t": "p",
+              "x": "Alle Informationen werden vor dem jeweiligen Turnier rechtzeitig bekannt gegeben."
+            }
+          ]
+        },
+        {
+          "heading": "Getrennt von der Wochenchallenge",
+          "slug": "getrennt",
+          "body": [
+            {
+              "t": "p",
+              "x": "Wochenchallenge und Sonderturniere sind zwei eigenständige Funktionen. Die Teilnahme an einem Sonderturnier ist keine Voraussetzung für die Wochenverlosung."
+            },
+            {
+              "t": "p",
+              "x": "Ebenso ist eine erfolgreiche Wochenchallenge nicht automatisch eine Qualifikation für jedes Sonderturnier."
+            }
+          ]
+        }
+      ],
+      "missing": []
+    },
+    {
+      "n": 8,
+      "title": "XP, Ligen & Avatare",
+      "slug": "xp-ligen",
+      "subtitle": "Dein Fortschritt in der App, nie gegen Boxen tauschbar.",
+      "icon": "",
+      "motiv": "liga-stufen",
+      "intro": [],
+      "sections": [
+        {
+          "heading": "XP",
+          "slug": "xp",
+          "body": [
+            {
+              "t": "p",
+              "x": "Neben Punkten sammelst du XP, deine Erfahrungspunkte. Es gibt sie für Fragen, Games, aktive Tage und Wochenaufgaben."
+            },
+            {
+              "t": "p",
+              "x": "XP zeigen, wie weit du bist. Gegen Boxen tauschen kannst du sie nie."
+            }
+          ]
+        },
+        {
+          "heading": "Ligen",
+          "slug": "ligen",
+          "body": [
+            {
+              "t": "p",
+              "x": "Es gibt fünf Ligen: Bronze, Silber, Gold, Platin und Diamant. Jeder startet in Bronze."
+            },
+            {
+              "t": "p",
+              "x": "Jede Woche trittst du mit deinen XP in einer kleinen Gruppe an, die Besten steigen auf. Auch wer nur den SNÄGS Testerclub nutzt, kann aufsteigen."
+            }
+          ]
+        },
+        {
+          "heading": "Wochenaufgaben",
+          "slug": "challenges",
+          "body": [
+            {
+              "t": "p",
+              "x": "Jede Woche warten Aufgaben auf dich, etwa sieben Tage Serie am Stück. Geschafft bringen sie XP, ein Abzeichen oder ein Extra für deinen Avatar."
+            },
+            {
+              "t": "p",
+              "x": "Punkte aufs Konto gibt's dafür nicht. Mit der SNÄGS Wochenchallenge und ihrer Verlosung haben die Wochenaufgaben nichts zu tun."
+            }
+          ]
+        },
+        {
+          "heading": "Avatare",
+          "slug": "avatare",
+          "body": [
+            {
+              "t": "p",
+              "x": "Deinen Avatar gestaltest du selbst. Frisuren, Outfits, Hüte oder Profilrahmen schaltest du frei, wenn du aktiv bist, Challenges schaffst oder aufsteigst. Kaufen musst du nichts."
+            }
+          ]
+        },
+        {
+          "heading": "Abzeichen",
+          "slug": "abzeichen",
+          "body": [
+            {
+              "t": "p",
+              "x": "Abzeichen gibt's für Meilensteine, zum Beispiel 30 Tage in Folge aktiv oder deine erste Reward Box. Zu besonderen Zeiten kommen Sonderstücke dazu, etwa ein Outfit zu Weihnachten."
+            },
+            {
+              "t": "p",
+              "x": "Avatare und Abzeichen haben keinen Punktewert."
+            }
+          ]
+        }
+      ],
+      "missing": []
+    },
+    {
+      "n": 9,
+      "title": "Registrierung & Start",
+      "slug": "start",
+      "subtitle": "Kostenlos registrieren, Start im Januar 2027.",
+      "icon": "",
+      "motiv": "muenze",
+      "weiter": {
+        "text": "Jetzt kostenlos registrieren",
+        "href": "/snaegs-staging/vorschau/claude-vorschau-website-gesamt/vorregistrierung.html?von=wiki-start"
+      },
+      "intro": [],
+      "sections": [
+        {
+          "heading": "150 Early-Bird-Punkte",
+          "slug": "vorregistrierung",
+          "body": [
+            {
+              "t": "p",
+              "x": "Wer sich bis 31.12.2026 registriert, bekommt 150 Early-Bird-Punkte. Im Januar 2027 schreiben wir sie deinem SNÄGS-Punktekonto gut."
+            },
+            {
+              "t": "p",
+              "x": "So viel wie sechs volle Tage in einem Bereich, bevor du überhaupt angefangen hast."
+            }
+          ],
+          "lernen": "zahlen"
+        },
+        {
+          "heading": "Start im Januar 2027",
+          "slug": "januar",
+          "body": [
+            {
+              "t": "p",
+              "x": "SNÄGS startet im Januar 2027. Mitmachen kannst du ab 18, alles ist kostenlos."
+            }
+          ]
+        },
+        {
+          "heading": "Account und App",
+          "slug": "app",
+          "body": [
+            {
+              "t": "p",
+              "x": "Registrieren kannst du dich hier auf der Website oder direkt in der App. Punkte sammelst du in der SNÄGS-App, dort wählst du zwischen SNÄGS Testerclub und Game Arena."
+            },
+            {
+              "t": "p",
+              "x": "Benachrichtigungen schaltest du in den Einstellungen ab, wenn du keine willst."
+            }
+          ]
+        }
+      ],
+      "missing": []
+    },
+    {
+      "n": 10,
+      "title": "Fair & sicher",
+      "slug": "fair",
+      "subtitle": "Jeder Punkt zählt genau einmal.",
+      "icon": "",
+      "motiv": "waage",
+      "intro": [],
+      "sections": [
+        {
+          "heading": "Jeder Punkt zählt einmal",
+          "slug": "einmal",
+          "body": [
+            {
+              "t": "p",
+              "x": "Jede Frage, jedes Game und jeder Login zählt einmal. Doppelt tippen oder neu laden bringt nichts."
+            },
+            {
+              "t": "p",
+              "x": "Die Punkte bucht unser Server. So kann niemand nachhelfen."
+            }
+          ]
+        },
+        {
+          "heading": "Was keine Punkte bringt",
+          "slug": "keine-punkte",
+          "body": [
+            {
+              "t": "li",
+              "x": "abgebrochene Games"
+            },
+            {
+              "t": "li",
+              "x": "Zweitaccounts und andere Tricks"
+            },
+            {
+              "t": "li",
+              "x": "Werbung anschauen"
+            },
+            {
+              "t": "li",
+              "x": "dich selbst einladen"
+            }
+          ]
+        },
+        {
+          "heading": "Regeln und Änderungen",
+          "slug": "aenderungen",
+          "body": [
+            {
+              "t": "p",
+              "x": "Ändern wir Werte oder Regeln, gilt das nie rückwirkend. Verdiente Punkte behalten ihren Wert."
+            },
+            {
+              "t": "p",
+              "x": "Die genauen Teilnahme- und Einlösebedingungen erscheinen vor dem Start."
+            }
+          ]
+        }
+      ],
+      "missing": []
+    }
+  ]
+}
