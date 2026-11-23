@@ -164,7 +164,7 @@
             },
             {
               "t": "li",
-              "x": "Winner Boxen gewinnst du im Samstagsturnier, ganz ohne Punkte."
+              "x": "Winner Boxen werden jede Woche unter allen verlost, die ihre Wochenchallenge schaffen. Punkte kosten sie nicht."
             },
             {
               "t": "li",
@@ -290,6 +290,25 @@
             {
               "t": "p",
               "x": "Am ersten Tag sind es 2 Punkte weniger, weil die Serie erst ab dem zweiten zählt. Um Mitternacht beginnt ein neuer Tag."
+            }
+          ],
+          "lernen": "zahlen"
+        },
+        {
+          "heading": "Zählt auch für die Wochenchallenge",
+          "slug": "wochenchallenge",
+          "body": [
+            {
+              "t": "p",
+              "x": "Deine täglichen Aktivitäten bringen dich jetzt noch weiter. Neben deinen normalen Punkten sammelst du automatisch Fortschritt für die SNÄGS Wochenchallenge."
+            },
+            {
+              "t": "p",
+              "x": "Erreiche innerhalb einer Woche 125 anrechenbare Punkte und sichere dir deine Chance auf eine von 50 Winner Boxen. Deine Punkte auf dem Punktekonto bleiben dabei vollständig erhalten."
+            },
+            {
+              "t": "p",
+              "x": "Die Tageslimits oben ändern sich dadurch nicht."
             }
           ],
           "lernen": "zahlen"
@@ -444,51 +463,224 @@
               "x": "Ist gerade keine Box verfügbar, siehst du das in der App. Deine Punkte bleiben auf dem Konto."
             }
           ]
+        },
+        {
+          "heading": "Reward Box und Winner Box",
+          "slug": "unterschied",
+          "body": [
+            {
+              "t": "li",
+              "x": "Reward Box: rund 20 € Warenwert, für 2.500 Punkte."
+            },
+            {
+              "t": "li",
+              "x": "Winner Boxen: 10 bis 50 € Warenwert, in der wöchentlichen Verlosung oder bei angekündigten Sonderturnieren. Sie kosten keine Punkte."
+            },
+            {
+              "t": "p",
+              "x": "Beide laufen unabhängig voneinander. Wer eine Winner Box gewinnt, behält alle Punkte für die nächste Reward Box."
+            }
+          ],
+          "lernen": "zahlen"
         }
       ],
       "missing": []
     },
     {
       "n": 6,
-      "title": "Winner Boxen & Turniere",
-      "slug": "winner-boxen",
-      "subtitle": "Jeden Samstag 80 Winner Boxen, ganz ohne Punkte.",
+      "title": "Wochenchallenge & Winner Boxen",
+      "slug": "wochenchallenge",
+      "subtitle": "125 Punkte in der Woche, jeden Sonntag 50 Winner Boxen.",
       "icon": "",
-      "motiv": "pokal",
+      "motiv": "kalender",
       "weiter": {
-        "text": "Zum Samstagsturnier",
-        "href": "/snaegs-staging/v3/site/arena.html#turnier"
+        "text": "Zur Wochenchallenge",
+        "href": "/snaegs-staging/v3/site/gewinnspiele.html?von=wiki-wochenchallenge#wochenchallenge"
       },
       "intro": [],
       "sections": [
         {
-          "heading": "Das Samstagsturnier",
-          "slug": "samstag",
+          "heading": "Was ist die SNÄGS Wochenchallenge?",
+          "slug": "was-ist",
           "body": [
             {
               "t": "p",
-              "x": "Jeden Samstag läuft in der SNÄGS-App das kostenlose Turnier: vier Räume mit je 200 Spielern."
+              "x": "Die SNÄGS Wochenchallenge ist eine zusätzliche Möglichkeit, jede Woche eine Winner Box zu gewinnen. Durch deine normalen Aktivitäten im SNÄGS Testerclub und in der Game Arena sammelst du Fortschritt für dein persönliches Wochenziel."
+            },
+            {
+              "t": "p",
+              "x": "Sobald du innerhalb einer Woche 125 anrechenbare Punkte gesammelt hast, qualifizierst du dich für die nächste Verlosung. Die Teilnahme ist kostenlos und ab 18 Jahren möglich."
             }
           ]
         },
         {
-          "heading": "Wer gewinnt",
-          "slug": "gewinner",
+          "heading": "Wann findet die Wochenchallenge statt?",
+          "slug": "wann",
           "body": [
             {
               "t": "p",
-              "x": "Die besten 20 je Raum gewinnen eine Winner Box, also jeder Zehnte. Das sind 80 Winner Boxen an jedem Samstag."
+              "x": "Die Wochenchallenge startet jeden Montag um 00:00 Uhr. Du hast bis Sonntag um 17:00 Uhr Zeit, dein Wochenziel zu erreichen. Die Verlosung findet jeden Sonntag um 18:00 Uhr statt."
+            },
+            {
+              "t": "p",
+              "x": "Am darauffolgenden Montag beginnt automatisch eine neue Wochenchallenge. Los geht's im Januar 2027. Alle Uhrzeiten gelten für Deutschland und die Niederlande."
             }
           ],
           "lernen": "zahlen"
         },
         {
-          "heading": "Getrennt vom Punktekonto",
-          "slug": "ohne-punkte",
+          "heading": "Muss ich jeden Tag aktiv sein?",
+          "slug": "jeden-tag",
           "body": [
             {
               "t": "p",
-              "x": "Winner Boxen kosten keine Punkte. Fürs Turnier selbst gibt's keine Punkte aufs Konto, auch nicht für einen Sieg."
+              "x": "Nein. Du entscheidest selbst, wann du innerhalb der Woche aktiv sein möchtest. Es gibt keine Pflicht, täglich Fragen zu beantworten oder Spiele zu absolvieren."
+            },
+            {
+              "t": "p",
+              "x": "Entscheidend ist ausschließlich, dass du innerhalb des festgelegten Zeitraums dein Wochenziel erreichst."
+            }
+          ]
+        },
+        {
+          "heading": "Wie viele Punkte brauche ich?",
+          "slug": "punkte",
+          "body": [
+            {
+              "t": "p",
+              "x": "Für die Teilnahme an der Wochenverlosung benötigst du 125 anrechenbare Aktivitätspunkte innerhalb einer Woche. Die bestehenden Tageslimits bleiben erhalten."
+            },
+            {
+              "t": "p",
+              "x": "Du kannst dein Ziel über den SNÄGS Testerclub, die Game Arena oder eine Kombination aus beiden Bereichen erreichen."
+            }
+          ],
+          "lernen": "zahlen"
+        },
+        {
+          "heading": "Verliere ich meine Punkte durch die Wochenchallenge?",
+          "slug": "punktekonto",
+          "body": [
+            {
+              "t": "p",
+              "x": "Nein. Deine normalen Punkte bleiben vollständig erhalten. Die Wochenchallenge ist eine zusätzliche Funktion und hat keinen negativen Einfluss auf dein Punktekonto."
+            },
+            {
+              "t": "p",
+              "x": "Du kannst weiterhin Punkte sammeln und diese wie gewohnt für Reward Boxen einsetzen."
+            }
+          ]
+        },
+        {
+          "heading": "Zählen Founder-Punkte und Empfehlungsboni?",
+          "slug": "sonderpunkte",
+          "body": [
+            {
+              "t": "p",
+              "x": "Nein. Einmalige Sonderpunkte wie Founder-Boni, Early-Bird-Punkte oder Empfehlungsboni zählen nicht für die Qualifikation zur Wochenverlosung. Berücksichtigt werden ausschließlich die dafür vorgesehenen regulären Aktivitäten."
+            }
+          ]
+        },
+        {
+          "heading": "Wie qualifiziere ich mich?",
+          "slug": "qualifizieren",
+          "body": [
+            {
+              "t": "p",
+              "x": "Sobald du dein Wochenziel von 125 Punkten erreicht hast, erhältst du automatisch den Status „Qualifiziert“. Eine zusätzliche Anmeldung ist nicht erforderlich, sofern du die geltenden Teilnahmebedingungen akzeptiert hast und teilnahmeberechtigt bist."
+            }
+          ]
+        },
+        {
+          "heading": "Bekomme ich mehr Gewinnchancen, wenn ich mehr Punkte sammle?",
+          "slug": "eine-chance",
+          "body": [
+            {
+              "t": "p",
+              "x": "Nein. Jeder qualifizierte Nutzer erhält genau eine Gewinnchance pro Woche. Zusätzliche Punkte erhöhen die Gewinnwahrscheinlichkeit nicht. In einer Verlosung gewinnst du höchstens eine Winner Box."
+            }
+          ]
+        },
+        {
+          "heading": "Was kann ich gewinnen?",
+          "slug": "gewinne",
+          "body": [
+            {
+              "t": "p",
+              "x": "Jeden Sonntag werden insgesamt 50 Winner Boxen mit unterschiedlichen Warenwerten verlost. Der höchste Gewinn ist eine Premium Winner Box mit einem Warenwert von 50 €."
+            },
+            {
+              "t": "li",
+              "x": "1 × Premium Winner Box mit 50 € Warenwert"
+            },
+            {
+              "t": "li",
+              "x": "1 × Premium Winner Box mit 35 € Warenwert"
+            },
+            {
+              "t": "li",
+              "x": "1 × Winner Box mit 25 € Warenwert"
+            },
+            {
+              "t": "li",
+              "x": "7 × Winner Box mit je 20 € Warenwert"
+            },
+            {
+              "t": "li",
+              "x": "10 × Winner Box mit je 15 € Warenwert"
+            },
+            {
+              "t": "li",
+              "x": "30 × Mini Winner Box mit je 10 € Warenwert"
+            },
+            {
+              "t": "p",
+              "x": "Zusammen 700 € Warenwert nach UVP, jede Woche. Welche Box du gewinnst, entscheidet das Los."
+            }
+          ],
+          "lernen": "zahlen"
+        },
+        {
+          "heading": "Wann erfahre ich, ob ich gewonnen habe?",
+          "slug": "benachrichtigung",
+          "body": [
+            {
+              "t": "p",
+              "x": "Die Verlosung findet sonntags um 18:00 Uhr statt. Die Gewinner werden nach der Ziehung und der erforderlichen Prüfung über ihren Gewinn informiert, in der App und gegebenenfalls zusätzlich per E-Mail."
+            }
+          ]
+        },
+        {
+          "heading": "Kann ich jede Woche erneut teilnehmen?",
+          "slug": "jede-woche",
+          "body": [
+            {
+              "t": "p",
+              "x": "Ja. Jede Woche beginnt eine neue Wochenchallenge. Du kannst dich jede Woche erneut qualifizieren, unabhängig davon, ob du bereits einmal gewonnen hast."
+            }
+          ]
+        },
+        {
+          "heading": "Was passiert mit meinem Wochenfortschritt?",
+          "slug": "fortschritt",
+          "body": [
+            {
+              "t": "p",
+              "x": "Der Fortschritt der Wochenchallenge wird zum Beginn einer neuen Woche zurückgesetzt. Dein Punktekonto bleibt davon unberührt."
+            }
+          ]
+        },
+        {
+          "heading": "Sind die Winner Boxen kostenlos?",
+          "slug": "kostenlos",
+          "body": [
+            {
+              "t": "p",
+              "x": "Ja. Für die Winner Boxen werden keine Punkte abgezogen. Auch der Versand ist für die Gewinner kostenlos."
+            },
+            {
+              "t": "p",
+              "x": "Die genauen Teilnahmebedingungen erscheinen vor dem Start."
             }
           ]
         }
@@ -497,6 +689,74 @@
     },
     {
       "n": 7,
+      "title": "Sonderturniere",
+      "slug": "sonderturniere",
+      "subtitle": "Besondere Events, rechtzeitig angekündigt.",
+      "icon": "",
+      "motiv": "pokal",
+      "weiter": {
+        "text": "Zur Game Arena",
+        "href": "/snaegs-staging/v3/site/arena.html?von=wiki-sonderturniere#sonderturniere"
+      },
+      "intro": [],
+      "sections": [
+        {
+          "heading": "Was Sonderturniere sind",
+          "slug": "was",
+          "body": [
+            {
+              "t": "p",
+              "x": "SNÄGS veranstaltet neben der wöchentlichen Wochenchallenge auch besondere Gaming-Turniere. Diese Turniere finden nicht nach einem festen Wochenplan statt."
+            },
+            {
+              "t": "p",
+              "x": "Sie werden von Markenpartnern gesponsert oder von SNÄGS selbst zu besonderen Anlässen veranstaltet."
+            }
+          ]
+        },
+        {
+          "heading": "Wer mitspielen kann",
+          "slug": "teilnahme",
+          "body": [
+            {
+              "t": "p",
+              "x": "Die Teilnahmebedingungen können je nach Turnier unterschiedlich sein. Bei einigen Events kann jeder direkt mitspielen. Bei anderen Veranstaltungen ist eine vorherige Qualifikation erforderlich."
+            },
+            {
+              "t": "p",
+              "x": "Auch die Teilnehmerzahl, die Preise und der genaue Ablauf können sich unterscheiden."
+            }
+          ]
+        },
+        {
+          "heading": "Wann du davon erfährst",
+          "slug": "ankuendigung",
+          "body": [
+            {
+              "t": "p",
+              "x": "Alle Informationen werden vor dem jeweiligen Turnier rechtzeitig bekannt gegeben."
+            }
+          ]
+        },
+        {
+          "heading": "Getrennt von der Wochenchallenge",
+          "slug": "getrennt",
+          "body": [
+            {
+              "t": "p",
+              "x": "Wochenchallenge und Sonderturniere sind zwei eigenständige Funktionen. Die Teilnahme an einem Sonderturnier ist keine Voraussetzung für die Wochenverlosung."
+            },
+            {
+              "t": "p",
+              "x": "Ebenso ist eine erfolgreiche Wochenchallenge nicht automatisch eine Qualifikation für jedes Sonderturnier."
+            }
+          ]
+        }
+      ],
+      "missing": []
+    },
+    {
+      "n": 8,
       "title": "XP, Ligen & Avatare",
       "slug": "xp-ligen",
       "subtitle": "Dein Fortschritt in der App, nie gegen Boxen tauschbar.",
@@ -510,7 +770,7 @@
           "body": [
             {
               "t": "p",
-              "x": "Neben Punkten sammelst du XP, deine Erfahrungspunkte. Es gibt sie für Fragen, Games, aktive Tage und Wochen-Challenges."
+              "x": "Neben Punkten sammelst du XP, deine Erfahrungspunkte. Es gibt sie für Fragen, Games, aktive Tage und Wochenaufgaben."
             },
             {
               "t": "p",
@@ -533,16 +793,16 @@
           ]
         },
         {
-          "heading": "Wochen-Challenges",
+          "heading": "Wochenaufgaben",
           "slug": "challenges",
           "body": [
             {
               "t": "p",
-              "x": "Jede Woche warten Challenges auf dich, etwa sieben Tage Serie am Stück. Geschafft bringen sie XP, ein Abzeichen oder ein Extra für deinen Avatar."
+              "x": "Jede Woche warten Aufgaben auf dich, etwa sieben Tage Serie am Stück. Geschafft bringen sie XP, ein Abzeichen oder ein Extra für deinen Avatar."
             },
             {
               "t": "p",
-              "x": "Punkte aufs Konto gibt's dafür nicht."
+              "x": "Punkte aufs Konto gibt's dafür nicht. Mit der SNÄGS Wochenchallenge und ihrer Verlosung haben die Wochenaufgaben nichts zu tun."
             }
           ]
         },
@@ -574,7 +834,7 @@
       "missing": []
     },
     {
-      "n": 8,
+      "n": 9,
       "title": "Registrierung & Start",
       "slug": "start",
       "subtitle": "Kostenlos registrieren, Start im Januar 2027.",
@@ -629,7 +889,7 @@
       "missing": []
     },
     {
-      "n": 9,
+      "n": 10,
       "title": "Fair & sicher",
       "slug": "fair",
       "subtitle": "Jeder Punkt zählt genau einmal.",
