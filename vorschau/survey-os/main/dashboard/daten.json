@@ -1,12 +1,12 @@
 {
- "erzeugt": "2026-11-19T14:42:29.131Z",
+ "erzeugt": "2026-11-24T15:28:46.593Z",
  "stand": {
   "branch": "main",
-  "commit": "d400251",
-  "datum": "19.11.2026 14:42",
-  "betreff": "Gehirn: Schleife S12, alte Branches löschen (Chris' Ja, aus der Cloud nicht möglich)"
+  "commit": "170cd5a",
+  "datum": "24.11.2026 15:28",
+  "betreff": "Übernahme claude/lead-struktur nach main (Chris 24.11.: „Ja, übernehmen“)"
  },
- "uebergabe": "Übergabe (Stand 19.11.2026, Gründung)",
+ "uebergabe": "Übergabe (Stand 20.11.2026 abends: erzeugte Surveys laufen auf der Kampagne des Produkttests)",
  "surveys": [
   {
    "titel": "Produkttest nüssje",
@@ -19,6 +19,12 @@
    "seite": "vorregistrierung.html",
    "text": "Acht Grundfragen der Voranmeldung, dieselbe Engine in kurzer Form.",
    "art": "Demo, im Code"
+  },
+  {
+   "titel": "Kurztest nüssje Strawberry Cheesecake (Beispiel)",
+   "seite": "spiel.html?s=beispiel-nuessje-kurztest",
+   "text": "Aus einem Fragebogen erzeugt: 13 Fragen, 1 Lücke(n). Datensatz surveys/beispiel-nuessje-kurztest.json.",
+   "art": "Daten · entwurf · Schema 1.1.0"
   }
  ],
  "bausteine": [
@@ -76,7 +82,456 @@
  "produkte": [
   "nuessje"
  ],
- "templates": [],
+ "templates": [
+  {
+   "id": "stein",
+   "titel": "Rahmen",
+   "version": "1.0.0",
+   "frageart": "Mechanik · choice",
+   "status": "frei für den Generator"
+  },
+  {
+   "id": "teller",
+   "titel": "Teller",
+   "version": "1.0.0",
+   "frageart": "Mechanik · choice",
+   "status": "frei für den Generator"
+  },
+  {
+   "id": "runde",
+   "titel": "Tisch",
+   "version": "1.0.0",
+   "frageart": "Mechanik · choice",
+   "status": "frei für den Generator"
+  },
+  {
+   "id": "fang",
+   "titel": "Nadel",
+   "version": "1.0.0",
+   "frageart": "Mechanik · choice",
+   "status": "frei für den Generator"
+  },
+  {
+   "id": "abreissen",
+   "titel": "Abreißzettel",
+   "version": "1.0.0",
+   "frageart": "Mechanik · choice",
+   "status": "frei für den Generator"
+  },
+  {
+   "id": "kette",
+   "titel": "Leine",
+   "version": "1.0.0",
+   "frageart": "Mechanik · multi",
+   "status": "frei für den Generator"
+  },
+  {
+   "id": "tasche",
+   "titel": "Tasche",
+   "version": "1.0.0",
+   "frageart": "Mechanik · multi",
+   "status": "frei für den Generator"
+  },
+  {
+   "id": "takt",
+   "titel": "Takt",
+   "version": "1.0.0",
+   "frageart": "Mechanik · multi, choice",
+   "status": "frei für den Generator"
+  },
+  {
+   "id": "sammeln",
+   "titel": "Sammelzettel",
+   "version": "1.0.0",
+   "frageart": "Mechanik · multi",
+   "status": "frei für den Generator"
+  },
+  {
+   "id": "rad",
+   "titel": "Drehrad",
+   "version": "1.0.0",
+   "frageart": "Mechanik · scale, jar",
+   "status": "frei für den Generator"
+  },
+  {
+   "id": "ladung",
+   "titel": "Regler",
+   "version": "1.0.0",
+   "frageart": "Mechanik · scale",
+   "status": "frei für den Generator"
+  },
+  {
+   "id": "spur",
+   "titel": "Spur",
+   "version": "1.0.0",
+   "frageart": "Mechanik · scale",
+   "status": "frei für den Generator"
+  },
+  {
+   "id": "lineal",
+   "titel": "Lineal",
+   "version": "1.0.0",
+   "frageart": "Mechanik · scale",
+   "status": "frei für den Generator"
+  },
+  {
+   "id": "duell",
+   "titel": "Duell",
+   "version": "1.0.0",
+   "frageart": "Mechanik · duel",
+   "status": "frei für den Generator"
+  },
+  {
+   "id": "geschmack",
+   "titel": "Geschmackskarte",
+   "version": "1.0.0",
+   "frageart": "Mechanik · map",
+   "status": "frei für den Generator"
+  },
+  {
+   "id": "hotspot",
+   "titel": "Blickfang auf der Packung",
+   "version": "1.0.0",
+   "frageart": "Mechanik · choice",
+   "status": "gebunden: Produkt nuessje-strawberry-cheesecake"
+  },
+  {
+   "id": "lupe",
+   "titel": "Lupe",
+   "version": "1.0.0",
+   "frageart": "Mechanik · choice",
+   "status": "nein"
+  },
+  {
+   "id": "logo-sprint",
+   "titel": "Logo-Sprint",
+   "version": "1.1.0",
+   "frageart": "Format · bekanntheit",
+   "status": "spielbar"
+  },
+  {
+   "id": "erster-eindruck",
+   "titel": "Erster Eindruck",
+   "version": "1.0.0",
+   "frageart": "Format · ersteindruck",
+   "status": "spielbar"
+  },
+  {
+   "id": "emotionskette",
+   "titel": "Emotionskette",
+   "version": "1.1.0",
+   "frageart": "Format · stimmung",
+   "status": "spielbar"
+  },
+  {
+   "id": "packaging-vergleich",
+   "titel": "Zwei Designs",
+   "version": "1.0.0",
+   "frageart": "Format · praeferenz",
+   "status": "spielbar"
+  },
+  {
+   "id": "erster-blick",
+   "titel": "Erster Blick",
+   "version": "0.1.0",
+   "frageart": "Format · verstaendnis",
+   "status": "entwurf (Bedarf: registrieren)"
+  },
+  {
+   "id": "moodboard",
+   "titel": "Moodboard",
+   "version": "0.1.0",
+   "frageart": "Format · passung",
+   "status": "entwurf (Bedarf: registrieren)"
+  },
+  {
+   "id": "spot-takt",
+   "titel": "Spot-Takt",
+   "version": "0.1.0",
+   "frageart": "Format · momentkurve",
+   "status": "entwurf (Bedarf: bauen)"
+  },
+  {
+   "id": "vibe",
+   "titel": "Vibe",
+   "version": "0.1.0",
+   "frageart": "Format · stimmung",
+   "status": "entwurf (Bedarf: gebaut)"
+  },
+  {
+   "id": "dein-tag",
+   "titel": "Dein Tag",
+   "version": "0.1.0",
+   "frageart": "Format · zeitbudget",
+   "status": "entwurf (Bedarf: bauen)"
+  },
+  {
+   "id": "ja-oder-nein",
+   "titel": "Ja oder nein",
+   "version": "0.1.0",
+   "frageart": "Format · zustimmung",
+   "status": "entwurf (Bedarf: bauen)"
+  },
+  {
+   "id": "top-und-flop",
+   "titel": "Top und Flop",
+   "version": "0.1.0",
+   "frageart": "Format · maxdiff",
+   "status": "entwurf (Bedarf: registrieren)"
+  },
+  {
+   "id": "preisgefuehl",
+   "titel": "Preisgefühl",
+   "version": "0.1.0",
+   "frageart": "Format · preis",
+   "status": "entwurf (Bedarf: gebaut)"
+  },
+  {
+   "id": "regalblick",
+   "titel": "Regalblick",
+   "version": "0.1.0",
+   "frageart": "Format · auffindbarkeit",
+   "status": "entwurf (Bedarf: bauen)"
+  }
+ ],
+ "bedarf": [
+  {
+   "quelle": "generator",
+   "id": "freitext",
+   "prio": 1,
+   "was": "Baustein „wort“ des Format-Baukastens als eigene Mechanik anmelden (ein Wort oder ein Satz, mit „Fällt mir nichts ein“)",
+   "wartet": [
+    "beispiel-nuessje-kurztest:verbessern"
+   ]
+  },
+  {
+   "quelle": "engine",
+   "id": "lupe",
+   "prio": 2,
+   "was": "Mechanik „Lupe“ entkoppeln: Bild und Detailpunkte der Creator-Szene",
+   "wartet": []
+  },
+  {
+   "quelle": "formate",
+   "id": "baustein:bestbad",
+   "prio": 2,
+   "was": "Baustein „bestbad“ (registrieren): Bester und schwächster aus vier (MaxDiff spielerisch); bis dahin duell",
+   "wartet": []
+  },
+  {
+   "quelle": "formate",
+   "id": "baustein:hotspot",
+   "prio": 2,
+   "was": "Baustein „hotspot“ (registrieren): Stelle auf dem Packshot antippen; bis dahin hotspot",
+   "wartet": []
+  },
+  {
+   "quelle": "formate",
+   "id": "baustein:stapel",
+   "prio": 2,
+   "was": "Baustein „stapel“ (bauen): Ja oder nein wischen, Tasten J und N; bis dahin wahl-k",
+   "wartet": []
+  },
+  {
+   "quelle": "formate",
+   "id": "format:erster-blick",
+   "prio": 2,
+   "was": "Format „erster-blick“ (registrieren): Erster Blick; bis dahin kategorie",
+   "wartet": []
+  },
+  {
+   "quelle": "formate",
+   "id": "format:ja-oder-nein",
+   "prio": 2,
+   "was": "Format „ja-oder-nein“ (bauen): Ja oder nein; bis dahin liste",
+   "wartet": []
+  },
+  {
+   "quelle": "formate",
+   "id": "format:moodboard",
+   "prio": 2,
+   "was": "Format „moodboard“ (registrieren): Moodboard; bis dahin skala",
+   "wartet": []
+  },
+  {
+   "quelle": "formate",
+   "id": "format:preisgefuehl",
+   "prio": 2,
+   "was": "Format „preisgefuehl“ (ablauf): Preisgefühl; bis dahin preisliste",
+   "wartet": []
+  },
+  {
+   "quelle": "formate",
+   "id": "format:top-und-flop",
+   "prio": 2,
+   "was": "Format „top-und-flop“ (registrieren): Top und Flop; bis dahin rangliste",
+   "wartet": []
+  },
+  {
+   "quelle": "formate",
+   "id": "format:vibe",
+   "prio": 2,
+   "was": "Format „vibe“ (ablauf): Vibe; bis dahin wortliste",
+   "wartet": []
+  },
+  {
+   "quelle": "engine",
+   "id": "traeger-schlauch",
+   "prio": 3,
+   "was": "Träger „Schlauch (Quick-Check)“ aus Daten spielen: liest fragen.js und endet in der Registrierung der Voranmeldung",
+   "wartet": []
+  },
+  {
+   "quelle": "formate",
+   "id": "baustein:regal",
+   "prio": 3,
+   "was": "Baustein „regal“ (bauen): Regal mit 12 Packungen, Suchzeit bis zum Fund; bis dahin feld",
+   "wartet": []
+  },
+  {
+   "quelle": "formate",
+   "id": "baustein:takt-spot",
+   "prio": 3,
+   "was": "Baustein „takt-spot“ (bauen): Tippen während eines Animatics (Momentkurve, Dial-Test)",
+   "wartet": []
+  },
+  {
+   "quelle": "formate",
+   "id": "baustein:verteilen",
+   "prio": 3,
+   "was": "Baustein „verteilen“ (bauen): Konstantsumme (24 Stunden auf Tätigkeiten); bis dahin skala",
+   "wartet": []
+  },
+  {
+   "quelle": "formate",
+   "id": "format:dein-tag",
+   "prio": 3,
+   "was": "Format „dein-tag“ (bauen): Dein Tag; bis dahin skala",
+   "wartet": []
+  },
+  {
+   "quelle": "formate",
+   "id": "format:regalblick",
+   "prio": 3,
+   "was": "Format „regalblick“ (bauen): Regalblick; bis dahin suchliste",
+   "wartet": []
+  },
+  {
+   "quelle": "formate",
+   "id": "format:spot-takt",
+   "prio": 3,
+   "was": "Format „spot-takt“ (bauen): Spot-Takt; bis dahin skala",
+   "wartet": []
+  }
+ ],
+ "lernen": {
+  "naechster": "Lücke schließen, auf die ein Fragebogen wartet: freitext (beispiel-nuessje-kurztest:verbessern)",
+  "haengt": [],
+  "feedback": {
+   "gesamt": 6,
+   "offen": 0,
+   "inArbeit": 4,
+   "verarbeitet": 2,
+   "liste": [
+    {
+     "datei": "2026-11-19-auftrag-survey-content-os.md",
+     "titel": "Auftrag Survey Content OS (Chris, 19.11.2026)",
+     "status": "in Arbeit (Fundament gebaut am 20.11., siehe 2026-11-20-lead-struktur-lernen-generieren.md; die fünf Fragen unten sind weiter offen, Schleife S1)",
+     "zustand": "in Arbeit",
+     "tage": 5
+    },
+    {
+     "datei": "2026-11-19-oberflaeche-staging-kohaerenz.md",
+     "titel": "Oberfläche, Staging, Kohärenz (Chris, 19.11.2026)",
+     "status": "verarbeitet am 19.11. (Dashboard, Vorschau-Weg, Gate G14); die Zugriffe der neuen Umgebung bleiben als",
+     "zustand": "verarbeitet",
+     "tage": 5
+    },
+    {
+     "datei": "2026-11-20-ersteindruck-produktfeedback.md",
+     "titel": "Feedback 20.11.2026 · Ersteindruck ist Produktfeedback, Klägs live erweitern",
+     "status": "verarbeitet (Prinzip 20, Regel in CLAUDE.md; umgesetzt im Format „Erster Eindruck“ von Mein SNÄGS, seit 20.11. als Kopie im OS und im ersten erzeugten Survey gespielt)",
+     "zustand": "verarbeitet",
+     "tage": 4
+    },
+    {
+     "datei": "2026-11-20-erzeugter-survey-ohne-haptikstruktur.md",
+     "titel": "Feedback 20.11.2026 · Der erzeugte Survey nutzt nicht die bestehende Haptikstruktur",
+     "status": "in Arbeit (Korrektur im selben Turn begonnen: erzeugte Surveys laufen auf der Kampagne)",
+     "zustand": "in Arbeit",
+     "tage": 4
+    },
+    {
+     "datei": "2026-11-20-lead-struktur-lernen-generieren.md",
+     "titel": "Auftrag 20.11.2026 · Lead übernehmen: strukturieren, zusammenführen, lernen, generieren",
+     "status": "in Arbeit (Fundament gebaut am 20.11., Branch claude/lead-struktur; offen ist, was in schleifen.md steht)",
+     "zustand": "in Arbeit",
+     "tage": 4
+    },
+    {
+     "datei": "2026-11-24-umfrage-offene-punkte.md",
+     "titel": "Feedback 24.11.2026 · Umfrage zu den offenen Punkten des Dashboards, Runde 1",
+     "status": "in Arbeit (Übernahme nach main am 24.11.; Leben mit QM als nächster Bau)",
+     "zustand": "in Arbeit",
+     "tage": 0
+    }
+   ]
+  },
+  "gates": {
+   "gruen": 12,
+   "rot": 0,
+   "offen": 9,
+   "gesamt": 21
+  },
+  "wissen": {
+   "prinzipien": 23,
+   "fassung": "0",
+   "entscheidungen": 18,
+   "aenderungen": 10
+  }
+ },
+ "experimente": [
+  {
+   "id": "X1",
+   "titel": "Klägs verdeckt das Ende langer Fragetitel",
+   "status": "offen"
+  },
+  {
+   "id": "X2",
+   "titel": "Anweisung läuft unter Klägs",
+   "status": "offen"
+  },
+  {
+   "id": "X3",
+   "titel": "Mechanik „kette“ wirkt mit sechs Wörtern leer",
+   "status": "entschieden (seit generator 0.2.0 wählt die Regel „andere Wirkung als zuvor“ für zwei aus sechs die Tasche)"
+  },
+  {
+   "id": "X4",
+   "titel": "Zwei Skalen spielen stufenlos, die Marke fragt mit 5 und 7 Stufen",
+   "status": "offen"
+  },
+  {
+   "id": "X5",
+   "titel": "Die Etappe hat keinen großen Moment am Ende",
+   "status": "entschieden (E17: erzeugte Surveys laufen auf der Kampagne mit Boss und Finale)"
+  },
+  {
+   "id": "X6",
+   "titel": "Spiegeln nach der Antwort trifft Klägs am falschen Ort",
+   "status": "offen"
+  },
+  {
+   "id": "X7",
+   "titel": "Vormachen mit leerem Zettel",
+   "status": "offen"
+  },
+  {
+   "id": "X8",
+   "titel": "Etwas ragt in Level 1 kurz über den rechten Rand",
+   "status": "offen"
+  }
+ ],
  "gates": [
   {
    "id": "G1",
@@ -90,16 +545,16 @@
    "id": "G2",
    "name": "Handy zuerst",
    "regel": "Jeder Screen bei 390 × 844 und 320 × 640 vollständig bedienbar, nichts angeschnitten, kein seitliches Scrollen",
-   "messung": "Aufnahme je Screen, scrollWidth = Breite",
-   "stand": "offen, kein Skript",
+   "messung": "Surveys aus Daten: node pruefstand/spiel.mjs --alle und mit --breite 320 --hoehe 640 (Aufnahme je Frage, scrollWidth). Demo-Surveys: kein Skript",
+   "stand": "offen (Surveys aus Daten grün 20.11.; Demo-Surveys ohne Skript)",
    "ampel": "offen"
   },
   {
    "id": "G3",
    "name": "Zu Ende gespielt",
    "regel": "Jeder Survey und jede Mechanik wird am Handy durchgespielt, nicht nur geladen (ANFORDERUNGEN 29)",
-   "messung": "Durchlauf-Skript oder Filmstreifen bis zum Ende",
-   "stand": "offen, kein Skript",
+   "messung": "Surveys aus Daten: node pruefstand/spiel.mjs --alle (jede Frage beantwortet, Ende erreicht, Ausstieg geprüft). Produkttest und Quick-Check: nur angespielt (rauch.mjs)",
+   "stand": "offen (Surveys aus Daten grün 20.11.; Demo-Surveys nur angespielt)",
    "ampel": "offen"
   },
   {
@@ -114,8 +569,8 @@
    "id": "G5",
    "name": "Belohnung ohne Zahl",
    "regel": "Belohnung bei jeder Interaktion; keine festen Punktwerte, keine Reward-Versprechen (ANFORDERUNGEN 8, 9)",
-   "messung": "Text-Scan nach Zahl + Punkteinheit im Survey",
-   "stand": "offen, kein Skript",
+   "messung": "Surveys aus Daten: schema/index.js LOHN_ZAHL in pruefstand/baukasten.mjs (mit Negativfall). Demo-Surveys: kein Skript",
+   "stand": "offen (Surveys aus Daten grün 20.11.; Demo-Surveys ohne Skript)",
    "ampel": "offen"
   },
   {
@@ -161,17 +616,17 @@
   {
    "id": "G11",
    "name": "Reproduzierbar",
-   "regel": "Jeder Survey in surveys/ nennt Schema-Version und die Version jedes Templates; derselbe Datensatz ergibt denselben Survey",
-   "messung": "Schema-Validierung beim Build",
-   "stand": "offen, kein Skript",
-   "ampel": "offen"
+   "regel": "Jeder Survey in surveys/ nennt Schema-Version und die Version jedes Templates; derselbe Eingang ergibt denselben Survey",
+   "messung": "node pruefstand/baukasten.mjs (erzeugt jeden Survey neu und vergleicht Feld für Feld)",
+   "stand": "grün (20.11.)",
+   "ampel": "gruen"
   },
   {
    "id": "G12",
    "name": "Herkunft",
-   "regel": "Jede Datei aus Labor, Vorlage oder Asset-Datenbank hat einen Herkunftseintrag; Abweichungen von der Quelle sind benannt",
-   "messung": "node werkzeug/labor-abgleich.mjs",
-   "stand": "grün (19.11.)",
+   "regel": "Jede Datei aus Labor, Mein SNÄGS, Vorlage oder Asset-Datenbank hat einen Herkunftseintrag; Abweichungen von der Quelle sind benannt",
+   "messung": "node werkzeug/labor-abgleich.mjs <labor>, node werkzeug/formate-abgleich.mjs <mein-snaegs>",
+   "stand": "grün (20.11.: Mein SNÄGS 117 Dateien gleich; Labor zuletzt 19.11.)",
    "ampel": "gruen"
   },
   {
@@ -179,7 +634,7 @@
    "name": "Gehirn aktuell",
    "regel": "Übergabe fortgeschrieben, Feedback wörtlich abgelegt, Session-Protokoll da",
    "messung": "Stop-Hook",
-   "stand": "grün (19.11.)",
+   "stand": "grün (20.11.)",
    "ampel": "gruen"
   },
   {
@@ -193,9 +648,57 @@
   {
    "id": "G15",
    "name": "Im Netz geprüft",
-   "regel": "Kein Link an Chris, bevor die Vorschau online ist und selbst geöffnet wurde (390 und 1440, last-modified nach dem Push)",
-   "messung": "npm run vorschau, dann Aufruf der Adresse",
-   "stand": "grün (19.11.)",
+   "regel": "Kein Link an Chris, bevor die Vorschau online ist und selbst geöffnet wurde (390 und 1440, last-modified nach dem Push). Surveys aus Daten werden dort zu Ende gespielt, nicht nur geladen",
+   "messung": "npm run vorschau (spielt jeden Survey unter der Basis, sonst geht nichts online), dann node pruefstand/spiel.mjs --alle --adresse <vorschau>",
+   "stand": "grün (20.11.)",
+   "ampel": "gruen"
+  },
+  {
+   "id": "G16",
+   "name": "Register stimmt",
+   "regel": "Was im Register steht, gibt es im Code, und umgekehrt; INVENTUR.md und register.json passen zum Stand",
+   "messung": "node werkzeug/inventur.mjs --pruefen (Start-Hook, baukasten.mjs)",
+   "stand": "grün (20.11.)",
+   "ampel": "gruen"
+  },
+  {
+   "id": "G17",
+   "name": "Regeln beißen",
+   "regel": "Jede Prüfregel hat einen Negativfall, der scheitern muss (Lohn als Zahl, fest verdrahtete Mechanik, alte Version, „öffnen“, fehlendes Bild, Kundenmaterial ohne Freigabe)",
+   "messung": "node pruefstand/baukasten.mjs",
+   "stand": "grün (20.11., 12 Negativfälle)",
+   "ampel": "gruen"
+  },
+  {
+   "id": "G18",
+   "name": "Kreislauf läuft",
+   "regel": "Kein Feedback von Chris ohne Statuszeile, keines länger als drei Tage „offen“ ohne Schleife oder Experiment",
+   "messung": "node werkzeug/lernstand.mjs --pruefen (Start-Hook, Stop-Hook)",
+   "stand": "grün (20.11.)",
+   "ampel": "gruen"
+  },
+  {
+   "id": "G20",
+   "name": "Auf dem Produkttest gebaut",
+   "regel": "Ein erzeugter Survey zeigt jeden Moment des Produkttests (Start am Produkt, Level-Start, Antwort-Flug, Kettenreaktion, Testkarte, Minigame, Boss, Finale) oder nennt im Bericht, welcher fehlt und warum. Nie drei Fragen gleicher Wirkung hintereinander, unter den ersten vier mindestens drei verschiedene. Kein Format aus Tipp-Flächen ohne ausdrückliche Festlegung im Fragebogen",
+   "messung": "node pruefstand/spiel.mjs --alle (prüft jeden Moment im Lauf), baukasten.mjs (Wirkung, mit Negativfall)",
+   "stand": "grün (20.11.)",
+   "ampel": "gruen"
+  },
+  {
+   "id": "G21",
+   "name": "Chris wartet nie",
+   "regel": "Gibt Chris mehrere Aufträge zugleich oder läuft eine Umfrage mit ihm, laufen lange Arbeiten im Hintergrund (Agents, Hintergrund-Skripte); die Interaktion mit ihm geht ohne Pause weiter. Stellt eine Umfrage n Fragen in Aussicht, kommen alle n ohne Zwischenarbeit",
+   "messung": "Sichtprüfung im Verlauf; Lehre im Feedback 24.11.",
+   "stand": "grün (24.11., ab jetzt)",
+   "ampel": "gruen"
+  },
+  {
+   "id": "G19",
+   "name": "Nur der Generator schreibt Surveys",
+   "regel": "surveys/*.json entsteht aus eingang/, nie von Hand; freigegeben wird erst ohne Lücken und nach Chris' Abnahme",
+   "messung": "baukasten.mjs (Neuerzeugung gleich, Status gegen Lücken)",
+   "stand": "grün (20.11.)",
    "ampel": "gruen"
   }
  ],
@@ -203,71 +706,135 @@
   {
    "nr": "S1",
    "seit": "19.11.",
-   "was": "Chris' Spezifikation steht aus („Ich werde das gleich weiter spezifizieren“). Offene Fragen: feedback/2026-11-19-auftrag-survey-content-os.md",
-   "schritt": "Spezifikation wörtlich ablegen, dann Plan"
+   "was": "Chris' Entscheidungen zum Betrieb stehen aus: in welcher Form kommen Fragebögen an, erzeugt eine Session oder ein Dienst, wo laufen erzeugte Surveys und wohin gehen die Antworten, woher kommen 3D-Modelle, was heißt „Frontend Database“ für ihn. Dazu: wöchentliche Pflege-Session ja oder nein. Vorschläge je Punkt: feedback/2026-11-19-auftrag-survey-content-os.md und Abschluss-Block vom 20.11.",
+   "schritt": "Antworten wörtlich ablegen; bis dahin gelten die Annahmen in lang/bauplan.md („Was selbst heißt“)"
   },
   {
    "nr": "S2",
    "seit": "19.11.",
-   "was": "Prinzipien sind Fassung 0. Die Quellen (ANFORDERUNGEN, QUEST-BRAIN, Research, Labor-Gedächtnis) sind noch nicht vollständig destilliert",
-   "schritt": "Alle Dateien in lang/quellen/ lesen, prinzipien.md auf Fassung 1 bringen, Widersprüche benennen"
-  },
-  {
-   "nr": "S3",
-   "seit": "19.11.",
-   "was": "Inventur der Bausteine fehlt: 24 Dateien in mechaniken/, 12 in minigames/, dazu Level-Clear, Boss, Loot, Münzen. Welche Frageart bedient welche Mechanik, was ist an nüssje fest verdrahtet?",
-   "schritt": "Tabelle Baustein · Frageart · Daten rein · fest verdrahtet · Reifegrad nach templates/INVENTUR.md"
-  },
-  {
-   "nr": "S4",
-   "seit": "19.11.",
-   "was": "Schema fehlt: Survey-Spec, Produkt-Datensatz, Fragebogen-Eingang",
-   "schritt": "Aus fragen.js, produkte/nuessje.js und der Vorlage (QUEST_TEMPLATES) ableiten, schema/ füllen, Demo-Survey als Datensatz nach surveys/"
+   "was": "Prinzipien sind Fassung 0. Die Quellen (ANFORDERUNGEN, QUEST-BRAIN, Research, Labor-Gedächtnis, dazu jetzt docs/KONZEPT-R9-FRAGEN.md und KONZEPT-R10-ERSTEINDRUCK.md in Mein SNÄGS) sind nicht vollständig destilliert",
+   "schritt": "Alle Dateien in lang/quellen/ lesen, prinzipien.md auf Fassung 1 bringen, Widersprüche benennen (z. B. G5 „keine Zahl“ gegen „+4 Punkte“ im Mitgliederbereich)"
   },
   {
    "nr": "S5",
    "seit": "19.11.",
-   "was": "Gates G2 bis G11 ohne Skript. Nur G1 und G12 werden gemessen",
-   "schritt": "Durchspiel-Skript bis zum Ende (G3), Aufnahme je Screen bei 390 und 320 (G2), Messung G10"
+   "was": "Gates ohne Skript: G4, G6 bis G10 ganz; G2, G3, G5 für Produkttest und Quick-Check",
+   "schritt": "Durchspiel-Skript für die Kampagne (G3), Messung der Trefferfläche (G8), lange Aufgaben mit CPU 4× (G10)"
   },
   {
    "nr": "S7",
    "seit": "19.11.",
    "was": "Demo-Surveys: „da geht aber noch was“ bei Haptik und Psychologie",
-   "schritt": "Erst nach S2 und S3: Kritik je Level gegen die Prinzipien, Vorschläge mit Beleg an Chris"
+   "schritt": "Nach S2: Kritik je Level gegen die Prinzipien, Vorschläge mit Beleg an Chris. Befunde aus dem ersten erzeugten Survey stehen schon in experimente.md (X1 bis X5)"
   },
   {
    "nr": "S8",
    "seit": "19.11.",
-   "was": "Labor und OS führen den Survey doppelt. Website (website-v3) und Business-Seite (master) nutzen ihn weiter aus dem Labor; der Feinschliff ist dort seit 19.11. übernommen, live ist er noch nicht (Deploy nur auf Chris' Wort)",
+   "was": "Labor und OS führen den Survey doppelt. Website (website-v3) und Business-Seite (master) nutzen ihn weiter aus dem Labor; der Feinschliff ist dort übernommen, live ist er nicht (Deploy nur auf Chris' Wort)",
    "schritt": "Mit Chris klären: wann das Labor das OS einbindet. Bis dahin vor jeder Änderung an kopierten Dateien werkzeug/labor-abgleich.mjs gegen website-v3"
   },
   {
    "nr": "S9",
    "seit": "19.11.",
-   "was": "Am echten iPhone ungeprüft. Die Cloud hat kein WebKit",
-   "schritt": "Chris testet die Vorschau am Gerät: …/vorschau/survey-os/main/"
+   "was": "Am echten iPhone ungeprüft. Die Cloud hat kein WebKit. Neu dazu: spiel.html?s=beispiel-nuessje-kurztest",
+   "schritt": "Chris testet die Vorschau am Gerät"
   },
   {
    "nr": "S10",
    "seit": "19.11.",
-   "was": "Framework-Paket: Quelle ist Chris' lokales Framework-Repo. Hier liegt der Stand vom 17.11., gleich wie in der Asset-Datenbank (G14 grün)",
+   "was": "Framework-Paket: Quelle ist Chris' lokales Framework-Repo. Hier liegt der Stand vom 17.11. (G14 grün)",
    "schritt": "Jede Session: Start-Hook lesen; ist ein Nachbar neuer, mit werkzeug/framework-abgleich.mjs --holen nachziehen. Chris: lokal cloud-sync um dieses Repo erweitern"
-  },
-  {
-   "nr": "S11",
-   "seit": "19.11.",
-   "was": "Zugriffe der Umgebung „SNÄGS Survey OS“: Netz eingeschränkt (Registries, GitHub, christo-malaga.github.io); snaegs-staging hängt nicht von selbst an der Session. Chris: „Es muss natürlich zugriff auf ALLES relevante haben“",
-   "schritt": "Zu Beginn der ersten Session dort: snaegs-staging mit Schreibrecht anhängen (add_repo) und einmal vorschlagen, das Netz der Umgebung auf uneingeschränkt zu stellen (update_environment); beides gibt Chris frei"
   },
   {
    "nr": "S12",
    "seit": "19.11.",
-   "was": "Alte Branches löschen (Chris 19.11.: „Branches löscgen, einen behalten -> wie du vorschlägst“): im Labor claude/survey-stand, survey-feinschliff, survey-bilder, survey-webkit (alle vollständig in website-v3 bzw. master), hier claude/dashboard-vorschau (in main). claude/badges-partner im Labor bleibt (Partnerseite für Walter Stephani). Aus der Cloud geht Löschen nicht: git push --delete meldet „Everything up-to-date“ und löscht nichts",
+   "was": "Alte Branches löschen (Chris 19.11.: „Branches löscgen, einen behalten -> wie du vorschlägst“): im Labor claude/survey-stand, survey-feinschliff, survey-bilder, survey-webkit, hier claude/dashboard-vorschau. Aus der Cloud geht Löschen nicht",
    "schritt": "Chris löscht auf GitHub oder lokal; danach diese Zeile streichen"
+  },
+  {
+   "nr": "S13",
+   "seit": "20.11.",
+   "was": "Format-Baukasten: Mein SNÄGS führt, das OS hält die Kopie (E12, Stand 787995d). Dort wird täglich gebaut; hier veraltet die Kopie. Befund für dort: regeln.js textFehler erkennt „öffnen“ nie (Wortgrenze \\b vor „ö“ greift in JavaScript nicht), die Sperre ist dort also wirkungslos; im OS-Schema behoben",
+   "schritt": "Jede Session: node werkzeug/formate-abgleich.mjs <mein-snaegs>; bei Abweichung --holen, Inventur, Prüfstand, HERKUNFT. Chris entscheidet, wann das OS führt. Befund an die Session Mein SNÄGS geben"
+  },
+  {
+   "nr": "S14",
+   "seit": "20.11.",
+   "was": "Kampagne aus Daten: läuft, Reste offen (E17). Erzeugte Surveys spielen auf der Kampagne. Offen: Der nüssje-Run selbst liegt noch nicht als Datensatz vor; hotspot läuft nur für die nüssje-Dose (feste Bereiche), lupe gar nicht; das Profil nach Level 1 gibt es nur im nüssje-Run; der Text der Testkarten („Alle zwei gesammelt“) und die Boss-Teile sind generisch",
+   "schritt": "hotspot mit Bereichen und Koordinaten aus dem Produkt; nüssje-Run als Datensatz spiegeln (Vorher-Nachher-Aufnahmen); Durchspiel-Skript auch für survey.html"
+  },
+  {
+   "nr": "S15",
+   "seit": "20.11.",
+   "was": "Lücke Freitext: Der Beispiel-Fragebogen hat eine offene Frage („Was sollten wir an der Sorte ändern?“), es gibt keinen Baustein dafür. Bau-Punkt freitext, Prio 1",
+   "schritt": "Kreislauf 2 (templates/README.md): Baustein „wort“ des Format-Baukastens als eigene Mechanik prüfen; Entwurf, Prüfseite, Kontrolle"
+  },
+  {
+   "nr": "S16",
+   "seit": "20.11.",
+   "was": "Ereignis-Katalog und Antworten: Die Formate melden Ereignisse und Messwerte nur in ein Protokoll im Browser (adapter/os.js); der Katalog der Ereignisse aus Mein SNÄGS ist nicht übernommen, Antworten haben kein Ziel",
+   "schritt": "Hängt an S1 (wohin gehen die Antworten). Dann Katalog übernehmen und pruefKontext damit füttern"
+  },
+  {
+   "nr": "S17",
+   "seit": "20.11.",
+   "was": "Asset-Datenbank und Mein SNÄGS wissen noch nichts vom neuen Stand. surveys/README.md der Asset-Datenbank nennt templates/, schema/, generator/ als „im Aufbau“; die Beispiel-Produktbilder (Mondbeere, Kieselfein, zwei nüssje-Sorten) liegen jetzt auch in app/public/produkte/",
+   "schritt": "Nach „übernehmen“: Verweis in der Asset-Datenbank nachziehen (diese Session hatte dort nur Lesezugriff); Bilder langfristig aus der Datenbank beziehen (E4)"
+  },
+  {
+   "nr": "S18",
+   "seit": "20.11.",
+   "was": "Leben, Fassung 1 (E18): Vormachen und Ziele mit Tiefe laufen im OS als Schicht über der Engine. Spiegeln nach der Antwort ist nur ein Versuch (?spiegel=1): Es trifft Klägs im Kopf und über Überschriften und widerspricht der Regel „nie auf den Wert einer Antwort“",
+   "schritt": "Chris' Ja zur Regel einholen. Dann im Labor in Klägs' Führung bauen (Reaktion nach der Landung, eigener Platz, nie am Level-Ende), Tiefe und Bedeutung der Ziele in die Stylesheets der Mechaniken übernehmen, Vormachen je Geste (nicht nur der leere Zettel)"
+  },
+  {
+   "nr": "S19",
+   "seit": "20.11.",
+   "was": "Demo-Surveys nach den Engine-Änderungen nur per Rauchtest geprüft. kampagne.js, Kampagne.jsx, LevelStart, LevelClear, Loot, Start, Testkarte lesen jetzt wahlweise eine Spec; ohne Spec soll alles gleich bleiben",
+   "schritt": "Durchspiel-Skript für survey.html (S5) und Vorher-Nachher-Aufnahmen; dem Labor die Änderung anbieten oder beim nächsten Abgleich als Abweichung führen"
   }
  ],
  "entscheidungen": [
+  {
+   "id": "E18",
+   "datum": "20.11.2026",
+   "titel": "Leben: Vormachen und Ziele mit Tiefe ja, Spiegeln offen (braucht Chris' Ja)"
+  },
+  {
+   "id": "E17",
+   "datum": "20.11.2026",
+   "titel": "Erzeugte Surveys laufen auf der Kampagne des Produkttests (hebt E14 auf)"
+  },
+  {
+   "id": "E16",
+   "datum": "20.11.2026",
+   "titel": "Der Generator ändert keinen Wortlaut und stellt keine Frage um"
+  },
+  {
+   "id": "E15",
+   "datum": "20.11.2026",
+   "titel": "Lücken werden benannt, nie überspielt"
+  },
+  {
+   "id": "E14",
+   "datum": "20.11.2026",
+   "titel": "Surveys aus Daten spielt die Etappe; die Kampagne bleibt vorerst Demo (AUFGEHOBEN durch E17, am selben Tag)"
+  },
+  {
+   "id": "E13",
+   "datum": "20.11.2026",
+   "titel": "Code bleibt in app/, templates/ ist das Register"
+  },
+  {
+   "id": "E12",
+   "datum": "20.11.2026",
+   "titel": "Format-Baukasten und Etappe aus Mein SNÄGS übernommen; geführt werden sie vorerst dort"
+  },
+  {
+   "id": "E11",
+   "datum": "20.11.2026",
+   "titel": "Ein Bauplan, ein Register, ein Lernstand"
+  },
   {
    "id": "E10",
    "datum": "19.11.2026",
@@ -321,6 +888,30 @@
  ],
  "feedback": [
   {
+   "datei": "2026-11-24-umfrage-offene-punkte.md",
+   "datum": "24.11.2026",
+   "titel": "Feedback 24.11.2026 · Umfrage zu den offenen Punkten des Dashboards, Runde 1",
+   "status": "in Arbeit (Übernahme nach main am 24.11.; Leben mit QM als nächster Bau)"
+  },
+  {
+   "datei": "2026-11-20-lead-struktur-lernen-generieren.md",
+   "datum": "20.11.2026",
+   "titel": "Auftrag 20.11.2026 · Lead übernehmen: strukturieren, zusammenführen, lernen, generieren",
+   "status": "in Arbeit (Fundament gebaut am 20.11., Branch claude/lead-struktur; offen ist, was in schleifen.md steht)"
+  },
+  {
+   "datei": "2026-11-20-erzeugter-survey-ohne-haptikstruktur.md",
+   "datum": "20.11.2026",
+   "titel": "Feedback 20.11.2026 · Der erzeugte Survey nutzt nicht die bestehende Haptikstruktur",
+   "status": "in Arbeit (Korrektur im selben Turn begonnen: erzeugte Surveys laufen auf der Kampagne)"
+  },
+  {
+   "datei": "2026-11-20-ersteindruck-produktfeedback.md",
+   "datum": "20.11.2026",
+   "titel": "Feedback 20.11.2026 · Ersteindruck ist Produktfeedback, Klägs live erweitern",
+   "status": "verarbeitet (Prinzip 20, Regel in CLAUDE.md; umgesetzt im Format „Erster Eindruck“ von Mein SNÄGS, seit 20.11. als Kopie im OS und im ersten erzeugten Survey gespielt)"
+  },
+  {
    "datei": "2026-11-19-oberflaeche-staging-kohaerenz.md",
    "datum": "19.11.2026",
    "titel": "Oberfläche, Staging, Kohärenz (Chris, 19.11.2026)",
@@ -330,11 +921,11 @@
    "datei": "2026-11-19-auftrag-survey-content-os.md",
    "datum": "19.11.2026",
    "titel": "Auftrag Survey Content OS (Chris, 19.11.2026)",
-   "status": "offen, Chris spezifiziert weiter („Ich werde das gleich weiter spezifizieren“)."
+   "status": "in Arbeit (Fundament gebaut am 20.11., siehe 2026-11-20-lead-struktur-lernen-generieren.md; die fünf Fragen unten sind weiter offen, Schleife S1)"
   }
  ],
  "prinzipien": {
-  "anzahl": 19,
+  "anzahl": 23,
   "fassung": "0"
  },
  "herkunft": {

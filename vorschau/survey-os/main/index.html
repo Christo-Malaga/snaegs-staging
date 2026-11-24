@@ -60,7 +60,7 @@
       }
       footer { margin-top: 48px; color: var(--grau); font-size: 13px; }
     </style>
-    <script type="module" crossorigin src="/snaegs-staging/vorschau/survey-os/main/assets/index-CEnjsQp9.js"></script>
+    <script type="module" crossorigin src="/snaegs-staging/vorschau/survey-os/main/assets/index-D-pnJRPk.js"></script>
     <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/survey-os/main/assets/modulepreload-polyfill-Dezn_h7o.js">
   </head>
   <body>
@@ -71,14 +71,20 @@
         <p class="stand" data-stand>lädt …</p>
       </header>
       <nav class="sprung" aria-label="Abschnitte">
-        <a href="#surveys">Surveys</a><a href="#bausteine">Bausteine</a><a href="#templates">Templates</a><a href="#gates">Gates</a><a href="#schleifen">Offene Schleifen</a><a href="#gehirn">Gehirn</a>
+        <a href="#surveys">Surveys</a><a href="#lernen">Lernen</a><a href="#bausteine">Bausteine</a><a href="#templates">Register</a><a href="#bedarf">Bedarf</a><a href="#gates">Gates</a><a href="#schleifen">Offene Schleifen</a><a href="#gehirn">Gehirn</a>
       </nav>
       <div class="zahlen" data-zahlen></div>
 
       <section id="surveys">
         <h2>Surveys</h2>
-        <p class="unter">Antippen spielt den Survey. Demo-Surveys stecken heute im Code, generierte kommen als Datensatz dazu.</p>
+        <p class="unter">Antippen spielt den Survey. Die beiden Demo-Surveys stecken im Code; alles mit „Daten“ hat der Generator aus einem Fragebogen erzeugt.</p>
         <div class="karten" data-surveys></div>
+      </section>
+
+      <section id="lernen">
+        <h2>Lernen</h2>
+        <p class="unter" data-lernen-satz>Was das System als Nächstes lernt.</p>
+        <div class="tafel" data-experimente></div>
       </section>
 
       <section id="bausteine">
@@ -88,9 +94,15 @@
       </section>
 
       <section id="templates">
-        <h2>Templates</h2>
-        <p class="unter">Bausteine mit Version, die ihre Daten über das Schema bekommen.</p>
+        <h2>Register</h2>
+        <p class="unter">Jeder Baustein mit Version. Aus diesen wählt der Generator; „frei“ heißt: nimmt jeden passenden Fragebogen.</p>
         <div class="tafel" data-templates></div>
+      </section>
+
+      <section id="bedarf">
+        <h2>Bedarf</h2>
+        <p class="unter">Was als Nächstes zu bauen ist. Zuerst, worauf ein Fragebogen wartet.</p>
+        <div class="tafel" data-bedarf></div>
       </section>
 
       <section id="gates">
