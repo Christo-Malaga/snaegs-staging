@@ -1,0 +1,1 @@
+import{t as e}from"./materialien-K-V9-HCq.js";export{e as MATERIALIEN};

@@ -1,1 +1,0 @@
-import{t as e}from"./materialien-BNsoQmv2.js";export{e as MATERIALIEN};
