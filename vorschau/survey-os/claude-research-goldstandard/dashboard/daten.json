@@ -1,0 +1,1376 @@
+{
+ "erzeugt": "2026-11-25T16:43:47.435Z",
+ "stand": {
+  "branch": "claude/research-goldstandard",
+  "commit": "51bae0a",
+  "datum": "25.11.2026 16:42",
+  "betreff": "Klägs: Prüfseite „Spiegel“, Spiegel im Survey geprüft und nachgeschärft"
+ },
+ "uebergabe": "Übergabe (Stand 25.11.2026 abends: erster echter Survey im Bau, Kette Auftrag bis Survey; Branch claude/research-goldstandard, nicht in main)",
+ "surveys": [
+  {
+   "titel": "Produkttest nüssje",
+   "seite": "survey.html",
+   "text": "Sechs Level mit je fünf Fragen, Münzen, Level-Clear, Boss, Loot. Die Referenz für Haptik und Psychologie.",
+   "art": "Demo, im Code"
+  },
+  {
+   "titel": "Quick-Check",
+   "seite": "vorregistrierung.html",
+   "text": "Acht Grundfragen der Voranmeldung, dieselbe Engine in kurzer Form.",
+   "art": "Demo, im Code"
+  },
+  {
+   "titel": "Kurztest nüssje Strawberry Cheesecake (Beispiel)",
+   "seite": "spiel.html?s=beispiel-nuessje-kurztest",
+   "text": "Aus einem Fragebogen erzeugt: 13 Fragen, 1 Lücke(n). Datensatz surveys/beispiel-nuessje-kurztest.json.",
+   "art": "Daten · entwurf · Schema 1.4.0"
+  },
+  {
+   "titel": "nüssje Strawberry Cheesecake: Produkttest zu Hause",
+   "seite": "spiel.html?s=nuessje-strawberry-cheesecake-p03-heimtest-lebensmittel-marke",
+   "text": "Aus einem Fragebogen erzeugt: 35 Fragen. Datensatz surveys/nuessje-strawberry-cheesecake-p03-heimtest-lebensmittel-marke.json.",
+   "art": "Daten · entwurf · Schema 1.4.0"
+  }
+ ],
+ "bausteine": [
+  {
+   "titel": "Mechaniken",
+   "seite": "mechaniken.html",
+   "anzahl": 23,
+   "liste": [
+    "abreissen",
+    "sammeln",
+    "lineal",
+    "stein",
+    "kette",
+    "tasche",
+    "runde",
+    "teller",
+    "rad",
+    "fang",
+    "takt",
+    "hotspot",
+    "lupe",
+    "geschmack",
+    "duell",
+    "ladung",
+    "spur",
+    "batterie",
+    "ring",
+    "ankreuzen",
+    "teilfragen",
+    "freitext",
+    "kommentar"
+   ],
+   "text": "Jede Frage-Mechanik einzeln auf dem Prüfstand."
+  },
+  {
+   "titel": "Minigames",
+   "seite": "minigames.html",
+   "anzahl": 3,
+   "liste": [
+    "huetchen",
+    "schnipsen",
+    "tintenfang"
+   ],
+   "text": "Echte Spiele mit Klägs, in drei Stufen."
+  },
+  {
+   "titel": "Münzen",
+   "seite": "muenzen.html",
+   "anzahl": null,
+   "liste": [],
+   "text": "Die Belohnung: Flug, Schwall, Regen, Stapel."
+  },
+  {
+   "titel": "Klägs-Repertoire",
+   "seite": "klecks-repertoire.html",
+   "anzahl": null,
+   "liste": [],
+   "text": "Alles, was Klägs kann: Gefühle, Gesten, Requisiten."
+  }
+ ],
+ "produkte": [
+  "nuessje"
+ ],
+ "templates": [
+  {
+   "id": "stein",
+   "titel": "Rahmen",
+   "version": "1.1.0",
+   "frageart": "Mechanik · choice",
+   "status": "frei für den Generator"
+  },
+  {
+   "id": "teller",
+   "titel": "Teller",
+   "version": "1.0.0",
+   "frageart": "Mechanik · choice",
+   "status": "frei für den Generator"
+  },
+  {
+   "id": "runde",
+   "titel": "Tisch",
+   "version": "1.0.0",
+   "frageart": "Mechanik · choice",
+   "status": "frei für den Generator"
+  },
+  {
+   "id": "fang",
+   "titel": "Nadel",
+   "version": "1.0.0",
+   "frageart": "Mechanik · choice",
+   "status": "frei für den Generator"
+  },
+  {
+   "id": "abreissen",
+   "titel": "Abreißzettel",
+   "version": "1.0.0",
+   "frageart": "Mechanik · choice",
+   "status": "frei für den Generator"
+  },
+  {
+   "id": "kette",
+   "titel": "Leine",
+   "version": "1.0.0",
+   "frageart": "Mechanik · multi",
+   "status": "frei für den Generator"
+  },
+  {
+   "id": "tasche",
+   "titel": "Tasche",
+   "version": "1.0.0",
+   "frageart": "Mechanik · multi",
+   "status": "frei für den Generator"
+  },
+  {
+   "id": "takt",
+   "titel": "Takt",
+   "version": "1.0.0",
+   "frageart": "Mechanik · multi, choice",
+   "status": "frei für den Generator"
+  },
+  {
+   "id": "sammeln",
+   "titel": "Sammelzettel",
+   "version": "1.1.0",
+   "frageart": "Mechanik · multi",
+   "status": "frei für den Generator"
+  },
+  {
+   "id": "rad",
+   "titel": "Drehrad",
+   "version": "1.0.0",
+   "frageart": "Mechanik · scale, jar",
+   "status": "frei für den Generator"
+  },
+  {
+   "id": "ladung",
+   "titel": "Regler",
+   "version": "1.1.0",
+   "frageart": "Mechanik · scale",
+   "status": "frei für den Generator"
+  },
+  {
+   "id": "spur",
+   "titel": "Spur",
+   "version": "1.0.0",
+   "frageart": "Mechanik · scale",
+   "status": "frei für den Generator"
+  },
+  {
+   "id": "lineal",
+   "titel": "Lineal",
+   "version": "1.0.0",
+   "frageart": "Mechanik · scale",
+   "status": "frei für den Generator"
+  },
+  {
+   "id": "duell",
+   "titel": "Duell",
+   "version": "1.0.0",
+   "frageart": "Mechanik · duel",
+   "status": "frei für den Generator"
+  },
+  {
+   "id": "geschmack",
+   "titel": "Geschmackskarte",
+   "version": "1.0.0",
+   "frageart": "Mechanik · map",
+   "status": "frei für den Generator"
+  },
+  {
+   "id": "hotspot",
+   "titel": "Blickfang auf der Packung",
+   "version": "1.0.0",
+   "frageart": "Mechanik · choice",
+   "status": "gebunden: Produkt nuessje-strawberry-cheesecake"
+  },
+  {
+   "id": "batterie",
+   "titel": "Batterie",
+   "version": "0.2.0",
+   "frageart": "Mechanik · scale, jar",
+   "status": "entwurf"
+  },
+  {
+   "id": "ring",
+   "titel": "Produkt-Ring",
+   "version": "0.2.0",
+   "frageart": "Mechanik · scale",
+   "status": "entwurf"
+  },
+  {
+   "id": "ankreuzen",
+   "titel": "Ankreuzen",
+   "version": "0.1.0",
+   "frageart": "Mechanik · choice",
+   "status": "entwurf"
+  },
+  {
+   "id": "teilfragen",
+   "titel": "Teilfragen",
+   "version": "0.1.0",
+   "frageart": "Mechanik · choice",
+   "status": "entwurf"
+  },
+  {
+   "id": "freitext",
+   "titel": "Klägs schreibt mit",
+   "version": "0.1.0",
+   "frageart": "Mechanik · text",
+   "status": "entwurf"
+  },
+  {
+   "id": "kommentar",
+   "titel": "Kommentarspalte",
+   "version": "0.1.0",
+   "frageart": "Mechanik · text",
+   "status": "entwurf"
+  },
+  {
+   "id": "lupe",
+   "titel": "Lupe",
+   "version": "1.0.0",
+   "frageart": "Mechanik · choice",
+   "status": "nein"
+  },
+  {
+   "id": "logo-sprint",
+   "titel": "Logo-Sprint",
+   "version": "1.1.0",
+   "frageart": "Format · bekanntheit",
+   "status": "spielbar"
+  },
+  {
+   "id": "erster-eindruck",
+   "titel": "Erster Eindruck",
+   "version": "1.0.0",
+   "frageart": "Format · ersteindruck",
+   "status": "spielbar"
+  },
+  {
+   "id": "emotionskette",
+   "titel": "Emotionskette",
+   "version": "1.1.0",
+   "frageart": "Format · stimmung",
+   "status": "spielbar"
+  },
+  {
+   "id": "packaging-vergleich",
+   "titel": "Zwei Designs",
+   "version": "1.0.0",
+   "frageart": "Format · praeferenz",
+   "status": "spielbar"
+  },
+  {
+   "id": "erster-blick",
+   "titel": "Erster Blick",
+   "version": "0.1.0",
+   "frageart": "Format · verstaendnis",
+   "status": "entwurf (Bedarf: registrieren)"
+  },
+  {
+   "id": "moodboard",
+   "titel": "Moodboard",
+   "version": "0.1.0",
+   "frageart": "Format · passung",
+   "status": "entwurf (Bedarf: registrieren)"
+  },
+  {
+   "id": "spot-takt",
+   "titel": "Spot-Takt",
+   "version": "0.1.0",
+   "frageart": "Format · momentkurve",
+   "status": "entwurf (Bedarf: bauen)"
+  },
+  {
+   "id": "vibe",
+   "titel": "Vibe",
+   "version": "0.1.0",
+   "frageart": "Format · stimmung",
+   "status": "entwurf (Bedarf: gebaut)"
+  },
+  {
+   "id": "dein-tag",
+   "titel": "Dein Tag",
+   "version": "0.1.0",
+   "frageart": "Format · zeitbudget",
+   "status": "entwurf (Bedarf: bauen)"
+  },
+  {
+   "id": "ja-oder-nein",
+   "titel": "Ja oder nein",
+   "version": "0.1.0",
+   "frageart": "Format · zustimmung",
+   "status": "entwurf (Bedarf: bauen)"
+  },
+  {
+   "id": "top-und-flop",
+   "titel": "Top und Flop",
+   "version": "0.1.0",
+   "frageart": "Format · maxdiff",
+   "status": "entwurf (Bedarf: registrieren)"
+  },
+  {
+   "id": "preisgefuehl",
+   "titel": "Preisgefühl",
+   "version": "0.1.0",
+   "frageart": "Format · preis",
+   "status": "entwurf (Bedarf: gebaut)"
+  },
+  {
+   "id": "regalblick",
+   "titel": "Regalblick",
+   "version": "0.1.0",
+   "frageart": "Format · auffindbarkeit",
+   "status": "entwurf (Bedarf: bauen)"
+  }
+ ],
+ "bedarf": [
+  {
+   "quelle": "generator",
+   "id": "freitext",
+   "prio": 1,
+   "was": "Baustein „wort“ des Format-Baukastens als eigene Mechanik anmelden (ein Wort oder ein Satz, mit „Fällt mir nichts ein“)",
+   "wartet": [
+    "beispiel-nuessje-kurztest:verbessern"
+   ]
+  },
+  {
+   "quelle": "engine",
+   "id": "lupe",
+   "prio": 2,
+   "was": "Mechanik „Lupe“ entkoppeln: Bild und Detailpunkte der Creator-Szene",
+   "wartet": []
+  },
+  {
+   "quelle": "formate",
+   "id": "baustein:bestbad",
+   "prio": 2,
+   "was": "Baustein „bestbad“ (registrieren): Bester und schwächster aus vier (MaxDiff spielerisch); bis dahin duell",
+   "wartet": []
+  },
+  {
+   "quelle": "formate",
+   "id": "baustein:hotspot",
+   "prio": 2,
+   "was": "Baustein „hotspot“ (registrieren): Stelle auf dem Packshot antippen; bis dahin hotspot",
+   "wartet": []
+  },
+  {
+   "quelle": "formate",
+   "id": "baustein:stapel",
+   "prio": 2,
+   "was": "Baustein „stapel“ (bauen): Ja oder nein wischen, Tasten J und N; bis dahin wahl-k",
+   "wartet": []
+  },
+  {
+   "quelle": "formate",
+   "id": "format:erster-blick",
+   "prio": 2,
+   "was": "Format „erster-blick“ (registrieren): Erster Blick; bis dahin kategorie",
+   "wartet": []
+  },
+  {
+   "quelle": "formate",
+   "id": "format:ja-oder-nein",
+   "prio": 2,
+   "was": "Format „ja-oder-nein“ (bauen): Ja oder nein; bis dahin liste",
+   "wartet": []
+  },
+  {
+   "quelle": "formate",
+   "id": "format:moodboard",
+   "prio": 2,
+   "was": "Format „moodboard“ (registrieren): Moodboard; bis dahin skala",
+   "wartet": []
+  },
+  {
+   "quelle": "formate",
+   "id": "format:preisgefuehl",
+   "prio": 2,
+   "was": "Format „preisgefuehl“ (ablauf): Preisgefühl; bis dahin preisliste",
+   "wartet": []
+  },
+  {
+   "quelle": "formate",
+   "id": "format:top-und-flop",
+   "prio": 2,
+   "was": "Format „top-und-flop“ (registrieren): Top und Flop; bis dahin rangliste",
+   "wartet": []
+  },
+  {
+   "quelle": "formate",
+   "id": "format:vibe",
+   "prio": 2,
+   "was": "Format „vibe“ (ablauf): Vibe; bis dahin wortliste",
+   "wartet": []
+  },
+  {
+   "quelle": "engine",
+   "id": "traeger-schlauch",
+   "prio": 3,
+   "was": "Träger „Schlauch (Quick-Check)“ aus Daten spielen: liest fragen.js und endet in der Registrierung der Voranmeldung",
+   "wartet": []
+  },
+  {
+   "quelle": "formate",
+   "id": "baustein:regal",
+   "prio": 3,
+   "was": "Baustein „regal“ (bauen): Regal mit 12 Packungen, Suchzeit bis zum Fund; bis dahin feld",
+   "wartet": []
+  },
+  {
+   "quelle": "formate",
+   "id": "baustein:takt-spot",
+   "prio": 3,
+   "was": "Baustein „takt-spot“ (bauen): Tippen während eines Animatics (Momentkurve, Dial-Test)",
+   "wartet": []
+  },
+  {
+   "quelle": "formate",
+   "id": "baustein:verteilen",
+   "prio": 3,
+   "was": "Baustein „verteilen“ (bauen): Konstantsumme (24 Stunden auf Tätigkeiten); bis dahin skala",
+   "wartet": []
+  },
+  {
+   "quelle": "formate",
+   "id": "format:dein-tag",
+   "prio": 3,
+   "was": "Format „dein-tag“ (bauen): Dein Tag; bis dahin skala",
+   "wartet": []
+  },
+  {
+   "quelle": "formate",
+   "id": "format:regalblick",
+   "prio": 3,
+   "was": "Format „regalblick“ (bauen): Regalblick; bis dahin suchliste",
+   "wartet": []
+  },
+  {
+   "quelle": "formate",
+   "id": "format:spot-takt",
+   "prio": 3,
+   "was": "Format „spot-takt“ (bauen): Spot-Takt; bis dahin skala",
+   "wartet": []
+  }
+ ],
+ "lernen": {
+  "naechster": "Lücke schließen, auf die ein Fragebogen wartet: freitext (beispiel-nuessje-kurztest:verbessern)",
+  "haengt": [],
+  "feedback": {
+   "gesamt": 22,
+   "offen": 0,
+   "inArbeit": 8,
+   "verarbeitet": 14,
+   "liste": [
+    {
+     "datei": "2026-11-19-auftrag-survey-content-os.md",
+     "titel": "Auftrag Survey Content OS (Chris, 19.11.2026)",
+     "status": "in Arbeit (Fundament gebaut am 20.11., siehe 2026-11-20-lead-struktur-lernen-generieren.md; die fünf Fragen unten sind weiter offen, Schleife S1)",
+     "zustand": "in Arbeit",
+     "tage": 6
+    },
+    {
+     "datei": "2026-11-19-oberflaeche-staging-kohaerenz.md",
+     "titel": "Oberfläche, Staging, Kohärenz (Chris, 19.11.2026)",
+     "status": "verarbeitet am 19.11. (Dashboard, Vorschau-Weg, Gate G14); die Zugriffe der neuen Umgebung bleiben als",
+     "zustand": "verarbeitet",
+     "tage": 6
+    },
+    {
+     "datei": "2026-11-20-ersteindruck-produktfeedback.md",
+     "titel": "Feedback 20.11.2026 · Ersteindruck ist Produktfeedback, Klägs live erweitern",
+     "status": "verarbeitet (Prinzip 20, Regel in CLAUDE.md; umgesetzt im Format „Erster Eindruck“ von Mein SNÄGS, seit 20.11. als Kopie im OS und im ersten erzeugten Survey gespielt)",
+     "zustand": "verarbeitet",
+     "tage": 5
+    },
+    {
+     "datei": "2026-11-20-erzeugter-survey-ohne-haptikstruktur.md",
+     "titel": "Feedback 20.11.2026 · Der erzeugte Survey nutzt nicht die bestehende Haptikstruktur",
+     "status": "in Arbeit (Korrektur im selben Turn begonnen: erzeugte Surveys laufen auf der Kampagne)",
+     "zustand": "in Arbeit",
+     "tage": 5
+    },
+    {
+     "datei": "2026-11-20-lead-struktur-lernen-generieren.md",
+     "titel": "Auftrag 20.11.2026 · Lead übernehmen: strukturieren, zusammenführen, lernen, generieren",
+     "status": "in Arbeit (Fundament gebaut am 20.11., Branch claude/lead-struktur; offen ist, was in schleifen.md steht)",
+     "zustand": "in Arbeit",
+     "tage": 5
+    },
+    {
+     "datei": "2026-11-24-fable-nur-plan.md",
+     "titel": "Rückmeldung 24.11.2026 · Fable nur für den Plan, ausführen mit Opus und Sonnet",
+     "status": "verarbeitet (E31, Regel in CLAUDE.md; Katalog-Bau mit Opus und Sonnet gestartet)",
+     "zustand": "verarbeitet",
+     "tage": 1
+    },
+    {
+     "datei": "2026-11-24-kein-ergebnis.md",
+     "titel": "Rückmeldung 24.11.2026 · „KEIN ERGEBNIS“ nach halbem Wochenlimit",
+     "status": "verarbeitet (Gate G24 „Erst ein fertiger Schnitt, dann Breite“; Research bleibt angehalten)",
+     "zustand": "verarbeitet",
+     "tage": 1
+    },
+    {
+     "datei": "2026-11-24-mehr-effort.md",
+     "titel": "Rückmeldung 24.11.2026 spät · „zu sehr mit Handbremse“",
+     "status": "verarbeitet (25.11.: Vervollständigungslauf abgeschlossen, Ergebnis im Plan, Abschnitt „Ergebnis der Vervollständigung“)",
+     "zustand": "verarbeitet",
+     "tage": 1
+    },
+    {
+     "datei": "2026-11-24-research-goldstandard.md",
+     "titel": "Rückmeldung 24.11.2026 · Research zu Marken- und Produktfragen: Goldstandard als Minimum",
+     "status": "verarbeitet (Bibliothek final am 24.11., bibliothek/; offene Punkte im Prüfbericht und im Testprogramm) · vorher: in Arbeit (Plan steht: lang/research/2026-11-24-plan-goldstandard.md, E28, G22, S24; E29, E30; Welle 0 läuft seit 24.11.)",
+     "zustand": "verarbeitet",
+     "tage": 1
+    },
+    {
+     "datei": "2026-11-24-umfrage-offene-punkte.md",
+     "titel": "Feedback 24.11.2026 · Umfrage zu den offenen Punkten des Dashboards, Runde 1",
+     "status": "in Arbeit (Übernahme nach main am 24.11.; Leben mit QM als nächster Bau)",
+     "zustand": "in Arbeit",
+     "tage": 1
+    },
+    {
+     "datei": "2026-11-24-verbrauch-research.md",
+     "titel": "Rückmeldung 24.11.2026 · Verbrauch des Research: fast das Wochenlimit",
+     "status": "verarbeitet (Gate G23, Abschnitt „Verbrauch“ im Plan; Research angehalten, nichts läuft)",
+     "zustand": "verarbeitet",
+     "tage": 1
+    },
+    {
+     "datei": "2026-11-24-wo-ist-der-wert.md",
+     "titel": "Rückmeldung 24.11.2026 · „Wo ist mein WERT?“",
+     "status": "verarbeitet (Endlauf 24.11.: 2.264 Marktfragen erhoben, 360 Messgrößen gegen den Katalog abgeglichen; bibliothek/markt/)",
+     "zustand": "verarbeitet",
+     "tage": 1
+    },
+    {
+     "datei": "2026-11-25-erster-survey-kreativ-bauen.md",
+     "titel": "Rückmeldung 25.11.2026 · Ersten Survey echt bauen, kreativ und kontextuell, mit Klägs",
+     "status": "in Arbeit (Design-Bibel, Wording-Prüfung, Kreativ-Drehbuch, Bau des Produkttests zu Hause)",
+     "zustand": "in Arbeit",
+     "tage": 0
+    },
+    {
+     "datei": "2026-11-25-kein-cringe-storytelling.md",
+     "titel": "Kein Storytelling über dem Survey (Chris, 25.11.2026)",
+     "status": "in Arbeit",
+     "zustand": "in Arbeit",
+     "tage": 0
+    },
+    {
+     "datei": "2026-11-25-keine-beispiele-schritt-fuer-schritt.md",
+     "titel": "Rückmeldung 25.11.2026 · Keine Beispiele, nur was gefragt ist, Schritt für Schritt mit Gesamtbild",
+     "status": "in Arbeit (Kundenseite ohne Beispiele, Kopierknopf; Chris füllt aus, dann Bau aus seinen Antworten)",
+     "zustand": "in Arbeit",
+     "tage": 0
+    },
+    {
+     "datei": "2026-11-25-kundeninput.md",
+     "titel": "Rückmeldung 25.11.2026 · Kunden-Input vor Launch, geschlossene Fragen durch Vorgaben der Marke",
+     "status": "verarbeitet (Vorgaben der Marke in allen 76 Vorlagen, 308 Eingaben, 80 geschlossene Fragen; Kundenseite https://claude.ai/artifact/EPmM2RPqVwg12WXVikmQph, Quelle kunde/)",
+     "zustand": "verarbeitet",
+     "tage": 0
+    },
+    {
+     "datei": "2026-11-25-kundenseite-unbedienbar.md",
+     "titel": "Rückmeldung 25.11.2026 · Kundenseite nicht verständlich, nicht bedienbar",
+     "status": "in Arbeit (Kundenseite neu je Auftrag: Briefing vorausgefüllt, nur fehlende Angaben nach Thema, Fragen der Surveys aufklappbar; wartet auf Chris' Urteil)",
+     "zustand": "in Arbeit",
+     "tage": 0
+    },
+    {
+     "datei": "2026-11-25-methodik-wording.md",
+     "titel": "Rückmeldung 25.11.2026 · Methodik-Wording zu kompliziert, Timing am Produkt erklären",
+     "status": "verarbeitet (Ablauf mit Produktzustand je Kontakt, Glossar, Klartext je Etappe: https://claude.ai/artifact/BbuAWwkmX4vWUxLSkTg8Lf, Kopie in mittel/simulationen/)",
+     "zustand": "verarbeitet",
+     "tage": 0
+    },
+    {
+     "datei": "2026-11-25-shaping-sprache-kanaele.md",
+     "titel": "Rückmeldung 25.11.2026 · Shaping: Sprache grundlegend, Kanäle und Creator, holistisch",
+     "status": "verarbeitet (Leitfaden, Prüfwerkzeug, Research Kanäle mit 22 Bausteinen, Shaping nüssje: 52 von 61 Fragen neu, 13 Bausteine; wartet auf Chris' Urteil)",
+     "zustand": "verarbeitet",
+     "tage": 0
+    },
+    {
+     "datei": "2026-11-25-survey-sagt-was-zu-tun-ist.md",
+     "titel": "Rückmeldung 25.11.2026 · Der Survey muss sagen, was der User womit und wann tut",
+     "status": "verarbeitet (Ansage und Produktzustand je Etappe in allen 76 Vorlagen, Pflicht im Prüfwerkzeug)",
+     "zustand": "verarbeitet",
+     "tage": 0
+    },
+    {
+     "datei": "2026-11-25-was-ist-dein-produkt.md",
+     "titel": "Rückmeldung 25.11.2026 · „Was ist dein Produkt?!!“",
+     "status": "verarbeitet (Produkt und Use Case in bibliothek/README.md oben; G25 um Produktsatz und Use Case geschärft)",
+     "zustand": "verarbeitet",
+     "tage": 0
+    },
+    {
+     "datei": "2026-11-25-wo-sind-die-surveys.md",
+     "titel": "Rückmeldung 25.11.2026 · „Wie viele surveys sind jetzt in meiner Bibliothek?“",
+     "status": "verarbeitet (25.11.: 76 fertige Surveys in bibliothek/vorlagen/, Prüfung 0 Fehler)",
+     "zustand": "verarbeitet",
+     "tage": 0
+    }
+   ]
+  },
+  "gates": {
+   "gruen": 13,
+   "rot": 0,
+   "offen": 14,
+   "gesamt": 27
+  },
+  "wissen": {
+   "prinzipien": 23,
+   "fassung": "0",
+   "entscheidungen": 31,
+   "aenderungen": 33
+  }
+ },
+ "experimente": [
+  {
+   "id": "X1",
+   "titel": "Klägs verdeckt das Ende langer Fragetitel",
+   "status": "offen"
+  },
+  {
+   "id": "X2",
+   "titel": "Anweisung läuft unter Klägs",
+   "status": "offen"
+  },
+  {
+   "id": "X3",
+   "titel": "Mechanik „kette“ wirkt mit sechs Wörtern leer",
+   "status": "entschieden (seit generator 0.2.0 wählt die Regel „andere Wirkung als zuvor“ für zwei aus sechs die Tasche)"
+  },
+  {
+   "id": "X4",
+   "titel": "Zwei Skalen spielen stufenlos, die Marke fragt mit 5 und 7 Stufen",
+   "status": "entschieden (E26: Standard 0 bis 100, Stufen nach Anforderung)"
+  },
+  {
+   "id": "X5",
+   "titel": "Die Etappe hat keinen großen Moment am Ende",
+   "status": "entschieden (E17: erzeugte Surveys laufen auf der Kampagne mit Boss und Finale)"
+  },
+  {
+   "id": "X6",
+   "titel": "Spiegeln nach der Antwort trifft Klägs am falschen Ort",
+   "status": "läuft (E19 erlaubt Spiegeln; Bau in der Führung auf claude/leben-qm)"
+  },
+  {
+   "id": "X7",
+   "titel": "Vormachen mit leerem Zettel",
+   "status": "offen"
+  },
+  {
+   "id": "X8",
+   "titel": "Etwas ragt in Level 1 kurz über den rechten Rand",
+   "status": "offen"
+  },
+  {
+   "id": "X9",
+   "titel": "Systemtest „Ingest nüssje Strawberry Cheesecake“: das System liefert null Surveys",
+   "status": "offen"
+  },
+  {
+   "id": "X10",
+   "titel": "Simulation mit angeschlossener Bibliothek: vier Fragebögen, keiner einsatzbereit",
+   "status": "offen"
+  },
+  {
+   "id": "X11",
+   "titel": "Kunden-Input vor Launch: Vorgaben der Marke schließen offene Fragen",
+   "status": "offen"
+  },
+  {
+   "id": "X12",
+   "titel": "Erster echter Kunden-Input (Chris als Marketer von nüssje): was die Eingaben lehren",
+   "status": "offen"
+  },
+  {
+   "id": "X13",
+   "titel": "Bauanweisungen der Bibliothek erschienen als Antworten für Tester",
+   "status": "entschieden (25.11.)"
+  }
+ ],
+ "gates": [
+  {
+   "id": "G1",
+   "name": "Läuft",
+   "regel": "Build grün, Rauchtest grün: alle Seiten ohne Skriptfehler und ohne 404, der Produkttest lässt sich anspielen",
+   "messung": "cd app && npm run build && npm run pruefen",
+   "stand": "grün (19.11.)",
+   "ampel": "gruen"
+  },
+  {
+   "id": "G2",
+   "name": "Handy zuerst",
+   "regel": "Jeder Screen bei 390 × 844 und 320 × 640 vollständig bedienbar, nichts angeschnitten, kein seitliches Scrollen",
+   "messung": "Surveys aus Daten: node pruefstand/spiel.mjs --alle und mit --breite 320 --hoehe 640 (Aufnahme je Frage, scrollWidth). Demo-Surveys: kein Skript",
+   "stand": "offen (Surveys aus Daten grün 20.11.; Demo-Surveys ohne Skript)",
+   "ampel": "offen"
+  },
+  {
+   "id": "G3",
+   "name": "Zu Ende gespielt",
+   "regel": "Jeder Survey und jede Mechanik wird am Handy durchgespielt, nicht nur geladen (ANFORDERUNGEN 29)",
+   "messung": "Surveys aus Daten: node pruefstand/spiel.mjs --alle (jede Frage beantwortet, Ende erreicht, Ausstieg geprüft). Produkttest und Quick-Check: nur angespielt (rauch.mjs)",
+   "stand": "offen (Surveys aus Daten grün 20.11.; Demo-Surveys nur angespielt)",
+   "ampel": "offen"
+  },
+  {
+   "id": "G4",
+   "name": "Produkt im Bild",
+   "regel": "Es ist ein Produkttest: Produkt sichtbar und zentral, echtes Bild, nie Attrappe (ANFORDERUNGEN 5)",
+   "messung": "Sichtprüfung Start, Level-Start, Pack-Fragen",
+   "stand": "offen, kein Skript",
+   "ampel": "offen"
+  },
+  {
+   "id": "G5",
+   "name": "Belohnung ohne Zahl",
+   "regel": "Belohnung bei jeder Interaktion; keine festen Punktwerte, keine Reward-Versprechen (ANFORDERUNGEN 8, 9)",
+   "messung": "Surveys aus Daten: schema/index.js LOHN_ZAHL in pruefstand/baukasten.mjs (mit Negativfall). Demo-Surveys: kein Skript",
+   "stand": "offen (Surveys aus Daten grün 20.11.; Demo-Surveys ohne Skript)",
+   "ampel": "offen"
+  },
+  {
+   "id": "G6",
+   "name": "Klägs neutral",
+   "regel": "Klägs zeigt bei gleichwertigen Antworten nie auf eine einzelne und wählt nie für den Nutzer (ANFORDERUNGEN 24, 45)",
+   "messung": "Sichtprüfung je Mechanik, Regel in der Klägs-Führung",
+   "stand": "offen, kein Skript",
+   "ampel": "offen"
+  },
+  {
+   "id": "G7",
+   "name": "Klägs echt",
+   "regel": "Klägs kommt aus seiner Engine, Design unverändert, nie nachgezeichnet",
+   "messung": "Diff: keine Klägs-Grafik außerhalb app/src/klecks",
+   "stand": "offen, kein Skript",
+   "ampel": "offen"
+  },
+  {
+   "id": "G8",
+   "name": "Fläche",
+   "regel": "Interaktionsfläche mindestens 50 % des Screens, Ziel 75 % (ANFORDERUNGEN 19)",
+   "messung": "Messung der Trefferfläche je Mechanik",
+   "stand": "offen, kein Skript",
+   "ampel": "offen"
+  },
+  {
+   "id": "G9",
+   "name": "CI",
+   "regel": "Nur CI-Farben, kein Glow, Motive nur aus der Strich-Engine",
+   "messung": "Sichtprüfung, Farb-Scan",
+   "stand": "offen, kein Skript",
+   "ampel": "offen"
+  },
+  {
+   "id": "G10",
+   "name": "Leicht am Handy",
+   "regel": "Auf iPhone und iPad kein Hänger: keine Aufgabe über 50 ms im Ablauf, WebGL sparsam (Quellen: lang/quellen/labor/apple-leicht.md)",
+   "messung": "Messung mit CPU 4×; echtes Gerät durch Chris",
+   "stand": "offen, kein Skript",
+   "ampel": "offen"
+  },
+  {
+   "id": "G11",
+   "name": "Reproduzierbar",
+   "regel": "Jeder Survey in surveys/ nennt Schema-Version und die Version jedes Templates; derselbe Eingang ergibt denselben Survey",
+   "messung": "node pruefstand/baukasten.mjs (erzeugt jeden Survey neu und vergleicht Feld für Feld)",
+   "stand": "grün (20.11.)",
+   "ampel": "gruen"
+  },
+  {
+   "id": "G12",
+   "name": "Herkunft",
+   "regel": "Jede Datei aus Labor, Mein SNÄGS, Vorlage oder Asset-Datenbank hat einen Herkunftseintrag; Abweichungen von der Quelle sind benannt",
+   "messung": "node werkzeug/labor-abgleich.mjs <labor>, node werkzeug/formate-abgleich.mjs <mein-snaegs>",
+   "stand": "grün (20.11.: Mein SNÄGS 117 Dateien gleich; Labor zuletzt 19.11.)",
+   "ampel": "gruen"
+  },
+  {
+   "id": "G13",
+   "name": "Gehirn aktuell",
+   "regel": "Übergabe fortgeschrieben, Feedback wörtlich abgelegt, Session-Protokoll da",
+   "messung": "Stop-Hook",
+   "stand": "grün (20.11.)",
+   "ampel": "gruen"
+  },
+  {
+   "id": "G14",
+   "name": "Kohärent",
+   "regel": "Framework-Paket unverändert und in allen Repos der Session gleich; Verweise zwischen OS, Asset-Datenbank und Labor stimmen (README, surveys/README.md der Datenbank, app/HERKUNFT.md)",
+   "messung": "node werkzeug/framework-abgleich.mjs (Start-Hook), node werkzeug/labor-abgleich.mjs",
+   "stand": "grün (19.11.)",
+   "ampel": "gruen"
+  },
+  {
+   "id": "G15",
+   "name": "Im Netz geprüft",
+   "regel": "Kein Link an Chris, bevor die Vorschau online ist und selbst geöffnet wurde (390 und 1440, last-modified nach dem Push). Surveys aus Daten werden dort zu Ende gespielt, nicht nur geladen",
+   "messung": "npm run vorschau (spielt jeden Survey unter der Basis, sonst geht nichts online), dann node pruefstand/spiel.mjs --alle --adresse <vorschau>",
+   "stand": "grün (20.11.)",
+   "ampel": "gruen"
+  },
+  {
+   "id": "G16",
+   "name": "Register stimmt",
+   "regel": "Was im Register steht, gibt es im Code, und umgekehrt; INVENTUR.md und register.json passen zum Stand",
+   "messung": "node werkzeug/inventur.mjs --pruefen (Start-Hook, baukasten.mjs)",
+   "stand": "grün (20.11.)",
+   "ampel": "gruen"
+  },
+  {
+   "id": "G17",
+   "name": "Regeln beißen",
+   "regel": "Jede Prüfregel hat einen Negativfall, der scheitern muss (Lohn als Zahl, fest verdrahtete Mechanik, alte Version, „öffnen“, fehlendes Bild, Kundenmaterial ohne Freigabe)",
+   "messung": "node pruefstand/baukasten.mjs",
+   "stand": "grün (20.11., 12 Negativfälle)",
+   "ampel": "gruen"
+  },
+  {
+   "id": "G18",
+   "name": "Kreislauf läuft",
+   "regel": "Kein Feedback von Chris ohne Statuszeile, keines länger als drei Tage „offen“ ohne Schleife oder Experiment",
+   "messung": "node werkzeug/lernstand.mjs --pruefen (Start-Hook, Stop-Hook)",
+   "stand": "grün (20.11.)",
+   "ampel": "gruen"
+  },
+  {
+   "id": "G20",
+   "name": "Auf dem Produkttest gebaut",
+   "regel": "Ein erzeugter Survey zeigt jeden Moment des Produkttests (Start am Produkt, Level-Start, Antwort-Flug, Kettenreaktion, Testkarte, Minigame, Boss, Finale) oder nennt im Bericht, welcher fehlt und warum. Nie drei Fragen gleicher Wirkung hintereinander, unter den ersten vier mindestens drei verschiedene. Kein Format aus Tipp-Flächen ohne ausdrückliche Festlegung im Fragebogen",
+   "messung": "node pruefstand/spiel.mjs --alle (prüft jeden Moment im Lauf), baukasten.mjs (Wirkung, mit Negativfall)",
+   "stand": "grün (20.11.)",
+   "ampel": "gruen"
+  },
+  {
+   "id": "G21",
+   "name": "Chris wartet nie",
+   "regel": "Gibt Chris mehrere Aufträge zugleich oder läuft eine Umfrage mit ihm, laufen lange Arbeiten im Hintergrund (Agents, Hintergrund-Skripte); die Interaktion mit ihm geht ohne Pause weiter. Stellt eine Umfrage n Fragen in Aussicht, kommen alle n ohne Zwischenarbeit",
+   "messung": "Sichtprüfung im Verlauf; Lehre im Feedback 24.11.",
+   "stand": "grün (24.11., ab jetzt)",
+   "ampel": "gruen"
+  },
+  {
+   "id": "G22",
+   "name": "Research mit Tiefe",
+   "regel": "Jede Quelle trägt Datum, Typ, Lesetiefe (Volltext, Teil, nur Abstract) und Zugriff. „Nur Abstract“ trägt keine Aussage. Jede Aussage im Fragenkatalog hat eine Primärquelle im Volltext und zwei unabhängige Quellen oder den Vermerk „Einzelbeleg“; Anbieter über sich selbst stehen als Eigenaussage; jeder Link ist aufgelöst. Jede Welle endet mit Zahlen (gefunden, gelesen, gesperrt, verworfen). Kein Research im Schnellverfahren ohne Chris' Wort",
+   "messung": "Kritiker-Agent je Welle (lang/research/2026-11-24-plan-goldstandard.md); Skript offen, sobald der Katalog als Daten vorliegt",
+   "stand": "offen (24.11., Plan steht)",
+   "ampel": "offen"
+  },
+  {
+   "id": "G23",
+   "name": "Verbrauch ansagen",
+   "regel": "Vor jedem Lauf mit mehr als drei Agents oder mit Fable-Agents nennt die Session den erwarteten Verbrauch in Tokens je Rolle und in Summe und holt eine Obergrenze von Chris. Nach jeder Welle steht der Verbrauch neben dem Ergebnis. Ist die Obergrenze zu 80 % erreicht, hält die Session an und fragt. Richtwerte aus dem Research vom 24.11.: Sammler (Sonnet) 0,2 bis 0,4 Mio. Tokens je Lauf, Leser (Opus) 0,4 bis 0,7 Mio., Kritiker (Fable, höchster Aufwand) 0,55 bis 0,8 Mio.",
+   "messung": "Sichtprüfung im Verlauf; Zahlen aus den Abschlussmeldungen der Agents",
+   "stand": "offen (24.11., nach Verstoß)",
+   "ampel": "offen"
+  },
+  {
+   "id": "G24",
+   "name": "Erst ein fertiger Schnitt, dann Breite",
+   "regel": "Bei jedem großen Auftrag entsteht zuerst ein vollständiger, nutzbarer Schnitt durch alle Stufen bis zum bestellten Endprodukt (beim Research: ein Survey-Typ von der Quelle bis zum geprüften Katalogeintrag). Chris sieht ihn, bevor Budget in die Breite geht. Zwischenstufen sind kein Ergebnis und werden nicht als Fortschritt gemeldet",
+   "messung": "Sichtprüfung im Verlauf",
+   "stand": "offen (24.11., nach Verstoß)",
+   "ampel": "offen"
+  },
+  {
+   "id": "G25",
+   "name": "Vom Produkt her planen, Markt zuerst",
+   "regel": "Jeder Research-Auftrag beginnt mit der Frage, welches Produkt am Ende in Chris' Hand liegt und woran man sieht, dass es den Markt schlägt. Zuerst die Grundlinie des Markts (beim Fragenkatalog: alle Fragen, die Wettbewerber öffentlich stellen), dann der Mehrwert. Nebenprodukte (Recht, Kontext, Methodik) werden nicht als Ergebnis verkauft",
+   "messung": "Sichtprüfung im Plan",
+   "stand": "offen (24.11., nach Verstoß)",
+   "ampel": "offen"
+  },
+  {
+   "id": "G26",
+   "name": "Lange Läufe überstehen einen Neustart",
+   "regel": "Jeder Agent-Lauf über etwa zehn Minuten schreibt sein Ergebnis in Teilen und hält jede Datei nach jedem Schritt gültig; die Session sichert fertige Teile sofort per Commit und Push. Nach einem Neustart setzt ein neuer Lauf auf dem Teilstand auf, statt ihn zu verwerfen",
+   "messung": "Sichtprüfung im Brief; nach Neustart git status",
+   "stand": "grün (25.11., zwei Neustarts ohne Datenverlust im Repo)",
+   "ampel": "gruen"
+  },
+  {
+   "id": "G27",
+   "name": "Nur den bestellten Schritt",
+   "regel": "Gebaut wird nur, was Chris in diesem Schritt bestellt hat. Keine erfundenen Beispieldaten, keine vorgezogenen Folgeschritte; was danach käme, steht als Vorschlag im Abschluss-Block. Das Gesamtbild (Kette Auftrag bis Survey) steht in lang/bauplan.md und wird mitgedacht, nicht vorweggebaut",
+   "messung": "Sichtprüfung vor jedem Bau: Steht der Schritt so in Chris' letzter Nachricht?",
+   "stand": "offen (25.11., nach Verstoß)",
+   "ampel": "offen"
+  },
+  {
+   "id": "G19",
+   "name": "Nur der Generator schreibt Surveys",
+   "regel": "surveys/*.json entsteht aus eingang/, nie von Hand; freigegeben wird erst ohne Lücken und nach Chris' Abnahme",
+   "messung": "baukasten.mjs (Neuerzeugung gleich, Status gegen Lücken)",
+   "stand": "grün (20.11.)",
+   "ampel": "gruen"
+  }
+ ],
+ "schleifen": [
+  {
+   "nr": "S1",
+   "seit": "19.11.",
+   "was": "Betrieb: bis auf 3D-Weg entschieden (24.11., E19 bis E24). Offen nur noch: Ingest-Agent für beliebige Formate (Sprachnachricht, PDF, Excel, Mail) mit Wahl „umformulieren und anordnen“ oder „genauso übernehmen“",
+   "schritt": "Ingest als Teil des Builds mit Agents bauen (S21); Feld ingest im Schema"
+  },
+  {
+   "nr": "S2",
+   "seit": "19.11.",
+   "was": "Prinzipien sind Fassung 0. Die Quellen (ANFORDERUNGEN, QUEST-BRAIN, Research, Labor-Gedächtnis, dazu jetzt docs/KONZEPT-R9-FRAGEN.md und KONZEPT-R10-ERSTEINDRUCK.md in Mein SNÄGS) sind nicht vollständig destilliert",
+   "schritt": "Alle Dateien in lang/quellen/ lesen, prinzipien.md auf Fassung 1 bringen, Widersprüche benennen (z. B. G5 „keine Zahl“ gegen „+4 Punkte“ im Mitgliederbereich)"
+  },
+  {
+   "nr": "S5",
+   "seit": "19.11.",
+   "was": "Gates ohne Skript: G4, G6 bis G10 ganz; G2, G3, G5 für Produkttest und Quick-Check",
+   "schritt": "Durchspiel-Skript für die Kampagne (G3), Messung der Trefferfläche (G8), lange Aufgaben mit CPU 4× (G10)"
+  },
+  {
+   "nr": "S7",
+   "seit": "19.11.",
+   "was": "Demo-Surveys: „da geht aber noch was“ bei Haptik und Psychologie",
+   "schritt": "Nach S2: Kritik je Level gegen die Prinzipien, Vorschläge mit Beleg an Chris. Befunde aus dem ersten erzeugten Survey stehen schon in experimente.md (X1 bis X5)"
+  },
+  {
+   "nr": "S8",
+   "seit": "19.11.",
+   "was": "OS ist die Quelle des Surveys (E25, 24.11.). Labor (Website, Business-Seite) führt ihn noch selbst",
+   "schritt": "Abgleich umdrehen: labor-abgleich.mjs zeigt, was im Labor älter ist; Übergabe an die Labor-Session mit Liste der Dateien; die sieben geänderten Engine-Dateien sind dort noch alt"
+  },
+  {
+   "nr": "S9",
+   "seit": "19.11.",
+   "was": "Am echten iPhone ungeprüft. Die Cloud hat kein WebKit. Neu dazu: spiel.html?s=beispiel-nuessje-kurztest",
+   "schritt": "Chris testet die Vorschau am Gerät"
+  },
+  {
+   "nr": "S10",
+   "seit": "19.11.",
+   "was": "Framework-Paket: Quelle ist Chris' lokales Framework-Repo. Hier liegt der Stand vom 17.11. (G14 grün)",
+   "schritt": "Jede Session: Start-Hook lesen; ist ein Nachbar neuer, mit werkzeug/framework-abgleich.mjs --holen nachziehen. Chris: lokal cloud-sync um dieses Repo erweitern"
+  },
+  {
+   "nr": "S12",
+   "seit": "19.11.",
+   "was": "Alte Branches markiert als überflüssig (E27), Löschen ist Aufgabe lokaler Sessions",
+   "schritt": "kurz/lokal-erinnerungen.md; Zeile streichen, wenn gelöscht"
+  },
+  {
+   "nr": "S13",
+   "seit": "20.11.",
+   "was": "Format-Baukasten: das OS führt ab 24.11. (E25). Mein SNÄGS holt künftig von hier. Befund für dort: regeln.js textFehler erkennt „öffnen“ nie (Wortgrenze vor „ö“)",
+   "schritt": "Fehler hier im Baukasten beheben (jetzt erlaubt), Mein-SNÄGS-Session informieren, Abgleich-Richtung umdrehen"
+  },
+  {
+   "nr": "S14",
+   "seit": "20.11.",
+   "was": "Kampagne aus Daten: läuft, Reste offen (E17). Erzeugte Surveys spielen auf der Kampagne. Offen: Der nüssje-Run selbst liegt noch nicht als Datensatz vor; hotspot läuft nur für die nüssje-Dose (feste Bereiche), lupe gar nicht; das Profil nach Level 1 gibt es nur im nüssje-Run; der Text der Testkarten („Alle zwei gesammelt“) und die Boss-Teile sind generisch",
+   "schritt": "hotspot mit Bereichen und Koordinaten aus dem Produkt; nüssje-Run als Datensatz spiegeln (Vorher-Nachher-Aufnahmen); Durchspiel-Skript auch für survey.html"
+  },
+  {
+   "nr": "S15",
+   "seit": "20.11.",
+   "was": "Lücke Freitext: Der Beispiel-Fragebogen hat eine offene Frage („Was sollten wir an der Sorte ändern?“), es gibt keinen Baustein dafür. Bau-Punkt freitext, Prio 1",
+   "schritt": "Kreislauf 2 (templates/README.md): Baustein „wort“ des Format-Baukastens als eigene Mechanik prüfen; Entwurf, Prüfseite, Kontrolle"
+  },
+  {
+   "nr": "S16",
+   "seit": "20.11.",
+   "was": "Ereignis-Katalog und Antworten: Die Formate melden Ereignisse und Messwerte nur in ein Protokoll im Browser (adapter/os.js); der Katalog der Ereignisse aus Mein SNÄGS ist nicht übernommen, Antworten haben kein Ziel",
+   "schritt": "Hängt an S1 (wohin gehen die Antworten). Dann Katalog übernehmen und pruefKontext damit füttern"
+  },
+  {
+   "nr": "S17",
+   "seit": "20.11.",
+   "was": "Asset-Datenbank und Mein SNÄGS wissen noch nichts vom neuen Stand. surveys/README.md der Asset-Datenbank nennt templates/, schema/, generator/ als „im Aufbau“; die Beispiel-Produktbilder (Mondbeere, Kieselfein, zwei nüssje-Sorten) liegen jetzt auch in app/public/produkte/",
+   "schritt": "Nach „übernehmen“: Verweis in der Asset-Datenbank nachziehen (diese Session hatte dort nur Lesezugriff); Bilder langfristig aus der Datenbank beziehen (E4)"
+  },
+  {
+   "nr": "S18",
+   "seit": "20.11.",
+   "was": "Leben und Gefühl mit QM (E19): Spiegeln beim Ziehen und nach der Antwort erlaubt. QM-Analyse vom 24.11.: von 41 wertfähigen Momenten sind 37 nicht authentisch belegt; leben.js spielt Gold-Gefühle auf Antworten und verlegen (liest sich als „nervös“); Spiegeln geht nur bei Skalen",
+   "schritt": "Bau läuft auf claude/leben-qm: Liste SPIEGEL statt Sperre, Spiegel in Klägs' Führung, Wert je Option, Bauliste der zehn Reaktionen mit Blindtest (lang/research/2026-11-24-klaegs-repertoire-qm.md)"
+  },
+  {
+   "nr": "S19",
+   "seit": "20.11.",
+   "was": "Demo-Surveys nach den Engine-Änderungen nur per Rauchtest geprüft. kampagne.js, Kampagne.jsx, LevelStart, LevelClear, Loot, Start, Testkarte lesen jetzt wahlweise eine Spec; ohne Spec soll alles gleich bleiben",
+   "schritt": "Durchspiel-Skript für survey.html (S5) und Vorher-Nachher-Aufnahmen; dem Labor die Änderung anbieten oder beim nächsten Abgleich als Abweichung führen"
+  },
+  {
+   "nr": "S20",
+   "seit": "24.11.",
+   "was": "3D-Weg offen (E22): Modell von der Marke; Alternativen Open-World-Engines aus Fotos oder Blender MCP, nie generische Foto-Engines",
+   "schritt": "Chris entscheidet später; bis dahin freigestellte Packshots"
+  },
+  {
+   "nr": "S21",
+   "seit": "24.11.",
+   "was": "Kunden-Survey als Build mit Agents (E23): Ingest, Analyse der Ziele, Level und Gesten, Bau fehlender Elemente, Einbau von Produkt und Marke, Klägs, QM. Heute macht der Generator nur die Zuordnung",
+   "schritt": "Ablauf als Team-Konfiguration mit Rollen und Gates beschreiben (generator/README.md, Kreislauf 1), am Beispiel eines echten Fragebogens erproben"
+  },
+  {
+   "nr": "S22",
+   "seit": "24.11.",
+   "was": "Pflege-Loop wöchentlich (E24)",
+   "schritt": "Geplante Session mit Repo einrichten (Gate „Geplanter Start“), Startprüfung; Inhalt: nächster Lernschritt, Abschluss an Chris"
+  },
+  {
+   "nr": "S23",
+   "seit": "24.11.",
+   "was": "Research Markenfragen: drei Stränge, kein gemeinsamer Katalog, keine Standardfragen, Skalen in vier Formen, keine echten Antworten (lang/research/2026-11-24-markenfragen.md)",
+   "schritt": "Einen Fragenkatalog als Daten anlegen (Standardfragen, Formen je Messgröße), aus dem Builder-Agents wählen; Widersprüche Chris vorlegen"
+  },
+  {
+   "nr": "S24",
+   "seit": "24.11.",
+   "was": "Research „Goldstandard als Minimum“ (E28, E29, G22): Basis ist Logik und Inhalt, ohne jeden Bezug auf das Frontend. Plan mit drei Achsen (Survey-Typen, Wissensfelder, Fragetypen), Auswertungsleiter und Schatzliste steht (lang/research/2026-11-24-plan-goldstandard.md). Ersetzt den Weg von S23; der Katalog als Daten entsteht in Welle 4",
+   "schritt": "Welle 0 läuft seit 24.11. (drei Opus, vier Sonnet, E30). Danach: Ergebnisse zur Typen-Landkarte zusammenführen, an Chris zur Freigabe; dann Welle 1 (Sonnet-Sammler für alle zehn Felder)"
+  },
+  {
+   "nr": "S25",
+   "seit": "24.11.",
+   "was": "Bibliothek ausgeliefert, Pretest offen: 106 Wortlaute „Entwurf, Pretest nötig“, 127 Testpunkte, Nutzungsrechte mit Entscheidungen für Chris (bibliothek/PRUEFBERICHT.md, pretest.md, nutzungsrechte.md)",
+   "schritt": "Chris entscheidet Nutzungsrechte und Start des Pretests; danach Wortlaute nach Ergebnis freigeben"
+  }
+ ],
+ "entscheidungen": [
+  {
+   "id": "E31",
+   "datum": "24.11.2026",
+   "titel": "Fable nur für die Planung, ausgeführt wird mit Opus und Sonnet"
+  },
+  {
+   "id": "E30",
+   "datum": "24.11.2026",
+   "titel": "Agents: höchstens drei Opus oder Fable gleichzeitig, Sonnet daneben; Research ab 2020 und nach vorn"
+  },
+  {
+   "id": "E29",
+   "datum": "24.11.2026",
+   "titel": "Die Basis ist Logik und Inhalt: Research und Bibliotheken ohne jeden Bezug auf das Frontend"
+  },
+  {
+   "id": "E28",
+   "datum": "24.11.2026",
+   "titel": "Research „Goldstandard als Minimum“: Typen-Landkarte zuerst, Opus forscht, Fable prüft"
+  },
+  {
+   "id": "E27",
+   "datum": "24.11.2026",
+   "titel": "Alte Branches bleiben, markiert als überflüssig; Löschen ist Aufgabe lokaler Sessions"
+  },
+  {
+   "id": "E26",
+   "datum": "24.11.2026",
+   "titel": "Skalen: Standard 0 bis 100, Stufen nach Anforderung"
+  },
+  {
+   "id": "E25",
+   "datum": "24.11.2026",
+   "titel": "Das OS ist die Quelle des Surveys, auch für Labor und Mein SNÄGS"
+  },
+  {
+   "id": "E24",
+   "datum": "24.11.2026",
+   "titel": "Pflege-Loop wöchentlich und auf Zuruf"
+  },
+  {
+   "id": "E23",
+   "datum": "24.11.2026",
+   "titel": "„Frontend Database“ ist der Baukasten der Survey-Builder-Agents; jeder Kunden-Survey ist ein eigener Build"
+  },
+  {
+   "id": "E22",
+   "datum": "24.11.2026",
+   "titel": "3D-Modelle: von der Marke oder über Open-World-Engines bzw. Blender MCP, nie generische Foto-Engines"
+  },
+  {
+   "id": "E21",
+   "datum": "24.11.2026",
+   "titel": "Antworten: eigene Backends, nicht Aufgabe des OS"
+  },
+  {
+   "id": "E20",
+   "datum": "24.11.2026",
+   "titel": "Ausspielung: Staging-Link für den Kunden, nach Freigabe App und trackbare Links"
+  },
+  {
+   "id": "E19",
+   "datum": "24.11.2026",
+   "titel": "Eingang in jeder Form, Ingest über Agents; je Auftrag „umformulieren und anordnen“ oder „genauso übernehmen“. Spiegeln beim Ziehen erlaubt"
+  },
+  {
+   "id": "E18",
+   "datum": "20.11.2026",
+   "titel": "Leben: Vormachen und Ziele mit Tiefe ja, Spiegeln offen (braucht Chris' Ja)"
+  },
+  {
+   "id": "E17",
+   "datum": "20.11.2026",
+   "titel": "Erzeugte Surveys laufen auf der Kampagne des Produkttests (hebt E14 auf)"
+  },
+  {
+   "id": "E16",
+   "datum": "20.11.2026",
+   "titel": "Der Generator ändert keinen Wortlaut und stellt keine Frage um"
+  },
+  {
+   "id": "E15",
+   "datum": "20.11.2026",
+   "titel": "Lücken werden benannt, nie überspielt"
+  },
+  {
+   "id": "E14",
+   "datum": "20.11.2026",
+   "titel": "Surveys aus Daten spielt die Etappe; die Kampagne bleibt vorerst Demo (AUFGEHOBEN durch E17, am selben Tag)"
+  },
+  {
+   "id": "E13",
+   "datum": "20.11.2026",
+   "titel": "Code bleibt in app/, templates/ ist das Register"
+  },
+  {
+   "id": "E12",
+   "datum": "20.11.2026",
+   "titel": "Format-Baukasten und Etappe aus Mein SNÄGS übernommen; geführt werden sie vorerst dort (ERSETZT durch E25)"
+  },
+  {
+   "id": "E11",
+   "datum": "20.11.2026",
+   "titel": "Ein Bauplan, ein Register, ein Lernstand"
+  },
+  {
+   "id": "E10",
+   "datum": "19.11.2026",
+   "titel": "Kohärenz ist Pflicht und wird gemessen"
+  },
+  {
+   "id": "E9",
+   "datum": "19.11.2026",
+   "titel": "Vorschau über snaegs-staging, veröffentlicht von der Session"
+  },
+  {
+   "id": "E8",
+   "datum": "19.11.2026",
+   "titel": "Oberfläche ist ein Dashboard ohne eigene Inhalte"
+  },
+  {
+   "id": "E7",
+   "datum": "19.11.2026",
+   "titel": "Aufsatzpunkt ist der konsolidierte Labor-Stand claude/survey-stand"
+  },
+  {
+   "id": "E6",
+   "datum": "19.11.2026",
+   "titel": "Das Gehirn hat drei Schichten und hängt am Harness"
+  },
+  {
+   "id": "E5",
+   "datum": "19.11.2026",
+   "titel": "Im Baum liegt nur die finale Iteration"
+  },
+  {
+   "id": "E4",
+   "datum": "19.11.2026",
+   "titel": "Assets kommen aus der Datenbank SNÄGS Assets"
+  },
+  {
+   "id": "E3",
+   "datum": "19.11.2026",
+   "titel": "Engines als Kopie mit Herkunft, kein Nachbau"
+  },
+  {
+   "id": "E2",
+   "datum": "19.11.2026",
+   "titel": "app/ zuerst lauffähig, Templates entstehen daraus in Schritten"
+  },
+  {
+   "id": "E1",
+   "datum": "19.11.2026",
+   "titel": "Eigenes Repo snaegs-survey-os"
+  }
+ ],
+ "feedback": [
+  {
+   "datei": "2026-11-25-wo-sind-die-surveys.md",
+   "datum": "25.11.2026",
+   "titel": "Rückmeldung 25.11.2026 · „Wie viele surveys sind jetzt in meiner Bibliothek?“",
+   "status": "verarbeitet (25.11.: 76 fertige Surveys in bibliothek/vorlagen/, Prüfung 0 Fehler)"
+  },
+  {
+   "datei": "2026-11-25-was-ist-dein-produkt.md",
+   "datum": "25.11.2026",
+   "titel": "Rückmeldung 25.11.2026 · „Was ist dein Produkt?!!“",
+   "status": "verarbeitet (Produkt und Use Case in bibliothek/README.md oben; G25 um Produktsatz und Use Case geschärft)"
+  },
+  {
+   "datei": "2026-11-25-survey-sagt-was-zu-tun-ist.md",
+   "datum": "25.11.2026",
+   "titel": "Rückmeldung 25.11.2026 · Der Survey muss sagen, was der User womit und wann tut",
+   "status": "verarbeitet (Ansage und Produktzustand je Etappe in allen 76 Vorlagen, Pflicht im Prüfwerkzeug)"
+  },
+  {
+   "datei": "2026-11-25-shaping-sprache-kanaele.md",
+   "datum": "25.11.2026",
+   "titel": "Rückmeldung 25.11.2026 · Shaping: Sprache grundlegend, Kanäle und Creator, holistisch",
+   "status": "verarbeitet (Leitfaden, Prüfwerkzeug, Research Kanäle mit 22 Bausteinen, Shaping nüssje: 52 von 61 Fragen neu, 13 Bausteine; wartet auf Chris' Urteil)"
+  },
+  {
+   "datei": "2026-11-25-methodik-wording.md",
+   "datum": "25.11.2026",
+   "titel": "Rückmeldung 25.11.2026 · Methodik-Wording zu kompliziert, Timing am Produkt erklären",
+   "status": "verarbeitet (Ablauf mit Produktzustand je Kontakt, Glossar, Klartext je Etappe: https://claude.ai/artifact/BbuAWwkmX4vWUxLSkTg8Lf, Kopie in mittel/simulationen/)"
+  },
+  {
+   "datei": "2026-11-25-kundenseite-unbedienbar.md",
+   "datum": "25.11.2026",
+   "titel": "Rückmeldung 25.11.2026 · Kundenseite nicht verständlich, nicht bedienbar",
+   "status": "in Arbeit (Kundenseite neu je Auftrag: Briefing vorausgefüllt, nur fehlende Angaben nach Thema, Fragen der Surveys aufklappbar; wartet auf Chris' Urteil)"
+  },
+  {
+   "datei": "2026-11-25-kundeninput.md",
+   "datum": "25.11.2026",
+   "titel": "Rückmeldung 25.11.2026 · Kunden-Input vor Launch, geschlossene Fragen durch Vorgaben der Marke",
+   "status": "verarbeitet (Vorgaben der Marke in allen 76 Vorlagen, 308 Eingaben, 80 geschlossene Fragen; Kundenseite https://claude.ai/artifact/EPmM2RPqVwg12WXVikmQph, Quelle kunde/)"
+  },
+  {
+   "datei": "2026-11-25-keine-beispiele-schritt-fuer-schritt.md",
+   "datum": "25.11.2026",
+   "titel": "Rückmeldung 25.11.2026 · Keine Beispiele, nur was gefragt ist, Schritt für Schritt mit Gesamtbild",
+   "status": "in Arbeit (Kundenseite ohne Beispiele, Kopierknopf; Chris füllt aus, dann Bau aus seinen Antworten)"
+  },
+  {
+   "datei": "2026-11-25-kein-cringe-storytelling.md",
+   "datum": "25.11.2026",
+   "titel": "Kein Storytelling über dem Survey (Chris, 25.11.2026)",
+   "status": "in Arbeit"
+  },
+  {
+   "datei": "2026-11-25-erster-survey-kreativ-bauen.md",
+   "datum": "25.11.2026",
+   "titel": "Rückmeldung 25.11.2026 · Ersten Survey echt bauen, kreativ und kontextuell, mit Klägs",
+   "status": "in Arbeit (Design-Bibel, Wording-Prüfung, Kreativ-Drehbuch, Bau des Produkttests zu Hause)"
+  },
+  {
+   "datei": "2026-11-24-wo-ist-der-wert.md",
+   "datum": "24.11.2026",
+   "titel": "Rückmeldung 24.11.2026 · „Wo ist mein WERT?“",
+   "status": "verarbeitet (Endlauf 24.11.: 2.264 Marktfragen erhoben, 360 Messgrößen gegen den Katalog abgeglichen; bibliothek/markt/)"
+  },
+  {
+   "datei": "2026-11-24-verbrauch-research.md",
+   "datum": "24.11.2026",
+   "titel": "Rückmeldung 24.11.2026 · Verbrauch des Research: fast das Wochenlimit",
+   "status": "verarbeitet (Gate G23, Abschnitt „Verbrauch“ im Plan; Research angehalten, nichts läuft)"
+  },
+  {
+   "datei": "2026-11-24-umfrage-offene-punkte.md",
+   "datum": "24.11.2026",
+   "titel": "Feedback 24.11.2026 · Umfrage zu den offenen Punkten des Dashboards, Runde 1",
+   "status": "in Arbeit (Übernahme nach main am 24.11.; Leben mit QM als nächster Bau)"
+  },
+  {
+   "datei": "2026-11-24-research-goldstandard.md",
+   "datum": "24.11.2026",
+   "titel": "Rückmeldung 24.11.2026 · Research zu Marken- und Produktfragen: Goldstandard als Minimum",
+   "status": "verarbeitet (Bibliothek final am 24.11., bibliothek/; offene Punkte im Prüfbericht und im Testprogramm) · vorher: in Arbeit (Plan steht: lang/research/2026-11-24-plan-goldstandard.md, E28, G22, S24; E29, E30; Welle 0 läuft seit 24.11.)"
+  },
+  {
+   "datei": "2026-11-24-mehr-effort.md",
+   "datum": "24.11.2026",
+   "titel": "Rückmeldung 24.11.2026 spät · „zu sehr mit Handbremse“",
+   "status": "verarbeitet (25.11.: Vervollständigungslauf abgeschlossen, Ergebnis im Plan, Abschnitt „Ergebnis der Vervollständigung“)"
+  },
+  {
+   "datei": "2026-11-24-kein-ergebnis.md",
+   "datum": "24.11.2026",
+   "titel": "Rückmeldung 24.11.2026 · „KEIN ERGEBNIS“ nach halbem Wochenlimit",
+   "status": "verarbeitet (Gate G24 „Erst ein fertiger Schnitt, dann Breite“; Research bleibt angehalten)"
+  },
+  {
+   "datei": "2026-11-24-fable-nur-plan.md",
+   "datum": "24.11.2026",
+   "titel": "Rückmeldung 24.11.2026 · Fable nur für den Plan, ausführen mit Opus und Sonnet",
+   "status": "verarbeitet (E31, Regel in CLAUDE.md; Katalog-Bau mit Opus und Sonnet gestartet)"
+  },
+  {
+   "datei": "2026-11-20-lead-struktur-lernen-generieren.md",
+   "datum": "20.11.2026",
+   "titel": "Auftrag 20.11.2026 · Lead übernehmen: strukturieren, zusammenführen, lernen, generieren",
+   "status": "in Arbeit (Fundament gebaut am 20.11., Branch claude/lead-struktur; offen ist, was in schleifen.md steht)"
+  },
+  {
+   "datei": "2026-11-20-erzeugter-survey-ohne-haptikstruktur.md",
+   "datum": "20.11.2026",
+   "titel": "Feedback 20.11.2026 · Der erzeugte Survey nutzt nicht die bestehende Haptikstruktur",
+   "status": "in Arbeit (Korrektur im selben Turn begonnen: erzeugte Surveys laufen auf der Kampagne)"
+  },
+  {
+   "datei": "2026-11-20-ersteindruck-produktfeedback.md",
+   "datum": "20.11.2026",
+   "titel": "Feedback 20.11.2026 · Ersteindruck ist Produktfeedback, Klägs live erweitern",
+   "status": "verarbeitet (Prinzip 20, Regel in CLAUDE.md; umgesetzt im Format „Erster Eindruck“ von Mein SNÄGS, seit 20.11. als Kopie im OS und im ersten erzeugten Survey gespielt)"
+  },
+  {
+   "datei": "2026-11-19-oberflaeche-staging-kohaerenz.md",
+   "datum": "19.11.2026",
+   "titel": "Oberfläche, Staging, Kohärenz (Chris, 19.11.2026)",
+   "status": "verarbeitet am 19.11. (Dashboard, Vorschau-Weg, Gate G14); die Zugriffe der neuen Umgebung bleiben als"
+  },
+  {
+   "datei": "2026-11-19-auftrag-survey-content-os.md",
+   "datum": "19.11.2026",
+   "titel": "Auftrag Survey Content OS (Chris, 19.11.2026)",
+   "status": "in Arbeit (Fundament gebaut am 20.11., siehe 2026-11-20-lead-struktur-lernen-generieren.md; die fünf Fragen unten sind weiter offen, Schleife S1)"
+  }
+ ],
+ "prinzipien": {
+  "anzahl": 23,
+  "fassung": "0"
+ },
+ "herkunft": {
+  "labor": "c3322c3",
+  "branch": "website-v3"
+ },
+ "framework": {
+  "commit": "38f74d8de2",
+  "datum": "2026-11-17",
+  "hash": "4509625408f3"
+ }
+}

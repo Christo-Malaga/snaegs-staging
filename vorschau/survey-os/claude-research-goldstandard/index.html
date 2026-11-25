@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="icon" href="data:," />
+    <title>SNÄGS Survey Content OS</title>
+    <!-- Dashboard des Survey OS (Chris 19.11.2026: „einfache, aber strukturierte Oberfläche. Klassisches Dashboard ist
+         gut. nimm unser design, aver nicht aufwendig.“). Keine eigenen Inhalte: Alles kommt aus dashboard/daten.json,
+         das werkzeug/dashboard-daten.mjs vor jedem Start und Build aus dem Gehirn und dem Code liest. -->
+    <style>
+      @font-face { font-family: "TikTok Sans"; font-weight: 300 900; font-stretch: 75% 150%; font-display: swap; src: url(/snaegs-staging/vorschau/survey-os/claude-research-goldstandard/fonts/tiktok-sans-latin-var.woff2) format("woff2"); }
+      :root { --tinte: #191d16; --papier: #f7f6f2; --papier-tief: #ecebe5; --grau: #6b6a66; --linie: #dcdad2; --nacht: #151812; --gold: #e2a514; --erdbeere: #e24a62; --gruen: #3f7d4e; }
+      * { box-sizing: border-box; }
+      html { overflow-x: clip; }
+      body { margin: 0; background: var(--papier); color: var(--tinte); font: 15px/1.45 "TikTok Sans", system-ui, sans-serif; }
+      a { color: inherit; text-underline-offset: 3px; }
+      .seite { max-width: 1180px; margin: 0 auto; padding: 20px 16px 64px; }
+      header.kopf { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 8px 20px; padding-bottom: 16px; border-bottom: 2px solid var(--tinte); }
+      .kopf img { height: 34px; display: block; }
+      .kopf h1 { margin: 0; font-size: 22px; line-height: 1.1; font-weight: 800; font-variation-settings: "wdth" 86; }
+      .kopf .stand { margin: 0 0 0 auto; color: var(--grau); font-size: 13px; text-align: right; }
+      nav.sprung { display: flex; flex-wrap: wrap; gap: 6px 16px; margin: 12px 0 0; font-size: 14px; }
+      nav.sprung a { font-weight: 600; }
+      .zahlen { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin: 22px 0 0; }
+      .zahl { border: 1.5px solid var(--tinte); border-radius: 6px; padding: 12px 14px; background: #fff; }
+      .zahl b { display: block; font-size: 30px; line-height: 1; font-weight: 820; font-variation-settings: "wdth" 80; }
+      .zahl span { display: block; margin-top: 6px; color: var(--grau); font-size: 13px; }
+      section { margin-top: 40px; }
+      h2 { margin: 0 0 4px; font-size: 19px; font-weight: 780; font-variation-settings: "wdth" 88; }
+      p.unter { margin: 0 0 12px; color: var(--grau); max-width: 720px; }
+      .karten { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); gap: 10px; }
+      .karte { display: block; border: 1px solid var(--linie); border-radius: 6px; padding: 14px; background: #fff; text-decoration: none; }
+      a.karte:hover { border-color: var(--tinte); }
+      .karte b { display: block; font-size: 16px; }
+      .karte span { display: block; margin-top: 4px; color: var(--grau); font-size: 13.5px; }
+      .karte .marke { display: inline-block; margin-top: 10px; padding: 2px 8px; border-radius: 999px; background: var(--papier-tief); color: var(--tinte); font-size: 12px; }
+      .karte .liste { margin-top: 8px; font-size: 12.5px; }
+      .tafel { border: 1px solid var(--linie); border-radius: 6px; background: #fff; overflow: hidden; }
+      table { width: 100%; border-collapse: collapse; }
+      th, td { text-align: left; vertical-align: top; padding: 9px 12px; border-top: 1px solid var(--linie); }
+      thead th { border-top: 0; font-size: 12.5px; color: var(--grau); font-weight: 600; background: var(--papier-tief); }
+      td.eng { white-space: nowrap; font-weight: 700; }
+      td.leise { color: var(--grau); font-size: 13.5px; }
+      .ampel { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; font-size: 13px; }
+      .ampel i { width: 10px; height: 10px; border-radius: 50%; border: 1.5px solid var(--tinte); background: transparent; }
+      .ampel--gruen i { background: var(--gruen); border-color: var(--gruen); }
+      .ampel--rot i { background: var(--erdbeere); border-color: var(--erdbeere); }
+      .leer { padding: 14px; color: var(--grau); }
+      .zwei { display: grid; gap: 28px; grid-template-columns: 1fr; }
+      @media (min-width: 900px) { .zwei { grid-template-columns: 1fr 1fr; } }
+      @media (max-width: 640px) {
+        .kopf .stand { margin-left: 0; text-align: left; }
+        table, tbody, tr, td { display: block; }
+        thead { display: none; }
+        tr { border-top: 1px solid var(--linie); padding: 10px 12px; }
+        tr:first-child { border-top: 0; }
+        td { border: 0; padding: 2px 0; }
+      }
+      footer { margin-top: 48px; color: var(--grau); font-size: 13px; }
+    </style>
+    <script type="module" crossorigin src="/snaegs-staging/vorschau/survey-os/claude-research-goldstandard/assets/index-D-pnJRPk.js"></script>
+    <link rel="modulepreload" crossorigin href="/snaegs-staging/vorschau/survey-os/claude-research-goldstandard/assets/modulepreload-polyfill-Dezn_h7o.js">
+  </head>
+  <body>
+    <div class="seite">
+      <header class="kopf">
+        <img src="/snaegs-staging/vorschau/survey-os/claude-research-goldstandard/marke/snaegs-wortmarke-klaegs_auf-hell.svg" alt="SNÄGS" />
+        <h1>Survey Content OS</h1>
+        <p class="stand" data-stand>lädt …</p>
+      </header>
+      <nav class="sprung" aria-label="Abschnitte">
+        <a href="#surveys">Surveys</a><a href="#lernen">Lernen</a><a href="#bausteine">Bausteine</a><a href="#templates">Register</a><a href="#bedarf">Bedarf</a><a href="#gates">Gates</a><a href="#schleifen">Offene Schleifen</a><a href="#gehirn">Gehirn</a>
+      </nav>
+      <div class="zahlen" data-zahlen></div>
+
+      <section id="surveys">
+        <h2>Surveys</h2>
+        <p class="unter">Antippen spielt den Survey. Die beiden Demo-Surveys stecken im Code; alles mit „Daten“ hat der Generator aus einem Fragebogen erzeugt.</p>
+        <div class="karten" data-surveys></div>
+      </section>
+
+      <section id="lernen">
+        <h2>Lernen</h2>
+        <p class="unter" data-lernen-satz>Was das System als Nächstes lernt.</p>
+        <div class="tafel" data-experimente></div>
+      </section>
+
+      <section id="bausteine">
+        <h2>Bausteine</h2>
+        <p class="unter">Prüfseiten: jeder Baustein einzeln, so wie er heute in der App läuft.</p>
+        <div class="karten" data-bausteine></div>
+      </section>
+
+      <section id="templates">
+        <h2>Register</h2>
+        <p class="unter">Jeder Baustein mit Version. Aus diesen wählt der Generator; „frei“ heißt: nimmt jeden passenden Fragebogen.</p>
+        <div class="tafel" data-templates></div>
+      </section>
+
+      <section id="bedarf">
+        <h2>Bedarf</h2>
+        <p class="unter">Was als Nächstes zu bauen ist. Zuerst, worauf ein Fragebogen wartet.</p>
+        <div class="tafel" data-bedarf></div>
+      </section>
+
+      <section id="gates">
+        <h2>Gates</h2>
+        <p class="unter">Prüfbare Regeln. Rot oder offen heißt: nicht abgenommen.</p>
+        <div class="tafel" data-gates></div>
+      </section>
+
+      <section id="schleifen">
+        <h2>Offene Schleifen</h2>
+        <p class="unter">Was offen ist, mit dem nächsten Schritt.</p>
+        <div class="tafel" data-schleifen></div>
+      </section>
+
+      <section id="gehirn" class="zwei">
+        <div>
+          <h2>Entscheidungen</h2>
+          <p class="unter">Neueste oben.</p>
+          <div class="tafel" data-entscheidungen></div>
+        </div>
+        <div>
+          <h2>Feedback von Chris</h2>
+          <p class="unter">Wörtlich abgelegt im Gehirn.</p>
+          <div class="tafel" data-feedback></div>
+        </div>
+      </section>
+
+      <footer data-fuss></footer>
+    </div>
+  </body>
+</html>
