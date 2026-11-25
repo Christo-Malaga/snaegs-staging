@@ -1,10 +1,10 @@
 {
- "erzeugt": "2026-11-25T16:43:47.435Z",
+ "erzeugt": "2026-11-25T17:23:20.476Z",
  "stand": {
   "branch": "claude/research-goldstandard",
-  "commit": "51bae0a",
-  "datum": "25.11.2026 16:42",
-  "betreff": "Klägs: Prüfseite „Spiegel“, Spiegel im Survey geprüft und nachgeschärft"
+  "commit": "39610ea",
+  "datum": "25.11.2026 17:22",
+  "betreff": "Korb: Etiketten bei 320 im Raster, Namen 18 px ganz im gezeichneten Etikett"
  },
  "uebergabe": "Übergabe (Stand 25.11.2026 abends: erster echter Survey im Bau, Kette Auftrag bis Survey; Branch claude/research-goldstandard, nicht in main)",
  "surveys": [
@@ -37,7 +37,7 @@
   {
    "titel": "Mechaniken",
    "seite": "mechaniken.html",
-   "anzahl": 23,
+   "anzahl": 25,
    "liste": [
     "abreissen",
     "sammeln",
@@ -59,9 +59,11 @@
     "batterie",
     "ring",
     "ankreuzen",
+    "strichliste",
     "teilfragen",
     "freitext",
-    "kommentar"
+    "kommentar",
+    "korb"
    ],
    "text": "Jede Frage-Mechanik einzeln auf dem Prüfstand."
   },
@@ -224,6 +226,13 @@
   {
    "id": "ankreuzen",
    "titel": "Ankreuzen",
+   "version": "0.2.0",
+   "frageart": "Mechanik · choice",
+   "status": "entwurf"
+  },
+  {
+   "id": "strichliste",
+   "titel": "Strichliste",
    "version": "0.1.0",
    "frageart": "Mechanik · choice",
    "status": "entwurf"
@@ -233,6 +242,13 @@
    "titel": "Teilfragen",
    "version": "0.1.0",
    "frageart": "Mechanik · choice",
+   "status": "entwurf"
+  },
+  {
+   "id": "korb",
+   "titel": "Korb",
+   "version": "0.1.0",
+   "frageart": "Mechanik · multi",
    "status": "entwurf"
   },
   {
@@ -482,9 +498,9 @@
   "naechster": "Lücke schließen, auf die ein Fragebogen wartet: freitext (beispiel-nuessje-kurztest:verbessern)",
   "haengt": [],
   "feedback": {
-   "gesamt": 22,
+   "gesamt": 23,
    "offen": 0,
-   "inArbeit": 8,
+   "inArbeit": 9,
    "verarbeitet": 14,
    "liste": [
     {
@@ -572,6 +588,13 @@
      "tage": 1
     },
     {
+     "datei": "2026-11-25-ankreuzen-klaegs-nicht-im-element.md",
+     "titel": "Ankreuzen: hässlich, nicht im Zeichenstil, Klägs nicht Teil des Elements (Chris, 25.11.2026)",
+     "status": "in Arbeit",
+     "zustand": "in Arbeit",
+     "tage": 0
+    },
+    {
      "datei": "2026-11-25-erster-survey-kreativ-bauen.md",
      "titel": "Rückmeldung 25.11.2026 · Ersten Survey echt bauen, kreativ und kontextuell, mit Klägs",
      "status": "in Arbeit (Design-Bibel, Wording-Prüfung, Kreativ-Drehbuch, Bau des Produkttests zu Hause)",
@@ -646,14 +669,14 @@
   "gates": {
    "gruen": 13,
    "rot": 0,
-   "offen": 14,
-   "gesamt": 27
+   "offen": 15,
+   "gesamt": 28
   },
   "wissen": {
    "prinzipien": 23,
    "fassung": "0",
    "entscheidungen": 31,
-   "aenderungen": 33
+   "aenderungen": 37
   }
  },
  "experimente": [
@@ -933,6 +956,14 @@
    "ampel": "offen"
   },
   {
+   "id": "G28",
+   "name": "Klägs im Element, alles gezeichnet, Ablauf gesehen",
+   "regel": "Kein neuer Baustein geht an Chris, bevor der Lead ihn als Ablauf (Bildfolge vor, während, nach der Antwort bei 390 × 844) selbst gesehen hat und alle drei Punkte ja sind: (1) jedes Element ist im Zeichenstil der Strich-Engine, kein CSS-Rahmen, kein Standard-Knopf; (2) Klägs handelt IM Element (setzt das Kreuz in das gewählte Kästchen, legt das Gewicht auf die Waage), nie daneben und nie doppelt zur Komponente; (3) nichts davon ist eine Erzählung. Ein Nein heißt: nicht zeigen, sondern bauen. Anlass Chris 25.11.: „KLÄGS INTERAHIERT MIT DEN ELEMENTEN. TUT ER NÄMLICH NICHT“, „NICHT IM DRAWN STYLE“, „YOU KEEP IGNORING YOUR INSTRUCIONS“",
+   "messung": "Lead, vor jedem Zeigen; Kritiker prüft es mit",
+   "stand": "neu 25.11.",
+   "ampel": "offen"
+  },
+  {
    "id": "G19",
    "name": "Nur der Generator schreibt Surveys",
    "regel": "surveys/*.json entsteht aus eingang/, nie von Hand; freigegeben wird erst ohne Lücken und nach Chris' Abnahme",
@@ -994,7 +1025,7 @@
    "nr": "S13",
    "seit": "20.11.",
    "was": "Format-Baukasten: das OS führt ab 24.11. (E25). Mein SNÄGS holt künftig von hier. Befund für dort: regeln.js textFehler erkennt „öffnen“ nie (Wortgrenze vor „ö“)",
-   "schritt": "Fehler hier im Baukasten beheben (jetzt erlaubt), Mein-SNÄGS-Session informieren, Abgleich-Richtung umdrehen"
+   "schritt": "Fehler hier im Baukasten beheben (jetzt erlaubt), Mein-SNÄGS-Session informieren, Abgleich-Richtung umdrehen. 25.11.: lecker und sauer stehen jetzt in der Liste SPIEGEL statt in NIE_AUF_ANTWORT (E19, Groot); die Prüfung der Kopie site/mein/formate/klaegs.js meldet „lecker“ an einer Wahl dadurch nicht mehr (siehe app/HERKUNFT.md). Mein SNÄGS informieren."
   },
   {
    "nr": "S14",
@@ -1286,6 +1317,12 @@
    "datum": "25.11.2026",
    "titel": "Rückmeldung 25.11.2026 · Ersten Survey echt bauen, kreativ und kontextuell, mit Klägs",
    "status": "in Arbeit (Design-Bibel, Wording-Prüfung, Kreativ-Drehbuch, Bau des Produkttests zu Hause)"
+  },
+  {
+   "datei": "2026-11-25-ankreuzen-klaegs-nicht-im-element.md",
+   "datum": "25.11.2026",
+   "titel": "Ankreuzen: hässlich, nicht im Zeichenstil, Klägs nicht Teil des Elements (Chris, 25.11.2026)",
+   "status": "in Arbeit"
   },
   {
    "datei": "2026-11-24-wo-ist-der-wert.md",
