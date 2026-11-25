@@ -1,10 +1,10 @@
 {
- "erzeugt": "2026-11-25T17:23:20.476Z",
+ "erzeugt": "2026-11-25T21:18:39.790Z",
  "stand": {
   "branch": "claude/research-goldstandard",
-  "commit": "39610ea",
-  "datum": "25.11.2026 17:22",
-  "betreff": "Korb: Etiketten bei 320 im Raster, Namen 18 px ganz im gezeichneten Etikett"
+  "commit": "2bd132e",
+  "datum": "25.11.2026 21:18",
+  "betreff": "Vorschau: Laufzeitpfad /snaegs-staging/vorschau/survey-os/claude-research-goldstandard/auftraege/ (Werbemittel) unter die Basis setzen"
  },
  "uebergabe": "Übergabe (Stand 25.11.2026 abends: erster echter Survey im Bau, Kette Auftrag bis Survey; Branch claude/research-goldstandard, nicht in main)",
  "surveys": [
@@ -24,20 +24,20 @@
    "titel": "Kurztest nüssje Strawberry Cheesecake (Beispiel)",
    "seite": "spiel.html?s=beispiel-nuessje-kurztest",
    "text": "Aus einem Fragebogen erzeugt: 13 Fragen, 1 Lücke(n). Datensatz surveys/beispiel-nuessje-kurztest.json.",
-   "art": "Daten · entwurf · Schema 1.4.0"
+   "art": "Daten · entwurf · Schema 1.4.2"
   },
   {
    "titel": "nüssje Strawberry Cheesecake: Produkttest zu Hause",
    "seite": "spiel.html?s=nuessje-strawberry-cheesecake-p03-heimtest-lebensmittel-marke",
-   "text": "Aus einem Fragebogen erzeugt: 35 Fragen. Datensatz surveys/nuessje-strawberry-cheesecake-p03-heimtest-lebensmittel-marke.json.",
-   "art": "Daten · entwurf · Schema 1.4.0"
+   "text": "Aus einem Fragebogen erzeugt: 33 Fragen. Datensatz surveys/nuessje-strawberry-cheesecake-p03-heimtest-lebensmittel-marke.json.",
+   "art": "Daten · entwurf · Schema 1.4.2"
   }
  ],
  "bausteine": [
   {
    "titel": "Mechaniken",
    "seite": "mechaniken.html",
-   "anzahl": 25,
+   "anzahl": 27,
    "liste": [
     "abreissen",
     "sammeln",
@@ -63,7 +63,9 @@
     "teilfragen",
     "freitext",
     "kommentar",
-    "korb"
+    "korb",
+    "logofang",
+    "werkstatt"
    ],
    "text": "Jede Frage-Mechanik einzeln auf dem Prüfstand."
   },
@@ -100,14 +102,14 @@
   {
    "id": "stein",
    "titel": "Rahmen",
-   "version": "1.1.0",
+   "version": "1.2.2",
    "frageart": "Mechanik · choice",
    "status": "frei für den Generator"
   },
   {
    "id": "teller",
    "titel": "Teller",
-   "version": "1.0.0",
+   "version": "1.1.0",
    "frageart": "Mechanik · choice",
    "status": "frei für den Generator"
   },
@@ -128,7 +130,7 @@
   {
    "id": "abreissen",
    "titel": "Abreißzettel",
-   "version": "1.0.0",
+   "version": "1.3.1",
    "frageart": "Mechanik · choice",
    "status": "frei für den Generator"
   },
@@ -156,28 +158,28 @@
   {
    "id": "sammeln",
    "titel": "Sammelzettel",
-   "version": "1.1.0",
+   "version": "1.2.2",
    "frageart": "Mechanik · multi",
    "status": "frei für den Generator"
   },
   {
    "id": "rad",
    "titel": "Drehrad",
-   "version": "1.0.0",
+   "version": "1.1.3",
    "frageart": "Mechanik · scale, jar",
    "status": "frei für den Generator"
   },
   {
    "id": "ladung",
    "titel": "Regler",
-   "version": "1.1.0",
+   "version": "1.5.1",
    "frageart": "Mechanik · scale",
    "status": "frei für den Generator"
   },
   {
    "id": "spur",
    "titel": "Spur",
-   "version": "1.0.0",
+   "version": "1.0.3",
    "frageart": "Mechanik · scale",
    "status": "frei für den Generator"
   },
@@ -212,14 +214,14 @@
   {
    "id": "batterie",
    "titel": "Batterie",
-   "version": "0.2.0",
+   "version": "0.6.2",
    "frageart": "Mechanik · scale, jar",
    "status": "entwurf"
   },
   {
    "id": "ring",
    "titel": "Produkt-Ring",
-   "version": "0.2.0",
+   "version": "0.2.2",
    "frageart": "Mechanik · scale",
    "status": "entwurf"
   },
@@ -233,35 +235,49 @@
   {
    "id": "strichliste",
    "titel": "Strichliste",
-   "version": "0.1.0",
+   "version": "0.2.0",
    "frageart": "Mechanik · choice",
    "status": "entwurf"
   },
   {
    "id": "teilfragen",
    "titel": "Teilfragen",
-   "version": "0.1.0",
+   "version": "0.3.0",
    "frageart": "Mechanik · choice",
    "status": "entwurf"
   },
   {
    "id": "korb",
    "titel": "Korb",
+   "version": "0.1.1",
+   "frageart": "Mechanik · multi",
+   "status": "entwurf"
+  },
+  {
+   "id": "logofang",
+   "titel": "Logo-Fang",
    "version": "0.1.0",
    "frageart": "Mechanik · multi",
    "status": "entwurf"
   },
   {
+   "id": "werkstatt",
+   "titel": "Werkstatt",
+   "version": "0.2.0",
+   "frageart": "Mechanik · choice",
+   "status": "entwurf"
+  },
+  {
    "id": "freitext",
    "titel": "Klägs schreibt mit",
-   "version": "0.1.0",
+   "version": "0.2.0",
    "frageart": "Mechanik · text",
    "status": "entwurf"
   },
   {
    "id": "kommentar",
    "titel": "Kommentarspalte",
-   "version": "0.1.0",
+   "version": "0.3.1",
    "frageart": "Mechanik · text",
    "status": "entwurf"
   },
@@ -498,9 +514,9 @@
   "naechster": "Lücke schließen, auf die ein Fragebogen wartet: freitext (beispiel-nuessje-kurztest:verbessern)",
   "haengt": [],
   "feedback": {
-   "gesamt": 23,
+   "gesamt": 27,
    "offen": 0,
-   "inArbeit": 9,
+   "inArbeit": 13,
    "verarbeitet": 14,
    "liste": [
     {
@@ -595,9 +611,23 @@
      "tage": 0
     },
     {
+     "datei": "2026-11-25-batterie-versteht-man-nicht.md",
+     "titel": "Regler-Folge Markeneinstellung: unverständlich, keine UX (Chris, 25.11.2026)",
+     "status": "in Arbeit",
+     "zustand": "in Arbeit",
+     "tage": 0
+    },
+    {
      "datei": "2026-11-25-erster-survey-kreativ-bauen.md",
      "titel": "Rückmeldung 25.11.2026 · Ersten Survey echt bauen, kreativ und kontextuell, mit Klägs",
      "status": "in Arbeit (Design-Bibel, Wording-Prüfung, Kreativ-Drehbuch, Bau des Produkttests zu Hause)",
+     "zustand": "in Arbeit",
+     "tage": 0
+    },
+    {
+     "datei": "2026-11-25-fertig-wie-antwort.md",
+     "titel": "„Fertig“ sieht aus wie eine Antwort (Chris, 25.11.2026)",
+     "status": "in Arbeit",
      "zustand": "in Arbeit",
      "tage": 0
     },
@@ -630,10 +660,24 @@
      "tage": 0
     },
     {
+     "datei": "2026-11-25-logos-zeigen.md",
+     "titel": "Keine Logos in Markenfragen (Chris, 25.11.2026)",
+     "status": "in Arbeit",
+     "zustand": "in Arbeit",
+     "tage": 0
+    },
+    {
      "datei": "2026-11-25-methodik-wording.md",
      "titel": "Rückmeldung 25.11.2026 · Methodik-Wording zu kompliziert, Timing am Produkt erklären",
      "status": "verarbeitet (Ablauf mit Produktzustand je Kontakt, Glossar, Klartext je Etappe: https://claude.ai/artifact/BbuAWwkmX4vWUxLSkTg8Lf, Kopie in mittel/simulationen/)",
      "zustand": "verarbeitet",
+     "tage": 0
+    },
+    {
+     "datei": "2026-11-25-produktbild-promo-statt-leerer-flaeche.md",
+     "titel": "Erwartungsfrage: Product Shot oder Werbemotiv statt leerer Fläche (Chris, 25.11.2026)",
+     "status": "in Arbeit",
+     "zustand": "in Arbeit",
      "tage": 0
     },
     {
@@ -669,14 +713,14 @@
   "gates": {
    "gruen": 13,
    "rot": 0,
-   "offen": 15,
-   "gesamt": 28
+   "offen": 16,
+   "gesamt": 29
   },
   "wissen": {
    "prinzipien": 23,
    "fassung": "0",
-   "entscheidungen": 31,
-   "aenderungen": 37
+   "entscheidungen": 32,
+   "aenderungen": 69
   }
  },
  "experimente": [
@@ -744,6 +788,11 @@
    "id": "X13",
    "titel": "Bauanweisungen der Bibliothek erschienen als Antworten für Tester",
    "status": "entschieden (25.11.)"
+  },
+  {
+   "id": "X14",
+   "titel": "Erster echter Survey, Iteration 1: Kritik und Chris' Test",
+   "status": "läuft"
   }
  ],
  "gates": [
@@ -958,8 +1007,16 @@
   {
    "id": "G28",
    "name": "Klägs im Element, alles gezeichnet, Ablauf gesehen",
-   "regel": "Kein neuer Baustein geht an Chris, bevor der Lead ihn als Ablauf (Bildfolge vor, während, nach der Antwort bei 390 × 844) selbst gesehen hat und alle drei Punkte ja sind: (1) jedes Element ist im Zeichenstil der Strich-Engine, kein CSS-Rahmen, kein Standard-Knopf; (2) Klägs handelt IM Element (setzt das Kreuz in das gewählte Kästchen, legt das Gewicht auf die Waage), nie daneben und nie doppelt zur Komponente; (3) nichts davon ist eine Erzählung. Ein Nein heißt: nicht zeigen, sondern bauen. Anlass Chris 25.11.: „KLÄGS INTERAHIERT MIT DEN ELEMENTEN. TUT ER NÄMLICH NICHT“, „NICHT IM DRAWN STYLE“, „YOU KEEP IGNORING YOUR INSTRUCIONS“",
+   "regel": "Kein neuer Baustein geht an Chris, bevor der Lead ihn als Ablauf (Bildfolge vor, während, nach der Antwort bei 390 × 844) selbst gesehen hat und alle drei Punkte ja sind: (1) jedes Element ist im Zeichenstil der Strich-Engine, kein CSS-Rahmen, kein Standard-Knopf; (2) Klägs handelt IM Element (setzt das Kreuz in das gewählte Kästchen, legt das Gewicht auf die Waage), nie daneben, nie doppelt zur Komponente und nie über Text (Wiederholung von X1 seit 20.11., Jarvis 25.11. B4); (3) nichts davon ist eine Erzählung. Ein Nein heißt: nicht zeigen, sondern bauen. Anlass Chris 25.11.: „KLÄGS INTERAHIERT MIT DEN ELEMENTEN. TUT ER NÄMLICH NICHT“, „NICHT IM DRAWN STYLE“, „YOU KEEP IGNORING YOUR INSTRUCIONS“",
    "messung": "Lead, vor jedem Zeigen; Kritiker prüft es mit",
+   "stand": "neu 25.11.",
+   "ampel": "offen"
+  },
+  {
+   "id": "G29",
+   "name": "Drei-Sekunden-Verständnis",
+   "regel": "Jeder Schirm eines Surveys ist für einen Erstnutzer in drei Sekunden klar: was er hier tut, womit, und was seine Antwort bedeutet. Keine abgeschnittenen Beschriftungen, keine Elemente ohne erkennbaren Zweck, die Frage der aktuellen Zeile steht beim Bedienelement, Pole stehen an den Enden der Geste. Ein UX-Agent (Skill ui-ux-pro-max) prüft jeden neuen oder geänderten Schirm vor dem Zeigen, unabhängig vom Builder, mit Bild bei 390 × 844. Anlass Chris 25.11.: „Ich verstehe gar nicht, was ich hier machen soll … Warum sind da keine UX-Agents dran?“ (Batterie), vorher „Niemand versteht das“ (Kundenseite)",
+   "messung": "UX-Agent je Schirm; Kritiker misst mit",
    "stand": "neu 25.11.",
    "ampel": "offen"
   },
@@ -1101,6 +1158,11 @@
   }
  ],
  "entscheidungen": [
+  {
+   "id": "E32",
+   "datum": "25.11.2026",
+   "titel": "Markenfragen zeigen Logos, auch fremder Marken"
+  },
   {
    "id": "E31",
    "datum": "24.11.2026",
@@ -1283,10 +1345,22 @@
    "status": "verarbeitet (Leitfaden, Prüfwerkzeug, Research Kanäle mit 22 Bausteinen, Shaping nüssje: 52 von 61 Fragen neu, 13 Bausteine; wartet auf Chris' Urteil)"
   },
   {
+   "datei": "2026-11-25-produktbild-promo-statt-leerer-flaeche.md",
+   "datum": "25.11.2026",
+   "titel": "Erwartungsfrage: Product Shot oder Werbemotiv statt leerer Fläche (Chris, 25.11.2026)",
+   "status": "in Arbeit"
+  },
+  {
    "datei": "2026-11-25-methodik-wording.md",
    "datum": "25.11.2026",
    "titel": "Rückmeldung 25.11.2026 · Methodik-Wording zu kompliziert, Timing am Produkt erklären",
    "status": "verarbeitet (Ablauf mit Produktzustand je Kontakt, Glossar, Klartext je Etappe: https://claude.ai/artifact/BbuAWwkmX4vWUxLSkTg8Lf, Kopie in mittel/simulationen/)"
+  },
+  {
+   "datei": "2026-11-25-logos-zeigen.md",
+   "datum": "25.11.2026",
+   "titel": "Keine Logos in Markenfragen (Chris, 25.11.2026)",
+   "status": "in Arbeit"
   },
   {
    "datei": "2026-11-25-kundenseite-unbedienbar.md",
@@ -1313,10 +1387,22 @@
    "status": "in Arbeit"
   },
   {
+   "datei": "2026-11-25-fertig-wie-antwort.md",
+   "datum": "25.11.2026",
+   "titel": "„Fertig“ sieht aus wie eine Antwort (Chris, 25.11.2026)",
+   "status": "in Arbeit"
+  },
+  {
    "datei": "2026-11-25-erster-survey-kreativ-bauen.md",
    "datum": "25.11.2026",
    "titel": "Rückmeldung 25.11.2026 · Ersten Survey echt bauen, kreativ und kontextuell, mit Klägs",
    "status": "in Arbeit (Design-Bibel, Wording-Prüfung, Kreativ-Drehbuch, Bau des Produkttests zu Hause)"
+  },
+  {
+   "datei": "2026-11-25-batterie-versteht-man-nicht.md",
+   "datum": "25.11.2026",
+   "titel": "Regler-Folge Markeneinstellung: unverständlich, keine UX (Chris, 25.11.2026)",
+   "status": "in Arbeit"
   },
   {
    "datei": "2026-11-25-ankreuzen-klaegs-nicht-im-element.md",
