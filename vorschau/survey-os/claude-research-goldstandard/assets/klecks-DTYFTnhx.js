@@ -1,0 +1,1 @@
+import{t as e}from"./klecks-CIFRSINH.js";export{e as Klecks};
