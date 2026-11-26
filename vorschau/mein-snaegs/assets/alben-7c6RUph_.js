@@ -1,0 +1,1 @@
+import{r as e}from"./alben-JFuY94Kx.js";export{e as pruefeAlbumBonus};

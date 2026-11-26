@@ -1,1 +1,0 @@
-import{r as e}from"./alben-B20jMG2M.js";export{e as pruefeAlbumBonus};
