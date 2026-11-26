@@ -1,1 +1,0 @@
-import{r as e}from"./alben-CQ2stHIf.js";export{e as pruefeAlbumBonus};
