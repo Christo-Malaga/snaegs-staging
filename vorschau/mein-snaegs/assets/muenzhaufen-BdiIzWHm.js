@@ -1,0 +1,1 @@
+var e=`/snaegs-staging/vorschau/mein-snaegs/assets/muenzhaufen-2j18D_Rg.webp`;export{e as t};

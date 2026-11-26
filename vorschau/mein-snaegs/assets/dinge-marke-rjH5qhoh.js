@@ -1,1 +1,0 @@
-import{n as e}from"./dinge-marke-oAKz7GMc.js";export{e as WORTMARKE};

@@ -1,0 +1,1 @@
+import{r as e}from"./physik-C3vhg21z.js";export{e as federStoss};

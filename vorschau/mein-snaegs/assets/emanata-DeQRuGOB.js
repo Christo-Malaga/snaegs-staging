@@ -1,1 +1,0 @@
-import{t as e}from"./emanata-BzjOygjq.js";export{e as EMANATA};

@@ -1,0 +1,1 @@
+import{n as e}from"./dinge-marke-C_lUsDAG.js";export{e as WORTMARKE};

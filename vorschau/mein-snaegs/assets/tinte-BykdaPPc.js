@@ -1,1 +1,0 @@
-import{a as e}from"./tinte-HIcOPqme.js";export{e as tinteSofort};
