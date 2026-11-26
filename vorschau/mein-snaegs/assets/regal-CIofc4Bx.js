@@ -1,0 +1,1 @@
+import{n as e,t}from"./regal-CgxCJ_2f.js";export{t as default,e as zeigeRegal};

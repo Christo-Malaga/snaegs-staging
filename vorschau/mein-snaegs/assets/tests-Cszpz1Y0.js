@@ -1,0 +1,1 @@
+import{i as e,n as t,r as n,t as r}from"./tests-BTugGncO.js";export{e as default,r as detailsAuf,t as detailsMalen,n as testHandlung};
