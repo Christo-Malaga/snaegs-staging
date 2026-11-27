@@ -1,1 +1,0 @@
-import{t as e}from"./motive-DRfHcm4U.js";export{e as KATALOG};

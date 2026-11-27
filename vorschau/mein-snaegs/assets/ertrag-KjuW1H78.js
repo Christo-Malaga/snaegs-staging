@@ -1,1 +1,0 @@
-import{i as e}from"./ertrag-Diddfaqr.js";export{e as ertragVon};

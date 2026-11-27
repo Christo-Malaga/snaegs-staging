@@ -1,0 +1,1 @@
+import{t as e}from"./motive-B-YvmmxI.js";export{e as KATALOG};

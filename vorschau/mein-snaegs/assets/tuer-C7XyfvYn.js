@@ -1,0 +1,5 @@
+import{t as e}from"./blaetter-DWPeJ9Gt.js";import{t}from"./begriffe-BDGbv7i4.js";import{a as n,g as r,t as i}from"./teile-C4UlZNm2.js";import{n as a,s as o}from"./tracking-BkHXAMNj.js";import{n as s}from"./texte-BR36y_J_.js";var c=new Set([`fragen`,`heute`,`rewards`]);function l(e,t){let n=r(e),i=e?.rest?.posten?.arena??0,a=t?.appStart??``;return{lage:n,start:a,stand:n===`bald`?s.bald(a):i>0?s.appRest(i):s.app}}function u({lage:e,stand:r}){return`<button type="button" class="ms-tuer" data-thema="arena" data-lage="${e}" aria-haspopup="dialog">
+    <span class="ms-tuer__motiv" data-motiv="${t.arena.motiv}" data-ton="papier" aria-hidden="true"></span>
+    <span class="ms-tuer__text"><b class="ms-tuer__titel">${n(s.titel)}</b><span class="ms-tuer__stand">${n(r)}</span></span>
+    ${i}
+  </button>`}var d=e=>{let t=e?.dataset?.meinArenaOrt??e?.closest?.(`.ms-raum`)?.dataset?.abschnitt??null;return c.has(t)?t:null},f=()=>e.includes(`arena`)?`arena`:`app`;function p(e,{ort:t,lage:n}){return!e||!t?()=>{}:a(e,`arena_door_viewed`,{place:t,state:n})}var m=({ort:e,lage:t})=>e&&o(`arena_door_tapped`,{place:e,state:t});export{u as a,m as i,p as n,l as o,d as r,f as t};

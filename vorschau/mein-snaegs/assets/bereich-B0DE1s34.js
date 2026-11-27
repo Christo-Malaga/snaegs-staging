@@ -1,0 +1,1 @@
+import"./bereich-BnTR3t6K.js";
