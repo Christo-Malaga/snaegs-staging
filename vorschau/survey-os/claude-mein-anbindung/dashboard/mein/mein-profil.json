@@ -1,0 +1,598 @@
+{
+  "schema": "1.15.0",
+  "id": "mein-profil",
+  "titel": "Dein Profil (Mein SNÄGS)",
+  "traeger": "mein",
+  "status": "entwurf",
+  "erzeugt": {
+    "von": "generator 0.14.0",
+    "aus": "eingang/mein-profil/fragebogen.json",
+    "eingang": "2026-11-27"
+  },
+  "auftrag": {
+    "kunde": "SNÄGS",
+    "art": "snaegs"
+  },
+  "mein": {
+    "survey": "bsp-sur-004",
+    "art": "profil",
+    "lohn": "profil-komplett"
+  },
+  "produkte": [],
+  "marken": [],
+  "templates": {
+    "duell": "1.0.0",
+    "fang": "1.3.0",
+    "kette": "1.0.0",
+    "rad": "1.6.0"
+  },
+  "fragen": [
+    {
+      "id": "snacks",
+      "quelle": {
+        "frage": "snacks",
+        "mein": "PROFIL_FRAGEN.snacks",
+        "bibliothek": "profil/x01 vr-interessen (Themenfeld)"
+      },
+      "title": "Welche Snacks landen bei dir am ehesten? Bis zu zwei.",
+      "type": "multi",
+      "mechanik": "kette",
+      "options": [
+        "Chips",
+        "Nüsse",
+        "Riegel",
+        "Gebäck",
+        "Obst",
+        "Nichts davon"
+      ],
+      "max": 2,
+      "sinn": "du",
+      "kategorie": "psychografisch",
+      "thema": "Snacks",
+      "metrik": "Snack-Vorliebe",
+      "wahl": "hoechstens",
+      "mischen": true,
+      "steuerung": [
+        "Reihenfolge je Person zufällig gespeichert, Ausweg am Ende"
+      ],
+      "anker": {
+        "ausnahme": "Die Antworten sind selbst Gegenstände: jede trägt ihr eigenes Motiv, ein weiteres Motiv zur Frage zöge eine Antwort vor.",
+        "bezug": "antworten",
+        "grund": "Die Antworten sind selbst Gegenstände: jede trägt ihr eigenes Motiv, ein weiteres Motiv zur Frage zöge eine Antwort vor."
+      }
+    },
+    {
+      "id": "getraenke",
+      "quelle": {
+        "frage": "getraenke",
+        "mein": "PROFIL_FRAGEN.getraenke",
+        "bibliothek": "profil/x01 vr-interessen (Themenfeld)"
+      },
+      "title": "Was trinkst du zwischendurch am liebsten?",
+      "type": "choice",
+      "mechanik": "fang",
+      "options": [
+        "Wasser",
+        "Kaffee",
+        "Tee",
+        "Limo",
+        "Energy",
+        "Keine Angabe"
+      ],
+      "anweisung": "Zieh die Nadel auf deine Antwort. Oder tipp an.",
+      "sinn": "du",
+      "kategorie": "psychografisch",
+      "thema": "Getränke",
+      "metrik": "Getränke",
+      "mischen": true,
+      "steuerung": [
+        "Reihenfolge je Person zufällig gespeichert, Ausweg am Ende"
+      ],
+      "anker": {
+        "ausnahme": "Die Antworten sind selbst Gegenstände: jede trägt ihr eigenes Motiv, ein weiteres Motiv zur Frage zöge eine Antwort vor.",
+        "bezug": "antworten",
+        "grund": "Die Antworten sind selbst Gegenstände: jede trägt ihr eigenes Motiv, ein weiteres Motiv zur Frage zöge eine Antwort vor."
+      }
+    },
+    {
+      "id": "gaming",
+      "quelle": {
+        "frage": "gaming",
+        "mein": "PROFIL_FRAGEN.gaming",
+        "bibliothek": "profil/x01 vr-interessen (Themenfeld)"
+      },
+      "title": "Worauf spielst du am meisten?",
+      "type": "multi",
+      "mechanik": "kette",
+      "options": [
+        "Handy",
+        "Konsole",
+        "PC",
+        "Brettspiele",
+        "Sammelkarten",
+        "Nichts davon"
+      ],
+      "max": 2,
+      "sinn": "du",
+      "kategorie": "psychografisch",
+      "thema": "Gaming",
+      "metrik": "Gaming",
+      "wahl": "hoechstens",
+      "anweisung": "Tipp bis zu zwei an.",
+      "mischen": true,
+      "steuerung": [
+        "Reihenfolge je Person zufällig gespeichert, Ausweg am Ende"
+      ],
+      "anker": {
+        "ausnahme": "Die Antworten sind selbst Gegenstände: jede trägt ihr eigenes Motiv, ein weiteres Motiv zur Frage zöge eine Antwort vor.",
+        "bezug": "antworten",
+        "grund": "Die Antworten sind selbst Gegenstände: jede trägt ihr eigenes Motiv, ein weiteres Motiv zur Frage zöge eine Antwort vor."
+      }
+    },
+    {
+      "id": "suesses",
+      "quelle": {
+        "frage": "suesses",
+        "mein": "PROFIL_FRAGEN.suesses",
+        "bibliothek": "profil/x01 vr-interessen (Themenfeld)"
+      },
+      "title": "Wie oft isst du etwas Süßes?",
+      "type": "scale",
+      "mechanik": "rad",
+      "left": "Nie",
+      "right": "Jeden Tag",
+      "sinn": "du",
+      "kategorie": "psychografisch",
+      "valenz": "aufsteigend",
+      "stufen": 5,
+      "stufenwoerter": [
+        "Nie",
+        "Seltener",
+        "Etwa einmal die Woche",
+        "Mehrmals die Woche",
+        "Jeden Tag"
+      ],
+      "thema": "Süßes",
+      "metrik": "Süßes",
+      "anker": {
+        "wort": "Süßes",
+        "bezug": "anlass",
+        "motiv": "schokoriegel",
+        "farbe": "violett",
+        "quelle": "aspekt",
+        "ton": "tinte",
+        "grund": "Die Frage gilt einer Situation oder Handlung („Süßes“), keinem Ding des Produkts: Motiv „schokoriegel“."
+      }
+    },
+    {
+      "id": "sport",
+      "quelle": {
+        "frage": "sport",
+        "mein": "PROFIL_FRAGEN.sport",
+        "bibliothek": "profil/x01 vr-interessen (Themenfeld)"
+      },
+      "title": "Wie bewegst du dich am liebsten? Bis zu zwei.",
+      "type": "multi",
+      "mechanik": "kette",
+      "options": [
+        "Laufen",
+        "Fitness",
+        "Rad",
+        "Teamsport",
+        "Yoga",
+        "Nichts davon"
+      ],
+      "max": 2,
+      "sinn": "du",
+      "kategorie": "psychografisch",
+      "thema": "Sport",
+      "metrik": "Bewegung",
+      "wahl": "hoechstens",
+      "mischen": true,
+      "steuerung": [
+        "Reihenfolge je Person zufällig gespeichert, Ausweg am Ende"
+      ],
+      "anker": {
+        "wort": "bewegst",
+        "bezug": "anlass",
+        "motiv": "sneaker",
+        "farbe": "violett",
+        "quelle": "aspekt",
+        "ton": "tinte",
+        "grund": "Die Frage gilt einer Situation oder Handlung („bewegst“), keinem Ding des Produkts: Motiv „sneaker“."
+      }
+    },
+    {
+      "id": "kochen",
+      "quelle": {
+        "frage": "kochen",
+        "mein": "PROFIL_FRAGEN.kochen",
+        "bibliothek": "profil/x01 vr-interessen (Themenfeld)"
+      },
+      "title": "Wie isst du unter der Woche meistens?",
+      "type": "choice",
+      "mechanik": "fang",
+      "options": [
+        "Ich koche schnell",
+        "Ich koche aufwendig",
+        "Fertiggerichte",
+        "Bestellen oder auswärts",
+        "Jemand kocht für mich",
+        "Keine Angabe"
+      ],
+      "anweisung": "Zieh die Nadel auf deine Antwort. Oder tipp an.",
+      "sinn": "du",
+      "kategorie": "psychografisch",
+      "thema": "Kochen",
+      "metrik": "Essgewohnheit",
+      "mischen": true,
+      "steuerung": [
+        "Reihenfolge je Person zufällig gespeichert, Ausweg am Ende"
+      ],
+      "anker": {
+        "wort": "isst",
+        "bezug": "anlass",
+        "motiv": "kochtopf",
+        "farbe": "violett",
+        "quelle": "aspekt",
+        "ton": "tinte",
+        "grund": "Die Frage gilt einer Situation oder Handlung („isst“), keinem Ding des Produkts: Motiv „kochtopf“."
+      }
+    },
+    {
+      "id": "beauty",
+      "quelle": {
+        "frage": "beauty",
+        "mein": "PROFIL_FRAGEN.beauty",
+        "bibliothek": "profil/x01 vr-interessen (Themenfeld)"
+      },
+      "title": "Welche Pflege testest du gern?",
+      "type": "multi",
+      "mechanik": "kette",
+      "options": [
+        "Gesicht",
+        "Haare",
+        "Körper",
+        "Düfte",
+        "Make-up",
+        "Nichts davon"
+      ],
+      "max": 2,
+      "sinn": "du",
+      "kategorie": "psychografisch",
+      "thema": "Beauty",
+      "metrik": "Pflege",
+      "wahl": "hoechstens",
+      "anweisung": "Tipp bis zu zwei an.",
+      "mischen": true,
+      "steuerung": [
+        "Reihenfolge je Person zufällig gespeichert, Ausweg am Ende"
+      ],
+      "anker": {
+        "ausnahme": "Die Antworten sind selbst Gegenstände: jede trägt ihr eigenes Motiv, ein weiteres Motiv zur Frage zöge eine Antwort vor.",
+        "bezug": "antworten",
+        "grund": "Die Antworten sind selbst Gegenstände: jede trägt ihr eigenes Motiv, ein weiteres Motiv zur Frage zöge eine Antwort vor."
+      }
+    },
+    {
+      "id": "einkauf",
+      "quelle": {
+        "frage": "einkauf",
+        "mein": "PROFIL_FRAGEN.einkauf",
+        "bibliothek": "profil/x01 vr-interessen (Themenfeld)"
+      },
+      "title": "Was zieht dich beim Einkaufen rein, was bremst dich?",
+      "type": "duel",
+      "mechanik": "duell",
+      "options": [
+        "Preis",
+        "Marke",
+        "Neuheit",
+        "Bio-Siegel",
+        "Regional"
+      ],
+      "sinn": "du",
+      "kategorie": "psychografisch",
+      "thema": "Einkauf",
+      "metrik": "Einkauf",
+      "mischen": true,
+      "steuerung": [
+        "Reihenfolge je Person zufällig gespeichert, Ausweg am Ende"
+      ],
+      "anker": {
+        "wort": "Einkaufen",
+        "bezug": "anlass",
+        "motiv": "tote-bag",
+        "farbe": "violett",
+        "quelle": "aspekt",
+        "ton": "tinte",
+        "grund": "Die Frage gilt einer Situation oder Handlung („Einkaufen“), keinem Ding des Produkts: Motiv „tote-bag“."
+      }
+    },
+    {
+      "id": "haustier",
+      "quelle": {
+        "frage": "haustier",
+        "mein": "PROFIL_FRAGEN.haustier",
+        "bibliothek": "profil/x01 vr-interessen (Themenfeld)"
+      },
+      "title": "Welche Tiere leben bei dir?",
+      "type": "multi",
+      "mechanik": "kette",
+      "options": [
+        "Hund",
+        "Katze",
+        "Kleintier",
+        "Vogel",
+        "Fisch",
+        "Nichts davon"
+      ],
+      "max": 2,
+      "sinn": "du",
+      "kategorie": "psychografisch",
+      "thema": "Haustier",
+      "metrik": "Haustier",
+      "wahl": "hoechstens",
+      "anweisung": "Tipp bis zu zwei an.",
+      "mischen": true,
+      "steuerung": [
+        "Reihenfolge je Person zufällig gespeichert, Ausweg am Ende"
+      ],
+      "objekte": [
+        {
+          "motiv": "hund"
+        },
+        {
+          "motiv": "katze"
+        },
+        {
+          "motiv": "kleintier"
+        },
+        {
+          "motiv": "vogel"
+        },
+        {
+          "motiv": "fisch"
+        },
+        null
+      ],
+      "anker": {
+        "ausnahme": "Die Antworten sind selbst Gegenstände: jede trägt ihr eigenes Motiv, ein weiteres Motiv zur Frage zöge eine Antwort vor.",
+        "bezug": "antworten",
+        "grund": "Die Antworten sind selbst Gegenstände: jede trägt ihr eigenes Motiv, ein weiteres Motiv zur Frage zöge eine Antwort vor."
+      }
+    },
+    {
+      "id": "unterwegs",
+      "quelle": {
+        "frage": "unterwegs",
+        "mein": "PROFIL_FRAGEN.unterwegs",
+        "bibliothek": "fragen/tagesfragen.json td-einkaufsort-m"
+      },
+      "title": "Wo kaufst du Lebensmittel meistens?",
+      "type": "choice",
+      "mechanik": "fang",
+      "options": [
+        "Supermarkt",
+        "Discounter",
+        "Bio-Markt",
+        "Drogerie",
+        "Online",
+        "Keine Angabe"
+      ],
+      "anweisung": "Zieh die Nadel auf deine Antwort. Oder tipp an.",
+      "sinn": "du",
+      "kategorie": "psychografisch",
+      "thema": "Einkaufsort",
+      "metrik": "Einkaufsort",
+      "mischen": true,
+      "steuerung": [
+        "Reihenfolge je Person zufällig gespeichert, Ausweg am Ende"
+      ],
+      "anker": {
+        "wort": "kaufst",
+        "bezug": "anlass",
+        "motiv": "ortsmarke",
+        "farbe": "violett",
+        "quelle": "aspekt",
+        "ton": "tinte",
+        "grund": "Die Frage gilt einer Situation oder Handlung („kaufst“), keinem Ding des Produkts: Motiv „ortsmarke“."
+      }
+    },
+    {
+      "id": "zuhause",
+      "quelle": {
+        "frage": "zuhause",
+        "mein": "PROFIL_FRAGEN.zuhause",
+        "bibliothek": "profil/x01 vr-interessen (Themenfeld)"
+      },
+      "title": "Was testest du gern für zu Hause? Bis zu zwei.",
+      "type": "multi",
+      "mechanik": "kette",
+      "options": [
+        "Küche",
+        "Putzen",
+        "Deko",
+        "Pflanzen",
+        "Technik",
+        "Wäsche",
+        "Nichts davon"
+      ],
+      "max": 2,
+      "sinn": "du",
+      "kategorie": "psychografisch",
+      "thema": "Zuhause",
+      "metrik": "Zuhause",
+      "wahl": "hoechstens",
+      "mischen": true,
+      "steuerung": [
+        "Reihenfolge je Person zufällig gespeichert, Ausweg am Ende"
+      ],
+      "anker": {
+        "wort": "zu Hause",
+        "bezug": "anlass",
+        "motiv": "haus",
+        "farbe": "violett",
+        "quelle": "aspekt",
+        "ton": "tinte",
+        "grund": "Die Frage gilt einer Situation oder Handlung („zu Hause“), keinem Ding des Produkts: Motiv „haus“."
+      }
+    },
+    {
+      "id": "musik",
+      "quelle": {
+        "frage": "musik",
+        "mein": "PROFIL_FRAGEN.musik",
+        "bibliothek": "profil/x01 vr-interessen (Themenfeld)"
+      },
+      "title": "Was läuft bei dir am meisten?",
+      "type": "choice",
+      "mechanik": "fang",
+      "options": [
+        "Pop",
+        "Hip-Hop",
+        "Rock",
+        "Elektro",
+        "Schlager",
+        "Keine Angabe"
+      ],
+      "anweisung": "Zieh die Nadel auf deine Antwort. Oder tipp an.",
+      "sinn": "du",
+      "kategorie": "psychografisch",
+      "thema": "Musik",
+      "metrik": "Musik",
+      "mischen": true,
+      "steuerung": [
+        "Reihenfolge je Person zufällig gespeichert, Ausweg am Ende"
+      ],
+      "anker": {
+        "wort": "läuft",
+        "bezug": "anlass",
+        "motiv": "kopfhoerer",
+        "farbe": "violett",
+        "quelle": "aspekt",
+        "ton": "tinte",
+        "grund": "Die Frage gilt einer Situation oder Handlung („läuft“), keinem Ding des Produkts: Motiv „kopfhoerer“."
+      }
+    }
+  ],
+  "luecken": [
+    {
+      "frage": "snacks",
+      "text": "Welche Snacks landen bei dir am ehesten? Bis zu zwei.",
+      "art": "mehrfach",
+      "bau": true,
+      "bedarf": "motiv-gebaeck",
+      "antwort": "Gebäck",
+      "vorschlag": "Strich-Motiv „gebaeck“ für die Antwort „Gebäck“ bauen (Format der Strich-Datenbank, eine Leitfarbe, gleich groß mit den anderen 4); bis dahin zeigt die Frage keine Antwort-Motive"
+    },
+    {
+      "frage": "snacks",
+      "text": "Welche Snacks landen bei dir am ehesten? Bis zu zwei.",
+      "art": "mehrfach",
+      "bau": true,
+      "bedarf": "motiv-obst",
+      "antwort": "Obst",
+      "vorschlag": "Strich-Motiv „obst“ für die Antwort „Obst“ bauen (Format der Strich-Datenbank, eine Leitfarbe, gleich groß mit den anderen 4); bis dahin zeigt die Frage keine Antwort-Motive"
+    },
+    {
+      "frage": "getraenke",
+      "text": "Was trinkst du zwischendurch am liebsten?",
+      "art": "einzel",
+      "bau": true,
+      "bedarf": "motiv-kaffee",
+      "antwort": "Kaffee",
+      "vorschlag": "Strich-Motiv „kaffee“ für die Antwort „Kaffee“ bauen (Format der Strich-Datenbank, eine Leitfarbe, gleich groß mit den anderen 4); bis dahin zeigt die Frage keine Antwort-Motive"
+    },
+    {
+      "frage": "getraenke",
+      "text": "Was trinkst du zwischendurch am liebsten?",
+      "art": "einzel",
+      "bau": true,
+      "bedarf": "motiv-tee",
+      "antwort": "Tee",
+      "vorschlag": "Strich-Motiv „tee“ für die Antwort „Tee“ bauen (Format der Strich-Datenbank, eine Leitfarbe, gleich groß mit den anderen 4); bis dahin zeigt die Frage keine Antwort-Motive"
+    },
+    {
+      "frage": "getraenke",
+      "text": "Was trinkst du zwischendurch am liebsten?",
+      "art": "einzel",
+      "bau": true,
+      "bedarf": "motiv-limo",
+      "antwort": "Limo",
+      "vorschlag": "Strich-Motiv „limo“ für die Antwort „Limo“ bauen (Format der Strich-Datenbank, eine Leitfarbe, gleich groß mit den anderen 4); bis dahin zeigt die Frage keine Antwort-Motive"
+    },
+    {
+      "frage": "gaming",
+      "text": "Worauf spielst du am meisten?",
+      "art": "mehrfach",
+      "bau": true,
+      "bedarf": "motiv-konsole",
+      "antwort": "Konsole",
+      "vorschlag": "Strich-Motiv „konsole“ für die Antwort „Konsole“ bauen (Format der Strich-Datenbank, eine Leitfarbe, gleich groß mit den anderen 4); bis dahin zeigt die Frage keine Antwort-Motive"
+    },
+    {
+      "frage": "gaming",
+      "text": "Worauf spielst du am meisten?",
+      "art": "mehrfach",
+      "bau": true,
+      "bedarf": "motiv-pc",
+      "antwort": "PC",
+      "vorschlag": "Strich-Motiv „pc“ für die Antwort „PC“ bauen (Format der Strich-Datenbank, eine Leitfarbe, gleich groß mit den anderen 4); bis dahin zeigt die Frage keine Antwort-Motive"
+    },
+    {
+      "frage": "gaming",
+      "text": "Worauf spielst du am meisten?",
+      "art": "mehrfach",
+      "bau": true,
+      "bedarf": "motiv-brettspiel",
+      "antwort": "Brettspiele",
+      "vorschlag": "Strich-Motiv „brettspiel“ für die Antwort „Brettspiele“ bauen (Format der Strich-Datenbank, eine Leitfarbe, gleich groß mit den anderen 4); bis dahin zeigt die Frage keine Antwort-Motive"
+    },
+    {
+      "frage": "gaming",
+      "text": "Worauf spielst du am meisten?",
+      "art": "mehrfach",
+      "bau": true,
+      "bedarf": "motiv-sammelkarten",
+      "antwort": "Sammelkarten",
+      "vorschlag": "Strich-Motiv „sammelkarten“ für die Antwort „Sammelkarten“ bauen (Format der Strich-Datenbank, eine Leitfarbe, gleich groß mit den anderen 4); bis dahin zeigt die Frage keine Antwort-Motive"
+    },
+    {
+      "frage": "beauty",
+      "text": "Welche Pflege testest du gern?",
+      "art": "mehrfach",
+      "bau": true,
+      "bedarf": "motiv-haare",
+      "antwort": "Haare",
+      "vorschlag": "Strich-Motiv „haare“ für die Antwort „Haare“ bauen (Format der Strich-Datenbank, eine Leitfarbe, gleich groß mit den anderen 4); bis dahin zeigt die Frage keine Antwort-Motive"
+    },
+    {
+      "frage": "beauty",
+      "text": "Welche Pflege testest du gern?",
+      "art": "mehrfach",
+      "bau": true,
+      "bedarf": "motiv-koerperpflege",
+      "antwort": "Körper",
+      "vorschlag": "Strich-Motiv „koerperpflege“ für die Antwort „Körper“ bauen (Format der Strich-Datenbank, eine Leitfarbe, gleich groß mit den anderen 4); bis dahin zeigt die Frage keine Antwort-Motive"
+    },
+    {
+      "frage": "beauty",
+      "text": "Welche Pflege testest du gern?",
+      "art": "mehrfach",
+      "bau": true,
+      "bedarf": "motiv-duft",
+      "antwort": "Düfte",
+      "vorschlag": "Strich-Motiv „duft“ für die Antwort „Düfte“ bauen (Format der Strich-Datenbank, eine Leitfarbe, gleich groß mit den anderen 4); bis dahin zeigt die Frage keine Antwort-Motive"
+    },
+    {
+      "frage": "beauty",
+      "text": "Welche Pflege testest du gern?",
+      "art": "mehrfach",
+      "bau": true,
+      "bedarf": "motiv-make-up",
+      "antwort": "Make-up",
+      "vorschlag": "Strich-Motiv „make-up“ für die Antwort „Make-up“ bauen (Format der Strich-Datenbank, eine Leitfarbe, gleich groß mit den anderen 4); bis dahin zeigt die Frage keine Antwort-Motive"
+    }
+  ]
+}
