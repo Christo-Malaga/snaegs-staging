@@ -1,17 +1,17 @@
 {
- "erzeugt": "2026-11-27T11:56:25.497Z",
+ "erzeugt": "2026-11-27T14:04:03.173Z",
  "stand": {
   "branch": "claude/mein-anbindung",
-  "commit": "d743dd2",
-  "datum": "27.11.2026 11:56",
-  "betreff": "Dashboard Mein-Bereich: Bericht des Generators als HTML-Seite (Vorschau veröffentlicht keine .md)"
+  "commit": "8aeeb0e",
+  "datum": "27.11.2026 14:03",
+  "betreff": "Versiegeln übernommen (P03-I32), X27 Drehteller zeitabhängig"
  },
  "uebergabe": "Übergabe (Stand 25.11.2026 abends: erster echter Survey im Bau, Kette Auftrag bis Survey; Branch claude/research-goldstandard, nicht in main)",
  "surveys": [
   {
    "titel": "Produkttest nüssje",
    "seite": "survey.html",
-   "text": "Sechs Level mit je fünf Fragen, Münzen, Level-Clear, Boss, Loot. Die Referenz für Haptik und Psychologie.",
+   "text": "Sechs Level mit je fünf Fragen, Münzen, Level-Clear, Testkarten, Versiegeln. Die Referenz für Haptik und Psychologie.",
    "art": "Demo, im Code"
   },
   {
@@ -112,9 +112,32 @@
     "rad 1.6.0"
    ],
    "motive": [
+    "chips-tuete",
+    "erdnuss",
     "schokoriegel",
+    "gebaeck",
+    "obst",
+    "sprudelwasser",
+    "kaffee",
+    "tee",
+    "limo",
+    "energy-dose",
+    "smartphone",
+    "controller",
+    "pc",
+    "brettspiel",
+    "sammelkarten",
     "sneaker",
+    "hantel",
+    "fahrrad",
+    "ball",
+    "yogamatte",
     "kochtopf",
+    "tuchmaske",
+    "haare",
+    "koerperpflege",
+    "duft",
+    "make-up",
     "tote-bag",
     "hund",
     "katze",
@@ -122,24 +145,15 @@
     "vogel",
     "fisch",
     "ortsmarke",
-    "haus",
+    "kueche",
+    "putzen",
+    "kerze",
+    "pflanzen",
+    "technik",
+    "waesche",
     "kopfhoerer"
    ],
-   "luecken": [
-    "motiv-gebaeck",
-    "motiv-obst",
-    "motiv-kaffee",
-    "motiv-tee",
-    "motiv-limo",
-    "motiv-konsole",
-    "motiv-pc",
-    "motiv-brettspiel",
-    "motiv-sammelkarten",
-    "motiv-haare",
-    "motiv-koerperpflege",
-    "motiv-duft",
-    "motiv-make-up"
-   ],
+   "luecken": [],
    "erzeugt": "generator 0.14.0",
    "schema": "1.15.0",
    "json": "dashboard/mein/mein-profil.json",
@@ -436,123 +450,6 @@
    "was": "Baustein „wort“ des Format-Baukastens als eigene Mechanik anmelden (ein Wort oder ein Satz, mit „Fällt mir nichts ein“)",
    "wartet": [
     "beispiel-nuessje-kurztest:verbessern"
-   ]
-  },
-  {
-   "quelle": "generator",
-   "id": "motiv-brettspiel",
-   "prio": 1,
-   "was": "Strich-Motiv „brettspiel“ für die Antwort „Brettspiele“ bauen (Format der Strich-Datenbank, eine Leitfarbe, gleich groß mit den anderen 4); bis dahin zeigt die Frage keine Antwort-Motive",
-   "wartet": [
-    "mein-profil:gaming"
-   ]
-  },
-  {
-   "quelle": "generator",
-   "id": "motiv-duft",
-   "prio": 1,
-   "was": "Strich-Motiv „duft“ für die Antwort „Düfte“ bauen (Format der Strich-Datenbank, eine Leitfarbe, gleich groß mit den anderen 4); bis dahin zeigt die Frage keine Antwort-Motive",
-   "wartet": [
-    "mein-profil:beauty"
-   ]
-  },
-  {
-   "quelle": "generator",
-   "id": "motiv-gebaeck",
-   "prio": 1,
-   "was": "Strich-Motiv „gebaeck“ für die Antwort „Gebäck“ bauen (Format der Strich-Datenbank, eine Leitfarbe, gleich groß mit den anderen 4); bis dahin zeigt die Frage keine Antwort-Motive",
-   "wartet": [
-    "mein-profil:snacks"
-   ]
-  },
-  {
-   "quelle": "generator",
-   "id": "motiv-haare",
-   "prio": 1,
-   "was": "Strich-Motiv „haare“ für die Antwort „Haare“ bauen (Format der Strich-Datenbank, eine Leitfarbe, gleich groß mit den anderen 4); bis dahin zeigt die Frage keine Antwort-Motive",
-   "wartet": [
-    "mein-profil:beauty"
-   ]
-  },
-  {
-   "quelle": "generator",
-   "id": "motiv-kaffee",
-   "prio": 1,
-   "was": "Strich-Motiv „kaffee“ für die Antwort „Kaffee“ bauen (Format der Strich-Datenbank, eine Leitfarbe, gleich groß mit den anderen 4); bis dahin zeigt die Frage keine Antwort-Motive",
-   "wartet": [
-    "mein-profil:getraenke"
-   ]
-  },
-  {
-   "quelle": "generator",
-   "id": "motiv-koerperpflege",
-   "prio": 1,
-   "was": "Strich-Motiv „koerperpflege“ für die Antwort „Körper“ bauen (Format der Strich-Datenbank, eine Leitfarbe, gleich groß mit den anderen 4); bis dahin zeigt die Frage keine Antwort-Motive",
-   "wartet": [
-    "mein-profil:beauty"
-   ]
-  },
-  {
-   "quelle": "generator",
-   "id": "motiv-konsole",
-   "prio": 1,
-   "was": "Strich-Motiv „konsole“ für die Antwort „Konsole“ bauen (Format der Strich-Datenbank, eine Leitfarbe, gleich groß mit den anderen 4); bis dahin zeigt die Frage keine Antwort-Motive",
-   "wartet": [
-    "mein-profil:gaming"
-   ]
-  },
-  {
-   "quelle": "generator",
-   "id": "motiv-limo",
-   "prio": 1,
-   "was": "Strich-Motiv „limo“ für die Antwort „Limo“ bauen (Format der Strich-Datenbank, eine Leitfarbe, gleich groß mit den anderen 4); bis dahin zeigt die Frage keine Antwort-Motive",
-   "wartet": [
-    "mein-profil:getraenke"
-   ]
-  },
-  {
-   "quelle": "generator",
-   "id": "motiv-make-up",
-   "prio": 1,
-   "was": "Strich-Motiv „make-up“ für die Antwort „Make-up“ bauen (Format der Strich-Datenbank, eine Leitfarbe, gleich groß mit den anderen 4); bis dahin zeigt die Frage keine Antwort-Motive",
-   "wartet": [
-    "mein-profil:beauty"
-   ]
-  },
-  {
-   "quelle": "generator",
-   "id": "motiv-obst",
-   "prio": 1,
-   "was": "Strich-Motiv „obst“ für die Antwort „Obst“ bauen (Format der Strich-Datenbank, eine Leitfarbe, gleich groß mit den anderen 4); bis dahin zeigt die Frage keine Antwort-Motive",
-   "wartet": [
-    "mein-profil:snacks"
-   ]
-  },
-  {
-   "quelle": "generator",
-   "id": "motiv-pc",
-   "prio": 1,
-   "was": "Strich-Motiv „pc“ für die Antwort „PC“ bauen (Format der Strich-Datenbank, eine Leitfarbe, gleich groß mit den anderen 4); bis dahin zeigt die Frage keine Antwort-Motive",
-   "wartet": [
-    "mein-profil:gaming"
-   ]
-  },
-  {
-   "quelle": "generator",
-   "id": "motiv-sammelkarten",
-   "prio": 1,
-   "was": "Strich-Motiv „sammelkarten“ für die Antwort „Sammelkarten“ bauen (Format der Strich-Datenbank, eine Leitfarbe, gleich groß mit den anderen 4); bis dahin zeigt die Frage keine Antwort-Motive",
-   "wartet": [
-    "mein-profil:gaming"
-   ]
-  },
-  {
-   "quelle": "generator",
-   "id": "motiv-tee",
-   "prio": 1,
-   "was": "Strich-Motiv „tee“ für die Antwort „Tee“ bauen (Format der Strich-Datenbank, eine Leitfarbe, gleich groß mit den anderen 4); bis dahin zeigt die Frage keine Antwort-Motive",
-   "wartet": [
-    "mein-profil:getraenke"
    ]
   },
   {
@@ -990,7 +887,7 @@
    "prinzipien": 23,
    "fassung": "0",
    "entscheidungen": 40,
-   "aenderungen": 131
+   "aenderungen": 134
   }
  },
  "experimente": [
@@ -1117,6 +1014,16 @@
   {
    "id": "X25",
    "titel": "Gold an der Dose der Werkstatt nach Zug 2 (zeitabhängig)",
+   "status": "offen (Lead, 27.11.)"
+  },
+  {
+   "id": "X26",
+   "titel": "Titel-Marker in der Shot-Farbe verschwindet bei hellen Shots im Papier",
+   "status": "offen (Befund der Testerkarten-Session Mein SNÄGS, 27.11.)"
+  },
+  {
+   "id": "X27",
+   "titel": "Drehteller (Produkt-Ring) bei 390: Produkt manchmal unter 8 px am Polwort (zeitabhängig)",
    "status": "offen (Lead, 27.11.)"
   }
  ],
@@ -1517,7 +1424,7 @@
    "nr": "S26",
    "seit": "26.11.",
    "was": "Befunde für die Quelle snaegs-relaunch (Labor, Klägs-Engine), noch nicht gemeldet: (1) rebrand-lab/src/klecks/leitmotiv.js Zeile 579 (const p = zustand.spitze();, Stand 1d1c32e) läuft weiter, auch wenn der Takt schon abgebrochen ist (Groot II/III); (2) klecks-fuehrung.js sitz() sucht 6 bis 94 %, klemmt auf den Bildrand und bleibt dort, liegt der Körper im Kopf, weicht die Führung auf eine beliebige freie Stelle aus (Mein SNÄGS, Mantis III, Ursache „Klägs flach am Rand“); (3) platz() springt auch bei weiten Wegen im Bogen über Titel und Produkt, wechsle() geht durchs Papier; (4) lasur.js kennt keine Hex-Farbe (blockt L-28 an Lasur-Flächen); (5) in der ersten Frage einer Etappe entsteht Klägs erst nach 1,3 bis 2,3 s (L-11). Nachtrag Mantis IV (27.11.): (6) nach dem Feld-Haken findet auslaufVon nur Punkte auf Text, Klägs formt sich im Kopf zurück und hüpft im Bogen über den Titel (Vorschlag: Auslauf Richtung heimPunkt); (7) der Feld-Haken (bis 22 px) ragt über die Zeile „Frage x von 5“; (8) weite Gesten (achso/aha, Winken, Ausruf, Hüpfer) brauchen etwa 55 px und kommen zu zufälligen Zeiten (Vorschlag: nur, wenn platz.js Raum meldet). Nachtrag Mantis V (27.11.): (9) Klägs' Größe nur je Breite, auf niedrigen Schirmen größer als der Packshot (Mein SNÄGS meldet eine eigene Rolle an; Vorschlag rolle(name, { R })); (10) hyphens: auto in Kette, Takt und Stein; (11) .sk-karotte 13 px mit Ellipse; (12) Ausdrücke kurz bis 5,9 R², Jubel-Arme 1,6 R; zu (4): Zugspur der Fang-Nadel bis 1,1 s in Cyan oder Violett. Nachtrag Groot V (27.11.): (13) die Führung korrigiert keinen Sitz außerhalb des Bilds (Platzwache prüft nur Schrift, sitz() nimmt sitzFrei ungeprüft, abtauchen aus dem Auftauchen setzt nur bleibUnten), im OS mit Rand-Wache behoben (X23). Nachtrag Mantis VI (27.11.): (14) gesten-xl.js:94 blendet das Wort nach fester Zeit aus, auch wenn der Stift noch schreibt („hac“); (15) klecks.js _zeige setzt Wörter immer zur Inhaltsseite; (16) springe()/freieStelle springt weit, sobald Schrift nah ist; (17) Jubel läuft bis 1,5 s ins Endbild; (18) dynamik.js:126 „aufblaehen“ 1,36-fach für etwa 1 s. Im OS sind (1) bis (3) über eigene Abweichungen umgangen (app/HERKUNFT.md), Mein SNÄGS darf die Basis nicht ändern",
-   "schritt": "27.11. 00:10 an die Relaunch-Session gemeldet (send_message, alle acht Punkte, mit Zustimmung der Haupt-Session Mein SNÄGS): festhalten, auf eigenem Themen-Branch beheben, übernehmen nur auf Chris' Wort. 27.11.: Nachtrag (9) bis (18) gemeldet; die Relaunch-Session wartet auf Chris' Wahl „festhalten“ oder „festhalten + fixen“. Offen, bis ein Branch dort benannt ist; danach Abgleich ins OS (labor-abgleich.mjs) und die Abweichungen in app/HERKUNFT.md zurücknehmen"
+   "schritt": "27.11. 00:10 an die Relaunch-Session gemeldet (send_message, alle acht Punkte, mit Zustimmung der Haupt-Session Mein SNÄGS): festhalten, auf eigenem Themen-Branch beheben, übernehmen nur auf Chris' Wort. 27.11. 12:27: Labor meldet 1 bis 18 behoben und live (website-v3 Merge 77bab1c, Gedächtnis efdda9a, Deploy 41a74c6); neue APIs: klecks.rolle(name, { R }), useLasur(ref, { farbe: \"#hex\" }) bzw. --sk-lasur-farbe, shotfarbe.js im Labor, woerterGanz/zeilePasst in survey-muster/woerter.js, Rand und Wege in klecks-fuehrung.js/platz.js/klecks.js, Prüfwerkzeug werkzeug/pruefen/klaegs-rand.mjs. Nächster Schritt OS: labor-abgleich.mjs gegen 77bab1c, Abweichungen in app/HERKUNFT.md (Groot V Rand-Wache, S6 Hex-Lasur, Vision IV) ablösen, nach dem Siegel-Bau. Vorher: Nachtrag (9) bis (18) gemeldet; die Relaunch-Session wartet auf Chris' Wahl „festhalten“ oder „festhalten + fixen“. Offen, bis ein Branch dort benannt ist; danach Abgleich ins OS (labor-abgleich.mjs) und die Abweichungen in app/HERKUNFT.md zurücknehmen"
   },
   {
    "nr": "S27",

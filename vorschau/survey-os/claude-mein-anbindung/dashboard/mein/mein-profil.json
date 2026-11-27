@@ -55,6 +55,24 @@
       "steuerung": [
         "Reihenfolge je Person zufällig gespeichert, Ausweg am Ende"
       ],
+      "objekte": [
+        {
+          "motiv": "chips-tuete"
+        },
+        {
+          "motiv": "erdnuss"
+        },
+        {
+          "motiv": "schokoriegel"
+        },
+        {
+          "motiv": "gebaeck"
+        },
+        {
+          "motiv": "obst"
+        },
+        null
+      ],
       "anker": {
         "ausnahme": "Die Antworten sind selbst Gegenstände: jede trägt ihr eigenes Motiv, ein weiteres Motiv zur Frage zöge eine Antwort vor.",
         "bezug": "antworten",
@@ -87,6 +105,24 @@
       "mischen": true,
       "steuerung": [
         "Reihenfolge je Person zufällig gespeichert, Ausweg am Ende"
+      ],
+      "objekte": [
+        {
+          "motiv": "sprudelwasser"
+        },
+        {
+          "motiv": "kaffee"
+        },
+        {
+          "motiv": "tee"
+        },
+        {
+          "motiv": "limo"
+        },
+        {
+          "motiv": "energy-dose"
+        },
+        null
       ],
       "anker": {
         "ausnahme": "Die Antworten sind selbst Gegenstände: jede trägt ihr eigenes Motiv, ein weiteres Motiv zur Frage zöge eine Antwort vor.",
@@ -122,6 +158,24 @@
       "mischen": true,
       "steuerung": [
         "Reihenfolge je Person zufällig gespeichert, Ausweg am Ende"
+      ],
+      "objekte": [
+        {
+          "motiv": "smartphone"
+        },
+        {
+          "motiv": "controller"
+        },
+        {
+          "motiv": "pc"
+        },
+        {
+          "motiv": "brettspiel"
+        },
+        {
+          "motiv": "sammelkarten"
+        },
+        null
       ],
       "anker": {
         "ausnahme": "Die Antworten sind selbst Gegenstände: jede trägt ihr eigenes Motiv, ein weiteres Motiv zur Frage zöge eine Antwort vor.",
@@ -192,14 +246,28 @@
       "steuerung": [
         "Reihenfolge je Person zufällig gespeichert, Ausweg am Ende"
       ],
+      "objekte": [
+        {
+          "motiv": "sneaker"
+        },
+        {
+          "motiv": "hantel"
+        },
+        {
+          "motiv": "fahrrad"
+        },
+        {
+          "motiv": "ball"
+        },
+        {
+          "motiv": "yogamatte"
+        },
+        null
+      ],
       "anker": {
-        "wort": "bewegst",
-        "bezug": "anlass",
-        "motiv": "sneaker",
-        "farbe": "violett",
-        "quelle": "aspekt",
-        "ton": "tinte",
-        "grund": "Die Frage gilt einer Situation oder Handlung („bewegst“), keinem Ding des Produkts: Motiv „sneaker“."
+        "ausnahme": "Die Antworten sind selbst Gegenstände: jede trägt ihr eigenes Motiv, ein weiteres Motiv zur Frage zöge eine Antwort vor.",
+        "bezug": "antworten",
+        "grund": "Die Antworten sind selbst Gegenstände: jede trägt ihr eigenes Motiv, ein weiteres Motiv zur Frage zöge eine Antwort vor."
       }
     },
     {
@@ -267,6 +335,24 @@
       "mischen": true,
       "steuerung": [
         "Reihenfolge je Person zufällig gespeichert, Ausweg am Ende"
+      ],
+      "objekte": [
+        {
+          "motiv": "tuchmaske"
+        },
+        {
+          "motiv": "haare"
+        },
+        {
+          "motiv": "koerperpflege"
+        },
+        {
+          "motiv": "duft"
+        },
+        {
+          "motiv": "make-up"
+        },
+        null
       ],
       "anker": {
         "ausnahme": "Die Antworten sind selbst Gegenstände: jede trägt ihr eigenes Motiv, ein weiteres Motiv zur Frage zöge eine Antwort vor.",
@@ -428,14 +514,31 @@
       "steuerung": [
         "Reihenfolge je Person zufällig gespeichert, Ausweg am Ende"
       ],
+      "objekte": [
+        {
+          "motiv": "kueche"
+        },
+        {
+          "motiv": "putzen"
+        },
+        {
+          "motiv": "kerze"
+        },
+        {
+          "motiv": "pflanzen"
+        },
+        {
+          "motiv": "technik"
+        },
+        {
+          "motiv": "waesche"
+        },
+        null
+      ],
       "anker": {
-        "wort": "zu Hause",
-        "bezug": "anlass",
-        "motiv": "haus",
-        "farbe": "violett",
-        "quelle": "aspekt",
-        "ton": "tinte",
-        "grund": "Die Frage gilt einer Situation oder Handlung („zu Hause“), keinem Ding des Produkts: Motiv „haus“."
+        "ausnahme": "Die Antworten sind selbst Gegenstände: jede trägt ihr eigenes Motiv, ein weiteres Motiv zur Frage zöge eine Antwort vor.",
+        "bezug": "antworten",
+        "grund": "Die Antworten sind selbst Gegenstände: jede trägt ihr eigenes Motiv, ein weiteres Motiv zur Frage zöge eine Antwort vor."
       }
     },
     {
@@ -474,125 +577,6 @@
         "ton": "tinte",
         "grund": "Die Frage gilt einer Situation oder Handlung („läuft“), keinem Ding des Produkts: Motiv „kopfhoerer“."
       }
-    }
-  ],
-  "luecken": [
-    {
-      "frage": "snacks",
-      "text": "Welche Snacks landen bei dir am ehesten? Bis zu zwei.",
-      "art": "mehrfach",
-      "bau": true,
-      "bedarf": "motiv-gebaeck",
-      "antwort": "Gebäck",
-      "vorschlag": "Strich-Motiv „gebaeck“ für die Antwort „Gebäck“ bauen (Format der Strich-Datenbank, eine Leitfarbe, gleich groß mit den anderen 4); bis dahin zeigt die Frage keine Antwort-Motive"
-    },
-    {
-      "frage": "snacks",
-      "text": "Welche Snacks landen bei dir am ehesten? Bis zu zwei.",
-      "art": "mehrfach",
-      "bau": true,
-      "bedarf": "motiv-obst",
-      "antwort": "Obst",
-      "vorschlag": "Strich-Motiv „obst“ für die Antwort „Obst“ bauen (Format der Strich-Datenbank, eine Leitfarbe, gleich groß mit den anderen 4); bis dahin zeigt die Frage keine Antwort-Motive"
-    },
-    {
-      "frage": "getraenke",
-      "text": "Was trinkst du zwischendurch am liebsten?",
-      "art": "einzel",
-      "bau": true,
-      "bedarf": "motiv-kaffee",
-      "antwort": "Kaffee",
-      "vorschlag": "Strich-Motiv „kaffee“ für die Antwort „Kaffee“ bauen (Format der Strich-Datenbank, eine Leitfarbe, gleich groß mit den anderen 4); bis dahin zeigt die Frage keine Antwort-Motive"
-    },
-    {
-      "frage": "getraenke",
-      "text": "Was trinkst du zwischendurch am liebsten?",
-      "art": "einzel",
-      "bau": true,
-      "bedarf": "motiv-tee",
-      "antwort": "Tee",
-      "vorschlag": "Strich-Motiv „tee“ für die Antwort „Tee“ bauen (Format der Strich-Datenbank, eine Leitfarbe, gleich groß mit den anderen 4); bis dahin zeigt die Frage keine Antwort-Motive"
-    },
-    {
-      "frage": "getraenke",
-      "text": "Was trinkst du zwischendurch am liebsten?",
-      "art": "einzel",
-      "bau": true,
-      "bedarf": "motiv-limo",
-      "antwort": "Limo",
-      "vorschlag": "Strich-Motiv „limo“ für die Antwort „Limo“ bauen (Format der Strich-Datenbank, eine Leitfarbe, gleich groß mit den anderen 4); bis dahin zeigt die Frage keine Antwort-Motive"
-    },
-    {
-      "frage": "gaming",
-      "text": "Worauf spielst du am meisten?",
-      "art": "mehrfach",
-      "bau": true,
-      "bedarf": "motiv-konsole",
-      "antwort": "Konsole",
-      "vorschlag": "Strich-Motiv „konsole“ für die Antwort „Konsole“ bauen (Format der Strich-Datenbank, eine Leitfarbe, gleich groß mit den anderen 4); bis dahin zeigt die Frage keine Antwort-Motive"
-    },
-    {
-      "frage": "gaming",
-      "text": "Worauf spielst du am meisten?",
-      "art": "mehrfach",
-      "bau": true,
-      "bedarf": "motiv-pc",
-      "antwort": "PC",
-      "vorschlag": "Strich-Motiv „pc“ für die Antwort „PC“ bauen (Format der Strich-Datenbank, eine Leitfarbe, gleich groß mit den anderen 4); bis dahin zeigt die Frage keine Antwort-Motive"
-    },
-    {
-      "frage": "gaming",
-      "text": "Worauf spielst du am meisten?",
-      "art": "mehrfach",
-      "bau": true,
-      "bedarf": "motiv-brettspiel",
-      "antwort": "Brettspiele",
-      "vorschlag": "Strich-Motiv „brettspiel“ für die Antwort „Brettspiele“ bauen (Format der Strich-Datenbank, eine Leitfarbe, gleich groß mit den anderen 4); bis dahin zeigt die Frage keine Antwort-Motive"
-    },
-    {
-      "frage": "gaming",
-      "text": "Worauf spielst du am meisten?",
-      "art": "mehrfach",
-      "bau": true,
-      "bedarf": "motiv-sammelkarten",
-      "antwort": "Sammelkarten",
-      "vorschlag": "Strich-Motiv „sammelkarten“ für die Antwort „Sammelkarten“ bauen (Format der Strich-Datenbank, eine Leitfarbe, gleich groß mit den anderen 4); bis dahin zeigt die Frage keine Antwort-Motive"
-    },
-    {
-      "frage": "beauty",
-      "text": "Welche Pflege testest du gern?",
-      "art": "mehrfach",
-      "bau": true,
-      "bedarf": "motiv-haare",
-      "antwort": "Haare",
-      "vorschlag": "Strich-Motiv „haare“ für die Antwort „Haare“ bauen (Format der Strich-Datenbank, eine Leitfarbe, gleich groß mit den anderen 4); bis dahin zeigt die Frage keine Antwort-Motive"
-    },
-    {
-      "frage": "beauty",
-      "text": "Welche Pflege testest du gern?",
-      "art": "mehrfach",
-      "bau": true,
-      "bedarf": "motiv-koerperpflege",
-      "antwort": "Körper",
-      "vorschlag": "Strich-Motiv „koerperpflege“ für die Antwort „Körper“ bauen (Format der Strich-Datenbank, eine Leitfarbe, gleich groß mit den anderen 4); bis dahin zeigt die Frage keine Antwort-Motive"
-    },
-    {
-      "frage": "beauty",
-      "text": "Welche Pflege testest du gern?",
-      "art": "mehrfach",
-      "bau": true,
-      "bedarf": "motiv-duft",
-      "antwort": "Düfte",
-      "vorschlag": "Strich-Motiv „duft“ für die Antwort „Düfte“ bauen (Format der Strich-Datenbank, eine Leitfarbe, gleich groß mit den anderen 4); bis dahin zeigt die Frage keine Antwort-Motive"
-    },
-    {
-      "frage": "beauty",
-      "text": "Welche Pflege testest du gern?",
-      "art": "mehrfach",
-      "bau": true,
-      "bedarf": "motiv-make-up",
-      "antwort": "Make-up",
-      "vorschlag": "Strich-Motiv „make-up“ für die Antwort „Make-up“ bauen (Format der Strich-Datenbank, eine Leitfarbe, gleich groß mit den anderen 4); bis dahin zeigt die Frage keine Antwort-Motive"
     }
   ]
 }
