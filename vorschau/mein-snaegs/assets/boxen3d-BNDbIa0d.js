@@ -1,0 +1,1 @@
+import{t as e}from"./boxen3d-rylPt5Xw.js";export{e as boxen3d};
