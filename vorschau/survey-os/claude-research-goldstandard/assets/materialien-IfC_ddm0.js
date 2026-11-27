@@ -1,0 +1,1 @@
+import{t as e}from"./materialien-gPJ0KXuR.js";export{e as MATERIALIEN};

@@ -1,10 +1,10 @@
 {
- "erzeugt": "2026-11-25T23:49:55.047Z",
+ "erzeugt": "2026-11-27T10:05:21.407Z",
  "stand": {
   "branch": "claude/research-goldstandard",
-  "commit": "a4499ea",
-  "datum": "25.11.2026 23:43",
-  "betreff": "Teil 4 (H1, H2, M3): Nabe ohne Überdeckung, Feinwaage ganz im Bild, Packshot im Regler bei 320 groß"
+  "commit": "2e235c3",
+  "datum": "27.11.2026 09:01",
+  "betreff": "S26 Nachtrag (14) bis (18), Entscheidungen der Haupt-Session Mein SNÄGS in MS-F-I5"
  },
  "uebergabe": "Übergabe (Stand 25.11.2026 abends: erster echter Survey im Bau, Kette Auftrag bis Survey; Branch claude/research-goldstandard, nicht in main)",
  "surveys": [
@@ -24,13 +24,13 @@
    "titel": "Kurztest nüssje Strawberry Cheesecake (Beispiel)",
    "seite": "spiel.html?s=beispiel-nuessje-kurztest",
    "text": "Aus einem Fragebogen erzeugt: 13 Fragen, 1 Lücke(n). Datensatz surveys/beispiel-nuessje-kurztest.json.",
-   "art": "Daten · entwurf · Schema 1.4.3"
+   "art": "Daten · entwurf · Schema 1.13.0"
   },
   {
    "titel": "nüssje Strawberry Cheesecake: Produkttest zu Hause",
    "seite": "spiel.html?s=nuessje-strawberry-cheesecake-p03-heimtest-lebensmittel-marke",
    "text": "Aus einem Fragebogen erzeugt: 33 Fragen. Datensatz surveys/nuessje-strawberry-cheesecake-p03-heimtest-lebensmittel-marke.json.",
-   "art": "Daten · entwurf · Schema 1.4.3"
+   "art": "Daten · entwurf · Schema 1.13.0"
   }
  ],
  "bausteine": [
@@ -102,14 +102,14 @@
   {
    "id": "stein",
    "titel": "Rahmen",
-   "version": "1.2.2",
+   "version": "1.4.0",
    "frageart": "Mechanik · choice",
    "status": "frei für den Generator"
   },
   {
    "id": "teller",
    "titel": "Teller",
-   "version": "1.1.1",
+   "version": "1.4.0",
    "frageart": "Mechanik · choice",
    "status": "frei für den Generator"
   },
@@ -123,7 +123,7 @@
   {
    "id": "fang",
    "titel": "Nadel",
-   "version": "1.0.0",
+   "version": "1.3.0",
    "frageart": "Mechanik · choice",
    "status": "frei für den Generator"
   },
@@ -158,28 +158,28 @@
   {
    "id": "sammeln",
    "titel": "Sammelzettel",
-   "version": "1.2.4",
+   "version": "1.2.5",
    "frageart": "Mechanik · multi",
    "status": "frei für den Generator"
   },
   {
    "id": "rad",
    "titel": "Drehrad",
-   "version": "1.2.0",
+   "version": "1.5.1",
    "frageart": "Mechanik · scale, jar",
    "status": "frei für den Generator"
   },
   {
    "id": "ladung",
    "titel": "Regler",
-   "version": "1.6.0",
+   "version": "1.8.0",
    "frageart": "Mechanik · scale",
    "status": "frei für den Generator"
   },
   {
    "id": "spur",
    "titel": "Spur",
-   "version": "1.0.3",
+   "version": "1.2.0",
    "frageart": "Mechanik · scale",
    "status": "frei für den Generator"
   },
@@ -200,7 +200,7 @@
   {
    "id": "geschmack",
    "titel": "Geschmackskarte",
-   "version": "1.0.0",
+   "version": "1.1.0",
    "frageart": "Mechanik · map",
    "status": "frei für den Generator"
   },
@@ -214,28 +214,28 @@
   {
    "id": "batterie",
    "titel": "Batterie",
-   "version": "0.8.0",
+   "version": "0.14.2",
    "frageart": "Mechanik · scale, jar",
    "status": "entwurf"
   },
   {
    "id": "ring",
    "titel": "Produkt-Ring",
-   "version": "0.3.0",
+   "version": "0.6.0",
    "frageart": "Mechanik · scale",
    "status": "entwurf"
   },
   {
    "id": "ankreuzen",
    "titel": "Ankreuzen",
-   "version": "0.2.0",
+   "version": "0.3.0",
    "frageart": "Mechanik · choice",
    "status": "entwurf"
   },
   {
    "id": "strichliste",
    "titel": "Strichliste",
-   "version": "0.2.0",
+   "version": "0.3.0",
    "frageart": "Mechanik · choice",
    "status": "entwurf"
   },
@@ -256,21 +256,21 @@
   {
    "id": "logofang",
    "titel": "Logo-Fang",
-   "version": "0.2.1",
+   "version": "0.4.0",
    "frageart": "Mechanik · multi",
    "status": "entwurf"
   },
   {
    "id": "werkstatt",
    "titel": "Werkstatt",
-   "version": "0.2.2",
+   "version": "0.3.0",
    "frageart": "Mechanik · choice",
    "status": "entwurf"
   },
   {
    "id": "freitext",
    "titel": "Klägs schreibt mit",
-   "version": "0.2.0",
+   "version": "0.3.0",
    "frageart": "Mechanik · text",
    "status": "entwurf"
   },
@@ -514,213 +514,297 @@
   "naechster": "Lücke schließen, auf die ein Fragebogen wartet: freitext (beispiel-nuessje-kurztest:verbessern)",
   "haengt": [],
   "feedback": {
-   "gesamt": 27,
+   "gesamt": 39,
    "offen": 0,
-   "inArbeit": 13,
-   "verarbeitet": 14,
+   "inArbeit": 23,
+   "verarbeitet": 16,
    "liste": [
     {
      "datei": "2026-11-19-auftrag-survey-content-os.md",
      "titel": "Auftrag Survey Content OS (Chris, 19.11.2026)",
      "status": "in Arbeit (Fundament gebaut am 20.11., siehe 2026-11-20-lead-struktur-lernen-generieren.md; die fünf Fragen unten sind weiter offen, Schleife S1)",
      "zustand": "in Arbeit",
-     "tage": 6
+     "tage": 8
     },
     {
      "datei": "2026-11-19-oberflaeche-staging-kohaerenz.md",
      "titel": "Oberfläche, Staging, Kohärenz (Chris, 19.11.2026)",
      "status": "verarbeitet am 19.11. (Dashboard, Vorschau-Weg, Gate G14); die Zugriffe der neuen Umgebung bleiben als",
      "zustand": "verarbeitet",
-     "tage": 6
+     "tage": 8
     },
     {
      "datei": "2026-11-20-ersteindruck-produktfeedback.md",
      "titel": "Feedback 20.11.2026 · Ersteindruck ist Produktfeedback, Klägs live erweitern",
      "status": "verarbeitet (Prinzip 20, Regel in CLAUDE.md; umgesetzt im Format „Erster Eindruck“ von Mein SNÄGS, seit 20.11. als Kopie im OS und im ersten erzeugten Survey gespielt)",
      "zustand": "verarbeitet",
-     "tage": 5
+     "tage": 7
     },
     {
      "datei": "2026-11-20-erzeugter-survey-ohne-haptikstruktur.md",
      "titel": "Feedback 20.11.2026 · Der erzeugte Survey nutzt nicht die bestehende Haptikstruktur",
      "status": "in Arbeit (Korrektur im selben Turn begonnen: erzeugte Surveys laufen auf der Kampagne)",
      "zustand": "in Arbeit",
-     "tage": 5
+     "tage": 7
     },
     {
      "datei": "2026-11-20-lead-struktur-lernen-generieren.md",
      "titel": "Auftrag 20.11.2026 · Lead übernehmen: strukturieren, zusammenführen, lernen, generieren",
      "status": "in Arbeit (Fundament gebaut am 20.11., Branch claude/lead-struktur; offen ist, was in schleifen.md steht)",
      "zustand": "in Arbeit",
-     "tage": 5
+     "tage": 7
     },
     {
      "datei": "2026-11-24-fable-nur-plan.md",
      "titel": "Rückmeldung 24.11.2026 · Fable nur für den Plan, ausführen mit Opus und Sonnet",
      "status": "verarbeitet (E31, Regel in CLAUDE.md; Katalog-Bau mit Opus und Sonnet gestartet)",
      "zustand": "verarbeitet",
-     "tage": 1
+     "tage": 3
     },
     {
      "datei": "2026-11-24-kein-ergebnis.md",
      "titel": "Rückmeldung 24.11.2026 · „KEIN ERGEBNIS“ nach halbem Wochenlimit",
      "status": "verarbeitet (Gate G24 „Erst ein fertiger Schnitt, dann Breite“; Research bleibt angehalten)",
      "zustand": "verarbeitet",
-     "tage": 1
+     "tage": 3
     },
     {
      "datei": "2026-11-24-mehr-effort.md",
      "titel": "Rückmeldung 24.11.2026 spät · „zu sehr mit Handbremse“",
      "status": "verarbeitet (25.11.: Vervollständigungslauf abgeschlossen, Ergebnis im Plan, Abschnitt „Ergebnis der Vervollständigung“)",
      "zustand": "verarbeitet",
-     "tage": 1
+     "tage": 3
     },
     {
      "datei": "2026-11-24-research-goldstandard.md",
      "titel": "Rückmeldung 24.11.2026 · Research zu Marken- und Produktfragen: Goldstandard als Minimum",
      "status": "verarbeitet (Bibliothek final am 24.11., bibliothek/; offene Punkte im Prüfbericht und im Testprogramm) · vorher: in Arbeit (Plan steht: lang/research/2026-11-24-plan-goldstandard.md, E28, G22, S24; E29, E30; Welle 0 läuft seit 24.11.)",
      "zustand": "verarbeitet",
-     "tage": 1
+     "tage": 3
     },
     {
      "datei": "2026-11-24-umfrage-offene-punkte.md",
      "titel": "Feedback 24.11.2026 · Umfrage zu den offenen Punkten des Dashboards, Runde 1",
      "status": "in Arbeit (Übernahme nach main am 24.11.; Leben mit QM als nächster Bau)",
      "zustand": "in Arbeit",
-     "tage": 1
+     "tage": 3
     },
     {
      "datei": "2026-11-24-verbrauch-research.md",
      "titel": "Rückmeldung 24.11.2026 · Verbrauch des Research: fast das Wochenlimit",
      "status": "verarbeitet (Gate G23, Abschnitt „Verbrauch“ im Plan; Research angehalten, nichts läuft)",
      "zustand": "verarbeitet",
-     "tage": 1
+     "tage": 3
     },
     {
      "datei": "2026-11-24-wo-ist-der-wert.md",
      "titel": "Rückmeldung 24.11.2026 · „Wo ist mein WERT?“",
      "status": "verarbeitet (Endlauf 24.11.: 2.264 Marktfragen erhoben, 360 Messgrößen gegen den Katalog abgeglichen; bibliothek/markt/)",
      "zustand": "verarbeitet",
-     "tage": 1
+     "tage": 3
     },
     {
      "datei": "2026-11-25-ankreuzen-klaegs-nicht-im-element.md",
      "titel": "Ankreuzen: hässlich, nicht im Zeichenstil, Klägs nicht Teil des Elements (Chris, 25.11.2026)",
      "status": "in Arbeit",
      "zustand": "in Arbeit",
-     "tage": 0
+     "tage": 2
     },
     {
      "datei": "2026-11-25-batterie-versteht-man-nicht.md",
      "titel": "Regler-Folge Markeneinstellung: unverständlich, keine UX (Chris, 25.11.2026)",
      "status": "in Arbeit",
      "zustand": "in Arbeit",
-     "tage": 0
+     "tage": 2
     },
     {
      "datei": "2026-11-25-erster-survey-kreativ-bauen.md",
      "titel": "Rückmeldung 25.11.2026 · Ersten Survey echt bauen, kreativ und kontextuell, mit Klägs",
      "status": "in Arbeit (Design-Bibel, Wording-Prüfung, Kreativ-Drehbuch, Bau des Produkttests zu Hause)",
      "zustand": "in Arbeit",
-     "tage": 0
+     "tage": 2
     },
     {
      "datei": "2026-11-25-fertig-wie-antwort.md",
      "titel": "„Fertig“ sieht aus wie eine Antwort (Chris, 25.11.2026)",
      "status": "in Arbeit",
      "zustand": "in Arbeit",
-     "tage": 0
+     "tage": 2
     },
     {
      "datei": "2026-11-25-kein-cringe-storytelling.md",
      "titel": "Kein Storytelling über dem Survey (Chris, 25.11.2026)",
      "status": "in Arbeit",
      "zustand": "in Arbeit",
-     "tage": 0
+     "tage": 2
     },
     {
      "datei": "2026-11-25-keine-beispiele-schritt-fuer-schritt.md",
      "titel": "Rückmeldung 25.11.2026 · Keine Beispiele, nur was gefragt ist, Schritt für Schritt mit Gesamtbild",
      "status": "in Arbeit (Kundenseite ohne Beispiele, Kopierknopf; Chris füllt aus, dann Bau aus seinen Antworten)",
      "zustand": "in Arbeit",
-     "tage": 0
+     "tage": 2
     },
     {
      "datei": "2026-11-25-kundeninput.md",
      "titel": "Rückmeldung 25.11.2026 · Kunden-Input vor Launch, geschlossene Fragen durch Vorgaben der Marke",
      "status": "verarbeitet (Vorgaben der Marke in allen 76 Vorlagen, 308 Eingaben, 80 geschlossene Fragen; Kundenseite https://claude.ai/artifact/EPmM2RPqVwg12WXVikmQph, Quelle kunde/)",
      "zustand": "verarbeitet",
-     "tage": 0
+     "tage": 2
     },
     {
      "datei": "2026-11-25-kundenseite-unbedienbar.md",
      "titel": "Rückmeldung 25.11.2026 · Kundenseite nicht verständlich, nicht bedienbar",
      "status": "in Arbeit (Kundenseite neu je Auftrag: Briefing vorausgefüllt, nur fehlende Angaben nach Thema, Fragen der Surveys aufklappbar; wartet auf Chris' Urteil)",
      "zustand": "in Arbeit",
-     "tage": 0
+     "tage": 2
     },
     {
      "datei": "2026-11-25-logos-zeigen.md",
      "titel": "Keine Logos in Markenfragen (Chris, 25.11.2026)",
      "status": "in Arbeit",
      "zustand": "in Arbeit",
-     "tage": 0
+     "tage": 2
     },
     {
      "datei": "2026-11-25-methodik-wording.md",
      "titel": "Rückmeldung 25.11.2026 · Methodik-Wording zu kompliziert, Timing am Produkt erklären",
      "status": "verarbeitet (Ablauf mit Produktzustand je Kontakt, Glossar, Klartext je Etappe: https://claude.ai/artifact/BbuAWwkmX4vWUxLSkTg8Lf, Kopie in mittel/simulationen/)",
      "zustand": "verarbeitet",
-     "tage": 0
+     "tage": 2
     },
     {
      "datei": "2026-11-25-produktbild-promo-statt-leerer-flaeche.md",
      "titel": "Erwartungsfrage: Product Shot oder Werbemotiv statt leerer Fläche (Chris, 25.11.2026)",
      "status": "in Arbeit",
      "zustand": "in Arbeit",
-     "tage": 0
+     "tage": 2
     },
     {
      "datei": "2026-11-25-shaping-sprache-kanaele.md",
      "titel": "Rückmeldung 25.11.2026 · Shaping: Sprache grundlegend, Kanäle und Creator, holistisch",
      "status": "verarbeitet (Leitfaden, Prüfwerkzeug, Research Kanäle mit 22 Bausteinen, Shaping nüssje: 52 von 61 Fragen neu, 13 Bausteine; wartet auf Chris' Urteil)",
      "zustand": "verarbeitet",
-     "tage": 0
+     "tage": 2
     },
     {
      "datei": "2026-11-25-survey-sagt-was-zu-tun-ist.md",
      "titel": "Rückmeldung 25.11.2026 · Der Survey muss sagen, was der User womit und wann tut",
      "status": "verarbeitet (Ansage und Produktzustand je Etappe in allen 76 Vorlagen, Pflicht im Prüfwerkzeug)",
      "zustand": "verarbeitet",
-     "tage": 0
+     "tage": 2
     },
     {
      "datei": "2026-11-25-was-ist-dein-produkt.md",
      "titel": "Rückmeldung 25.11.2026 · „Was ist dein Produkt?!!“",
      "status": "verarbeitet (Produkt und Use Case in bibliothek/README.md oben; G25 um Produktsatz und Use Case geschärft)",
      "zustand": "verarbeitet",
-     "tage": 0
+     "tage": 2
     },
     {
      "datei": "2026-11-25-wo-sind-die-surveys.md",
      "titel": "Rückmeldung 25.11.2026 · „Wie viele surveys sind jetzt in meiner Bibliothek?“",
      "status": "verarbeitet (25.11.: 76 fertige Surveys in bibliothek/vorlagen/, Prüfung 0 Fehler)",
      "zustand": "verarbeitet",
-     "tage": 0
+     "tage": 2
+    },
+    {
+     "datei": "2026-11-26-anker-produkt-statt-generischer-nuss.md",
+     "titel": "Anker nach Bedeutung: konkretes Produkt zeigt den Product Shot, nicht die generische Nuss (Chris, 26.11.2026)",
+     "status": "in Arbeit",
+     "zustand": "in Arbeit",
+     "tage": 1
+    },
+    {
+     "datei": "2026-11-26-aquarell-farbe-aus-packshot.md",
+     "titel": "Aquarell am Packshot beißt sich: Grundfarbe ist die dominante Farbe des Shots (Chris, 26.11.2026)",
+     "status": "verarbeitet (OS: Vision III 26.11., P03-I28, Messung werkzeug/shot-farbe.py, Laufzeit app/src/os/shotfarbe.js, Pixelprobe",
+     "zustand": "verarbeitet",
+     "tage": 1
+    },
+    {
+     "datei": "2026-11-26-klaegs-action-window.md",
+     "titel": "Klägs: Aktion in den ersten 1 bis 2 Sekunden, danach ruhiger (Chris, 26.11.2026)",
+     "status": "in Arbeit",
+     "zustand": "in Arbeit",
+     "tage": 1
+    },
+    {
+     "datei": "2026-11-26-nachfrage-mit-bezug.md",
+     "titel": "Nachfrage zur offenen Option: Bezug sichtbar machen, ein Flow (Chris, 26.11.2026)",
+     "status": "in Arbeit",
+     "zustand": "in Arbeit",
+     "tage": 1
+    },
+    {
+     "datei": "2026-11-26-ohne-obergrenze.md",
+     "titel": "Verbrauch: diese Runde ohne Obergrenze (Chris, 26.11.2026)",
+     "status": "verarbeitet",
+     "zustand": "verarbeitet",
+     "tage": 1
+    },
+    {
+     "datei": "2026-11-26-regler-billig-tutorial-pole.md",
+     "titel": "Regler (Rad der Markeneinstellung): billig, uneinheitlich, ohne Bedienhilfe, Pole zu weit weg (Chris, 26.11.2026)",
+     "status": "in Arbeit",
+     "zustand": "in Arbeit",
+     "tage": 1
+    },
+    {
+     "datei": "2026-11-26-regler-worte-und-klaegs-stimmung.md",
+     "titel": "Regler: Stufe beim Ziehen als Wort einblenden, Klägs begleitet mit wechselnder Stimmung (Chris, 26.11.2026)",
+     "status": "in Arbeit",
+     "zustand": "in Arbeit",
+     "tage": 1
+    },
+    {
+     "datei": "2026-11-26-scratch-card-statt-aufreissen.md",
+     "titel": "Testerkarte als Scratch-Card statt „Aufreißen“, pompöser Reward, Sammlung zeigen; Fable nur hierfür (Chris, 26.11.2026)",
+     "status": "in Arbeit",
+     "zustand": "in Arbeit",
+     "tage": 1
+    },
+    {
+     "datei": "2026-11-26-tagesfrage-ohne-produkt.md",
+     "titel": "Tagesfrage ohne Produkt und mit leerem Rahmen; alte Survey-Fragmente überall aktualisieren (Chris, 26.11.2026)",
+     "status": "in Arbeit",
+     "zustand": "in Arbeit",
+     "tage": 1
+    },
+    {
+     "datei": "2026-11-26-testerkarten-verwenden.md",
+     "titel": "Testerkarten aus Mein SNÄGS im Survey verwenden, für fehlende Produkte selbst erzeugen (Chris, 26.11.2026)",
+     "status": "in Arbeit",
+     "zustand": "in Arbeit",
+     "tage": 1
+    },
+    {
+     "datei": "2026-11-26-visuelle-anker-statt-einlesen.md",
+     "titel": "Visuelle Anker: Gegenstand illustrieren, Schlüsselwort im Titel markieren (Chris, 26.11.2026)",
+     "status": "in Arbeit",
+     "zustand": "in Arbeit",
+     "tage": 1
+    },
+    {
+     "datei": "2026-11-26-zoom-naeher-ans-produkt-riechen.md",
+     "titel": "Produkt-Zoom, näher ans Produkt, beim Geruch Nase oder schnuppernder Klägs (Chris, 26.11.2026)",
+     "status": "in Arbeit",
+     "zustand": "in Arbeit",
+     "tage": 1
     }
    ]
   },
   "gates": {
    "gruen": 13,
    "rot": 0,
-   "offen": 16,
-   "gesamt": 29
+   "offen": 19,
+   "gesamt": 32
   },
   "wissen": {
    "prinzipien": 23,
    "fassung": "0",
-   "entscheidungen": 33,
-   "aenderungen": 82
+   "entscheidungen": 38,
+   "aenderungen": 127
   }
  },
  "experimente": [
@@ -793,6 +877,61 @@
    "id": "X14",
    "titel": "Erster echter Survey, Iteration 1: Kritik und Chris' Test",
    "status": "läuft"
+  },
+  {
+   "id": "X15",
+   "titel": "Klägs beim Ziehen: Blindtest der fünf Zug-Gesichter",
+   "status": "bestanden (Runde 2, 26.11.); Freigabe der Gesichter (entwurf → freigegeben) durch Chris offen"
+  },
+  {
+   "id": "X16",
+   "titel": "Bogen-Regler: nach der Bedienhilfe kein Griff, die Anweisung sagt „Zieh den Punkt“",
+   "status": "korrigiert (Shuri IV, 26.11.), Abnahme offen"
+  },
+  {
+   "id": "X17",
+   "titel": "Blindtest G31 der Anker (Teil 6): Bezug ja, Eigenschaft oft nein",
+   "status": "ausgewertet 26.11.; Folgebau offen"
+  },
+  {
+   "id": "X18",
+   "titel": "Prüfstand unter Last: Zeit-Gates kippen, ohne dass sich etwas geändert hat",
+   "status": "offen"
+  },
+  {
+   "id": "X19",
+   "titel": "Pixelprobe am Packshot: wie viel fremde Farbe liegt hinter dem Produkt?",
+   "status": "verarbeitet (Vision III, 26.11., P03-I28)"
+  },
+  {
+   "id": "X20",
+   "titel": "Bilanz nach Level 2: woher kam „NaN von 9“, und zeigt ein echter Lauf dasselbe?",
+   "status": "verarbeitet (Vision IV, 27.11., P03-I29)"
+  },
+  {
+   "id": "X21",
+   "titel": "Schrift am Packshot und Zettel über Schrift: im Lauf gemessen",
+   "status": "verarbeitet (Vision IV, 27.11., P03-I29)"
+  },
+  {
+   "id": "X22",
+   "titel": "Frage 21 bei 320: Bezugszeile der Batterie nach der Antwort kurz auf dem Packshot (zeitabhängig)",
+   "status": "verarbeitet (Groot V, 27.11., P03-I30; Ergebnis am Ende des Eintrags)"
+  },
+  {
+   "id": "X23",
+   "titel": "Klägs am Rand: setzt die Führung einen Sitz außerhalb des Bilds je zurück?",
+   "status": "verarbeitet (Groot V, 27.11., P03-I30)"
+  },
+  {
+   "id": "X24",
+   "titel": "G32 „Bis zum letzten Bild messen“: Schrift am Packshot auf jedem Schirm, nicht nur an Fragen",
+   "status": "verarbeitet (Groot V, 27.11., P03-I30)"
+  },
+  {
+   "id": "X25",
+   "titel": "Gold an der Dose der Werkstatt nach Zug 2 (zeitabhängig)",
+   "status": "offen (Lead, 27.11.)"
   }
  ],
  "gates": [
@@ -1021,6 +1160,30 @@
    "ampel": "offen"
   },
   {
+   "id": "G30",
+   "name": "Aktionsfenster",
+   "regel": "Klägs beginnt in jeder Frage sofort mit dem Element: erste Interaktion ≤ 350 ms nach dem Erscheinen (≤ 650 ms, wenn er noch die Marke der vorigen Antwort zieht), Kern ≤ 2 s; Anteil der Fragen ≥ 90 % normal, ≥ 80 % beim Flitzen. Danach wird er ruhiger. Niemand wartet auf ihn: Tipp bis Commit ≤ 700 ms, wo seine Marke den Commit hält (sonst ≤ 1500 ms), Commit bis nächste Frage ≤ 1000 ms, ein Spiegel läuft höchstens 450 ms in die neue Frage. Anlass Chris 26.11. („die ersten 1-2 sekunden sind das ACTION window“), dritte Schleife nach Labor RW-039 (9.11.) und RW-046 (17.11.); Muster aus dem Labor (Gate G1, klaegs-gate.mjs)",
+   "messung": "pruefstand/zeitprofil.mjs in jedem spiel.mjs-Lauf, pruefstand/aktionsfenster.mjs, 15 Prüfpunkte in baukasten.mjs",
+   "stand": "neu 26.11. (p03: 88 % bei 390, 91 % bei 320; Kurztest 69 % und 85 %, unter der Grenze)",
+   "ampel": "offen"
+  },
+  {
+   "id": "G31",
+   "name": "Bedeutung vor Regel",
+   "regel": "Jede Wahl im Survey (Anker, Bild, Motiv, Geste, Wort) folgt aus dem Bezug der Frage, nicht aus einem Stichwort: Worauf bezieht sie sich (Kategorie, Testprodukt, Marke, Wettbewerber, Eigenschaft oder Sinn, Anlass, Person)? Das konkreteste echte Asset gewinnt: Testprodukt zeigt seinen Product Shot, Marke ihr Logo, nur die Kategorie ein generisches Motiv. Jede Wahl trägt eine Begründung in den Daten (grund). Jede Abnahme stellt die Frage „Würde ein Mensch genau dieses Bild an genau diese Frage legen?“ und prüft sie blind: Ein frischer Blick sieht nur Bild und Antworten und sagt, worum es geht. Echtes Produkt = echter Packshot, immer, auch vor einer Bekanntheitsfrage (Chris 26.11. spät: „Wenn es Produkte sind, echte, dann musst du sie zeigen!! Hast du keine Assets, musst du sie bauen!!!! Hatten wir alles schon“; ersetzt die Methodik-Ausnahme vom selben Nachmittag): Bild über die Produkt-ID, nie per Namenssuche, nie ein Motiv als Ersatz; fehlt ein Bild, wird es gebaut (fal nur mit Chris' OK); kollidiert das mit einer Messung, zeigen und den Konflikt als Entscheidung mit Vorschlag nennen, nie still verstecken; Strich-Motive nur für Dinge ohne Produkt. Farbe am Produkt (Chris 26.11., L-28): Aquarell im direkten Kontext eines echten Packshots (Rahmen, Träger, Hintergrund, Teller, Bühne, Zoom, Karte) nimmt als Grundfarbe die dominante Farbe genau dieses Shots, transparenter als das Foto, mit Soak und Bleed; nie eine feste Leit- oder Markerfarbe („BEISST SICH DRASTISCH“); die Farbe steht mit Herkunft in den Produktdaten, am Shot gemessen. Eine Fragerunde läuft nie zum Produkt einer offenen Einladung oder eines laufenden Tests des Mitglieds (Mein SNÄGS docs/BRAIN.md, oberste Lehre). Anlass Chris 26.11. (Frage 11 mit generischer Nuss statt Packshot: „Was macht dich an der Stelle wo blind un dumm?“; Tagesfrage ohne Produkt: „Das Kuss doch Produkt related sein“); Rückfall der Labor-Regel „echte Produkt-Assets statt Attrappen“",
+   "messung": "Generator-Regel mit Negativfall (Testprodukt im Titel ohne Packshot-Anker = Fehler); Blindprüfung je Abnahme; Farbton jeder Aquarell-Fläche am Packshot gegen die dominante Farbe des Shots: Pixelprobe pruefstand/shotfarbe.mjs in jedem spiel.mjs-Lauf (Negativfall im Bild), Daten schema/index.js shotFehler und python3 werkzeug/shot-farbe.py --pruefen (Vision III, 26.11.)",
+   "stand": "neu 26.11.; Farbe am Produkt grün (26.11., p03 und Kurztest bei 390 und 320)",
+   "ampel": "offen"
+  },
+  {
+   "id": "G32",
+   "name": "Bis zum letzten Bild messen",
+   "regel": "Jedes Prüfwerkzeug für einen Ablauf misst jeden Schirm bis zum Endbild und bis zum Knopf „Zurück“, mit denselben Maßstäben wie die Fragen: nichts rollt, Knopf, Lohn- und App-Zeile im Schirm, Klägs frei von Text und Knopf in Ruhe und während der Geste, Wörter ganz, auf allen Größen und bei reduzierter Bewegung, gegen den Build (L-29), nicht nur den Dev-Server. Ein Endbild, das kein Werkzeug misst, gilt als ungeprüft",
+   "messung": "Mein SNÄGS werkzeug/ablauf-tagesfragen.mjs (Endbild als eigener Schritt, Mantis VI); OS pruefstand/spiel.mjs (Level-Bilanz, Finale)",
+   "stand": "offen (27.11., nach Blind-Abnahme d50f158)",
+   "ampel": "offen"
+  },
+  {
    "id": "G19",
    "name": "Nur der Generator schreibt Surveys",
    "regel": "surveys/*.json entsteht aus eingang/, nie von Hand; freigegeben wird erst ohne Lücken und nach Chris' Abnahme",
@@ -1155,9 +1318,46 @@
    "seit": "24.11.",
    "was": "Bibliothek ausgeliefert, Pretest offen: 106 Wortlaute „Entwurf, Pretest nötig“, 127 Testpunkte, Nutzungsrechte mit Entscheidungen für Chris (bibliothek/PRUEFBERICHT.md, pretest.md, nutzungsrechte.md)",
    "schritt": "Chris entscheidet Nutzungsrechte und Start des Pretests; danach Wortlaute nach Ergebnis freigeben"
+  },
+  {
+   "nr": "S26",
+   "seit": "26.11.",
+   "was": "Befunde für die Quelle snaegs-relaunch (Labor, Klägs-Engine), noch nicht gemeldet: (1) rebrand-lab/src/klecks/leitmotiv.js Zeile 579 (const p = zustand.spitze();, Stand 1d1c32e) läuft weiter, auch wenn der Takt schon abgebrochen ist (Groot II/III); (2) klecks-fuehrung.js sitz() sucht 6 bis 94 %, klemmt auf den Bildrand und bleibt dort, liegt der Körper im Kopf, weicht die Führung auf eine beliebige freie Stelle aus (Mein SNÄGS, Mantis III, Ursache „Klägs flach am Rand“); (3) platz() springt auch bei weiten Wegen im Bogen über Titel und Produkt, wechsle() geht durchs Papier; (4) lasur.js kennt keine Hex-Farbe (blockt L-28 an Lasur-Flächen); (5) in der ersten Frage einer Etappe entsteht Klägs erst nach 1,3 bis 2,3 s (L-11). Nachtrag Mantis IV (27.11.): (6) nach dem Feld-Haken findet auslaufVon nur Punkte auf Text, Klägs formt sich im Kopf zurück und hüpft im Bogen über den Titel (Vorschlag: Auslauf Richtung heimPunkt); (7) der Feld-Haken (bis 22 px) ragt über die Zeile „Frage x von 5“; (8) weite Gesten (achso/aha, Winken, Ausruf, Hüpfer) brauchen etwa 55 px und kommen zu zufälligen Zeiten (Vorschlag: nur, wenn platz.js Raum meldet). Nachtrag Mantis V (27.11.): (9) Klägs' Größe nur je Breite, auf niedrigen Schirmen größer als der Packshot (Mein SNÄGS meldet eine eigene Rolle an; Vorschlag rolle(name, { R })); (10) hyphens: auto in Kette, Takt und Stein; (11) .sk-karotte 13 px mit Ellipse; (12) Ausdrücke kurz bis 5,9 R², Jubel-Arme 1,6 R; zu (4): Zugspur der Fang-Nadel bis 1,1 s in Cyan oder Violett. Nachtrag Groot V (27.11.): (13) die Führung korrigiert keinen Sitz außerhalb des Bilds (Platzwache prüft nur Schrift, sitz() nimmt sitzFrei ungeprüft, abtauchen aus dem Auftauchen setzt nur bleibUnten), im OS mit Rand-Wache behoben (X23). Nachtrag Mantis VI (27.11.): (14) gesten-xl.js:94 blendet das Wort nach fester Zeit aus, auch wenn der Stift noch schreibt („hac“); (15) klecks.js _zeige setzt Wörter immer zur Inhaltsseite; (16) springe()/freieStelle springt weit, sobald Schrift nah ist; (17) Jubel läuft bis 1,5 s ins Endbild; (18) dynamik.js:126 „aufblaehen“ 1,36-fach für etwa 1 s. Im OS sind (1) bis (3) über eigene Abweichungen umgangen (app/HERKUNFT.md), Mein SNÄGS darf die Basis nicht ändern",
+   "schritt": "27.11. 00:10 an die Relaunch-Session gemeldet (send_message, alle acht Punkte, mit Zustimmung der Haupt-Session Mein SNÄGS): festhalten, auf eigenem Themen-Branch beheben, übernehmen nur auf Chris' Wort. 27.11.: Nachtrag (9) bis (18) gemeldet; die Relaunch-Session wartet auf Chris' Wahl „festhalten“ oder „festhalten + fixen“. Offen, bis ein Branch dort benannt ist; danach Abgleich ins OS (labor-abgleich.mjs) und die Abweichungen in app/HERKUNFT.md zurücknehmen"
+  },
+  {
+   "nr": "S27",
+   "seit": "26.11.",
+   "was": "Befund für Mein SNÄGS (Testerkarten, Kopie app/site/mein/karten3d/, hier unverändert), L-28: Der Fond der Testerkarte ist eine Lasur in der Markenfarbe (kern/bauplan.js Regel 2: Markenfarbe, bei schwachem Kontrast der Akzent), nicht in der dominanten Farbe des Packshots, der auf der Karte steht. Bei nüssje Strawberry Cheesecake liegen beide im selben Farbton (Marke #D80A17, Shot #d97c72), bei Chili Lime (Shot #d8e4a0) oder einer Marke mit Akzent-Tausch (nüssje-Akzent Blau #01379B) nicht. Die Rahmen in Materialfarbe (Gold, Violett) sind Material, keine Inszenierung. Vision III hat nur die Inszenierung im OS umgestellt (Erhalt, Sammlung, Finale)",
+   "schritt": "Mein-SNÄGS- bzw. Testerkarten-Session: Fond aus farbeShot(produkt.id) (marken.js FARBE_SHOT), ohne Messung wie bisher oder ohne Lasur (Regel 3a); danach Kopie per node werkzeug/karten-abgleich.mjs holen · 27.11. 00:49: von der Haupt-Session Mein SNÄGS geprüft (kern/bauplan.js Z. 110–113) und an die Testerkarten-Session gegeben (Fond aus farbeShot, ohne Messung neutral, Rahmen bleiben, neu backen); die Kopie im OS kommt mit dem neuen Stand per Abgleich S13"
   }
  ],
  "entscheidungen": [
+  {
+   "id": "E38",
+   "datum": "26.11.2026",
+   "titel": "Sechs Freigaben zum Survey p03 (Chris: „1-6 ja“)"
+  },
+  {
+   "id": "E37",
+   "datum": "26.11.2026",
+   "titel": "Regler sprechen: Stufe als Wort beim Ziehen, Klägs begleitet mit lebender Stimmung"
+  },
+  {
+   "id": "E36",
+   "datum": "26.11.2026",
+   "titel": "Fable-Freigabe, einmalig: Scratch-Card der Testerkarte mit Reward und Sammlung"
+  },
+  {
+   "id": "E35",
+   "datum": "26.11.2026",
+   "titel": "Nachfragen tragen das Element der Vorfrage mit (Flow)"
+  },
+  {
+   "id": "E34",
+   "datum": "26.11.2026",
+   "titel": "Leitmotiv „Sekunden sparen“: visuelle Anker in jeder Frage"
+  },
   {
    "id": "E33",
    "datum": "25.11.2026",
@@ -1325,6 +1525,78 @@
   }
  ],
  "feedback": [
+  {
+   "datei": "2026-11-26-zoom-naeher-ans-produkt-riechen.md",
+   "datum": "26.11.2026",
+   "titel": "Produkt-Zoom, näher ans Produkt, beim Geruch Nase oder schnuppernder Klägs (Chris, 26.11.2026)",
+   "status": "in Arbeit"
+  },
+  {
+   "datei": "2026-11-26-visuelle-anker-statt-einlesen.md",
+   "datum": "26.11.2026",
+   "titel": "Visuelle Anker: Gegenstand illustrieren, Schlüsselwort im Titel markieren (Chris, 26.11.2026)",
+   "status": "in Arbeit"
+  },
+  {
+   "datei": "2026-11-26-testerkarten-verwenden.md",
+   "datum": "26.11.2026",
+   "titel": "Testerkarten aus Mein SNÄGS im Survey verwenden, für fehlende Produkte selbst erzeugen (Chris, 26.11.2026)",
+   "status": "in Arbeit"
+  },
+  {
+   "datei": "2026-11-26-tagesfrage-ohne-produkt.md",
+   "datum": "26.11.2026",
+   "titel": "Tagesfrage ohne Produkt und mit leerem Rahmen; alte Survey-Fragmente überall aktualisieren (Chris, 26.11.2026)",
+   "status": "in Arbeit"
+  },
+  {
+   "datei": "2026-11-26-scratch-card-statt-aufreissen.md",
+   "datum": "26.11.2026",
+   "titel": "Testerkarte als Scratch-Card statt „Aufreißen“, pompöser Reward, Sammlung zeigen; Fable nur hierfür (Chris, 26.11.2026)",
+   "status": "in Arbeit"
+  },
+  {
+   "datei": "2026-11-26-regler-worte-und-klaegs-stimmung.md",
+   "datum": "26.11.2026",
+   "titel": "Regler: Stufe beim Ziehen als Wort einblenden, Klägs begleitet mit wechselnder Stimmung (Chris, 26.11.2026)",
+   "status": "in Arbeit"
+  },
+  {
+   "datei": "2026-11-26-regler-billig-tutorial-pole.md",
+   "datum": "26.11.2026",
+   "titel": "Regler (Rad der Markeneinstellung): billig, uneinheitlich, ohne Bedienhilfe, Pole zu weit weg (Chris, 26.11.2026)",
+   "status": "in Arbeit"
+  },
+  {
+   "datei": "2026-11-26-ohne-obergrenze.md",
+   "datum": "26.11.2026",
+   "titel": "Verbrauch: diese Runde ohne Obergrenze (Chris, 26.11.2026)",
+   "status": "verarbeitet"
+  },
+  {
+   "datei": "2026-11-26-nachfrage-mit-bezug.md",
+   "datum": "26.11.2026",
+   "titel": "Nachfrage zur offenen Option: Bezug sichtbar machen, ein Flow (Chris, 26.11.2026)",
+   "status": "in Arbeit"
+  },
+  {
+   "datei": "2026-11-26-klaegs-action-window.md",
+   "datum": "26.11.2026",
+   "titel": "Klägs: Aktion in den ersten 1 bis 2 Sekunden, danach ruhiger (Chris, 26.11.2026)",
+   "status": "in Arbeit"
+  },
+  {
+   "datei": "2026-11-26-aquarell-farbe-aus-packshot.md",
+   "datum": "26.11.2026",
+   "titel": "Aquarell am Packshot beißt sich: Grundfarbe ist die dominante Farbe des Shots (Chris, 26.11.2026)",
+   "status": "verarbeitet (OS: Vision III 26.11., P03-I28, Messung werkzeug/shot-farbe.py, Laufzeit app/src/os/shotfarbe.js, Pixelprobe"
+  },
+  {
+   "datei": "2026-11-26-anker-produkt-statt-generischer-nuss.md",
+   "datum": "26.11.2026",
+   "titel": "Anker nach Bedeutung: konkretes Produkt zeigt den Product Shot, nicht die generische Nuss (Chris, 26.11.2026)",
+   "status": "in Arbeit"
+  },
   {
    "datei": "2026-11-25-wo-sind-die-surveys.md",
    "datum": "25.11.2026",
