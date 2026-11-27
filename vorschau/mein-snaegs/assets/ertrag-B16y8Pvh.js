@@ -1,1 +1,0 @@
-import{i as e}from"./ertrag-DEBaDj_X.js";export{e as ertragVon};

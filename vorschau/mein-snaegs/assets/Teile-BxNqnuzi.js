@@ -1,0 +1,1 @@
+import{r as e}from"./Teile-BWzHsd-O.js";export{e as STRICH};
