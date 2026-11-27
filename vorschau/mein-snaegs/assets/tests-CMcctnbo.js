@@ -1,0 +1,1 @@
+import{i as e,n as t,r as n,t as r}from"./tests-D6tHb8AP.js";export{e as default,r as detailsAuf,t as detailsMalen,n as testHandlung};
